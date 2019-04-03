@@ -2048,7 +2048,8 @@
         <span class="n">filter_name</span> <span class="o">=</span> <span class="s1">&#39;VpcEndpointIds&#39;</span>
         <span class="n">filter_type</span> <span class="o">=</span> <span class="s1">&#39;list&#39;</span>
         <span class="n">dimension</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">id_prefix</span> <span class="o">=</span> <span class="s2">&quot;vpce-&quot;</span></div></div>
+        <span class="n">id_prefix</span> <span class="o">=</span> <span class="s2">&quot;vpce-&quot;</span>
+        <span class="n">taggable</span> <span class="o">=</span> <span class="kc">False</span></div></div>
 
 
 <div class="viewcode-block" id="EndpointCrossAccountFilter"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.vpc.EndpointCrossAccountFilter">[docs]</a><span class="nd">@VpcEndpoint</span><span class="o">.</span><span class="n">filter_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;cross-account&#39;</span><span class="p">)</span>
@@ -2089,7 +2090,8 @@
         <span class="n">filter_name</span> <span class="o">=</span> <span class="s1">&#39;KeyNames&#39;</span>
         <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;KeyName&#39;</span>
         <span class="n">date</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">dimension</span> <span class="o">=</span> <span class="kc">None</span></div></div>
+        <span class="n">dimension</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">taggable</span> <span class="o">=</span> <span class="kc">False</span></div></div>
 
 
 <div class="viewcode-block" id="CreateFlowLogs"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.vpc.CreateFlowLogs">[docs]</a><span class="nd">@Vpc</span><span class="o">.</span><span class="n">action_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;set-flow-log&#39;</span><span class="p">)</span>
