@@ -218,7 +218,7 @@
 
 <span class="kn">import</span> <span class="nn">jmespath</span>
 <span class="kn">import</span> <span class="nn">six</span>
-
+<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">from</span> <span class="nn">c7n.actions</span> <span class="k">import</span> <span class="n">ActionRegistry</span>
 <span class="kn">from</span> <span class="nn">c7n.exceptions</span> <span class="k">import</span> <span class="n">ClientError</span><span class="p">,</span> <span class="n">ResourceLimitExceeded</span>
@@ -635,19 +635,8 @@
 <span class="sd">        filtering behind the resource manager facade for default usage.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">policy</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">max_resources</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">selection_count</span> <span class="o">&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">max_resources</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">ResourceLimitExceeded</span><span class="p">(</span>
-                <span class="p">(</span><span class="s2">&quot;policy: </span><span class="si">%s</span><span class="s2"> exceeded resource limit: </span><span class="si">{limit}</span><span class="s2"> &quot;</span>
-                 <span class="s2">&quot;found: </span><span class="si">{selection_count}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-                <span class="s2">&quot;max-resources&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">max_resources</span><span class="p">,</span> <span class="n">selection_count</span><span class="p">,</span> <span class="n">population_count</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">p</span><span class="o">.</span><span class="n">max_resources_percent</span><span class="p">:</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">population_count</span> <span class="o">*</span> <span class="p">(</span>
-                    <span class="n">p</span><span class="o">.</span><span class="n">max_resources_percent</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">selection_count</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="n">ResourceLimitExceeded</span><span class="p">(</span>
-                    <span class="p">(</span><span class="s2">&quot;policy: </span><span class="si">%s</span><span class="s2"> exceeded resource limit: </span><span class="si">{limit}%%</span><span class="s2"> &quot;</span>
-                     <span class="s2">&quot;found: </span><span class="si">{selection_count}</span><span class="s2"> total: </span><span class="si">{population_count}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-                    <span class="s2">&quot;max-percent&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">max_resources_percent</span><span class="p">,</span> <span class="n">selection_count</span><span class="p">,</span> <span class="n">population_count</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">True</span></div>
+        <span class="n">max_resource_limits</span> <span class="o">=</span> <span class="n">MaxResourceLimit</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">selection_count</span><span class="p">,</span> <span class="n">population_count</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">max_resource_limits</span><span class="o">.</span><span class="n">check_resource_limits</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">_get_cached_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
         <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_cache_key</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
@@ -731,6 +720,60 @@
                 <span class="n">resource_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
                 <span class="n">separator</span><span class="o">=</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_arn</span></div>
+
+
+<div class="viewcode-block" id="MaxResourceLimit"><a class="viewcode-back" href="../../generated/aws/c7n.html#c7n.query.MaxResourceLimit">[docs]</a><span class="k">class</span> <span class="nc">MaxResourceLimit</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="n">C7N_MAXRES_OP</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;C7N_MAXRES_OP&quot;</span><span class="p">,</span> <span class="s1">&#39;or&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">selection_count</span><span class="p">,</span> <span class="n">population_count</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">policy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="o">=</span> <span class="n">MaxResourceLimit</span><span class="o">.</span><span class="n">C7N_MAXRES_OP</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selection_count</span> <span class="o">=</span> <span class="n">selection_count</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">population_count</span> <span class="o">=</span> <span class="n">population_count</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">percentage_amount</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">percent</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parse_policy</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_parse_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">max_resources</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">max_resources</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;op&quot;</span><span class="p">,</span> <span class="n">MaxResourceLimit</span><span class="o">.</span><span class="n">C7N_MAXRES_OP</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">percent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">max_resources</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;percent&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">max_resources</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">max_resources</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">max_resources</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">max_resources_percent</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">percent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">max_resources_percent</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">percent</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">percentage_amount</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">population_count</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">percent</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MaxResourceLimit.check_resource_limits"><a class="viewcode-back" href="../../generated/aws/c7n.html#c7n.query.MaxResourceLimit.check_resource_limits">[docs]</a>    <span class="k">def</span> <span class="nf">check_resource_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentage_amount</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">amount</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selection_count</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="ow">and</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">selection_count</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentage_amount</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="o">==</span> <span class="s2">&quot;and&quot;</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">ResourceLimitExceeded</span><span class="p">(</span>
+                    <span class="p">(</span><span class="s2">&quot;policy:</span><span class="si">%s</span><span class="s2"> exceeded resource-limit:</span><span class="si">{limit}</span><span class="s2"> and percentage-limit:</span><span class="si">%s%%</span><span class="s2"> &quot;</span>
+                     <span class="s2">&quot;found:</span><span class="si">{selection_count}</span><span class="s2"> total:</span><span class="si">{population_count}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">percent</span><span class="p">),</span> <span class="s2">&quot;max-resource and max-percent&quot;</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">selection_count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">population_count</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">amount</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">selection_count</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="o">!=</span> <span class="s2">&quot;and&quot;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ResourceLimitExceeded</span><span class="p">(</span>
+                    <span class="p">(</span><span class="s2">&quot;policy:</span><span class="si">%s</span><span class="s2"> exceeded resource-limit:</span><span class="si">{limit}</span><span class="s2"> &quot;</span>
+                     <span class="s2">&quot;found:</span><span class="si">{selection_count}</span><span class="s2"> total: </span><span class="si">{population_count}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="s2">&quot;max-resource&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">selection_count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">population_count</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentage_amount</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">selection_count</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentage_amount</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="o">!=</span> <span class="s2">&quot;and&quot;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ResourceLimitExceeded</span><span class="p">(</span>
+                    <span class="p">(</span><span class="s2">&quot;policy:</span><span class="si">%s</span><span class="s2"> exceeded resource-limit:</span><span class="si">{limit}%%</span><span class="s2"> &quot;</span>
+                     <span class="s2">&quot;found:</span><span class="si">{selection_count}</span><span class="s2"> total:</span><span class="si">{population_count}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="s2">&quot;max-percent&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">percent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">selection_count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">population_count</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="ChildResourceManager"><a class="viewcode-back" href="../../generated/aws/c7n.html#c7n.query.ChildResourceManager">[docs]</a><span class="k">class</span> <span class="nc">ChildResourceManager</span><span class="p">(</span><span class="n">QueryResourceManager</span><span class="p">):</span>

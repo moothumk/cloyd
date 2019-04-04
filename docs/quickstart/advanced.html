@@ -344,6 +344,28 @@ custodian.commands:ERROR policy: log-delete exceeded resource limit: 2.5% found:
 <p>If metrics are being published (‘-m/–metrics-enabled’) then an additional
 metric named <cite>ResourceLimitExceeded</cite> will be published with the number
 of resources that matched the policy.</p>
+<p>Max resources can also be specified as an object with an <cite>or</cite> or <cite>and</cite> operator
+if you would like both a resource percent and a resource amount enforced.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">log-delete</span>
+    <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
+  <span class="l l-Scalar l-Scalar-Plain">This policy will not execute if</span>
+  <span class="l l-Scalar l-Scalar-Plain">the resources affected are over 50% of</span>
+  <span class="l l-Scalar l-Scalar-Plain">the total resource type amount and that</span>
+  <span class="l l-Scalar l-Scalar-Plain">amount is over 20.</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.log-group</span>
+    <span class="l l-Scalar l-Scalar-Plain">max-resources</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">percent</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">amount</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">and</span>
+  <span class=" -Error">  </span><span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">last-write</span>
+  <span class="l l-Scalar l-Scalar-Plain">days</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="adding-custom-fields-to-reports">
 <span id="report-custom-fields"></span><h2>Adding custom fields to reports<a class="headerlink" href="#adding-custom-fields-to-reports" title="Permalink to this headline">¶</a></h2>
