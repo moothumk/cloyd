@@ -20811,6 +20811,52 @@ False: Filter users that do not have an inline-policy</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="c7n.resources.iam.RoleDelete">
+<em class="property">class </em><code class="descclassname">c7n.resources.iam.</code><code class="descname">RoleDelete</code><span class="sig-paren">(</span><em>data=None</em>, <em>manager=None</em>, <em>log_dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/iam.html#RoleDelete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.iam.RoleDelete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n.actions.html#c7n.actions.core.Action" title="c7n.actions.core.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.actions.core.Action</span></code></a></p>
+<p>Delete an IAM Role.</p>
+<p>For example, if you want to automatically delete an unused IAM role.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><div class="first last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">iam-delete-unused-role</span>
+  <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">iam-role</span>
+  <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">usage</span>
+      <span class="l l-Scalar l-Scalar-Plain">match-operator</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+      <span class="l l-Scalar l-Scalar-Plain">LastAuthenticated</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">null</span>
+  <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="c7n.resources.iam.RoleDelete.permissions">
+<code class="descname">permissions</code><em class="property"> = ('iam:DeleteRole',)</em><a class="headerlink" href="#c7n.resources.iam.RoleDelete.permissions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="c7n.resources.iam.RoleDelete.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>resources</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/iam.html#RoleDelete.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.iam.RoleDelete.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.iam.RoleDelete.schema">
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'type': {'enum': ['delete']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.iam.RoleDelete.schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.iam.RoleDelete.type">
+<code class="descname">type</code><em class="property"> = 'delete'</em><a class="headerlink" href="#c7n.resources.iam.RoleDelete.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="c7n.resources.iam.RoleRemoveTag">
 <em class="property">class </em><code class="descclassname">c7n.resources.iam.</code><code class="descname">RoleRemoveTag</code><span class="sig-paren">(</span><em>data=None</em>, <em>manager=None</em>, <em>log_dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/iam.html#RoleRemoveTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.iam.RoleRemoveTag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="c7n.html#c7n.tags.RemoveTag" title="c7n.tags.RemoveTag"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.tags.RemoveTag</span></code></a></p>
