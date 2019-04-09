@@ -252,9 +252,20 @@
 <div class="viewcode-block" id="UpdateConfig"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.eks.UpdateConfig">[docs]</a><span class="nd">@EKS</span><span class="o">.</span><span class="n">action_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;update-config&#39;</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">UpdateConfig</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
 
-    <span class="n">schema</span> <span class="o">=</span> <span class="n">type_schema</span><span class="p">(</span>
-        <span class="s1">&#39;update-config&#39;</span><span class="p">,</span> <span class="n">resourcesVpcConfig</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">},</span>
-        <span class="n">required</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;resourcesVpcConfig&#39;</span><span class="p">,))</span>
+    <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;additionalProperties&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">&#39;oneOf&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;required&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;logging&#39;</span><span class="p">]},</span>
+            <span class="p">{</span><span class="s1">&#39;required&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;resourcesVpcConfig&#39;</span><span class="p">]},</span>
+            <span class="p">{</span><span class="s1">&#39;required&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;logging&#39;</span><span class="p">,</span> <span class="s1">&#39;resourcesVpcConfig&#39;</span><span class="p">]}],</span>
+        <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;enum&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;update-config&#39;</span><span class="p">]},</span>
+            <span class="s1">&#39;logging&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">},</span>
+            <span class="s1">&#39;resourcesVpcConfig&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
     <span class="n">permissions</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;eks:UpdateClusterConfig&#39;</span><span class="p">,)</span>
     <span class="n">shape</span> <span class="o">=</span> <span class="s1">&#39;UpdateClusterConfigRequest&#39;</span>
 
@@ -268,13 +279,13 @@
 <div class="viewcode-block" id="UpdateConfig.process"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.eks.UpdateConfig.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resources</span><span class="p">):</span>
         <span class="n">client</span> <span class="o">=</span> <span class="n">local_session</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">session_factory</span><span class="p">)</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;eks&#39;</span><span class="p">)</span>
         <span class="n">state_filtered</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">resources</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;ACTIVE&#39;</span><span class="p">:</span>
                 <span class="n">state_filtered</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="k">continue</span>
-            <span class="n">client</span><span class="o">.</span><span class="n">update_cluster_config</span><span class="p">(</span>
-                <span class="n">name</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
-                <span class="n">resourcesVpcConfig</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;resourcesVpcConfig&#39;</span><span class="p">])</span>
+            <span class="n">client</span><span class="o">.</span><span class="n">update_cluster_config</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">state_filtered</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
                 <span class="s2">&quot;Filtered </span><span class="si">%d</span><span class="s2"> of </span><span class="si">%d</span><span class="s2"> clusters due to state&quot;</span><span class="p">,</span> <span class="n">state_filtered</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">resources</span><span class="p">))</span></div></div>

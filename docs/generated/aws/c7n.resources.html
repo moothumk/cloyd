@@ -15803,7 +15803,7 @@ s3 buckets.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.eks.UpdateConfig.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'resourcesVpcConfig': {'type': 'object'}, 'type': {'enum': ['update-config']}}, 'required': ('resourcesVpcConfig',), 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.eks.UpdateConfig.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'oneOf': [{'required': ['type', 'logging']}, {'required': ['type', 'resourcesVpcConfig']}, {'required': ['type', 'logging', 'resourcesVpcConfig']}], 'properties': {'logging': {'type': 'object'}, 'resourcesVpcConfig': {'type': 'object'}, 'type': {'enum': ['update-config']}}, 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.eks.UpdateConfig.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
