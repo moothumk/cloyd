@@ -1568,6 +1568,316 @@
 </dd></dl>
 
 <dl class="class">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket">
+<em class="property">class </em><code class="descclassname">c7n_gcp.resources.loadbalancing.</code><code class="descname">LoadBalancingBackendBucket</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingBackendBucket"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.QueryResourceManager" title="c7n_gcp.query.QueryResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.QueryResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingBackendBucket.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.TypeInfo" title="c7n_gcp.query.TypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.TypeInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type.component">
+<code class="descname">component</code><em class="property"> = 'backendBuckets'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type.component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = ('list', 'items[]', None)</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>resource_info</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingBackendBucket.resource_type.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type.id">
+<code class="descname">id</code><em class="property"> = 'name'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type.scope">
+<code class="descname">scope</code><em class="property"> = 'project'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'compute'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type.version">
+<code class="descname">version</code><em class="property"> = 'v1'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.resource_type.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.type">
+<code class="descname">type</code><em class="property"> = 'loadbalancing-backend-bucket'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingBackendBucket.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck">
+<em class="property">class </em><code class="descclassname">c7n_gcp.resources.loadbalancing.</code><code class="descname">LoadBalancingHealthCheck</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingHealthCheck"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.QueryResourceManager" title="c7n_gcp.query.QueryResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.QueryResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingHealthCheck.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.TypeInfo" title="c7n_gcp.query.TypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.TypeInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type.component">
+<code class="descname">component</code><em class="property"> = 'healthChecks'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type.component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = ('list', 'items[]', None)</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>resource_info</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingHealthCheck.resource_type.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type.id">
+<code class="descname">id</code><em class="property"> = 'name'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type.scope">
+<code class="descname">scope</code><em class="property"> = 'project'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'compute'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type.version">
+<code class="descname">version</code><em class="property"> = 'v1'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.resource_type.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.type">
+<code class="descname">type</code><em class="property"> = 'loadbalancing-health-check'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHealthCheck.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck">
+<em class="property">class </em><code class="descclassname">c7n_gcp.resources.loadbalancing.</code><code class="descname">LoadBalancingHttpHealthCheck</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingHttpHealthCheck"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.QueryResourceManager" title="c7n_gcp.query.QueryResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.QueryResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingHttpHealthCheck.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.TypeInfo" title="c7n_gcp.query.TypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.TypeInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type.component">
+<code class="descname">component</code><em class="property"> = 'httpHealthChecks'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type.component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = ('list', 'items[]', None)</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>resource_info</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingHttpHealthCheck.resource_type.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type.id">
+<code class="descname">id</code><em class="property"> = 'name'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type.scope">
+<code class="descname">scope</code><em class="property"> = 'project'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'compute'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type.version">
+<code class="descname">version</code><em class="property"> = 'v1'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.resource_type.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.type">
+<code class="descname">type</code><em class="property"> = 'loadbalancing-http-health-check'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpHealthCheck.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck">
+<em class="property">class </em><code class="descclassname">c7n_gcp.resources.loadbalancing.</code><code class="descname">LoadBalancingHttpsHealthCheck</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingHttpsHealthCheck"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.QueryResourceManager" title="c7n_gcp.query.QueryResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.QueryResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingHttpsHealthCheck.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.TypeInfo" title="c7n_gcp.query.TypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.TypeInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type.component">
+<code class="descname">component</code><em class="property"> = 'httpsHealthChecks'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type.component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = ('list', 'items[]', None)</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>resource_info</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingHttpsHealthCheck.resource_type.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type.id">
+<code class="descname">id</code><em class="property"> = 'name'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type.scope">
+<code class="descname">scope</code><em class="property"> = 'project'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'compute'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type.version">
+<code class="descname">version</code><em class="property"> = 'v1'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.resource_type.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.type">
+<code class="descname">type</code><em class="property"> = 'loadbalancing-https-health-check'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingHttpsHealthCheck.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate">
+<em class="property">class </em><code class="descclassname">c7n_gcp.resources.loadbalancing.</code><code class="descname">LoadBalancingSslCertificate</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingSslCertificate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.QueryResourceManager" title="c7n_gcp.query.QueryResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.QueryResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingSslCertificate.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.TypeInfo" title="c7n_gcp.query.TypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.TypeInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type.component">
+<code class="descname">component</code><em class="property"> = 'sslCertificates'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type.component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = ('list', 'items[]', None)</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>resource_info</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingSslCertificate.resource_type.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type.id">
+<code class="descname">id</code><em class="property"> = 'name'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type.scope">
+<code class="descname">scope</code><em class="property"> = 'project'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'compute'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type.version">
+<code class="descname">version</code><em class="property"> = 'v1'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.resource_type.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.type">
+<code class="descname">type</code><em class="property"> = 'loadbalancing-ssl-certificate'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingSslCertificate.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="c7n_gcp.resources.loadbalancing.LoadBalancingSslPolicy">
 <em class="property">class </em><code class="descclassname">c7n_gcp.resources.loadbalancing.</code><code class="descname">LoadBalancingSslPolicy</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingSslPolicy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingSslPolicy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.QueryResourceManager" title="c7n_gcp.query.QueryResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.QueryResourceManager</span></code></a></p>
@@ -1625,6 +1935,68 @@
 <dl class="attribute">
 <dt id="c7n_gcp.resources.loadbalancing.LoadBalancingSslPolicy.type">
 <code class="descname">type</code><em class="property"> = 'loadbalancing-ssl-policy'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingSslPolicy.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy">
+<em class="property">class </em><code class="descclassname">c7n_gcp.resources.loadbalancing.</code><code class="descname">LoadBalancingTargetHttpsProxy</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingTargetHttpsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.QueryResourceManager" title="c7n_gcp.query.QueryResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.QueryResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingTargetHttpsProxy.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.TypeInfo" title="c7n_gcp.query.TypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.TypeInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type.component">
+<code class="descname">component</code><em class="property"> = 'targetHttpsProxies'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type.component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = ('list', 'items[]', None)</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>resource_info</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/loadbalancing.html#LoadBalancingTargetHttpsProxy.resource_type.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type.id">
+<code class="descname">id</code><em class="property"> = 'name'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type.scope">
+<code class="descname">scope</code><em class="property"> = 'project'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'compute'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type.version">
+<code class="descname">version</code><em class="property"> = 'v1'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.resource_type.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.type">
+<code class="descname">type</code><em class="property"> = 'loadbalancing-target-https-proxy'</em><a class="headerlink" href="#c7n_gcp.resources.loadbalancing.LoadBalancingTargetHttpsProxy.type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
