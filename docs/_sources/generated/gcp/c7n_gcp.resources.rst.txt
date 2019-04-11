@@ -132,6 +132,14 @@ c7n\_gcp.resources.source module
     :undoc-members:
     :show-inheritance:
 
+c7n\_gcp.resources.spanner module
+---------------------------------
+
+.. automodule:: c7n_gcp.resources.spanner
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 c7n\_gcp.resources.sql module
 -----------------------------
 
