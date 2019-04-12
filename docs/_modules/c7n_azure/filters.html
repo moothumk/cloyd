@@ -238,7 +238,7 @@
 <span class="sd">                filters:</span>
 <span class="sd">                  - type: metric</span>
 <span class="sd">                    metric: Percentage CPU</span>
-<span class="sd">                    aggregation: average,</span>
+<span class="sd">                    aggregation: average</span>
 <span class="sd">                    op: gt</span>
 <span class="sd">                    threshold: 75</span>
 <span class="sd">                    timeframe: 2</span>
@@ -376,7 +376,7 @@
 
 <span class="sd">    .. code-block :: yaml</span>
 
-<span class="sd">      - policies:</span>
+<span class="sd">       policies:</span>
 <span class="sd">        - name: vm-stop-marked</span>
 <span class="sd">          resource: azure.vm</span>
 <span class="sd">          filters:</span>
@@ -506,7 +506,7 @@
 
 <span class="sd">    .. code-block :: yaml</span>
 
-<span class="sd">      - policies:</span>
+<span class="sd">       policies:</span>
 <span class="sd">        - name: vm-stop-marked</span>
 <span class="sd">          resource: azure.vm</span>
 <span class="sd">          filters:</span>

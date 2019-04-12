@@ -490,7 +490,7 @@ arguments. Alternatively use async: true</p>
         <span class="l l-Scalar l-Scalar-Plain">namespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Usage Metrics</span>
         <span class="l l-Scalar l-Scalar-Plain">metric_name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Attached Disks</span>
         <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">count</span>
-        <span class="l l-Scalar l-Scalar-Plain">units</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Files</span>
+        <span class="l l-Scalar l-Scalar-Plain">units</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Count</span>
 </pre></div>
 </div>
 <p>op and units are optional and will default to simple Counts.</p>
@@ -677,49 +677,55 @@ with the c7n-mailer tool, found under tools/c7n_mailer.</p>
 <p>Attaching additional string message attributes are supported on the SNS
 transport, with the exception of the <code class="docutils literal notranslate"><span class="pre">mtype</span></code> attribute, which is a
 reserved attribute used by Cloud Custodian.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">policies</span><span class="p">:</span>
-  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">ec2</span><span class="o">-</span><span class="n">bad</span><span class="o">-</span><span class="n">instance</span><span class="o">-</span><span class="n">kill</span>
-    <span class="n">resource</span><span class="p">:</span> <span class="n">ec2</span>
-    <span class="n">filters</span><span class="p">:</span>
-     <span class="o">-</span> <span class="n">Name</span><span class="p">:</span> <span class="n">bad</span><span class="o">-</span><span class="n">instance</span>
-    <span class="n">actions</span><span class="p">:</span>
-     <span class="o">-</span> <span class="n">terminate</span>
-     <span class="o">-</span> <span class="nb">type</span><span class="p">:</span> <span class="n">notify</span>
-       <span class="n">to</span><span class="p">:</span>
-        <span class="o">-</span> <span class="n">event</span><span class="o">-</span><span class="n">user</span>
-        <span class="o">-</span> <span class="n">resource</span><span class="o">-</span><span class="n">creator</span>
-        <span class="o">-</span> <span class="n">email</span><span class="nd">@address</span>
-       <span class="n">owner_absent_contact</span><span class="p">:</span>
-        <span class="o">-</span> <span class="n">other_email</span><span class="nd">@address</span>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-bad-instance-kill</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
+    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bad-instance</span>
+    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">terminate</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">notify</span>
+       <span class="l l-Scalar l-Scalar-Plain">to</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">event-user</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">resource-creator</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">email@address</span>
+       <span class="l l-Scalar l-Scalar-Plain">owner_absent_contact</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">other_email@address</span>
        <span class="c1"># which template for the email should we use</span>
-       <span class="n">template</span><span class="p">:</span> <span class="n">policy</span><span class="o">-</span><span class="n">template</span>
-       <span class="n">transport</span><span class="p">:</span>
-         <span class="nb">type</span><span class="p">:</span> <span class="n">sqs</span>
-         <span class="n">region</span><span class="p">:</span> <span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span>
-         <span class="n">queue</span><span class="p">:</span> <span class="n">xyz</span>
-
-  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">ec2</span><span class="o">-</span><span class="n">notify</span><span class="o">-</span><span class="k">with</span><span class="o">-</span><span class="n">attributes</span>
-    <span class="n">resource</span><span class="p">:</span> <span class="n">ec2</span>
-    <span class="n">filters</span><span class="p">:</span>
-     <span class="o">-</span> <span class="n">Name</span><span class="p">:</span> <span class="n">bad</span><span class="o">-</span><span class="n">instance</span>
-    <span class="n">actions</span><span class="p">:</span>
-     <span class="o">-</span> <span class="nb">type</span><span class="p">:</span> <span class="n">notify</span>
-       <span class="n">to</span><span class="p">:</span>
-        <span class="o">-</span> <span class="n">event</span><span class="o">-</span><span class="n">user</span>
-        <span class="o">-</span> <span class="n">resource</span><span class="o">-</span><span class="n">creator</span>
-        <span class="o">-</span> <span class="n">email</span><span class="nd">@address</span>
-       <span class="n">owner_absent_contact</span><span class="p">:</span>
-        <span class="o">-</span> <span class="n">other_email</span><span class="nd">@address</span>
+       <span class="l l-Scalar l-Scalar-Plain">template</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">policy-template</span>
+       <span class="l l-Scalar l-Scalar-Plain">transport</span><span class="p p-Indicator">:</span>
+         <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sqs</span>
+         <span class="l l-Scalar l-Scalar-Plain">region</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">us-east-1</span>
+         <span class="l l-Scalar l-Scalar-Plain">queue</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">xyz</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-notify-with-attributes</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
+    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bad-instance</span>
+    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">notify</span>
+       <span class="l l-Scalar l-Scalar-Plain">to</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">event-user</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">resource-creator</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">email@address</span>
+       <span class="l l-Scalar l-Scalar-Plain">owner_absent_contact</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">other_email@address</span>
        <span class="c1"># which template for the email should we use</span>
-       <span class="n">template</span><span class="p">:</span> <span class="n">policy</span><span class="o">-</span><span class="n">template</span>
-       <span class="n">transport</span><span class="p">:</span>
-         <span class="nb">type</span><span class="p">:</span> <span class="n">sns</span>
-         <span class="n">region</span><span class="p">:</span> <span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span>
-         <span class="n">topic</span><span class="p">:</span> <span class="n">your</span><span class="o">-</span><span class="n">notify</span><span class="o">-</span><span class="n">topic</span>
-         <span class="n">attributes</span><span class="p">:</span>
-           <span class="o">-</span> <span class="n">attribute_key</span><span class="p">:</span> <span class="n">attribute_value</span>
-           <span class="o">-</span> <span class="n">attribute_key_2</span><span class="p">:</span> <span class="n">attribute_value_2</span>
+       <span class="l l-Scalar l-Scalar-Plain">template</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">policy-template</span>
+       <span class="l l-Scalar l-Scalar-Plain">transport</span><span class="p p-Indicator">:</span>
+         <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sns</span>
+         <span class="l l-Scalar l-Scalar-Plain">region</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">us-east-1</span>
+         <span class="l l-Scalar l-Scalar-Plain">topic</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">your-notify-topic</span>
+         <span class="l l-Scalar l-Scalar-Plain">attributes</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">attribute_key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">attribute_value</span>
+            <span class="l l-Scalar l-Scalar-Plain">attribute_key_2</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">attribute_value_2</span>
 </pre></div>
 </div>
 <dl class="attribute">

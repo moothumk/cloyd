@@ -3832,7 +3832,7 @@ instance, or snapshotting a volume prior to deletion.</p>
 time a number of hours into the future.</p>
 <p>Optionally, the ‘tz’ parameter can get used to specify the timezone
 in which to interpret the clock (default value is ‘utc’)</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-stop-marked</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
@@ -3844,7 +3844,7 @@ in which to interpret the clock (default value is ‘utc’)</p>
         <span class="c1"># Another optional tag is skew</span>
         <span class="l l-Scalar l-Scalar-Plain">tz</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">utc</span>
     <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
 </pre></div>
 </div>
 <dl class="attribute">
@@ -3985,30 +3985,30 @@ to marking the resource for action 4 days in the future.</p>
 additional tags space on a set of resources, this action can
 be used to remove enough tags to make the desired amount of
 space while preserving a given set of tags.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-tag-trim</span>
-     <span class="l l-Scalar l-Scalar-Plain">comment</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
-       <span class="no">Any instances with 48 or more tags get tags removed until</span>
-       <span class="no">they match the target tag count, in this case 47 so we</span>
-       <span class="no">that we free up a tag slot for another usage.</span>
-     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
-     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-         <span class="c1"># Filter down to resources which already have 8 tags</span>
-         <span class="c1"># as we need space for 3 more, this also ensures that</span>
-         <span class="c1"># metrics reporting is correct for the policy.</span>
-         <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
-         <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="s">&quot;[length(Tags)][0]&quot;</span>
-         <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ge</span>
-         <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">48</span>
-     <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-tag-trim</span>
+    <span class="l l-Scalar l-Scalar-Plain">comment</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
+      <span class="no">Any instances with 48 or more tags get tags removed until</span>
+      <span class="no">they match the target tag count, in this case 47 so we</span>
+      <span class="no">that we free up a tag slot for another usage.</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
+    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+          <span class="c1"># Filter down to resources which already have 8 tags</span>
+          <span class="c1"># as we need space for 3 more, this also ensures that</span>
+          <span class="c1"># metrics reporting is correct for the policy.</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+          <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="s">&quot;length(Tags)&quot;</span>
+          <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ge</span>
+          <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">48</span>
+    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tag-trim</span>
          <span class="l l-Scalar l-Scalar-Plain">space</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
          <span class="l l-Scalar l-Scalar-Plain">preserve</span><span class="p p-Indicator">:</span>
-          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">OwnerContact</span>
-          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ASV</span>
-          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CMDBEnvironment</span>
-          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">downtime</span>
-          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">custodian_status</span>
+           <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">OwnerContact</span>
+           <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ASV</span>
+           <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CMDBEnvironment</span>
+           <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">downtime</span>
+           <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">custodian_status</span>
 </pre></div>
 </div>
 <dl class="attribute">

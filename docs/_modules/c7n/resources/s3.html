@@ -1465,7 +1465,7 @@
 <span class="sd">            policies:</span>
 <span class="sd">              - name: s3-enable-logging</span>
 <span class="sd">                resource: s3</span>
-<span class="sd">                filter:</span>
+<span class="sd">                filters:</span>
 <span class="sd">                  - &quot;tag:Testing&quot;: present</span>
 <span class="sd">                actions:</span>
 <span class="sd">                  - type: toggle-logging</span>
@@ -1537,12 +1537,14 @@
 
 
 <span class="sd">                policies:</span>
-<span class="sd">                  - name: s3-attach-encryption-event</span>
+<span class="sd">                  - name: attach-lambda-encrypt</span>
 <span class="sd">                    resource: s3</span>
 <span class="sd">                    filters:</span>
 <span class="sd">                      - type: missing-policy-statement</span>
 <span class="sd">                    actions:</span>
-<span class="sd">                      - attach-encrypt</span>
+<span class="sd">                      - type: attach-encrypt</span>
+<span class="sd">                        role: arn:aws:iam::123456789012:role/my-role</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">schema</span> <span class="o">=</span> <span class="n">type_schema</span><span class="p">(</span>
         <span class="s1">&#39;attach-encrypt&#39;</span><span class="p">,</span>
@@ -3016,7 +3018,7 @@
 <span class="sd">              - name: s3-bucket-encryption-KMS</span>
 <span class="sd">                resource: s3</span>
 <span class="sd">                region: us-east-1</span>
-<span class="sd">                filters</span>
+<span class="sd">                filters:</span>
 <span class="sd">                  - type: bucket-encryption</span>
 <span class="sd">                    state: True</span>
 <span class="sd">                    crypto: aws:kms</span>
@@ -3024,7 +3026,7 @@
 <span class="sd">              - name: s3-bucket-encryption-off</span>
 <span class="sd">                resource: s3</span>
 <span class="sd">                region: us-east-1</span>
-<span class="sd">                filters</span>
+<span class="sd">                filters:</span>
 <span class="sd">                  - type: bucket-encryption</span>
 <span class="sd">                    state: False</span>
 <span class="sd">    &quot;&quot;&quot;</span>

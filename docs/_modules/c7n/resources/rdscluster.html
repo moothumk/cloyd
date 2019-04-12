@@ -295,7 +295,9 @@
 <span class="sd">              - name: mark-for-delete</span>
 <span class="sd">                resource: rds-cluster</span>
 <span class="sd">                filters:</span>
-<span class="sd">                  - type: default-vpc</span>
+<span class="sd">                  - type: value</span>
+<span class="sd">                    key: default-vpc</span>
+<span class="sd">                    value: True</span>
 <span class="sd">                actions:</span>
 <span class="sd">                  - type: mark-for-op</span>
 <span class="sd">                    op: delete</span>

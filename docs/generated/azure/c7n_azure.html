@@ -515,16 +515,16 @@ the stack trace</p>
 with a given timezone. The default value is ‘utc’.</p>
 <p>If neither ‘days’ nor ‘hours’ is specified, Cloud Custodian will default
 to marking the resource for action 4 days in the future.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">vm-mark-for-stop</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
-    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
-        <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Name</span>
-        <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">instance-to-stop-in-four-days</span>
-    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">mark-for-op</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">vm-mark-for-stop</span>
+   <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
+   <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+       <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Name</span>
+       <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">instance-to-stop-in-four-days</span>
+   <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">mark-for-op</span>
+       <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
 </pre></div>
 </div>
 <dl class="attribute">
@@ -560,26 +560,26 @@ this action can be used to remove enough tags to make the
 desired amount of space while preserving a given set of tags.
 Setting the space value to 0 removes all tags but those
 listed to preserve.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-tag-trim</span>
-     <span class="l l-Scalar l-Scalar-Plain">comment</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
-       <span class="no">Any instances with 14 or more tags get tags removed until</span>
-       <span class="no">they match the target tag count, in this case 13, so</span>
-       <span class="no">that we free up tag slots for another usage.</span>
-     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.resourcegroup</span>
-     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-         <span class="c1"># Filter down to resources that do not have the space</span>
-         <span class="c1"># to add additional required tags. For example, if an</span>
-         <span class="c1"># additional 2 tags need to be added to a resource, with</span>
-         <span class="c1"># 15 tags as the limit, then filter down to resources that</span>
-         <span class="c1"># have 14 or more tags since they will need to have tags</span>
-         <span class="c1"># removed for the 2 extra. This also ensures that metrics</span>
-         <span class="c1"># reporting is correct for the policy.</span>
-         <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
-         <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="s">&quot;[length(Tags)][0]&quot;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-tag-trim</span>
+    <span class="l l-Scalar l-Scalar-Plain">comment</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
+      <span class="no">Any instances with 14 or more tags get tags removed until</span>
+      <span class="no">they match the target tag count, in this case 13, so</span>
+      <span class="no">that we free up tag slots for another usage.</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.resourcegroup</span>
+    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+        <span class="c1"># Filter down to resources that do not have the space</span>
+        <span class="c1"># to add additional required tags. For example, if an</span>
+        <span class="c1"># additional 2 tags need to be added to a resource, with</span>
+        <span class="c1"># 15 tags as the limit, then filter down to resources that</span>
+        <span class="c1"># have 14 or more tags since they will need to have tags</span>
+        <span class="c1"># removed for the 2 extra. This also ensures that metrics</span>
+        <span class="c1"># reporting is correct for the policy.</span>
+       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+         <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="s">&quot;length(Tags)&quot;</span>
          <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ge</span>
          <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">14</span>
-     <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tag-trim</span>
          <span class="l l-Scalar l-Scalar-Plain">space</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
          <span class="l l-Scalar l-Scalar-Plain">preserve</span><span class="p p-Indicator">:</span>
@@ -791,7 +791,7 @@ listed to preserve.</p>
     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">metric</span>
         <span class="l l-Scalar l-Scalar-Plain">metric</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Percentage CPU</span>
-        <span class="l l-Scalar l-Scalar-Plain">aggregation</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">average,</span>
+        <span class="l l-Scalar l-Scalar-Plain">aggregation</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">average</span>
         <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">gt</span>
         <span class="l l-Scalar l-Scalar-Plain">threshold</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">75</span>
         <span class="l l-Scalar l-Scalar-Plain">timeframe</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
@@ -860,15 +860,15 @@ listed to preserve.</p>
 <p>You can provide a list of Azure Policy definitions display names or names to limit
 amount of non-compliant resources. By default it returns a list of all non-compliant
 resources.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">vm-stop-marked</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
-    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">policy-compliant</span>
-        <span class="l l-Scalar l-Scalar-Plain">compliant</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-        <span class="l l-Scalar l-Scalar-Plain">definitions</span><span class="p p-Indicator">:</span>
-          <span class="p p-Indicator">-</span> <span class="s">&quot;Definition</span><span class="nv"> </span><span class="s">display</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">1&quot;</span>
-          <span class="p p-Indicator">-</span> <span class="s">&quot;Definition</span><span class="nv"> </span><span class="s">display</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">2&quot;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">vm-stop-marked</span>
+   <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
+   <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">policy-compliant</span>
+       <span class="l l-Scalar l-Scalar-Plain">compliant</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+       <span class="l l-Scalar l-Scalar-Plain">definitions</span><span class="p p-Indicator">:</span>
+         <span class="p p-Indicator">-</span> <span class="s">&quot;Definition</span><span class="nv"> </span><span class="s">display</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">1&quot;</span>
+         <span class="p p-Indicator">-</span> <span class="s">&quot;Definition</span><span class="nv"> </span><span class="s">display</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">2&quot;</span>
 </pre></div>
 </div>
 <dl class="method">
@@ -902,19 +902,19 @@ instance, or snapshotting a volume prior to deletion.</p>
 time a number of hours into the future.</p>
 <p>Optionally, the ‘tz’ parameter can get used to specify the timezone
 in which to interpret the clock (default value is ‘utc’)</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">vm-stop-marked</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
-    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">marked-for-op</span>
-        <span class="c1"># The default tag used is custodian_status</span>
-        <span class="c1"># but that is configurable</span>
-        <span class="l l-Scalar l-Scalar-Plain">tag</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">custodian_status</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
-        <span class="c1"># Another optional tag is skew</span>
-        <span class="l l-Scalar l-Scalar-Plain">tz</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">utc</span>
-    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">vm-stop-marked</span>
+   <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
+   <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">marked-for-op</span>
+       <span class="c1"># The default tag used is custodian_status</span>
+       <span class="c1"># but that is configurable</span>
+       <span class="l l-Scalar l-Scalar-Plain">tag</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">custodian_status</span>
+       <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
+       <span class="c1"># Another optional tag is skew</span>
+       <span class="l l-Scalar l-Scalar-Plain">tz</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">utc</span>
+   <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
 </pre></div>
 </div>
 <dl class="attribute">

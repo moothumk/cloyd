@@ -748,7 +748,7 @@
 <span class="sd">               - name: instance-ebs-volumes</span>
 <span class="sd">                 resource: ebs</span>
 <span class="sd">                 filters:</span>
-<span class="sd">                   VolumeId :  volumeid</span>
+<span class="sd">                   - VolumeId :  volumeid</span>
 <span class="sd">                 actions:</span>
 <span class="sd">                   - detach</span>
 
@@ -1553,7 +1553,7 @@
 <span class="sd">               - modifyable</span>
 <span class="sd">              actions:</span>
 <span class="sd">               - type: modify</span>
-<span class="sd">                 volume-type: gp1</span>
+<span class="sd">                 volume-type: gp2</span>
 
 <span class="sd">    `iops-percent` and `size-percent` can be used to modify</span>
 <span class="sd">    respectively iops on io1 volumes and volume size.</span>
@@ -1600,7 +1600,7 @@
         <span class="k">if</span> <span class="s1">&#39;modifyable&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;filters&#39;</span><span class="p">,</span> <span class="p">()):</span>
             <span class="k">raise</span> <span class="n">PolicyValidationError</span><span class="p">(</span>
                 <span class="s2">&quot;modify action requires modifyable filter in policy&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;size-percent&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;shrink&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;size-percent&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;shrink&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
             <span class="k">raise</span> <span class="n">PolicyValidationError</span><span class="p">((</span>
                 <span class="s2">&quot;shrinking volumes requires os/fs support &quot;</span>
                 <span class="s2">&quot;or data-loss may ensue, use `shrink: true` to override&quot;</span><span class="p">))</span>

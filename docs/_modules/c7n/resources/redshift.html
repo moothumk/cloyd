@@ -739,8 +739,10 @@
 <span class="sd">              - name: redshift-tag-trim</span>
 <span class="sd">                resource: redshift</span>
 <span class="sd">                filters:</span>
-<span class="sd">                  - type: tag-count</span>
-<span class="sd">                    count: 10</span>
+<span class="sd">                  - type: value</span>
+<span class="sd">                    key: &quot;length(Tags)&quot;</span>
+<span class="sd">                    op: ge</span>
+<span class="sd">                    value: 10</span>
 <span class="sd">                actions:</span>
 <span class="sd">                  - type: tag-trim</span>
 <span class="sd">                    space: 1</span>

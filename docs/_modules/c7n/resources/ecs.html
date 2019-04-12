@@ -424,7 +424,7 @@
 <span class="sd">    :Example:</span>
 
 <span class="sd">     Find any fargate services that are running with a particular</span>
-<span class="sd">     image in the task and delete them.</span>
+<span class="sd">     image in the task and stop them.</span>
 
 <span class="sd">    .. code-block:: yaml</span>
 
@@ -432,15 +432,14 @@
 <span class="sd">         - name: fargate-readonly-tasks</span>
 <span class="sd">           resource: ecs-task</span>
 <span class="sd">           filters:</span>
-<span class="sd">            - launchType: FARGATE</span>
-<span class="sd">            - type: task-definition</span>
-<span class="sd">              key: &quot;containerDefinitions[].image&quot;</span>
-<span class="sd">              value: &quot;elasticsearch/elasticsearch:6.4.3</span>
-<span class="sd">              value_type: swap</span>
-<span class="sd">              op: contains</span>
+<span class="sd">             - launchType: FARGATE</span>
+<span class="sd">             - type: task-definition</span>
+<span class="sd">               key: &quot;containerDefinitions[].image&quot;</span>
+<span class="sd">               value: &quot;elasticsearch/elasticsearch:6.4.3&quot;</span>
+<span class="sd">               value_type: swap</span>
+<span class="sd">               op: contains</span>
 <span class="sd">           actions:</span>
-<span class="sd">            - delete</span>
-
+<span class="sd">             - type: stop</span>
 <span class="sd">    &quot;&quot;&quot;</span></div>
 
 
@@ -621,14 +620,14 @@
 <span class="sd">         - name: fargate-readonly-tasks</span>
 <span class="sd">           resource: ecs-task</span>
 <span class="sd">           filters:</span>
-<span class="sd">            - launchType: FARGATE</span>
-<span class="sd">            - type: task-definition</span>
-<span class="sd">              key: &quot;containerDefinitions[].readonlyRootFilesystem&quot;</span>
-<span class="sd">              value: None</span>
-<span class="sd">              value_type: swap</span>
-<span class="sd">              op: contains</span>
+<span class="sd">             - launchType: FARGATE</span>
+<span class="sd">             - type: task-definition</span>
+<span class="sd">               key: &quot;containerDefinitions[].readonlyRootFilesystem&quot;</span>
+<span class="sd">               value: None</span>
+<span class="sd">               value_type: swap</span>
+<span class="sd">               op: contains</span>
 <span class="sd">           actions:</span>
-<span class="sd">            - stop</span>
+<span class="sd">             - type: stop</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">related_key</span> <span class="o">=</span> <span class="s1">&#39;taskDefinitionArn&#39;</span></div>
@@ -889,12 +888,11 @@
 <span class="sd">    .. code-block:: yaml</span>
 
 <span class="sd">            policies:</span>
-<span class="sd">              - name: ecs-cluster-remove-tag</span>
-<span class="sd">                resource: ecs</span>
+<span class="sd">              - name: ecs-service-remove-tag</span>
+<span class="sd">                resource: ecs-service</span>
 <span class="sd">                filters:</span>
-<span class="sd">                  - &quot;tag:BadTag&quot;: present</span>
 <span class="sd">                  - type: taggable</span>
-<span class="sd">                    value: true</span>
+<span class="sd">                    state: true</span>
 <span class="sd">                actions:</span>
 <span class="sd">                  - type: remove-tag</span>
 <span class="sd">                    tags: [&quot;BadTag&quot;]</span>
@@ -955,11 +953,11 @@
 <span class="sd">        .. code-block:: yaml</span>
 
 <span class="sd">            policies:</span>
-<span class="sd">                - name:</span>
+<span class="sd">                - name: taggable</span>
 <span class="sd">                  resource: ecs-service</span>
 <span class="sd">                  filters:</span>
 <span class="sd">                    - type: taggable</span>
-<span class="sd">                      state: true</span>
+<span class="sd">                      state: True</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">schema</span> <span class="o">=</span> <span class="n">type_schema</span><span class="p">(</span><span class="s1">&#39;taggable&#39;</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;boolean&#39;</span><span class="p">})</span>

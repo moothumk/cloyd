@@ -477,7 +477,7 @@
 <span class="sd">              - name: default-vpc-rds</span>
 <span class="sd">                resource: rds</span>
 <span class="sd">                filters:</span>
-<span class="sd">                  - default-vpc</span>
+<span class="sd">                  - type: default-vpc</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">schema</span> <span class="o">=</span> <span class="n">type_schema</span><span class="p">(</span><span class="s1">&#39;default-vpc&#39;</span><span class="p">)</span>
 
@@ -574,8 +574,8 @@
 <span class="sd">              - name: rds-upgrade-available</span>
 <span class="sd">                resource: rds</span>
 <span class="sd">                filters:</span>
-<span class="sd">                  - upgrade-available</span>
-<span class="sd">                    major: false</span>
+<span class="sd">                  - type: upgrade-available</span>
+<span class="sd">                    major: False</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -618,13 +618,10 @@
 <span class="sd">            policies:</span>
 <span class="sd">              - name: upgrade-rds-minor</span>
 <span class="sd">                resource: rds</span>
-<span class="sd">                filters:</span>
-<span class="sd">                  - name: upgrade-available</span>
-<span class="sd">                    major: false</span>
 <span class="sd">                actions:</span>
 <span class="sd">                  - type: upgrade</span>
-<span class="sd">                    major: false</span>
-<span class="sd">                    immediate: false</span>
+<span class="sd">                    major: False</span>
+<span class="sd">                    immediate: False</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 

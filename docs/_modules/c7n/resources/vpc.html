@@ -560,7 +560,7 @@
 
 <span class="sd">     .. code-block: yaml</span>
 
-<span class="sd">        - policies:</span>
+<span class="sd">          policies:</span>
 <span class="sd">             - name: vpcs-in-domain</span>
 <span class="sd">               resource: vpc</span>
 <span class="sd">               filters:</span>
@@ -1406,8 +1406,7 @@
 <span class="sd">                filters:</span>
 <span class="sd">                  - type: ingress</span>
 <span class="sd">                    IpProtocol: tcp</span>
-<span class="sd">                    FromPort: 0</span>
-<span class="sd">                    GroupName: http-group</span>
+<span class="sd">                    Ports: [8080]</span>
 <span class="sd">                actions:</span>
 <span class="sd">                  - type: remove-permissions</span>
 <span class="sd">                    ingress: matched</span>
@@ -1555,9 +1554,9 @@
 <span class="sd">                    key: FromPort</span>
 <span class="sd">                    value: 22</span>
 <span class="sd">                actions:</span>
-<span class="sd">                  - type: remove-groups</span>
-<span class="sd">                    groups: matched</span>
+<span class="sd">                  - type: modify-security-groups</span>
 <span class="sd">                    isolation-group: sg-01ab23c4</span>
+<span class="sd">                    add: []</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">permissions</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;ec2:ModifyNetworkInterfaceAttribute&#39;</span><span class="p">,)</span>
 
@@ -1903,7 +1902,7 @@
 <span class="sd">                  - AllocationId: ...</span>
 <span class="sd">                actions:</span>
 <span class="sd">                  - type: release</span>
-<span class="sd">                    force: true|false</span>
+<span class="sd">                    force: True</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">schema</span> <span class="o">=</span> <span class="n">type_schema</span><span class="p">(</span><span class="s1">&#39;release&#39;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;boolean&#39;</span><span class="p">})</span>

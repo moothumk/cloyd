@@ -290,7 +290,7 @@
 <span class="sd">                  - type: cross-account</span>
 <span class="sd">                    whitelist_from:</span>
 <span class="sd">                      expr: &quot;accounts.*.accountNumber&quot;</span>
-<span class="sd">                      url: *accounts_url</span>
+<span class="sd">                      url: accounts_url</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">permissions</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;ecr:GetRepositoryPolicy&#39;</span><span class="p">,)</span>
 
@@ -375,11 +375,12 @@
 <span class="sd">          resource: aws.ecr</span>
 <span class="sd">          filters:</span>
 <span class="sd">            - type: lifecycle-rule</span>
-<span class="sd">              state: false</span>
+<span class="sd">              state: False</span>
 <span class="sd">              match:</span>
 <span class="sd">                - selection.tagStatus: untagged</span>
 <span class="sd">                - action.type: expire</span>
-<span class="sd">                - key: selection.countNumber</span>
+<span class="sd">                - type: value</span>
+<span class="sd">                  key: selection.countNumber</span>
 <span class="sd">                  value: 30</span>
 <span class="sd">                  op: less-than</span>
 <span class="sd">    &quot;&quot;&quot;</span>

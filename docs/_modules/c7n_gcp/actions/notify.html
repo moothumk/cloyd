@@ -213,22 +213,24 @@
 
 <div class="viewcode-block" id="Notify"><a class="viewcode-back" href="../../../generated/gcp/c7n_gcp.actions.html#c7n_gcp.actions.notify.Notify">[docs]</a><span class="k">class</span> <span class="nc">Notify</span><span class="p">(</span><span class="n">BaseNotify</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Example::</span>
+<span class="sd">    :example:</span>
 
-<span class="sd">      policies:</span>
-<span class="sd">        - name: bad-instance-get</span>
-<span class="sd">          resource: gcp.compute</span>
-<span class="sd">          filters:</span>
-<span class="sd">           - Name: bad-instance</span>
-<span class="sd">          actions:</span>
-<span class="sd">           - type: notify</span>
-<span class="sd">             to:</span>
-<span class="sd">              - email@address</span>
-<span class="sd">             # which template for the email should we use</span>
-<span class="sd">             template: policy-template</span>
-<span class="sd">             transport:</span>
-<span class="sd">               type: pubsub</span>
-<span class="sd">               topic: projects/yourproject/topics/yourtopic</span>
+<span class="sd">    .. code-block:: yaml</span>
+
+<span class="sd">          policies:</span>
+<span class="sd">            - name: bad-instance-get</span>
+<span class="sd">              resource: gcp.instance</span>
+<span class="sd">              filters:</span>
+<span class="sd">               - Name: bad-instance</span>
+<span class="sd">              actions:</span>
+<span class="sd">               - type: notify</span>
+<span class="sd">                 to:</span>
+<span class="sd">                  - email@address</span>
+<span class="sd">                 # which template for the email should we use</span>
+<span class="sd">                 template: policy-template</span>
+<span class="sd">                 transport:</span>
+<span class="sd">                   type: pubsub</span>
+<span class="sd">                   topic: projects/yourproject/topics/yourtopic</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">1000</span>

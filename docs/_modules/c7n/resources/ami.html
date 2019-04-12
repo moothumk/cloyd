@@ -389,8 +389,9 @@
 <span class="sd">              - name: ami-ensure-encrypted</span>
 <span class="sd">                resource: ami</span>
 <span class="sd">                filters:</span>
-<span class="sd">                  - not:</span>
-<span class="sd">                    - type: encrypted</span>
+<span class="sd">                  - type: value</span>
+<span class="sd">                    key: encrypted</span>
+<span class="sd">                    value: true</span>
 <span class="sd">                actions:</span>
 <span class="sd">                  - type: copy</span>
 <span class="sd">                    encrypt: true</span>
