@@ -92,6 +92,14 @@ c7n\_gcp.resources.logging module
     :undoc-members:
     :show-inheritance:
 
+c7n\_gcp.resources.mlengine module
+----------------------------------
+
+.. automodule:: c7n_gcp.resources.mlengine
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 c7n\_gcp.resources.network module
 ---------------------------------
 
