@@ -15606,6 +15606,42 @@ s3 buckets.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="c7n.resources.efs.KmsFilter">
+<em class="property">class </em><code class="descclassname">c7n.resources.efs.</code><code class="descname">KmsFilter</code><span class="sig-paren">(</span><em>data</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/efs.html#KmsFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.efs.KmsFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n.filters.html#c7n.filters.kms.KmsRelatedFilter" title="c7n.filters.kms.KmsRelatedFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.filters.kms.KmsRelatedFilter</span></code></a></p>
+<p>Filter a resource by its associcated kms key and optionally the aliasname
+of the kms key by using ‘c7n:AliasName’</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><div class="first last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">efs-kms-key-filters</span>
+      <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">efs</span>
+      <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">kms-key</span>
+          <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">c7n:AliasName</span>
+          <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="s">&quot;^(alias/aws/)&quot;</span>
+          <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">regex</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="c7n.resources.efs.KmsFilter.RelatedIdsExpression">
+<code class="descname">RelatedIdsExpression</code><em class="property"> = 'KmsKeyId'</em><a class="headerlink" href="#c7n.resources.efs.KmsFilter.RelatedIdsExpression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.efs.KmsFilter.type">
+<code class="descname">type</code><em class="property"> = 'kms-key'</em><a class="headerlink" href="#c7n.resources.efs.KmsFilter.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="c7n.resources.efs.SecurityGroup">
 <em class="property">class </em><code class="descclassname">c7n.resources.efs.</code><code class="descname">SecurityGroup</code><span class="sig-paren">(</span><em>data</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/efs.html#SecurityGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.efs.SecurityGroup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="c7n.filters.html#c7n.filters.vpc.SecurityGroupFilter" title="c7n.filters.vpc.SecurityGroupFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.filters.vpc.SecurityGroupFilter</span></code></a></p>
@@ -26848,6 +26884,42 @@ apply a filter to the rule</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="c7n.resources.redshift.KmsFilter">
+<em class="property">class </em><code class="descclassname">c7n.resources.redshift.</code><code class="descname">KmsFilter</code><span class="sig-paren">(</span><em>data</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/redshift.html#KmsFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.redshift.KmsFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n.filters.html#c7n.filters.kms.KmsRelatedFilter" title="c7n.filters.kms.KmsRelatedFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.filters.kms.KmsRelatedFilter</span></code></a></p>
+<p>Filter a resource by its associcated kms key and optionally the aliasname
+of the kms key by using ‘c7n:AliasName’</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><div class="first last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">redshift-kms-key-filters</span>
+      <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">redshift</span>
+      <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">kms-key</span>
+          <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">c7n:AliasName</span>
+          <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="s">&quot;^(alias/aws/)&quot;</span>
+          <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">regex</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="c7n.resources.redshift.KmsFilter.RelatedIdsExpression">
+<code class="descname">RelatedIdsExpression</code><em class="property"> = 'KmsKeyId'</em><a class="headerlink" href="#c7n.resources.redshift.KmsFilter.RelatedIdsExpression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.redshift.KmsFilter.type">
+<code class="descname">type</code><em class="property"> = 'kms-key'</em><a class="headerlink" href="#c7n.resources.redshift.KmsFilter.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="c7n.resources.redshift.Parameter">
 <em class="property">class </em><code class="descclassname">c7n.resources.redshift.</code><code class="descname">Parameter</code><span class="sig-paren">(</span><em>data</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/redshift.html#Parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.redshift.Parameter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="c7n.filters.html#c7n.filters.core.ValueFilter" title="c7n.filters.core.ValueFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.filters.core.ValueFilter</span></code></a></p>
@@ -32511,6 +32583,48 @@ to include a filter</p>
 <dl class="attribute">
 <dt id="c7n.resources.sqs.DeleteSqsQueue.type">
 <code class="descname">type</code><em class="property"> = 'delete'</em><a class="headerlink" href="#c7n.resources.sqs.DeleteSqsQueue.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n.resources.sqs.KmsFilter">
+<em class="property">class </em><code class="descclassname">c7n.resources.sqs.</code><code class="descname">KmsFilter</code><span class="sig-paren">(</span><em>data</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/sqs.html#KmsFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.sqs.KmsFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n.filters.html#c7n.filters.kms.KmsRelatedFilter" title="c7n.filters.kms.KmsRelatedFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.filters.kms.KmsRelatedFilter</span></code></a></p>
+<p>Filter a resource by its associcated kms key and optionally the aliasname
+of the kms key by using ‘c7n:AliasName’
+The KmsMasterId returned for SQS sometimes has the alias name directly in the value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><div class="first last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">efs-kms-key-filters</span>
+      <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">efs</span>
+      <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">or</span><span class="p p-Indicator">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+            <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">KmsMasterKeyId</span>
+            <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="s">&quot;^(alias/aws/)&quot;</span>
+            <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">regex</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">kms-key</span>
+            <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">c7n:AliasName</span>
+            <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="s">&quot;^(alias/aws/)&quot;</span>
+            <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">regex</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="c7n.resources.sqs.KmsFilter.RelatedIdsExpression">
+<code class="descname">RelatedIdsExpression</code><em class="property"> = 'KmsMasterKeyId'</em><a class="headerlink" href="#c7n.resources.sqs.KmsFilter.RelatedIdsExpression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.sqs.KmsFilter.type">
+<code class="descname">type</code><em class="property"> = 'kms-key'</em><a class="headerlink" href="#c7n.resources.sqs.KmsFilter.type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
