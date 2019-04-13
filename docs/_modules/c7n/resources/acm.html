@@ -208,9 +208,11 @@
 <span class="c1"># limitations under the License.</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">unicode_literals</span>
 
+<span class="kn">from</span> <span class="nn">c7n.actions</span> <span class="k">import</span> <span class="n">BaseAction</span>
 <span class="kn">from</span> <span class="nn">c7n.manager</span> <span class="k">import</span> <span class="n">resources</span>
 <span class="kn">from</span> <span class="nn">c7n.query</span> <span class="k">import</span> <span class="n">QueryResourceManager</span><span class="p">,</span> <span class="n">DescribeSource</span><span class="p">,</span> <span class="n">ConfigSource</span>
 <span class="kn">from</span> <span class="nn">c7n.tags</span> <span class="k">import</span> <span class="n">universal_augment</span>
+<span class="kn">from</span> <span class="nn">c7n.utils</span> <span class="k">import</span> <span class="n">type_schema</span><span class="p">,</span> <span class="n">local_session</span>
 
 
 <div class="viewcode-block" id="Certificate"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.acm.Certificate">[docs]</a><span class="nd">@resources</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;acm-certificate&#39;</span><span class="p">)</span>
@@ -244,6 +246,50 @@
 
 <div class="viewcode-block" id="DescribeCertificate.augment"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.acm.DescribeCertificate.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resources</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">universal_augment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="p">,</span> <span class="n">resources</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="CertificateDeleteAction"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.acm.CertificateDeleteAction">[docs]</a><span class="nd">@Certificate</span><span class="o">.</span><span class="n">action_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">CertificateDeleteAction</span><span class="p">(</span><span class="n">BaseAction</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Action to delete an ACM Certificate</span>
+<span class="sd">    To avoid unwanted deletions of certificates, it is recommended to apply a filter</span>
+<span class="sd">    to the rule</span>
+<span class="sd">    :example:</span>
+
+<span class="sd">    .. code-block:: yaml</span>
+
+<span class="sd">        policies:</span>
+<span class="sd">          - name: acm-certificate-delete-expired</span>
+<span class="sd">            resource: acm-certificate</span>
+<span class="sd">            filters:</span>
+<span class="sd">              - type: value</span>
+<span class="sd">                key: NotAfter</span>
+<span class="sd">                value_type: expiration</span>
+<span class="sd">                op: lt</span>
+<span class="sd">                value: 0</span>
+<span class="sd">            actions:</span>
+<span class="sd">              - delete</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">schema</span> <span class="o">=</span> <span class="n">type_schema</span><span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">)</span>
+    <span class="n">permissions</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;acm:DeleteCertificate&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<div class="viewcode-block" id="CertificateDeleteAction.process"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.acm.CertificateDeleteAction.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">certificates</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">local_session</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">session_factory</span><span class="p">)</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;acm&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">cert</span> <span class="ow">in</span> <span class="n">certificates</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">process_cert</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">cert</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CertificateDeleteAction.process_cert"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.acm.CertificateDeleteAction.process_cert">[docs]</a>    <span class="k">def</span> <span class="nf">process_cert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">cert</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">retry</span><span class="p">(</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">delete_certificate</span><span class="p">,</span> <span class="n">CertificateArn</span><span class="o">=</span><span class="n">cert</span><span class="p">[</span><span class="s1">&#39;CertificateArn&#39;</span><span class="p">])</span>
+        <span class="k">except</span> <span class="n">client</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ResourceNotFoundException</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">except</span> <span class="n">client</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ResourceInUseException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;Exception trying to delete Certificate: </span><span class="si">%s</span><span class="s2"> error: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">cert</span><span class="p">[</span><span class="s1">&#39;CertificateArn&#39;</span><span class="p">],</span> <span class="n">e</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>
