@@ -76,10 +76,10 @@ c7n\_gcp.resources.iam module
     :undoc-members:
     :show-inheritance:
 
-c7n\_gcp.resources.loadbalancing module
----------------------------------------
+c7n\_gcp.resources.loadbalancer module
+--------------------------------------
 
-.. automodule:: c7n_gcp.resources.loadbalancing
+.. automodule:: c7n_gcp.resources.loadbalancer
     :members:
     :undoc-members:
     :show-inheritance:
