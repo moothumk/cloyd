@@ -887,6 +887,8 @@
 </li>
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.vpc.EndpointCrossAccountFilter.annotation_key">(c7n.resources.vpc.EndpointCrossAccountFilter attribute)</a>
 </li>
+        <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.annotation_key">(c7n.resources.workspaces.WorkspaceConnectionStatusFilter attribute)</a>
+</li>
       </ul></li>
       <li><a href="generated/aws/c7n.filters.html#c7n.filters.kms.KmsRelatedFilter.AnnotationKey">AnnotationKey (c7n.filters.kms.KmsRelatedFilter attribute)</a>
 
@@ -6128,6 +6130,8 @@
         <li><a href="generated/gcp/c7n_gcp.html#c7n_gcp.mu.PubSubSource.get_config">(c7n_gcp.mu.PubSubSource method)</a>
 </li>
       </ul></li>
+      <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.get_connection_status">get_connection_status() (c7n.resources.workspaces.WorkspaceConnectionStatusFilter method)</a>
+</li>
       <li><a href="generated/aws/c7n.html#c7n.resolver.ValuesFrom.get_contents">get_contents() (c7n.resolver.ValuesFrom method)</a>
 </li>
       <li><a href="generated/aws/c7n.html#c7n.testing.TestUtils.get_context">get_context() (c7n.testing.TestUtils method)</a>
@@ -6701,7 +6705,11 @@
       <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.ResourceIdParser.get_resource_type">get_resource_type() (c7n_azure.utils.ResourceIdParser static method)</a>
 </li>
       <li><a href="generated/aws/c7n.filters.html#c7n.filters.core.ValueFilter.get_resource_value">get_resource_value() (c7n.filters.core.ValueFilter method)</a>
+
+      <ul>
+        <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.get_resource_value">(c7n.resources.workspaces.WorkspaceConnectionStatusFilter method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/aws/c7n.html#c7n.manager.ResourceManager.get_resources">get_resources() (c7n.manager.ResourceManager method)</a>
 
       <ul>
@@ -10021,6 +10029,8 @@
 </li>
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.vpc.Stale.permissions">(c7n.resources.vpc.Stale attribute)</a>
 </li>
+        <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.permissions">(c7n.resources.workspaces.WorkspaceConnectionStatusFilter attribute)</a>
+</li>
         <li><a href="generated/aws/c7n.html#c7n.tags.NormalizeTag.permissions">(c7n.tags.NormalizeTag attribute)</a>
 </li>
         <li><a href="generated/aws/c7n.html#c7n.tags.RemoveTag.permissions">(c7n.tags.RemoveTag attribute)</a>
@@ -10910,6 +10920,8 @@
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.vpc.UnusedSecurityGroup.process">(c7n.resources.vpc.UnusedSecurityGroup method)</a>
 </li>
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.vpc.UsedSecurityGroup.process">(c7n.resources.vpc.UsedSecurityGroup method)</a>
+</li>
+        <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.process">(c7n.resources.workspaces.WorkspaceConnectionStatusFilter method)</a>
 </li>
         <li><a href="generated/aws/c7n.html#c7n.tags.CopyRelatedResourceTag.process">(c7n.tags.CopyRelatedResourceTag method)</a>
 </li>
@@ -13290,6 +13302,8 @@
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.vpc.VpcSecurityGroupFilter.schema">(c7n.resources.vpc.VpcSecurityGroupFilter attribute)</a>
 </li>
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.vpc.VpcSubnetFilter.schema">(c7n.resources.vpc.VpcSubnetFilter attribute)</a>
+</li>
+        <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.schema">(c7n.resources.workspaces.WorkspaceConnectionStatusFilter attribute)</a>
 </li>
         <li><a href="generated/aws/c7n.html#c7n.tags.CopyRelatedResourceTag.schema">(c7n.tags.CopyRelatedResourceTag attribute)</a>
 </li>
@@ -16553,6 +16567,8 @@
 </li>
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.Workspace.resource_type.type">(c7n.resources.workspaces.Workspace.resource_type attribute)</a>
 </li>
+        <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.type">(c7n.resources.workspaces.WorkspaceConnectionStatusFilter attribute)</a>
+</li>
         <li><a href="generated/azure/c7n_azure.html#c7n_azure.output.AppInsightsLogOutput.type">(c7n_azure.output.AppInsightsLogOutput attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.html#c7n_azure.output.AzureStorageOutput.type">(c7n_azure.output.AzureStorageOutput attribute)</a>
@@ -17516,15 +17532,17 @@
 </li>
       <li><a href="generated/aws/c7n.filters.html#c7n.filters.iamaccess.PolicyChecker.whitelist_conditions">whitelist_conditions (c7n.filters.iamaccess.PolicyChecker attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.WhiteListFilter">WhiteListFilter (class in c7n_azure.resources.key_vault)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/aws/c7n.html#c7n.utils.worker">worker() (in module c7n.utils)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.Workspace">Workspace (class in c7n.resources.workspaces)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.Workspace.resource_type">Workspace.resource_type (class in c7n.resources.workspaces)</a>
+</li>
+      <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.WorkspaceConnectionStatusFilter">WorkspaceConnectionStatusFilter (class in c7n.resources.workspaces)</a>
 </li>
       <li><a href="generated/aws/c7n.html#c7n.testing.TextTestIO.write">write() (c7n.testing.TextTestIO method)</a>
 </li>

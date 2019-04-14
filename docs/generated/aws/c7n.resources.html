@@ -36602,6 +36602,79 @@ workflows.</p>
 
 </dd></dl>
 
+<dl class="class">
+<dt id="c7n.resources.workspaces.WorkspaceConnectionStatusFilter">
+<em class="property">class </em><code class="descclassname">c7n.resources.workspaces.</code><code class="descname">WorkspaceConnectionStatusFilter</code><span class="sig-paren">(</span><em>data</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/workspaces.html#WorkspaceConnectionStatusFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.workspaces.WorkspaceConnectionStatusFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n.filters.html#c7n.filters.core.ValueFilter" title="c7n.filters.core.ValueFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.filters.core.ValueFilter</span></code></a></p>
+<p>Filter Workspaces based on user connection information</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">workspaces-abandoned</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">workspaces</span>
+    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">connection-status</span>
+        <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">age</span>
+        <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">LastKnownUserConnectionTimestamp</span>
+        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ge</span>
+        <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">90</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">workspaces-expensive-zombies</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">workspaces</span>
+    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;WorkspaceProperties.RunningMode&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ALWAYS_ON</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">connection-status</span>
+        <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">age</span>
+        <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">LastKnownUserConnectionTimestamp</span>
+        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ge</span>
+        <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="c7n.resources.workspaces.WorkspaceConnectionStatusFilter.annotation_key">
+<code class="descname">annotation_key</code><em class="property"> = 'c7n:ConnectionStatus'</em><a class="headerlink" href="#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.annotation_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="c7n.resources.workspaces.WorkspaceConnectionStatusFilter.get_connection_status">
+<code class="descname">get_connection_status</code><span class="sig-paren">(</span><em>client</em>, <em>workspace_ids</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/workspaces.html#WorkspaceConnectionStatusFilter.get_connection_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.get_connection_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="c7n.resources.workspaces.WorkspaceConnectionStatusFilter.get_resource_value">
+<code class="descname">get_resource_value</code><span class="sig-paren">(</span><em>k</em>, <em>i</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/workspaces.html#WorkspaceConnectionStatusFilter.get_resource_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.get_resource_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.workspaces.WorkspaceConnectionStatusFilter.permissions">
+<code class="descname">permissions</code><em class="property"> = ('workspaces:DescribeConnectionStatus',)</em><a class="headerlink" href="#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.permissions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="c7n.resources.workspaces.WorkspaceConnectionStatusFilter.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>resources</em>, <em>event=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/workspaces.html#WorkspaceConnectionStatusFilter.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bulk process resources and return filtered set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.workspaces.WorkspaceConnectionStatusFilter.schema">
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['connection-status']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.workspaces.WorkspaceConnectionStatusFilter.type">
+<code class="descname">type</code><em class="property"> = 'connection-status'</em><a class="headerlink" href="#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-c7n.resources">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-c7n.resources" title="Permalink to this headline">¶</a></h2>
