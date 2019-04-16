@@ -209,7 +209,6 @@
 <span class="kn">from</span> <span class="nn">c7n.utils</span> <span class="k">import</span> <span class="n">local_session</span><span class="p">,</span> <span class="n">type_schema</span>
 <span class="kn">from</span> <span class="nn">.core</span> <span class="k">import</span> <span class="n">Filter</span>
 <span class="kn">from</span> <span class="nn">c7n.manager</span> <span class="k">import</span> <span class="n">resources</span>
-<span class="kn">from</span> <span class="nn">c7n.resources</span> <span class="k">import</span> <span class="n">aws</span>
 
 
 <div class="viewcode-block" id="SecurityHubFindingFilter"><a class="viewcode-back" href="../../../generated/aws/c7n.filters.html#c7n.filters.securityhub.SecurityHubFindingFilter">[docs]</a><span class="k">class</span> <span class="nc">SecurityHubFindingFilter</span><span class="p">(</span><span class="n">Filter</span><span class="p">):</span>
@@ -229,6 +228,7 @@
 <div class="viewcode-block" id="SecurityHubFindingFilter.validate"><a class="viewcode-back" href="../../../generated/aws/c7n.filters.html#c7n.filters.securityhub.SecurityHubFindingFilter.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;query&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">query</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">c7n.resources</span> <span class="k">import</span> <span class="n">aws</span>
             <span class="n">aws</span><span class="o">.</span><span class="n">shape_validate</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_shape</span><span class="p">,</span> <span class="s1">&#39;securityhub&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SecurityHubFindingFilter.process"><a class="viewcode-back" href="../../../generated/aws/c7n.filters.html#c7n.filters.securityhub.SecurityHubFindingFilter.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resources</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
