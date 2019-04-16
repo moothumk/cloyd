@@ -355,6 +355,9 @@
     <span class="k">if</span> <span class="n">policies</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">policies</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># validation provides for an initialization point for</span>
+                <span class="c1"># some filters/actions.</span>
+                <span class="n">p</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
                 <span class="n">p</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
                 <span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;error during policy execution&quot;</span><span class="p">)</span>
