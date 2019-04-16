@@ -254,7 +254,7 @@
                     <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dupes</span><span class="p">))),</span> <span class="n">dupes</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
         <span class="k">return</span> <span class="p">[]</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">resp</span> <span class="o">=</span> <span class="n">specific_error</span><span class="p">(</span><span class="n">errors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">policy_error_scope</span><span class="p">(</span><span class="n">specific_error</span><span class="p">(</span><span class="n">errors</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">data</span><span class="p">)</span>
         <span class="n">name</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span>
             <span class="n">errors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">instance</span><span class="p">,</span>
             <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="n">errors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">instance</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
@@ -269,6 +269,18 @@
         <span class="n">errors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
         <span class="n">best_match</span><span class="p">(</span><span class="n">validator</span><span class="o">.</span><span class="n">iter_errors</span><span class="p">(</span><span class="n">data</span><span class="p">)),</span>
     <span class="p">]))</span></div>
+
+
+<div class="viewcode-block" id="policy_error_scope"><a class="viewcode-back" href="../../generated/aws/c7n.html#c7n.schema.policy_error_scope">[docs]</a><span class="k">def</span> <span class="nf">policy_error_scope</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Scope a schema error to its policy name and resource.&quot;&quot;&quot;</span>
+    <span class="n">err_path</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">error</span><span class="o">.</span><span class="n">absolute_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">err_path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;policies&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">error</span>
+    <span class="n">pdata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;policies&#39;</span><span class="p">][</span><span class="n">err_path</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">pdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">)</span>
+    <span class="n">error</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Error on policy:</span><span class="si">{}</span><span class="s2"> resource:</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">pdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">),</span> <span class="n">pdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;resource&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">error</span><span class="o">.</span><span class="n">message</span>
+    <span class="k">return</span> <span class="n">error</span></div>
 
 
 <div class="viewcode-block" id="specific_error"><a class="viewcode-back" href="../../generated/aws/c7n.html#c7n.schema.specific_error">[docs]</a><span class="k">def</span> <span class="nf">specific_error</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
