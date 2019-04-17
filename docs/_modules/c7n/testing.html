@@ -221,7 +221,7 @@
 <span class="kn">import</span> <span class="nn">yaml</span>
 
 <span class="kn">from</span> <span class="nn">c7n</span> <span class="k">import</span> <span class="n">policy</span>
-<span class="kn">from</span> <span class="nn">c7n.schema</span> <span class="k">import</span> <span class="n">validate</span> <span class="k">as</span> <span class="n">schema_validate</span>
+<span class="kn">from</span> <span class="nn">c7n.schema</span> <span class="k">import</span> <span class="n">generate</span><span class="p">,</span> <span class="n">validate</span> <span class="k">as</span> <span class="n">schema_validate</span>
 <span class="kn">from</span> <span class="nn">c7n.ctx</span> <span class="k">import</span> <span class="n">ExecutionContext</span>
 <span class="kn">from</span> <span class="nn">c7n.utils</span> <span class="k">import</span> <span class="n">reset_session_cache</span>
 <span class="kn">from</span> <span class="nn">c7n.config</span> <span class="k">import</span> <span class="n">Bag</span><span class="p">,</span> <span class="n">Config</span>
@@ -293,6 +293,8 @@
         <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="k">if</span> <span class="n">validate</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">custodian_schema</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">custodian_schema</span> <span class="o">=</span> <span class="n">generate</span><span class="p">()</span>
             <span class="n">errors</span> <span class="o">=</span> <span class="n">schema_validate</span><span class="p">({</span><span class="s2">&quot;policies&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">data</span><span class="p">]},</span> <span class="bp">self</span><span class="o">.</span><span class="n">custodian_schema</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="n">errors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>

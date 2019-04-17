@@ -827,7 +827,7 @@ transport.</p>
 
 <dl class="attribute">
 <dt id="c7n.actions.policy.ModifyPolicyBase.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'add-statements': {'additionalProperties': False, 'items': {'$ref': '#/definitions/iam-statement'}, 'required': True, 'type': 'array'}, 'remove-statements': {'additionalProperties': False, 'oneOf': [{'enum': ['matched', '*']}, {'type': 'array', 'items': {'type': 'string'}}], 'required': True, 'type': ['array', 'string']}, 'type': {'enum': ['modify-policy']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.actions.policy.ModifyPolicyBase.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'add-statements': {'items': {'$ref': '#/definitions/iam-statement'}, 'type': 'array'}, 'remove-statements': {'oneOf': [{'enum': ['matched', '*']}, {'type': 'array', 'items': {'type': 'string'}}], 'type': ['array', 'string']}, 'type': {'enum': ['modify-policy']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.actions.policy.ModifyPolicyBase.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">

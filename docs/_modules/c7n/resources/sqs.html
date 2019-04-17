@@ -499,10 +499,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">schema</span> <span class="o">=</span> <span class="n">type_schema</span><span class="p">(</span>
         <span class="s1">&#39;set-retention-period&#39;</span><span class="p">,</span>
-        <span class="n">period</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;integer&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;minimum&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="s1">&#39;exclusiveMinimum&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-                <span class="s1">&#39;maximum&#39;</span><span class="p">:</span> <span class="mi">1209600</span><span class="p">,</span> <span class="s1">&#39;exclusiveMaximum&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
-
+        <span class="n">period</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="s1">&#39;minimum&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="s1">&#39;maximum&#39;</span><span class="p">:</span> <span class="mi">1209600</span><span class="p">})</span>
     <span class="n">permissions</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;sqs:SetQueueAttributes&#39;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="SetRetentionPeriod.process"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.sqs.SetRetentionPeriod.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queues</span><span class="p">):</span>
