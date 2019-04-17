@@ -1487,6 +1487,28 @@ type of azure resource.</p>
 <div class="section" id="module-c7n_azure.resources.network_interface">
 <span id="c7n-azure-resources-network-interface-module"></span><h2>c7n_azure.resources.network_interface module<a class="headerlink" href="#module-c7n_azure.resources.network_interface" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
+<dt id="c7n_azure.resources.network_interface.EffectiveRouteTableFilter">
+<em class="property">class </em><code class="descclassname">c7n_azure.resources.network_interface.</code><code class="descname">EffectiveRouteTableFilter</code><span class="sig-paren">(</span><em>data</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/network_interface.html#EffectiveRouteTableFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.network_interface.EffectiveRouteTableFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../aws/c7n.filters.html#c7n.filters.core.ValueFilter" title="c7n.filters.core.ValueFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.filters.core.ValueFilter</span></code></a></p>
+<dl class="method">
+<dt id="c7n_azure.resources.network_interface.EffectiveRouteTableFilter.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>resources</em>, <em>event=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/network_interface.html#EffectiveRouteTableFilter.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.network_interface.EffectiveRouteTableFilter.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bulk process resources and return filtered set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.network_interface.EffectiveRouteTableFilter.schema">
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['effective-route-table']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n_azure.resources.network_interface.EffectiveRouteTableFilter.schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.network_interface.EffectiveRouteTableFilter.type">
+<code class="descname">type</code><em class="property"> = 'effective-route-table'</em><a class="headerlink" href="#c7n_azure.resources.network_interface.EffectiveRouteTableFilter.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="c7n_azure.resources.network_interface.NetworkInterface">
 <em class="property">class </em><code class="descclassname">c7n_azure.resources.network_interface.</code><code class="descname">NetworkInterface</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/network_interface.html#NetworkInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.network_interface.NetworkInterface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#c7n_azure.resources.arm.ArmResourceManager" title="c7n_azure.resources.arm.ArmResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.resources.arm.ArmResourceManager</span></code></a></p>

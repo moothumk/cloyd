@@ -205,8 +205,17 @@
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
 
+<span class="kn">from</span> <span class="nn">c7n_azure</span> <span class="k">import</span> <span class="n">constants</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.provider</span> <span class="k">import</span> <span class="n">resources</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.resources.arm</span> <span class="k">import</span> <span class="n">ArmResourceManager</span>
+
+<span class="kn">from</span> <span class="nn">c7n.filters.core</span> <span class="k">import</span> <span class="n">ValueFilter</span><span class="p">,</span> <span class="n">type_schema</span>
+<span class="kn">from</span> <span class="nn">c7n_azure.utils</span> <span class="k">import</span> <span class="n">ThreadHelper</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">max_workers</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">DEFAULT_MAX_THREAD_WORKERS</span>
+<span class="n">chunk_size</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">DEFAULT_CHUNK_SIZE</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;azure.networkinterface&#39;</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="NetworkInterface"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.network_interface.NetworkInterface">[docs]</a><span class="nd">@resources</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;networkinterface&#39;</span><span class="p">)</span>
@@ -222,6 +231,49 @@
             <span class="s1">&#39;location&#39;</span><span class="p">,</span>
             <span class="s1">&#39;resourceGroup&#39;</span>
         <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="EffectiveRouteTableFilter"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.network_interface.EffectiveRouteTableFilter">[docs]</a><span class="nd">@NetworkInterface</span><span class="o">.</span><span class="n">filter_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;effective-route-table&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">EffectiveRouteTableFilter</span><span class="p">(</span><span class="n">ValueFilter</span><span class="p">):</span>
+    <span class="n">schema</span> <span class="o">=</span> <span class="n">type_schema</span><span class="p">(</span><span class="s1">&#39;effective-route-table&#39;</span><span class="p">,</span> <span class="n">rinherit</span><span class="o">=</span><span class="n">ValueFilter</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+
+<div class="viewcode-block" id="EffectiveRouteTableFilter.process"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.network_interface.EffectiveRouteTableFilter.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resources</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="n">resources</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ThreadHelper</span><span class="o">.</span><span class="n">execute_in_parallel</span><span class="p">(</span>
+            <span class="n">resources</span><span class="o">=</span><span class="n">resources</span><span class="p">,</span>
+            <span class="n">event</span><span class="o">=</span><span class="n">event</span><span class="p">,</span>
+            <span class="n">execution_method</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_process_resource_set</span><span class="p">,</span>
+            <span class="n">executor_factory</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">executor_factory</span><span class="p">,</span>
+            <span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">,</span>
+            <span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">,</span>
+            <span class="n">chunk_size</span><span class="o">=</span><span class="n">chunk_size</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">resources</span></div>
+
+    <span class="k">def</span> <span class="nf">_process_resource_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resources</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">get_client</span><span class="p">()</span>
+        <span class="n">matched</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">resource</span> <span class="ow">in</span> <span class="n">resources</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;routes&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">resource</span><span class="p">:</span>
+                    <span class="n">route_table</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="n">client</span><span class="o">.</span><span class="n">network_interfaces</span>
+                        <span class="o">.</span><span class="n">get_effective_route_table</span><span class="p">(</span><span class="n">resource</span><span class="p">[</span><span class="s1">&#39;resourceGroup&#39;</span><span class="p">],</span> <span class="n">resource</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+                        <span class="o">.</span><span class="n">result</span><span class="p">()</span>
+                    <span class="p">)</span>
+
+                    <span class="n">resource</span><span class="p">[</span><span class="s1">&#39;routes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">route_table</span><span class="o">.</span><span class="n">serialize</span><span class="p">()</span>
+                    <span class="n">filtered_effective_route_table</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">EffectiveRouteTableFilter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>\
+                        <span class="o">.</span><span class="n">process</span><span class="p">([</span><span class="n">resource</span><span class="p">],</span> <span class="n">event</span><span class="p">)</span>
+
+                    <span class="k">if</span> <span class="n">filtered_effective_route_table</span><span class="p">:</span>
+                        <span class="n">matched</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">matched</span></div>
 </pre></div>
 
            </div>
