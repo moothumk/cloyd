@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Find Stopped Virtual Machines &mdash; Cloud Custodian  documentation</title>
+  <title>Find Route Tables With A Specific Subnet &mdash; Cloud Custodian  documentation</title>
   
 
   
@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../../_static/css/expand.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Add Tag To Virtual Machines" href="tagadd.html" />
-    <link rel="prev" title="Find Route Tables With A Specific Subnet" href="routetablewithsubnet.html" /> 
+    <link rel="next" title="Find Stopped Virtual Machines" href="stoppedvm.html" />
+    <link rel="prev" title="Remove Empty Resource Groups" href="rgremoveempty.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -109,8 +109,8 @@
 <li class="toctree-l2"><a class="reference internal" href="nsg.html">Deny access to Network Security Group.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resizeappplan.html">Resize an Application Service Plan</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rgremoveempty.html">Remove Empty Resource Groups</a></li>
-<li class="toctree-l2"><a class="reference internal" href="routetablewithsubnet.html">Find Route Tables With A Specific Subnet</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Find Stopped Virtual Machines</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Find Route Tables With A Specific Subnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stoppedvm.html">Find Stopped Virtual Machines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tagadd.html">Add Tag To Virtual Machines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tagremove.html">Remove Tag From Virtual Machines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tagtrim.html">Trim Tags From Virtual Machines</a></li>
@@ -192,7 +192,7 @@
         
           <li><a href="index.html">Examples</a> &raquo;</li>
         
-      <li>Find Stopped Virtual Machines</li>
+      <li>Find Route Tables With A Specific Subnet</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -209,17 +209,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="find-stopped-virtual-machines">
-<h1>Find Stopped Virtual Machines<a class="headerlink" href="#find-stopped-virtual-machines" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="find-route-tables-with-a-specific-subnet">
+<span id="azure-examples-routetable-with-subnet"></span><h1>Find Route Tables With A Specific Subnet<a class="headerlink" href="#find-route-tables-with-a-specific-subnet" title="Permalink to this headline">¶</a></h1>
+<p>Returns all route tables that route to the subnet named <cite>subnetname</cite> in the virtual network named <cite>vnetname</cite>.
+Since the relationship between route tables and subnets is one-to-many, there will only ever be 0 or 1
+route tables associated with a given subnet.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stopped-vm</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">routes-to-specific-subnet</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.routetable</span>
     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">instance-view</span>
-       <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">statuses[].code</span>
-       <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">not-in</span>
-       <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
-       <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="s">&quot;PowerState/running&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+        <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">properties.subnets[?ends_with(id, &#39;vnetname/subnets/subnetname&#39;)] | [0]</span>
+        <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">not-null</span>
 </pre></div>
 </div>
 </div>
@@ -232,10 +233,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tagadd.html" class="btn btn-neutral float-right" title="Add Tag To Virtual Machines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="stoppedvm.html" class="btn btn-neutral float-right" title="Find Stopped Virtual Machines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="routetablewithsubnet.html" class="btn btn-neutral float-left" title="Find Route Tables With A Specific Subnet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rgremoveempty.html" class="btn btn-neutral float-left" title="Remove Empty Resource Groups" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Resource Groups &mdash; Cloud Custodian  documentation</title>
+  <title>Route Table &mdash; Cloud Custodian  documentation</title>
   
 
   
@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../../../_static/css/expand.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Route Table" href="routetable.html" />
-    <link rel="prev" title="Redis" href="redis.html" /> 
+    <link rel="next" title="SQL Server" href="sqlserver.html" />
+    <link rel="prev" title="Resource Groups" href="resourcegroup.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -126,13 +126,13 @@
 <li class="toctree-l2"><a class="reference internal" href="policyassignments.html">Policy assignments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publicip.html">Public IP Address</a></li>
 <li class="toctree-l2"><a class="reference internal" href="redis.html">Redis</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Resource Groups</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resourcegroup.html">Resource Groups</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Route Table</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#filters">Filters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#actions">Actions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#example-policies">Example Policies</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="routetable.html">Route Table</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sqlserver.html">SQL Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="subscription.html">Subscription</a></li>
@@ -216,7 +216,7 @@
         
           <li><a href="../index.html">Policies</a> &raquo;</li>
         
-      <li>Resource Groups</li>
+      <li>Route Table</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -233,95 +233,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="resource-groups">
-<span id="azure-resourcegroup"></span><h1>Resource Groups<a class="headerlink" href="#resource-groups" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="route-table">
+<span id="azure-routetable"></span><h1>Route Table<a class="headerlink" href="#route-table" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="filters">
 <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Standard Value Filter (see <a class="reference internal" href="../../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</dt>
-<dd><ul class="first last simple">
-<li>Model: <a class="reference external" href="https://docs.microsoft.com/en-us/python/api/azure.mgmt.resource.resources.v2017_05_10.models.resourcegroup?view=azure-python">ResourceGroup</a></li>
+<dd><ul class="first last">
+<li>Model: <a class="reference external" href="https://docs.microsoft.com/en-us/python/api/azure-mgmt-network/azure.mgmt.network.v2018_02_01.models.routetable?view=azure-python">RouteTable</a></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>ARM Resource Filters (see <a class="reference internal" href="../genericarmfilter.html#azure-genericarmfilter"><span class="std std-ref">Generic Filters</span></a>)</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Tag Filter - Filter on tag presence and/or values</li>
 <li>Marked-For-Op Filter - Filter on tag that indicates a scheduled operation for a resource</li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">empty-group</span></code>
-Filter based on empty resource groups</p>
-<div class="toggle docutils container">
-<div class="header docutils container">
-<p>Schema:</p>
-</div>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Schema in unexpected format.&quot;</span>
-</pre></div>
-</div>
-</div>
-</li>
 </ul>
 </div>
 <div class="section" id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p class="first">ARM Resource Actions (see <a class="reference internal" href="../genericarmaction.html#azure-genericarmaction"><span class="std std-ref">Generic Actions</span></a>)</p>
-</li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">delete</span></code>
-Delete a resource group</p>
-<div class="toggle docutils container">
-<div class="header docutils container">
-<p>Schema:</p>
-</div>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
-</pre></div>
-</div>
-</div>
-</li>
+<ul class="simple">
+<li>ARM Resource Actions (see <a class="reference internal" href="../genericarmaction.html#azure-genericarmaction"><span class="std std-ref">Generic Actions</span></a>)</li>
 </ul>
 </div>
 <div class="section" id="example-policies">
 <h2>Example Policies<a class="headerlink" href="#example-policies" title="Permalink to this headline">¶</a></h2>
-<p>This policy will delete all empty resource groups</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">delete-empty-groups</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.resourcegroup</span>
-    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">empty-group</span>
-    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
-</pre></div>
-</div>
-<p>This set of policies will mark all resource groups for deletion in 7 days that have ‘test’ in name (ignore case),
-and then perform the delete operation on those ready for deletion.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">mark-test-groups-for-deletion</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.resourcegroup</span>
-    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
-        <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">name</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">in</span>
-        <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">normalize</span>
-        <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
-    <span class=" -Error"> </span><span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">mark-for-op</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
-        <span class="l l-Scalar l-Scalar-Plain">days</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">7</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">delete-test-resource-groups</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.resourcegroup</span>
-    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">marked-for-op</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
-    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
-</pre></div>
-</div>
+<ul class="simple">
+<li><a class="reference internal" href="../../examples/routetablewithsubnet.html#azure-examples-routetable-with-subnet"><span class="std std-ref">Find Route Tables With A Specific Subnet</span></a></li>
+</ul>
 </div>
 </div>
 
@@ -333,10 +279,10 @@ and then perform the delete operation on those ready for deletion.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="routetable.html" class="btn btn-neutral float-right" title="Route Table" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sqlserver.html" class="btn btn-neutral float-right" title="SQL Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="redis.html" class="btn btn-neutral float-left" title="Redis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="resourcegroup.html" class="btn btn-neutral float-left" title="Resource Groups" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

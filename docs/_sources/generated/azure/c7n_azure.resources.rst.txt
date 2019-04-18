@@ -188,6 +188,14 @@ c7n\_azure.resources.resourcegroup module
     :undoc-members:
     :show-inheritance:
 
+c7n\_azure.resources.route\_table module
+----------------------------------------
+
+.. automodule:: c7n_azure.resources.route_table
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 c7n\_azure.resources.sqlserver module
 -------------------------------------
 
