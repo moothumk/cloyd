@@ -340,8 +340,13 @@
 <div class="viewcode-block" id="QueryResourceManager.resources"><a class="viewcode-back" href="../../generated/gcp/c7n_gcp.html#c7n_gcp.query.QueryResourceManager.resources">[docs]</a>    <span class="k">def</span> <span class="nf">resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">q</span> <span class="o">=</span> <span class="n">query</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_resource_query</span><span class="p">()</span>
         <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_cache_key</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+        <span class="n">resources</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fetch_resources</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">resources</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_resources</span><span class="p">(</span><span class="n">resources</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_fetch_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">resources</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">augment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">q</span><span class="p">))</span> <span class="ow">or</span> <span class="p">[]</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">augment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">get_resources</span><span class="p">(</span><span class="n">query</span><span class="p">))</span> <span class="ow">or</span> <span class="p">[]</span>
         <span class="k">except</span> <span class="n">HttpError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">error</span> <span class="o">=</span> <span class="n">extract_error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">error</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -354,11 +359,63 @@
                     <span class="n">local_session</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_factory</span><span class="p">)</span><span class="o">.</span><span class="n">get_default_project</span><span class="p">())</span>
                 <span class="k">return</span> <span class="p">[]</span>
             <span class="k">raise</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">resources</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_resources</span><span class="p">(</span><span class="n">resources</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="QueryResourceManager.augment"><a class="viewcode-back" href="../../generated/gcp/c7n_gcp.html#c7n_gcp.query.QueryResourceManager.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resources</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">resources</span></div></div>
+
+
+<div class="viewcode-block" id="ChildResourceManager"><a class="viewcode-back" href="../../generated/gcp/c7n_gcp.html#c7n_gcp.query.ChildResourceManager">[docs]</a><span class="k">class</span> <span class="nc">ChildResourceManager</span><span class="p">(</span><span class="n">QueryResourceManager</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ChildResourceManager.get_resource"><a class="viewcode-back" href="../../generated/gcp/c7n_gcp.html#c7n_gcp.query.ChildResourceManager.get_resource">[docs]</a>    <span class="k">def</span> <span class="nf">get_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_info</span><span class="p">):</span>
+        <span class="n">child_instance</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">ChildResourceManager</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="n">resource_info</span><span class="p">)</span>
+
+        <span class="n">parent_resource</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_type</span><span class="o">.</span><span class="n">parent_spec</span><span class="p">[</span><span class="s1">&#39;resource&#39;</span><span class="p">]</span>
+        <span class="n">parent_instance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_resource_manager</span><span class="p">(</span><span class="n">parent_resource</span><span class="p">)</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_parent_resource_info</span><span class="p">(</span><span class="n">child_instance</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">annotation_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_type</span><span class="o">.</span><span class="n">get_parent_annotation_key</span><span class="p">()</span>
+        <span class="n">child_instance</span><span class="p">[</span><span class="n">annotation_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">parent_instance</span>
+
+        <span class="k">return</span> <span class="n">child_instance</span></div>
+
+    <span class="k">def</span> <span class="nf">_fetch_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">query</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">resources</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">annotation_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_type</span><span class="o">.</span><span class="n">get_parent_annotation_key</span><span class="p">()</span>
+        <span class="n">parent_resource_manager</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_resource_manager</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">resource_type</span><span class="o">.</span><span class="n">parent_spec</span><span class="p">[</span><span class="s1">&#39;resource&#39;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">parent_instance</span> <span class="ow">in</span> <span class="n">parent_resource_manager</span><span class="o">.</span><span class="n">resources</span><span class="p">():</span>
+            <span class="n">query</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_child_enum_args</span><span class="p">(</span><span class="n">parent_instance</span><span class="p">))</span>
+            <span class="n">children</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">ChildResourceManager</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_fetch_resources</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">child_instance</span> <span class="ow">in</span> <span class="n">children</span><span class="p">:</span>
+                <span class="n">child_instance</span><span class="p">[</span><span class="n">annotation_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">parent_instance</span>
+
+            <span class="n">resources</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">children</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">resources</span>
+
+    <span class="k">def</span> <span class="nf">_get_parent_resource_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">child_instance</span><span class="p">):</span>
+        <span class="n">mappings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_type</span><span class="o">.</span><span class="n">parent_spec</span><span class="p">[</span><span class="s1">&#39;parent_get_params&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_fields</span><span class="p">(</span><span class="n">child_instance</span><span class="p">,</span> <span class="n">mappings</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_child_enum_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent_instance</span><span class="p">):</span>
+        <span class="n">mappings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_type</span><span class="o">.</span><span class="n">parent_spec</span><span class="p">[</span><span class="s1">&#39;child_enum_params&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_fields</span><span class="p">(</span><span class="n">parent_instance</span><span class="p">,</span> <span class="n">mappings</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_extract_fields</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">mappings</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">mapping</span> <span class="ow">in</span> <span class="n">mappings</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">mapping</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">source</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
 
 
 <div class="viewcode-block" id="TypeMeta"><a class="viewcode-back" href="../../generated/gcp/c7n_gcp.html#c7n_gcp.query.TypeMeta">[docs]</a><span class="k">class</span> <span class="nc">TypeMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
@@ -392,6 +449,16 @@
     <span class="n">get</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="c1"># for get methods that require the full event payload</span>
     <span class="n">get_requires_event</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="ChildTypeInfo"><a class="viewcode-back" href="../../generated/gcp/c7n_gcp.html#c7n_gcp.query.ChildTypeInfo">[docs]</a><span class="k">class</span> <span class="nc">ChildTypeInfo</span><span class="p">(</span><span class="n">TypeInfo</span><span class="p">):</span>
+
+    <span class="n">parent_spec</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="ChildTypeInfo.get_parent_annotation_key"><a class="viewcode-back" href="../../generated/gcp/c7n_gcp.html#c7n_gcp.query.ChildTypeInfo.get_parent_annotation_key">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_parent_annotation_key</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="n">parent_resource</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">parent_spec</span><span class="p">[</span><span class="s1">&#39;resource&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="s1">&#39;c7n:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">parent_resource</span><span class="p">)</span></div></div>
 
 
 <span class="n">ERROR_REASON</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;error.errors[0].reason&#39;</span><span class="p">)</span>

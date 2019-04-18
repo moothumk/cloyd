@@ -1092,6 +1092,43 @@ region execution and filtering policies for applicable regions.</p>
 <div class="section" id="module-c7n_gcp.query">
 <span id="c7n-gcp-query-module"></span><h2>c7n_gcp.query module<a class="headerlink" href="#module-c7n_gcp.query" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
+<dt id="c7n_gcp.query.ChildResourceManager">
+<em class="property">class </em><code class="descclassname">c7n_gcp.query.</code><code class="descname">ChildResourceManager</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/query.html#ChildResourceManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.query.ChildResourceManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#c7n_gcp.query.QueryResourceManager" title="c7n_gcp.query.QueryResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.QueryResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.query.ChildResourceManager.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.query.ChildResourceManager.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.query.ChildResourceManager.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.query.ChildResourceManager.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="c7n_gcp.query.ChildResourceManager.get_resource">
+<code class="descname">get_resource</code><span class="sig-paren">(</span><em>resource_info</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/query.html#ChildResourceManager.get_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.query.ChildResourceManager.get_resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.query.ChildTypeInfo">
+<em class="property">class </em><code class="descclassname">c7n_gcp.query.</code><code class="descname">ChildTypeInfo</code><a class="reference internal" href="../../_modules/c7n_gcp/query.html#ChildTypeInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.query.ChildTypeInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#c7n_gcp.query.TypeInfo" title="c7n_gcp.query.TypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.TypeInfo</span></code></a></p>
+<dl class="classmethod">
+<dt id="c7n_gcp.query.ChildTypeInfo.get_parent_annotation_key">
+<em class="property">classmethod </em><code class="descname">get_parent_annotation_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/query.html#ChildTypeInfo.get_parent_annotation_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.query.ChildTypeInfo.get_parent_annotation_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.query.ChildTypeInfo.parent_spec">
+<code class="descname">parent_spec</code><em class="property"> = None</em><a class="headerlink" href="#c7n_gcp.query.ChildTypeInfo.parent_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="c7n_gcp.query.DescribeSource">
 <em class="property">class </em><code class="descclassname">c7n_gcp.query.</code><code class="descname">DescribeSource</code><span class="sig-paren">(</span><em>manager</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/query.html#DescribeSource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.query.DescribeSource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>

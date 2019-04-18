@@ -3919,6 +3919,68 @@
 <div class="section" id="module-c7n_gcp.resources.sql">
 <span id="c7n-gcp-resources-sql-module"></span><h2>c7n_gcp.resources.sql module<a class="headerlink" href="#module-c7n_gcp.resources.sql" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
+<dt id="c7n_gcp.resources.sql.SqlDatabase">
+<em class="property">class </em><code class="descclassname">c7n_gcp.resources.sql.</code><code class="descname">SqlDatabase</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/sql.html#SqlDatabase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.sql.SqlDatabase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.ChildResourceManager" title="c7n_gcp.query.ChildResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.ChildResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.sql.SqlDatabase.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.sql.SqlDatabase.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.sql.SqlDatabase.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.sql.SqlDatabase.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.sql.SqlDatabase.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_gcp/resources/sql.html#SqlDatabase.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.sql.SqlDatabase.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.ChildTypeInfo" title="c7n_gcp.query.ChildTypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.ChildTypeInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.sql.SqlDatabase.resource_type.component">
+<code class="descname">component</code><em class="property"> = 'databases'</em><a class="headerlink" href="#c7n_gcp.resources.sql.SqlDatabase.resource_type.component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.sql.SqlDatabase.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = ('list', 'items[]', None)</em><a class="headerlink" href="#c7n_gcp.resources.sql.SqlDatabase.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="c7n_gcp.resources.sql.SqlDatabase.resource_type.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>resource_info</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/sql.html#SqlDatabase.resource_type.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.sql.SqlDatabase.resource_type.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.sql.SqlDatabase.resource_type.id">
+<code class="descname">id</code><em class="property"> = 'name'</em><a class="headerlink" href="#c7n_gcp.resources.sql.SqlDatabase.resource_type.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.sql.SqlDatabase.resource_type.parent_spec">
+<code class="descname">parent_spec</code><em class="property"> = {'child_enum_params': [('name', 'instance')], 'parent_get_params': [('project', 'project'), ('instance', 'name')], 'resource': 'sql-instance'}</em><a class="headerlink" href="#c7n_gcp.resources.sql.SqlDatabase.resource_type.parent_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.sql.SqlDatabase.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'sqladmin'</em><a class="headerlink" href="#c7n_gcp.resources.sql.SqlDatabase.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.sql.SqlDatabase.resource_type.version">
+<code class="descname">version</code><em class="property"> = 'v1beta4'</em><a class="headerlink" href="#c7n_gcp.resources.sql.SqlDatabase.resource_type.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.sql.SqlDatabase.type">
+<code class="descname">type</code><em class="property"> = 'sql-database'</em><a class="headerlink" href="#c7n_gcp.resources.sql.SqlDatabase.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="c7n_gcp.resources.sql.SqlInstance">
 <em class="property">class </em><code class="descclassname">c7n_gcp.resources.sql.</code><code class="descname">SqlInstance</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/sql.html#SqlInstance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.sql.SqlInstance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.QueryResourceManager" title="c7n_gcp.query.QueryResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.QueryResourceManager</span></code></a></p>
