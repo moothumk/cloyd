@@ -293,12 +293,20 @@ have been defined to allow for easier policy writing as for the
 <div class="section" id="periodic-function">
 <h4>Periodic Function<a class="headerlink" href="#periodic-function" title="Permalink to this headline">¶</a></h4>
 <p>We support both rate per unit time and cron expressions, per <a class="reference external" href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">scheduler syntax</a>.</p>
+<p>When using –assume on the custodian run cli command, the specified
+role is also considered as the execution role to be attached to lambda
+function that gets deployed. In such scenario it is not required to
+specify the role attribute in the config block for mode. However, if
+you are not using the –assume option, then it is required to add role
+in the config-block of mode. When specifying role {account_id} is runtime
+substituted so a policy can be used across accounts.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">s3-bucket-check</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">s3</span>
     <span class="l l-Scalar l-Scalar-Plain">mode</span><span class="p p-Indicator">:</span>
       <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">periodic</span>
       <span class="l l-Scalar l-Scalar-Plain">schedule</span><span class="p p-Indicator">:</span> <span class="s">&quot;rate(1</span><span class="nv"> </span><span class="s">day)&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">role</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">arn:aws:iam::{account_id}:role/some-role</span>
 </pre></div>
 </div>
 </div>
