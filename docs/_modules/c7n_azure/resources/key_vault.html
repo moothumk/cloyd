@@ -235,6 +235,7 @@
                              <span class="s1">&#39;certificates&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;array&#39;</span><span class="p">},</span>
                              <span class="s1">&#39;secrets&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;array&#39;</span><span class="p">},</span>
                              <span class="s1">&#39;keys&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;array&#39;</span><span class="p">}})</span>
+    <span class="n">GRAPH_PROVIDED_KEYS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;displayName&#39;</span><span class="p">,</span> <span class="s1">&#39;aadType&#39;</span><span class="p">,</span> <span class="s1">&#39;principalName&#39;</span><span class="p">]</span>
     <span class="n">graph_client</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">manager</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -261,14 +262,16 @@
                         <span class="s1">&#39;certificates&#39;</span><span class="p">:</span> <span class="n">policy</span><span class="o">.</span><span class="n">permissions</span><span class="o">.</span><span class="n">certificates</span>
                     <span class="p">}</span>
                 <span class="p">})</span>
-            <span class="c1"># Enhance access policies with displayName, aadType and principalName</span>
-            <span class="n">i</span><span class="p">[</span><span class="s1">&#39;accessPolicies&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">enhance_policies</span><span class="p">(</span><span class="n">access_policies</span><span class="p">)</span>
+            <span class="c1"># Enhance access policies with displayName, aadType and</span>
+            <span class="c1"># principalName if necessary</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">GRAPH_PROVIDED_KEYS</span><span class="p">:</span>
+                <span class="n">i</span><span class="p">[</span><span class="s1">&#39;accessPolicies&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_enhance_policies</span><span class="p">(</span><span class="n">access_policies</span><span class="p">)</span>
 
         <span class="c1"># Ensure each policy is</span>
         <span class="c1">#   - User is whitelisted</span>
         <span class="c1">#   - Permissions don&#39;t exceed allowed permissions</span>
         <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;accessPolicies&#39;</span><span class="p">]:</span>
-            <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">p</span> <span class="ow">or</span> <span class="n">p</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="p">:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">compare_permissions</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;permissions&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">permissions</span><span class="p">):</span>
                     <span class="k">return</span> <span class="kc">False</span>
         <span class="k">return</span> <span class="kc">True</span>
@@ -289,7 +292,10 @@
 
         <span class="k">return</span> <span class="kc">True</span></div>
 
-<div class="viewcode-block" id="WhiteListFilter.enhance_policies"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.WhiteListFilter.enhance_policies">[docs]</a>    <span class="k">def</span> <span class="nf">enhance_policies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">access_policies</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_enhance_policies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">access_policies</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">access_policies</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">access_policies</span>
+
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph_client</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">s</span> <span class="o">=</span> <span class="n">Session</span><span class="p">(</span><span class="n">resource</span><span class="o">=</span><span class="s1">&#39;https://graph.windows.net&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">graph_client</span> <span class="o">=</span> <span class="n">GraphRbacManagementClient</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">get_credentials</span><span class="p">(),</span> <span class="n">s</span><span class="o">.</span><span class="n">get_tenant_id</span><span class="p">())</span>
@@ -298,15 +304,17 @@
         <span class="n">object_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;objectId&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">access_policies</span><span class="p">]</span>
         <span class="c1"># GraphHelper.get_principal_dictionary returns empty AADObject if not found with graph</span>
         <span class="c1"># or if graph is not available.</span>
-        <span class="n">principal_dics</span> <span class="o">=</span> <span class="n">GraphHelper</span><span class="o">.</span><span class="n">get_principal_dictionary</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph_client</span><span class="p">,</span> <span class="n">object_ids</span><span class="p">)</span>
+        <span class="n">principal_dics</span> <span class="o">=</span> <span class="n">GraphHelper</span><span class="o">.</span><span class="n">get_principal_dictionary</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">graph_client</span><span class="p">,</span> <span class="n">object_ids</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">policy</span> <span class="ow">in</span> <span class="n">access_policies</span><span class="p">:</span>
             <span class="n">aad_object</span> <span class="o">=</span> <span class="n">principal_dics</span><span class="p">[</span><span class="n">policy</span><span class="p">[</span><span class="s1">&#39;objectId&#39;</span><span class="p">]]</span>
-            <span class="n">policy</span><span class="p">[</span><span class="s1">&#39;displayName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">aad_object</span><span class="o">.</span><span class="n">display_name</span>
-            <span class="n">policy</span><span class="p">[</span><span class="s1">&#39;aadType&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">aad_object</span><span class="o">.</span><span class="n">object_type</span>
-            <span class="n">policy</span><span class="p">[</span><span class="s1">&#39;principalName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">GraphHelper</span><span class="o">.</span><span class="n">get_principal_name</span><span class="p">(</span><span class="n">aad_object</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">aad_object</span><span class="o">.</span><span class="n">object_id</span><span class="p">:</span>
+                <span class="n">policy</span><span class="p">[</span><span class="s1">&#39;displayName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">aad_object</span><span class="o">.</span><span class="n">display_name</span>
+                <span class="n">policy</span><span class="p">[</span><span class="s1">&#39;aadType&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">aad_object</span><span class="o">.</span><span class="n">object_type</span>
+                <span class="n">policy</span><span class="p">[</span><span class="s1">&#39;principalName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">GraphHelper</span><span class="o">.</span><span class="n">get_principal_name</span><span class="p">(</span><span class="n">aad_object</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">access_policies</span></div></div>
+        <span class="k">return</span> <span class="n">access_policies</span></div>
 </pre></div>
 
            </div>

@@ -1632,13 +1632,23 @@ variables.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="staticmethod">
 <dt id="c7n_azure.utils.GraphHelper.get_principal_dictionary">
-<em class="property">static </em><code class="descname">get_principal_dictionary</code><span class="sig-paren">(</span><em>graph_client</em>, <em>object_ids</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/utils.html#GraphHelper.get_principal_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.utils.GraphHelper.get_principal_dictionary" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">static </em><code class="descname">get_principal_dictionary</code><span class="sig-paren">(</span><em>graph_client</em>, <em>object_ids</em>, <em>raise_on_graph_call_error=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/utils.html#GraphHelper.get_principal_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.utils.GraphHelper.get_principal_dictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves Azure AD Objects for corresponding object ids passed.
+:param graph_client: A client for Microsoft Graph.
+:param object_ids: The object ids to retrieve Azure AD objects for.
+:param raise_on_graph_call_error: A boolean indicate whether an error should be
+raised if the underlying Microsoft Graph call fails.
+:return: A dictionary keyed by object id with the Azure AD object as the value.
+Note: empty Azure AD objects could be returned if not found in the graph.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="c7n_azure.utils.GraphHelper.get_principal_name">
 <em class="property">static </em><code class="descname">get_principal_name</code><span class="sig-paren">(</span><em>graph_object</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/utils.html#GraphHelper.get_principal_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.utils.GraphHelper.get_principal_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Attempts to resolve a principal name.
+:param graph_object: the Azure AD Graph Object
+:return: The resolved value or an empty string if unsuccessful.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="c7n_azure.utils.GraphHelper.log">
