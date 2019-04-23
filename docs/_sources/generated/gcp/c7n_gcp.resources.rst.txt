@@ -44,6 +44,14 @@ c7n\_gcp.resources.dataflow module
     :undoc-members:
     :show-inheritance:
 
+c7n\_gcp.resources.deploymentmanager module
+-------------------------------------------
+
+.. automodule:: c7n_gcp.resources.deploymentmanager
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 c7n\_gcp.resources.dns module
 -----------------------------
 
