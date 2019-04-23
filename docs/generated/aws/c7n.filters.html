@@ -411,7 +411,7 @@ automatically, register the config-compliance filter.</p>
 
 <dl class="attribute">
 <dt id="c7n.filters.core.EventFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['event']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.filters.core.EventFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['event']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/value_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.filters.core.EventFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -609,7 +609,7 @@ manager - resource type manager (ec2, s3, etc)</p>
 
 <dl class="attribute">
 <dt id="c7n.filters.core.ValueFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['value']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.filters.core.ValueFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['value']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/value_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.filters.core.ValueFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -973,7 +973,7 @@ of the kms key by using ‘c7n:AliasName’</p>
 
 <dl class="attribute">
 <dt id="c7n.filters.kms.KmsRelatedFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['kms-key']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.filters.kms.KmsRelatedFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['kms-key']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/value_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.filters.kms.KmsRelatedFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -2053,7 +2053,7 @@ with a given tag value, and that tag was not present on the resource.</p>
 
 <dl class="attribute">
 <dt id="c7n.filters.vpc.SecurityGroupFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['security-group']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.filters.vpc.SecurityGroupFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['security-group']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/value_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.filters.vpc.SecurityGroupFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -2080,7 +2080,7 @@ with a given tag value, and that tag was not present on the resource.</p>
 
 <dl class="attribute">
 <dt id="c7n.filters.vpc.SubnetFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['subnet']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.filters.vpc.SubnetFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['subnet']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/value_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.filters.vpc.SubnetFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -2107,7 +2107,7 @@ with a given tag value, and that tag was not present on the resource.</p>
 
 <dl class="attribute">
 <dt id="c7n.filters.vpc.VpcFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['vpc']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.filters.vpc.VpcFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['vpc']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/value_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.filters.vpc.VpcFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
