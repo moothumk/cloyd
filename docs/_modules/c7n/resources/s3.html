@@ -2426,6 +2426,7 @@
 
 
 <div class="viewcode-block" id="RemoveBucketTag"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.s3.RemoveBucketTag">[docs]</a><span class="nd">@actions</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;unmark&#39;</span><span class="p">)</span>
+<span class="nd">@actions</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;remove-tag&#39;</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">RemoveBucketTag</span><span class="p">(</span><span class="n">RemoveTag</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Removes tag/tags from a S3 object</span>
 
@@ -2439,12 +2440,9 @@
 <span class="sd">                filters:</span>
 <span class="sd">                  - &quot;tag:BucketOwner&quot;: present</span>
 <span class="sd">                actions:</span>
-<span class="sd">                  - type: unmark</span>
+<span class="sd">                  - type: remove-tag</span>
 <span class="sd">                    tags: [&#39;BucketOwner&#39;]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">schema</span> <span class="o">=</span> <span class="n">type_schema</span><span class="p">(</span>
-        <span class="s1">&#39;unmark&#39;</span><span class="p">,</span> <span class="n">aliases</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;remove-tag&#39;</span><span class="p">,),</span> <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;array&#39;</span><span class="p">})</span>
 
 <div class="viewcode-block" id="RemoveBucketTag.process_resource_set"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.s3.RemoveBucketTag.process_resource_set">[docs]</a>    <span class="k">def</span> <span class="nf">process_resource_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">resource_set</span><span class="p">,</span> <span class="n">tags</span><span class="p">):</span>
         <span class="n">modify_bucket_tags</span><span class="p">(</span>

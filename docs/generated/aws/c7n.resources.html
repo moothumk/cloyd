@@ -379,7 +379,7 @@ account has attempted to set a policy at all.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.account.AccountPasswordPolicy.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['password-policy']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.account.AccountPasswordPolicy.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['password-policy']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.account.AccountPasswordPolicy.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -775,7 +775,7 @@ enabled with root mfa or has root api keys.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.account.IAMSummary.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['iam-summary']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.account.IAMSummary.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['iam-summary']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.account.IAMSummary.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -892,7 +892,7 @@ enabled with root mfa or has root api keys.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.account.S3PublicBlock.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['s3-public-block']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.account.S3PublicBlock.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['s3-public-block']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.account.S3PublicBlock.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1650,7 +1650,7 @@ a filter (such as image-age)</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.ami.ImageAgeFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'minimum': 0, 'type': 'number'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect'], 'type': 'string'}, 'type': {'enum': ['image-age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ami.ImageAgeFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'minimum': 0, 'type': 'number'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['image-age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ami.ImageAgeFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1914,7 +1914,7 @@ launching it</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.apigw.FilterRestIntegration.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'method': {'enum': ['all', 'ANY', 'PUT', 'GET', 'POST', 'DELETE', 'OPTIONS', 'HEAD', 'PATCH'], 'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['rest-integration']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.apigw.FilterRestIntegration.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'method': {'enum': ['all', 'ANY', 'PUT', 'GET', 'POST', 'DELETE', 'OPTIONS', 'HEAD', 'PATCH'], 'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['rest-integration']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.apigw.FilterRestIntegration.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1964,7 +1964,7 @@ launching it</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.apigw.FilterRestMethod.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'method': {'enum': ['all', 'ANY', 'PUT', 'GET', 'POST', 'DELETE', 'OPTIONS', 'HEAD', 'PATCH'], 'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['rest-method']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.apigw.FilterRestMethod.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'method': {'enum': ['all', 'ANY', 'PUT', 'GET', 'POST', 'DELETE', 'OPTIONS', 'HEAD', 'PATCH'], 'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['rest-method']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.apigw.FilterRestMethod.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -2870,7 +2870,7 @@ does not match the load balancer health check protocol</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.appelb.AppELBListenerFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'matched': {'type': 'boolean'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['listener']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.appelb.AppELBListenerFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'matched': {'type': 'boolean'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['listener']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.appelb.AppELBListenerFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -3279,7 +3279,7 @@ deletion of any app elb target groups.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.appelb.AppELBTargetGroupFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['target-group']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.appelb.AppELBTargetGroupFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['target-group']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.appelb.AppELBTargetGroupFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -4068,7 +4068,7 @@ attached to it.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.asg.ImageAgeFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect'], 'type': 'string'}, 'type': {'enum': ['image-age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.asg.ImageAgeFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['image-age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.asg.ImageAgeFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -4114,7 +4114,7 @@ attached to it.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.asg.ImageFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['image']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.asg.ImageFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['image']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.asg.ImageFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -4267,7 +4267,7 @@ cache utilization.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.asg.LaunchConfigAge.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect'], 'type': 'string'}, 'type': {'enum': ['age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.asg.LaunchConfigAge.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.asg.LaunchConfigAge.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -4363,7 +4363,7 @@ to launch configurations.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.asg.LaunchConfigFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['launch-config']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.asg.LaunchConfigFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['launch-config']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.asg.LaunchConfigFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -5212,7 +5212,7 @@ user-data filter.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.asg.UserDataFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['user-data']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.asg.UserDataFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['user-data']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.asg.UserDataFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -5286,7 +5286,7 @@ associated to the results from describing the autoscaling groups.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.asg.VpcIdFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['vpc-id']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.asg.VpcIdFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['vpc-id']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.asg.VpcIdFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -5803,7 +5803,7 @@ accounts permissions are allowed to exist)</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.awslambda.LambdaEventSource.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['event-source']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.awslambda.LambdaEventSource.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['event-source']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.awslambda.LambdaEventSource.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -6053,7 +6053,7 @@ s3 buckets.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.awslambda.ReservedConcurrency.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['reserved-concurrency']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.awslambda.ReservedConcurrency.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['reserved-concurrency']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.awslambda.ReservedConcurrency.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -7647,7 +7647,7 @@ organizational trails.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.cloudtrail.Status.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['status']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.cloudtrail.Status.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['status']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.cloudtrail.Status.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -8471,7 +8471,7 @@ organizational trails.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.config.RuleStatus.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['status']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.config.RuleStatus.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['status']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.config.RuleStatus.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -11232,7 +11232,7 @@ of the kms key by using ‘c7n:AliasName’</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.ebs.AttachedInstanceFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['instance']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ebs.AttachedInstanceFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['instance']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ebs.AttachedInstanceFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -12081,7 +12081,7 @@ Current Generation Instances (2017-2)
 
 <dl class="attribute">
 <dt id="c7n.resources.ebs.SnapshotAge.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect'], 'type': 'string'}, 'type': {'enum': ['age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ebs.SnapshotAge.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ebs.SnapshotAge.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -12412,7 +12412,7 @@ of the Volume. The default value for ‘Force’ is False.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.ec2.AttachedVolume.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'operator': {'enum': ['and', 'or']}, 'skip-devices': {'items': {'type': 'string'}, 'type': 'array'}, 'type': {'enum': ['ebs']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.AttachedVolume.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'operator': {'enum': ['and', 'or']}, 'skip-devices': {'items': {'type': 'string'}, 'type': 'array'}, 'type': {'enum': ['ebs']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.AttachedVolume.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -12849,7 +12849,7 @@ root device)</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.ec2.ImageAge.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect'], 'type': 'string'}, 'type': {'enum': ['image-age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.ImageAge.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['image-age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.ImageAge.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -12898,7 +12898,7 @@ root device)</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.ec2.InstanceAgeFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'hours': {'type': 'number'}, 'minutes': {'type': 'number'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect'], 'type': 'string'}, 'type': {'enum': ['instance-age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.InstanceAgeFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'hours': {'type': 'number'}, 'minutes': {'type': 'number'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['instance-age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.InstanceAgeFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -12950,7 +12950,7 @@ root device)</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.ec2.InstanceAttribute.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'attribute': {'enum': ('instanceType', 'kernel', 'ramdisk', 'userData', 'disableApiTermination', 'instanceInitiatedShutdownBehavior', 'rootDeviceName', 'blockDeviceMapping', 'productCodes', 'sourceDestCheck', 'groupSet', 'ebsOptimized', 'sriovNetSupport', 'enaSupport')}, 'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['instance-attribute']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ('attribute',), 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.InstanceAttribute.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'attribute': {'enum': ('instanceType', 'kernel', 'ramdisk', 'userData', 'disableApiTermination', 'instanceInitiatedShutdownBehavior', 'rootDeviceName', 'blockDeviceMapping', 'productCodes', 'sourceDestCheck', 'groupSet', 'ebsOptimized', 'sriovNetSupport', 'enaSupport')}, 'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['instance-attribute']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ('attribute',), 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.InstanceAttribute.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -12998,7 +12998,7 @@ root device)</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.ec2.InstanceImage.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['image']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.InstanceImage.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['image']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.InstanceImage.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -13756,7 +13756,7 @@ and do not have Cloudwatch recover alarms.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.ec2.SsmStatus.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['ssm']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.SsmStatus.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['ssm']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.SsmStatus.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -13862,7 +13862,7 @@ and do not have Cloudwatch recover alarms.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.ec2.StateTransitionAge.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect'], 'type': 'string'}, 'type': {'enum': ['state-age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.StateTransitionAge.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['state-age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.StateTransitionAge.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -14037,7 +14037,7 @@ protection.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.ec2.UpTimeFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect'], 'type': 'string'}, 'type': {'enum': ['instance-uptime']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.UpTimeFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['instance-uptime']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.UpTimeFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -14103,7 +14103,7 @@ uses re.match() and userdata spans multiple lines.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.ec2.UserData.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['user-data']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.UserData.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['user-data']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ec2.UserData.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -14829,7 +14829,7 @@ s3 buckets.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.ecs.RelatedTaskDefinitionFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['task-definition']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ecs.RelatedTaskDefinitionFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['task-definition']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.ecs.RelatedTaskDefinitionFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -16297,7 +16297,7 @@ apply a filter</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.elasticache.ElastiCacheSnapshotAge.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect'], 'type': 'string'}, 'type': {'enum': ['age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.elasticache.ElastiCacheSnapshotAge.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.elasticache.ElastiCacheSnapshotAge.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -17579,7 +17579,7 @@ the associated instances allow to determine health status.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.elb.Instance.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['instance']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.elb.Instance.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['instance']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.elb.Instance.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -20038,6 +20038,11 @@ above.</p>
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="c7n.resources.iam.CheckPermissions.schema_alias">
+<code class="descname">schema_alias</code><em class="property"> = True</em><a class="headerlink" href="#c7n.resources.iam.CheckPermissions.schema_alias" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="c7n.resources.iam.CheckPermissions.type">
 <code class="descname">type</code><em class="property"> = 'check-permissions'</em><a class="headerlink" href="#c7n.resources.iam.CheckPermissions.type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -20129,7 +20134,7 @@ into boolean values.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.iam.CredentialReport.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'key': {'enum': ['user', 'arn', 'user_creation_time', 'password_enabled', 'password_last_used', 'password_last_changed', 'password_next_rotation', 'mfa_active', 'access_keys', 'access_keys.active', 'access_keys.last_used_date', 'access_keys.last_used_region', 'access_keys.last_used_service', 'access_keys.last_rotated', 'certs', 'certs.active', 'certs.last_rotated'], 'title': 'report key to search', 'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'report_delay': {'default': 10, 'title': 'Number of seconds to wait for report generation.', 'type': 'number'}, 'report_generate': {'default': True, 'title': 'Generate a report if none is present.', 'type': 'boolean'}, 'report_max_age': {'default': 86400, 'title': 'Number of seconds to consider a report valid.', 'type': 'number'}, 'type': {'enum': ['credential']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.iam.CredentialReport.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'key': {'enum': ['user', 'arn', 'user_creation_time', 'password_enabled', 'password_last_used', 'password_last_changed', 'password_next_rotation', 'mfa_active', 'access_keys', 'access_keys.active', 'access_keys.last_used_date', 'access_keys.last_used_region', 'access_keys.last_used_service', 'access_keys.last_rotated', 'certs', 'certs.active', 'certs.last_rotated'], 'title': 'report key to search', 'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'report_delay': {'default': 10, 'title': 'Number of seconds to wait for report generation.', 'type': 'number'}, 'report_generate': {'default': True, 'title': 'Generate a report if none is present.', 'type': 'boolean'}, 'report_max_age': {'default': 86400, 'title': 'Number of seconds to consider a report valid.', 'type': 'number'}, 'type': {'enum': ['credential']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_type': {'ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.iam.CredentialReport.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -20294,7 +20299,7 @@ into boolean values.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.iam.GroupMembership.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['group']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.iam.GroupMembership.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['group']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.iam.GroupMembership.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -21147,6 +21152,11 @@ means all service access records have to match.</p>
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="c7n.resources.iam.ServiceUsage.schema_alias">
+<code class="descname">schema_alias</code><em class="property"> = True</em><a class="headerlink" href="#c7n.resources.iam.ServiceUsage.schema_alias" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="c7n.resources.iam.ServiceUsage.schema_attr">
 <code class="descname">schema_attr</code><em class="property"> = {'LastAuthenticated': {'oneOf': [{'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}, {'$ref': '#/definitions/filters/value'}]}, 'LastAuthenticatedEntity': {'oneOf': [{'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}, {'$ref': '#/definitions/filters/value'}]}, 'ServiceName': {'oneOf': [{'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}, {'$ref': '#/definitions/filters/value'}]}, 'ServiceNamespace': {'oneOf': [{'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}, {'$ref': '#/definitions/filters/value'}]}, 'TotalAuthenticatedEntities': {'oneOf': [{'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}, {'$ref': '#/definitions/filters/value'}]}, 'match-operator': {'enum': ['all', 'any']}, 'poll-delay': {'type': 'number'}}</em><a class="headerlink" href="#c7n.resources.iam.ServiceUsage.schema_attr" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -21643,7 +21653,7 @@ with the ‘state’ attribute to get unused iam roles</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.iam.UserAccessKey.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['access-key']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.iam.UserAccessKey.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['access-key']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.iam.UserAccessKey.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -21917,7 +21927,7 @@ completely, use the <code class="docutils literal notranslate"><span class="pre"
 
 <dl class="attribute">
 <dt id="c7n.resources.iam.UserMfaDevice.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['mfa-device']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.iam.UserMfaDevice.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['mfa-device']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.iam.UserMfaDevice.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -21962,7 +21972,7 @@ completely, use the <code class="docutils literal notranslate"><span class="pre"
 
 <dl class="attribute">
 <dt id="c7n.resources.iam.UserPolicy.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['policy']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.iam.UserPolicy.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['policy']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.iam.UserPolicy.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -22948,7 +22958,7 @@ s3 buckets.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.kms.KeyRotationStatus.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['key-rotation-status']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.kms.KeyRotationStatus.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['key-rotation-status']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.kms.KeyRotationStatus.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -23054,7 +23064,7 @@ s3 buckets.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.kms.ResourceKmsKeyAlias.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['kms-alias']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.kms.ResourceKmsKeyAlias.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['kms-alias']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.kms.ResourceKmsKeyAlias.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -24409,7 +24419,7 @@ and treat nulls sensibly.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.rds.ParameterFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['db-parameter']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.rds.ParameterFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['db-parameter']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.rds.ParameterFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -24739,7 +24749,7 @@ and treat nulls sensibly.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.rds.RDSSnapshotAge.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect'], 'type': 'string'}, 'type': {'enum': ['age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.rds.RDSSnapshotAge.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.rds.RDSSnapshotAge.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -25960,7 +25970,7 @@ to apply a filter to the rule</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.rdscluster.RDSSnapshotAge.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect'], 'type': 'string'}, 'type': {'enum': ['age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.rdscluster.RDSSnapshotAge.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.rdscluster.RDSSnapshotAge.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -27008,7 +27018,7 @@ of the kms key by using ‘c7n:AliasName’</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.redshift.Parameter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['param']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.redshift.Parameter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['param']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.redshift.Parameter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -27301,7 +27311,7 @@ of the kms key by using ‘c7n:AliasName’</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.redshift.RedshiftSnapshotAge.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect'], 'type': 'string'}, 'type': {'enum': ['age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.redshift.RedshiftSnapshotAge.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'days': {'type': 'number'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['age']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.redshift.RedshiftSnapshotAge.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -28761,7 +28771,7 @@ extant notification or create one matching the bucket name.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.s3.BucketNotificationFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'kind': {'enum': ['lambda', 'sns', 'sqs'], 'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['bucket-notification']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['kind', 'type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.s3.BucketNotificationFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'kind': {'enum': ['lambda', 'sns', 'sqs'], 'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['bucket-notification']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['kind', 'type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.s3.BucketNotificationFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -29422,7 +29432,7 @@ generate fresh deletion markers.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.s3.Inventory.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['inventory']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.s3.Inventory.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['inventory']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.s3.Inventory.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -29696,18 +29706,13 @@ heavy process to detect scan all possible log sources.</p>
     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;tag:BucketOwner&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
     <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">unmark</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">remove-tag</span>
         <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;BucketOwner&#39;</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 <dl class="method">
 <dt id="c7n.resources.s3.RemoveBucketTag.process_resource_set">
 <code class="descname">process_resource_set</code><span class="sig-paren">(</span><em>client</em>, <em>resource_set</em>, <em>tags</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/s3.html#RemoveBucketTag.process_resource_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.s3.RemoveBucketTag.process_resource_set" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="c7n.resources.s3.RemoveBucketTag.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'tags': {'type': 'array'}, 'type': {'enum': ['unmark', 'remove-tag']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.s3.RemoveBucketTag.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -32480,7 +32485,7 @@ s3 buckets.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.sns.SNSCrossAccount.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'actions': {'items': {'type': 'string'}, 'type': 'array'}, 'everyone_only': {'type': 'boolean'}, 'type': {'enum': ['cross-account']}, 'whitelist': {'items': {'type': 'string'}, 'type': 'array'}, 'whitelist_conditions': {'items': {'type': 'string'}, 'type': 'array'}, 'whitelist_endpoints': {'items': {'type': 'string'}, 'type': 'array'}, 'whitelist_endpoints_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'whitelist_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'whitelist_orgids': {'items': {'type': 'string'}, 'type': 'array'}, 'whitelist_orgids_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'whitelist_protocols': {'items': {'enum': ('http', 'https', 'email', 'email-json', 'sms', 'sqs', 'application', 'lambda'), 'type': 'string'}, 'type': 'array'}, 'whitelist_protocols_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'whitelist_vpc': {'items': {'type': 'string'}, 'type': 'array'}, 'whitelist_vpc_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'whitelist_vpce': {'items': {'type': 'string'}, 'type': 'array'}, 'whitelist_vpce_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.sns.SNSCrossAccount.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'actions': {'items': {'type': 'string'}, 'type': 'array'}, 'everyone_only': {'type': 'boolean'}, 'type': {'enum': ['cross-account']}, 'whitelist': {'items': {'type': 'string'}, 'type': 'array'}, 'whitelist_conditions': {'items': {'type': 'string'}, 'type': 'array'}, 'whitelist_endpoints': {'items': {'type': 'string'}, 'type': 'array'}, 'whitelist_endpoints_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'whitelist_from': {'ref': '#/definitions/filters_common/value_from'}, 'whitelist_orgids': {'items': {'type': 'string'}, 'type': 'array'}, 'whitelist_orgids_from': {'ref': '#/definitions/filters_common/value_from'}, 'whitelist_protocols': {'items': {'enum': ('http', 'https', 'email', 'email-json', 'sms', 'sqs', 'application', 'lambda'), 'type': 'string'}, 'type': 'array'}, 'whitelist_protocols_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'whitelist_vpc': {'items': {'type': 'string'}, 'type': 'array'}, 'whitelist_vpc_from': {'ref': '#/definitions/filters_common/value_from'}, 'whitelist_vpce': {'items': {'type': 'string'}, 'type': 'array'}, 'whitelist_vpce_from': {'ref': '#/definitions/filters_common/value_from'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.sns.SNSCrossAccount.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -34905,7 +34910,7 @@ route table is checked.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.vpc.Route.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['route']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.vpc.Route.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['route']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.vpc.Route.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -36207,7 +36212,7 @@ workflows.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.vpc.VpcInternetGatewayFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['internet-gateway']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.vpc.VpcInternetGatewayFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['internet-gateway']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.vpc.VpcInternetGatewayFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -36261,7 +36266,7 @@ workflows.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.vpc.VpcNatGatewayFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['nat-gateway']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.vpc.VpcNatGatewayFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['nat-gateway']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.vpc.VpcNatGatewayFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -36315,7 +36320,7 @@ workflows.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.vpc.VpcSecurityGroupFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['security-group']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.vpc.VpcSecurityGroupFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['security-group']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.vpc.VpcSecurityGroupFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -36369,7 +36374,7 @@ workflows.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.vpc.VpcSubnetFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['subnet']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.vpc.VpcSubnetFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'match-resource': {'type': 'boolean'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'operator': {'enum': ['and', 'or']}, 'type': {'enum': ['subnet']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.vpc.VpcSubnetFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -36665,7 +36670,7 @@ workflows.</p>
 
 <dl class="attribute">
 <dt id="c7n.resources.workspaces.WorkspaceConnectionStatusFilter.schema">
-<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than', 'glob', 'regex', 'regex-case', 'in', 'ni', 'not-in', 'contains', 'difference', 'intersect']}, 'type': {'enum': ['connection-status']}, 'value': {'oneOf': [{'type': 'array'}, {'type': 'string'}, {'type': 'boolean'}, {'type': 'number'}, {'type': 'null'}]}, 'value_from': {'additionalProperties': 'False', 'properties': {'expr': {'oneOf': [{'type': 'integer'}, {'type': 'string'}]}, 'format': {'enum': ['csv', 'json', 'txt', 'csv2dict']}, 'url': {'type': 'string'}}, 'required': ['url'], 'type': 'object'}, 'value_type': {'enum': ['age', 'integer', 'expiration', 'normalize', 'size', 'cidr', 'cidr_size', 'swap', 'resource_count', 'expr', 'unique_size']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'default': {'type': 'object'}, 'key': {'type': 'string'}, 'op': {'$ref': '#/definitions/filters_common/comparison_operators'}, 'type': {'enum': ['connection-status']}, 'value': {'$ref': '#/definitions/filters_common/value'}, 'value_from': {'$ref': '#/definitions/filters_common/values_from'}, 'value_type': {'$ref': '#/definitions/filters_common/value_types'}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n.resources.workspaces.WorkspaceConnectionStatusFilter.schema" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
