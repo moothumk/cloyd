@@ -125,6 +125,7 @@
 <li class="toctree-l1"><a class="reference internal" href="installing.html">Installing for Developers</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Testing for Developers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#running-tests">Running tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operating-system-compatibility">Operating System Compatibility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#decorating-tests">Decorating tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#writing-placebo-tests-for-aws-resources">Writing Placebo Tests for AWS Resources</a></li>
 </ul>
@@ -209,6 +210,18 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make lint
 </pre></div>
 </div>
+</div>
+<div class="section" id="operating-system-compatibility">
+<h2>Operating System Compatibility<a class="headerlink" href="#operating-system-compatibility" title="Permalink to this headline">¶</a></h2>
+<p>Tests are currently executed on both Ubuntu 1604 and Windows Server 2019
+and must pass on both operating systems.</p>
+<p>Both Windows and Linux sample dockerfiles are provided for running Tox which may help you.
+You can find these in <cite>tools/dev</cite>.</p>
+<p>In Docker for Windows you can run both of these containers,
+<a class="reference external" href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/linux-containers">even simultaneously</a>.</p>
+<p>If you need access to Windows you can download a
+<a class="reference external" href="https://developer.microsoft.com/en-us/windows/downloads/virtual-machines">virtual machine</a>
+directly from Microsoft for any hypervisor.</p>
 </div>
 <div class="section" id="decorating-tests">
 <h2>Decorating tests<a class="headerlink" href="#decorating-tests" title="Permalink to this headline">¶</a></h2>

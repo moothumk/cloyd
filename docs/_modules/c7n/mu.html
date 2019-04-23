@@ -257,12 +257,19 @@
     <span class="n">zip_compression</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">modules</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_temp_archive_file</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_temp_archive_file</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_zip_file</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_temp_archive_file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span>
             <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">zip_compression</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_closed</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add_modules</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">modules</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_closed</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_temp_archive_file</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_temp_archive_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -292,7 +299,7 @@
                     <span class="c1"># Likely a namespace package. Try to add *.pth files so</span>
                     <span class="c1"># submodules are importable under Python 2.7.</span>
 
-                    <span class="n">sitedir</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">module</span><span class="o">.</span><span class="n">__path__</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">sitedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">module</span><span class="o">.</span><span class="n">__path__</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">))</span>
                     <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">sitedir</span><span class="p">):</span>
                         <span class="n">s</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">startswith</span>
                         <span class="n">e</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span>
@@ -380,6 +387,8 @@
             <span class="n">dest</span> <span class="o">=</span> <span class="n">zinfo</span><span class="p">(</span><span class="n">dest</span><span class="p">)</span>  <span class="c1"># see for some caveats</span>
         <span class="c1"># Ensure we apply the compression</span>
         <span class="n">dest</span><span class="o">.</span><span class="n">compress_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">zip_compression</span>
+        <span class="c1"># Mark host OS as Linux for all archives</span>
+        <span class="n">dest</span><span class="o">.</span><span class="n">create_system</span> <span class="o">=</span> <span class="mi">3</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_zip_file</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">contents</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="PythonPackageArchive.close"><a class="viewcode-back" href="../../generated/aws/c7n.html#c7n.mu.PythonPackageArchive.close">[docs]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -394,10 +403,6 @@
             <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_temp_archive_file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span>
                 <span class="mf">1024.0</span> <span class="o">*</span> <span class="mf">1024.0</span><span class="p">)))</span>
         <span class="k">return</span> <span class="bp">self</span></div>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_temporary_opener</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">flag</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="mo">0o777</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">flag</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">O_TEMPORARY</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
 
 <div class="viewcode-block" id="PythonPackageArchive.remove"><a class="viewcode-back" href="../../generated/aws/c7n.html#c7n.mu.PythonPackageArchive.remove">[docs]</a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Dispose of the temp file for garbage collection.&quot;&quot;&quot;</span>
@@ -418,11 +423,7 @@
 <div class="viewcode-block" id="PythonPackageArchive.get_stream"><a class="viewcode-back" href="../../generated/aws/c7n.html#c7n.mu.PythonPackageArchive.get_stream">[docs]</a>    <span class="k">def</span> <span class="nf">get_stream</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return the entire zip file as a stream. &quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_closed</span><span class="p">,</span> <span class="s2">&quot;Archive not closed&quot;</span>
-        <span class="c1"># Windows requires TEMPORARY flag if you want to open files created by tempfile library</span>
-        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;nt&#39;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_temp_archive_file</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">,</span> <span class="n">opener</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_temporary_opener</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_temp_archive_file</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_temp_archive_file</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="PythonPackageArchive.get_reader"><a class="viewcode-back" href="../../generated/aws/c7n.html#c7n.mu.PythonPackageArchive.get_reader">[docs]</a>    <span class="k">def</span> <span class="nf">get_reader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return a read-only :py:class:`~zipfile.ZipFile`.&quot;&quot;&quot;</span>

@@ -2013,7 +2013,7 @@
              <span class="s2">&quot;remediated:</span><span class="si">%d</span><span class="s2"> rate:</span><span class="si">%0.2f</span><span class="s2">/s time:</span><span class="si">%0.2f</span><span class="s2">s&quot;</span><span class="p">),</span>
             <span class="n">object_count</span><span class="p">,</span>
             <span class="n">remediated_count</span><span class="p">,</span>
-            <span class="nb">float</span><span class="p">(</span><span class="n">object_count</span><span class="p">)</span> <span class="o">/</span> <span class="n">run_time</span><span class="p">,</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">object_count</span><span class="p">)</span> <span class="o">/</span> <span class="n">run_time</span> <span class="k">if</span> <span class="n">run_time</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
             <span class="n">run_time</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">results</span></div>
 
@@ -2757,7 +2757,7 @@
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
             <span class="s2">&quot;EmptyBucket buckets:</span><span class="si">%d</span><span class="s2"> Complete keys:</span><span class="si">%d</span><span class="s2"> rate:</span><span class="si">%0.2f</span><span class="s2">/s time:</span><span class="si">%0.2f</span><span class="s2">s&quot;</span><span class="p">,</span>
             <span class="nb">len</span><span class="p">(</span><span class="n">buckets</span><span class="p">),</span> <span class="n">object_count</span><span class="p">,</span>
-            <span class="nb">float</span><span class="p">(</span><span class="n">object_count</span><span class="p">)</span> <span class="o">/</span> <span class="n">run_time</span><span class="p">,</span> <span class="n">run_time</span><span class="p">)</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">object_count</span><span class="p">)</span> <span class="o">/</span> <span class="n">run_time</span> <span class="k">if</span> <span class="n">run_time</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span> <span class="n">run_time</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">results</span></div>
 
 <div class="viewcode-block" id="DeleteBucket.process_chunk"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.s3.DeleteBucket.process_chunk">[docs]</a>    <span class="k">def</span> <span class="nf">process_chunk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">bucket</span><span class="p">):</span>

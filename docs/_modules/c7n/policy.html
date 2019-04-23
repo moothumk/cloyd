@@ -1176,7 +1176,10 @@
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                     <span class="s2">&quot;Policy: </span><span class="si">%s</span><span class="s2"> TZ not parsable: </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">policy_name</span><span class="p">,</span> <span class="n">policy_tz</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p_tz</span><span class="p">,</span> <span class="n">tzutil</span><span class="o">.</span><span class="n">tzfile</span><span class="p">):</span>
+
+            <span class="c1"># Type will be tzwin on windows, but tzwin is null on linux</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">p_tz</span><span class="p">,</span> <span class="n">tzutil</span><span class="o">.</span><span class="n">tzfile</span><span class="p">)</span> <span class="ow">or</span>
+                    <span class="p">(</span><span class="n">tzutil</span><span class="o">.</span><span class="n">tzwin</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p_tz</span><span class="p">,</span> <span class="n">tzutil</span><span class="o">.</span><span class="n">tzwin</span><span class="p">))):</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                     <span class="s2">&quot;Policy: </span><span class="si">%s</span><span class="s2"> TZ not parsable: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">policy_name</span><span class="p">,</span> <span class="n">policy_tz</span><span class="p">))</span>
 
