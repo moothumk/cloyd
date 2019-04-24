@@ -695,6 +695,55 @@ type of azure resource.</p>
 
 </dd></dl>
 
+<dl class="class">
+<dt id="c7n_azure.resources.arm.ChildArmResourceManager">
+<em class="property">class </em><code class="descclassname">c7n_azure.resources.arm.</code><code class="descname">ChildArmResourceManager</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/arm.html#ChildArmResourceManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#c7n_azure.resources.arm.ArmResourceManager" title="c7n_azure.resources.arm.ArmResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.resources.arm.ArmResourceManager</span></code></a></p>
+<dl class="class">
+<dt id="c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec">
+<em class="property">class </em><code class="descname">ParentSpec</code><span class="sig-paren">(</span><em>manager_name</em>, <em>annotate_parent</em><span class="sig-paren">)</span><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="attribute">
+<dt id="c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec.annotate_parent">
+<code class="descname">annotate_parent</code><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec.annotate_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec.manager_name">
+<code class="descname">manager_name</code><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec.manager_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.arm.ChildArmResourceManager.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.arm.ChildArmResourceManager.child_source">
+<code class="descname">child_source</code><em class="property"> = 'describe-child-azure'</em><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.child_source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.arm.ChildArmResourceManager.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="c7n_azure.resources.arm.ChildArmResourceManager.get_parent_manager">
+<code class="descname">get_parent_manager</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/arm.html#ChildArmResourceManager.get_parent_manager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.get_parent_manager" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.arm.ChildArmResourceManager.source_type">
+<code class="descname">source_type</code><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.source_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-c7n_azure.resources.batch">
 <span id="c7n-azure-resources-batch-module"></span><h2>c7n_azure.resources.batch module<a class="headerlink" href="#module-c7n_azure.resources.batch" title="Permalink to this headline">¶</a></h2>
@@ -2041,6 +2090,56 @@ type of azure resource.</p>
 <dl class="attribute">
 <dt id="c7n_azure.resources.route_table.RouteTable.type">
 <code class="descname">type</code><em class="property"> = 'routetable'</em><a class="headerlink" href="#c7n_azure.resources.route_table.RouteTable.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-c7n_azure.resources.sqldatabase">
+<span id="c7n-azure-resources-sqldatabase-module"></span><h2>c7n_azure.resources.sqldatabase module<a class="headerlink" href="#module-c7n_azure.resources.sqldatabase" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="c7n_azure.resources.sqldatabase.SqlDatabase">
+<em class="property">class </em><code class="descclassname">c7n_azure.resources.sqldatabase.</code><code class="descname">SqlDatabase</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/sqldatabase.html#SqlDatabase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#c7n_azure.resources.arm.ChildArmResourceManager" title="c7n_azure.resources.arm.ChildArmResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.resources.arm.ChildArmResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.SqlDatabase.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.SqlDatabase.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_azure.resources.sqldatabase.SqlDatabase.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_azure/resources/sqldatabase.html#SqlDatabase.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.resources.arm.resource_type</span></code></p>
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.client">
+<code class="descname">client</code><em class="property"> = 'SqlManagementClient'</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.client" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = ('databases', 'list_by_server', {'resource_group_name': 'resourceGroup', 'server_name': 'name'})</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.parent_spec">
+<code class="descname">parent_spec</code><em class="property"> = ParentSpec(manager_name='sqlserver', annotate_parent=True)</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.parent_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'azure.mgmt.sql'</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.SqlDatabase.type">
+<code class="descname">type</code><em class="property"> = 'sqldatabase'</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase.type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

@@ -267,6 +267,7 @@
 <li class="toctree-l2"><a class="reference internal" href="c7n_azure.resources.html#module-c7n_azure.resources.redis">c7n_azure.resources.redis module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="c7n_azure.resources.html#module-c7n_azure.resources.resourcegroup">c7n_azure.resources.resourcegroup module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="c7n_azure.resources.html#module-c7n_azure.resources.route_table">c7n_azure.resources.route_table module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c7n_azure.resources.html#module-c7n_azure.resources.sqldatabase">c7n_azure.resources.sqldatabase module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="c7n_azure.resources.html#module-c7n_azure.resources.sqlserver">c7n_azure.resources.sqlserver module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="c7n_azure.resources.html#module-c7n_azure.resources.storage">c7n_azure.resources.storage module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="c7n_azure.resources.html#module-c7n_azure.resources.subscription">c7n_azure.resources.subscription module</a></li>
@@ -1331,6 +1332,48 @@ region execution and filtering policies for applicable regions.</p>
 </div>
 <div class="section" id="module-c7n_azure.query">
 <span id="c7n-azure-query-module"></span><h2>c7n_azure.query module<a class="headerlink" href="#module-c7n_azure.query" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="c7n_azure.query.ChildDescribeSource">
+<em class="property">class </em><code class="descclassname">c7n_azure.query.</code><code class="descname">ChildDescribeSource</code><span class="sig-paren">(</span><em>manager</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/query.html#ChildDescribeSource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.query.ChildDescribeSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#c7n_azure.query.DescribeSource" title="c7n_azure.query.DescribeSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.query.DescribeSource</span></code></a></p>
+<dl class="method">
+<dt id="c7n_azure.query.ChildDescribeSource.get_query">
+<code class="descname">get_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/query.html#ChildDescribeSource.get_query"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.query.ChildDescribeSource.get_query" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.query.ChildDescribeSource.resource_query_factory">
+<code class="descname">resource_query_factory</code><a class="headerlink" href="#c7n_azure.query.ChildDescribeSource.resource_query_factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#c7n_azure.query.ChildResourceQuery" title="c7n_azure.query.ChildResourceQuery"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChildResourceQuery</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.query.ChildDescribeSource.type">
+<code class="descname">type</code><em class="property"> = 'describe-child-azure'</em><a class="headerlink" href="#c7n_azure.query.ChildDescribeSource.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_azure.query.ChildResourceQuery">
+<em class="property">class </em><code class="descclassname">c7n_azure.query.</code><code class="descname">ChildResourceQuery</code><span class="sig-paren">(</span><em>session_factory</em>, <em>manager</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/query.html#ChildResourceQuery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.query.ChildResourceQuery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#c7n_azure.query.ResourceQuery" title="c7n_azure.query.ResourceQuery"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.query.ResourceQuery</span></code></a></p>
+<p>A resource query for resources that must be queried with parent information.
+Several resource types can only be queried in the context of their
+parents identifiers. ie. SQL and Cosmos databases</p>
+<dl class="method">
+<dt id="c7n_azure.query.ChildResourceQuery.filter">
+<code class="descname">filter</code><span class="sig-paren">(</span><em>resource_manager</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/query.html#ChildResourceQuery.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.query.ChildResourceQuery.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query a set of resources.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.query.ChildResourceQuery.parent_key">
+<code class="descname">parent_key</code><em class="property"> = 'c7n:parent-id'</em><a class="headerlink" href="#c7n_azure.query.ChildResourceQuery.parent_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="class">
 <dt id="c7n_azure.query.DescribeSource">
 <em class="property">class </em><code class="descclassname">c7n_azure.query.</code><code class="descname">DescribeSource</code><span class="sig-paren">(</span><em>manager</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/query.html#DescribeSource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.query.DescribeSource" title="Permalink to this definition">¶</a></dt>
