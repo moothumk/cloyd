@@ -110,8 +110,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#execution-options">Execution Options</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#event-grid-functions">Event Grid Functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#advanced-authentication-options">Advanced Authentication Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#management-groups-support">Management Groups Support</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#timer-triggered-functions">Timer triggered functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event-triggered-functions">Event triggered functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#permissions">Permissions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="multiplesubs.html">Advanced Usage</a></li>
@@ -408,6 +412,28 @@ AZURE_FUNCTION_SUBSCRIPTION_ID
 used for deployment.</p>
 <p>You may provide the service principal but omit the subscription ID if you wish.</p>
 </div>
+<div class="section" id="management-groups-support">
+<h3>Management Groups Support<a class="headerlink" href="#management-groups-support" title="Permalink to this headline">¶</a></h3>
+<p>You can deploy Azure Functions targeting all subscriptions that are part of specified Management Group.</p>
+<p>The following variable allows you to specify Management Group name:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>AZURE_FUNCTION_MANAGEMENT_GROUP_NAME
+</pre></div>
+</div>
+<p>It can be used with Function specific Service Principal credentials described before. Management Group environment variable has the highest priority, so <cite>AZURE_FUNCTION_SUBSCRIPTION_ID</cite> will be ignored.</p>
+</div>
+</div>
+<div class="section" id="timer-triggered-functions">
+<h2>Timer triggered functions<a class="headerlink" href="#timer-triggered-functions" title="Permalink to this headline">¶</a></h2>
+<p>When Management Groups option is used with periodic mode, Cloud Custodian deploys a single Azure Function App with multiple Azure Functions following single subscription per function rule.</p>
+</div>
+<div class="section" id="event-triggered-functions">
+<h2>Event triggered functions<a class="headerlink" href="#event-triggered-functions" title="Permalink to this headline">¶</a></h2>
+<p>When Management Groups option is used with event mode, Cloud Custodian deploys single Azure Function. It creates Event Grid subscription for each Subscription in Management Group delivering events to a single Azure Storage Queue.</p>
+</div>
+<div class="section" id="permissions">
+<h2>Permissions<a class="headerlink" href="#permissions" title="Permalink to this headline">¶</a></h2>
+<p>Service Principal used at the Functions runtime required to have appropriate level of permission in each target subscription.</p>
+<p>Service Principal used to provision Azure Functions required to have permissions to access Management Groups. If SP doesn’t have <cite>MG Reader</cite> permissions in any child subscription these subscriptions won’t be a part of Cloud Custodian Azure Function deployment process.</p>
 </div>
 </div>
 
