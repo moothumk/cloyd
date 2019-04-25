@@ -704,8 +704,7 @@
 
     <span class="n">schema</span> <span class="o">=</span> <span class="n">type_schema</span><span class="p">(</span><span class="s1">&#39;stop&#39;</span><span class="p">)</span>
 
-    <span class="c1"># permissions are unclear, and not currrently documented or in iam gen</span>
-    <span class="n">permissions</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;rds:RebootDBInstance&quot;</span><span class="p">,)</span>
+    <span class="n">permissions</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;rds:StopDBInstance&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="Stop.process"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.rds.Stop.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resources</span><span class="p">):</span>
         <span class="n">client</span> <span class="o">=</span> <span class="n">local_session</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">session_factory</span><span class="p">)</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;rds&#39;</span><span class="p">)</span>
@@ -726,8 +725,7 @@
 
     <span class="n">schema</span> <span class="o">=</span> <span class="n">type_schema</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">)</span>
 
-    <span class="c1"># permissions are unclear, and not currrently documented or in iam gen</span>
-    <span class="n">permissions</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;rds:RebootDBInstance&quot;</span><span class="p">,)</span>
+    <span class="n">permissions</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;rds:StartDBInstance&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="Start.process"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.rds.Start.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resources</span><span class="p">):</span>
         <span class="n">client</span> <span class="o">=</span> <span class="n">local_session</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">session_factory</span><span class="p">)</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;rds&#39;</span><span class="p">)</span>
