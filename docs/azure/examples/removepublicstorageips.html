@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Automatically tag the creator of a resource or resource group. &mdash; Cloud Custodian  documentation</title>
+  <title>Remove public storage IP-s &mdash; Cloud Custodian  documentation</title>
   
 
   
@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../../_static/css/expand.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Filter load balancer by front end public ip" href="lbfilterbyfrotendip.html" />
-    <link rel="prev" title="Add storage firewall" href="addstoragefirewall.html" /> 
+    <link rel="next" title="Resize an Application Service Plan" href="resizeappplan.html" />
+    <link rel="prev" title="Deny access to Network Security Group." href="nsg.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -103,12 +103,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../authentication.html#azure-storage-access">Azure Storage access</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="addstoragefirewall.html">Add storage firewall</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Automatically tag the creator of a resource or resource group.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autotagusers.html">Automatically tag the creator of a resource or resource group.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lbfilterbyfrotendip.html">Filter load balancer by front end public ip</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metrics.html">Filter resources by metrics from Azure Monitor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notify.html">Email Notify</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nsg.html">Deny access to Network Security Group.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="removepublicstorageips.html">Remove public storage IP-s</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Remove public storage IP-s</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resizeappplan.html">Resize an Application Service Plan</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rgremoveempty.html">Remove Empty Resource Groups</a></li>
 <li class="toctree-l2"><a class="reference internal" href="routetablewithsubnet.html">Find Route Tables With A Specific Subnet</a></li>
@@ -195,7 +195,7 @@
         
           <li><a href="index.html">Examples</a> &raquo;</li>
         
-      <li>Automatically tag the creator of a resource or resource group.</li>
+      <li>Remove public storage IP-s</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -212,38 +212,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="automatically-tag-the-creator-of-a-resource-or-resource-group">
-<h1>Automatically tag the creator of a resource or resource group.<a class="headerlink" href="#automatically-tag-the-creator-of-a-resource-or-resource-group" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li>In non-event mode, the action will look up Azure Activity Logs up to 90 days prior to execution (default). It will attempt to identify the first user or service principal that performed the ‘write’ operation for each resource.</li>
-<li>In event mode, the action will use the data from the event to determine the user or principal that performed the action. The <strong>days</strong> option is not applicable in this mode.</li>
-<li><strong>Note</strong>: Service Principals do not have email addresses and their tag values will be the application id.</li>
-</ul>
+  <div class="section" id="remove-public-storage-ip-s">
+<h1>Remove public storage IP-s<a class="headerlink" href="#remove-public-storage-ip-s" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-auto-tag-creator</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.resourcegroup</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">storage-no-public-ip</span>
     <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
-      <span class="no">Tag all existing resource groups with the &#39;CreatorEmail&#39; tag; looking up to 10 days prior.</span>
+        <span class="no">Find publicly available storage ip-s and remove them while keeping the virtual network access intact.</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.storage</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+      <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">properties.networkAcls.ipRules</span>
+      <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">size</span>
+      <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ne</span>
+      <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+
     <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">auto-tag-user</span>
-       <span class="l l-Scalar l-Scalar-Plain">tag</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CreatorEmail</span>
-       <span class="l l-Scalar l-Scalar-Plain">days</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-</pre></div>
-</div>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-auto-tag-creator</span>
-    <span class="l l-Scalar l-Scalar-Plain">mode</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-event-grid</span>
-      <span class="l l-Scalar l-Scalar-Plain">events</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[{</span>
-          <span class="nv">resourceProvider</span><span class="p p-Indicator">:</span> <span class="s">&#39;Microsoft.Compute/virtualMachines&#39;</span><span class="p p-Indicator">,</span>
-          <span class="nv">event</span><span class="p p-Indicator">:</span> <span class="s">&#39;write&#39;</span>
-      <span class="p p-Indicator">}]</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
-    <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
-      <span class="no">Tag all existing virtual machines with the &#39;CreatorEmail&#39; tag using ARM events.</span>
-    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">auto-tag-user</span>
-       <span class="l l-Scalar l-Scalar-Plain">tag</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CreatorEmail</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">set-network-rules</span>
+      <span class="l l-Scalar l-Scalar-Plain">default-action</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Deny</span>
+      <span class="l l-Scalar l-Scalar-Plain">ip-rules</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[]</span>
 </pre></div>
 </div>
 </div>
@@ -256,10 +243,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="lbfilterbyfrotendip.html" class="btn btn-neutral float-right" title="Filter load balancer by front end public ip" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="resizeappplan.html" class="btn btn-neutral float-right" title="Resize an Application Service Plan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="addstoragefirewall.html" class="btn btn-neutral float-left" title="Add storage firewall" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="nsg.html" class="btn btn-neutral float-left" title="Deny access to Network Security Group." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

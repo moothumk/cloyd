@@ -2239,6 +2239,22 @@ type of azure resource.</p>
 
 </dd></dl>
 
+<dl class="class">
+<dt id="c7n_azure.resources.storage.StorageSetNetworkRulesAction">
+<em class="property">class </em><code class="descclassname">c7n_azure.resources.storage.</code><code class="descname">StorageSetNetworkRulesAction</code><span class="sig-paren">(</span><em>data=None</em>, <em>manager=None</em>, <em>log_dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/storage.html#StorageSetNetworkRulesAction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.storage.StorageSetNetworkRulesAction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_azure.html#c7n_azure.actions.AzureBaseAction" title="c7n_azure.actions.AzureBaseAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.actions.AzureBaseAction</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_azure.resources.storage.StorageSetNetworkRulesAction.schema">
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'bypass': {'items': {'enum': ['AzureServices', 'Logging', 'Metrics']}, 'type': 'array'}, 'default-action': {'enum': ['Allow', 'Deny']}, 'ip-rules': {'items': {'ip-address-or-range': {'type': 'string'}}, 'type': 'array'}, 'type': {'enum': ['set-network-rules']}, 'virtual-network-rules': {'items': {'virtual-network-resource-id': {'type': 'string'}}, 'type': 'array'}}, 'required': ['default-action', 'type'], 'type': 'object'}</em><a class="headerlink" href="#c7n_azure.resources.storage.StorageSetNetworkRulesAction.schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.storage.StorageSetNetworkRulesAction.type">
+<code class="descname">type</code><em class="property"> = 'set-network-rules'</em><a class="headerlink" href="#c7n_azure.resources.storage.StorageSetNetworkRulesAction.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-c7n_azure.resources.subscription">
 <span id="c7n-azure-resources-subscription-module"></span><h2>c7n_azure.resources.subscription module<a class="headerlink" href="#module-c7n_azure.resources.subscription" title="Permalink to this headline">¶</a></h2>

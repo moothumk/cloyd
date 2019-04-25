@@ -205,6 +205,10 @@
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
 
+<span class="kn">from</span> <span class="nn">azure.mgmt.storage.models</span> <span class="k">import</span> <span class="n">IPRule</span><span class="p">,</span> \
+    <span class="n">NetworkRuleSet</span><span class="p">,</span> <span class="n">StorageAccountUpdateParameters</span><span class="p">,</span> <span class="n">VirtualNetworkRule</span>
+<span class="kn">from</span> <span class="nn">c7n.filters.core</span> <span class="k">import</span> <span class="n">type_schema</span>
+<span class="kn">from</span> <span class="nn">c7n_azure.actions</span> <span class="k">import</span> <span class="n">AzureBaseAction</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.provider</span> <span class="k">import</span> <span class="n">resources</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.resources.arm</span> <span class="k">import</span> <span class="n">ArmResourceManager</span>
 
@@ -217,6 +221,57 @@
         <span class="n">client</span> <span class="o">=</span> <span class="s1">&#39;StorageManagementClient&#39;</span>
         <span class="n">enum_spec</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;storage_accounts&#39;</span><span class="p">,</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="n">diagnostic_settings_enabled</span> <span class="o">=</span> <span class="kc">False</span></div></div>
+
+
+<div class="viewcode-block" id="StorageSetNetworkRulesAction"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.storage.StorageSetNetworkRulesAction">[docs]</a><span class="nd">@Storage</span><span class="o">.</span><span class="n">action_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;set-network-rules&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">StorageSetNetworkRulesAction</span><span class="p">(</span><span class="n">AzureBaseAction</span><span class="p">):</span>
+
+    <span class="n">schema</span> <span class="o">=</span> <span class="n">type_schema</span><span class="p">(</span>
+        <span class="s1">&#39;set-network-rules&#39;</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;default-action&#39;</span><span class="p">],</span>
+        <span class="o">**</span><span class="p">{</span>
+            <span class="s1">&#39;default-action&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;enum&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Allow&#39;</span><span class="p">,</span> <span class="s1">&#39;Deny&#39;</span><span class="p">]},</span>
+            <span class="s1">&#39;bypass&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;enum&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;AzureServices&#39;</span><span class="p">,</span> <span class="s1">&#39;Logging&#39;</span><span class="p">,</span> <span class="s1">&#39;Metrics&#39;</span><span class="p">]}},</span>
+            <span class="s1">&#39;ip-rules&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;array&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;ip-address-or-range&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">}}</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;virtual-network-rules&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;array&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;virtual-network-resource-id&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">}}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_prepare_processing</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">get_client</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_process_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="p">):</span>
+        <span class="n">rule_set</span> <span class="o">=</span> <span class="n">NetworkRuleSet</span><span class="p">(</span><span class="n">default_action</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;default-action&#39;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="s1">&#39;ip-rules&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="n">rule_set</span><span class="o">.</span><span class="n">ip_rules</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">IPRule</span><span class="p">(</span>
+                    <span class="n">ip_address_or_range</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;ip-address-or-range&#39;</span><span class="p">],</span>
+                    <span class="n">action</span><span class="o">=</span><span class="s1">&#39;Allow&#39;</span><span class="p">)</span>  <span class="c1"># &#39;Allow&#39; is the only allowed action</span>
+                <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ip-rules&#39;</span><span class="p">]]</span>
+
+        <span class="k">if</span> <span class="s1">&#39;virtual-network-rules&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="n">rule_set</span><span class="o">.</span><span class="n">virtual_network_rules</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">VirtualNetworkRule</span><span class="p">(</span>
+                    <span class="n">virtual_network_resource_id</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;virtual-network-resource-id&#39;</span><span class="p">],</span>
+                    <span class="n">action</span><span class="o">=</span><span class="s1">&#39;Allow&#39;</span><span class="p">)</span>  <span class="c1"># &#39;Allow&#39; is the only allowed action</span>
+                <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;virtual-network-rules&#39;</span><span class="p">]]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;bypass&#39;</span><span class="p">,</span> <span class="p">[]))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">rule_set</span><span class="o">.</span><span class="n">bypass</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;bypass&#39;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rule_set</span><span class="o">.</span><span class="n">bypass</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">storage_accounts</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="n">resource</span><span class="p">[</span><span class="s1">&#39;resourceGroup&#39;</span><span class="p">],</span>
+            <span class="n">resource</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+            <span class="n">StorageAccountUpdateParameters</span><span class="p">(</span><span class="n">network_rule_set</span><span class="o">=</span><span class="n">rule_set</span><span class="p">))</span></div>
 </pre></div>
 
            </div>
