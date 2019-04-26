@@ -8357,6 +8357,81 @@ organizational trails.</p>
 <div class="section" id="module-c7n.resources.config">
 <span id="c7n-resources-config-module"></span><h2>c7n.resources.config module<a class="headerlink" href="#module-c7n.resources.config" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
+<dt id="c7n.resources.config.ConfigRecorder">
+<em class="property">class </em><code class="descclassname">c7n.resources.config.</code><code class="descname">ConfigRecorder</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/config.html#ConfigRecorder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.config.ConfigRecorder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n.html#c7n.query.QueryResourceManager" title="c7n.query.QueryResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.query.QueryResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n.resources.config.ConfigRecorder.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n.resources.config.ConfigRecorder.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="c7n.resources.config.ConfigRecorder.augment">
+<code class="descname">augment</code><span class="sig-paren">(</span><em>resources</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/config.html#ConfigRecorder.augment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.config.ConfigRecorder.augment" title="Permalink to this definition">¶</a></dt>
+<dd><p>subclasses may want to augment resources with additional information.</p>
+<p>ie. we want tags by default (rds, elb), and policy, location, acl for
+s3 buckets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.config.ConfigRecorder.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n.resources.config.ConfigRecorder.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n.resources.config.ConfigRecorder.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n/resources/config.html#ConfigRecorder.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.config.ConfigRecorder.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="c7n.resources.config.ConfigRecorder.resource_type.arn">
+<code class="descname">arn</code><em class="property"> = False</em><a class="headerlink" href="#c7n.resources.config.ConfigRecorder.resource_type.arn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.config.ConfigRecorder.resource_type.dimension">
+<code class="descname">dimension</code><em class="property"> = None</em><a class="headerlink" href="#c7n.resources.config.ConfigRecorder.resource_type.dimension" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.config.ConfigRecorder.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = ('describe_configuration_recorders', 'ConfigurationRecorders', None)</em><a class="headerlink" href="#c7n.resources.config.ConfigRecorder.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.config.ConfigRecorder.resource_type.filter_name">
+<code class="descname">filter_name</code><em class="property"> = 'ConfigurationRecorderNames'</em><a class="headerlink" href="#c7n.resources.config.ConfigRecorder.resource_type.filter_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.config.ConfigRecorder.resource_type.filter_type">
+<code class="descname">filter_type</code><em class="property"> = 'list'</em><a class="headerlink" href="#c7n.resources.config.ConfigRecorder.resource_type.filter_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.config.ConfigRecorder.resource_type.id">
+<code class="descname">id</code><em class="property"> = 'name'</em><a class="headerlink" href="#c7n.resources.config.ConfigRecorder.resource_type.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.config.ConfigRecorder.resource_type.name">
+<code class="descname">name</code><em class="property"> = 'name'</em><a class="headerlink" href="#c7n.resources.config.ConfigRecorder.resource_type.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.config.ConfigRecorder.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'config'</em><a class="headerlink" href="#c7n.resources.config.ConfigRecorder.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.resources.config.ConfigRecorder.type">
+<code class="descname">type</code><em class="property"> = 'config-recorder'</em><a class="headerlink" href="#c7n.resources.config.ConfigRecorder.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="c7n.resources.config.ConfigRule">
 <em class="property">class </em><code class="descclassname">c7n.resources.config.</code><code class="descname">ConfigRule</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/config.html#ConfigRule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.config.ConfigRule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="c7n.html#c7n.query.QueryResourceManager" title="c7n.query.QueryResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.query.QueryResourceManager</span></code></a></p>

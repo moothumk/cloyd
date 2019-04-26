@@ -215,6 +215,38 @@
 <span class="kn">from</span> <span class="nn">c7n.utils</span> <span class="k">import</span> <span class="n">local_session</span><span class="p">,</span> <span class="n">chunks</span><span class="p">,</span> <span class="n">type_schema</span>
 
 
+<div class="viewcode-block" id="ConfigRecorder"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.config.ConfigRecorder">[docs]</a><span class="nd">@resources</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;config-recorder&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ConfigRecorder</span><span class="p">(</span><span class="n">QueryResourceManager</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ConfigRecorder.resource_type"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.config.ConfigRecorder.resource_type">[docs]</a>    <span class="k">class</span> <span class="nc">resource_type</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+        <span class="n">service</span> <span class="o">=</span> <span class="s2">&quot;config&quot;</span>
+        <span class="n">enum_spec</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;describe_configuration_recorders&#39;</span><span class="p">,</span> <span class="s1">&#39;ConfigurationRecorders&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;name&quot;</span>
+        <span class="n">filter_name</span> <span class="o">=</span> <span class="s1">&#39;ConfigurationRecorderNames&#39;</span>
+        <span class="n">filter_type</span> <span class="o">=</span> <span class="s1">&#39;list&#39;</span>
+        <span class="n">dimension</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">arn</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="ConfigRecorder.augment"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.config.ConfigRecorder.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resources</span><span class="p">):</span>
+        <span class="c1"># in general we don&#39;t to default augmentation beyond tags, to</span>
+        <span class="c1"># avoid extraneous api calls. in this case config recorder is</span>
+        <span class="c1"># a singleton (so no cardinality issues in terms of api calls)</span>
+        <span class="c1"># and the common case is looking checking against all of the</span>
+        <span class="c1"># attributes to ensure proper configuration.</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">local_session</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_factory</span><span class="p">)</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">resources</span><span class="p">:</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">describe_configuration_recorder_status</span><span class="p">(</span>
+                <span class="n">ConfigurationRecorderNames</span><span class="o">=</span><span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]])[</span><span class="s1">&#39;ConfigurationRecordersStatus&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">status</span><span class="p">:</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="n">status</span><span class="o">.</span><span class="n">pop</span><span class="p">()})</span>
+
+            <span class="n">channels</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">describe_delivery_channels</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DeliveryChannels&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">channels</span><span class="p">:</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;deliveryChannel&#39;</span><span class="p">:</span> <span class="n">channels</span><span class="o">.</span><span class="n">pop</span><span class="p">()})</span>
+        <span class="k">return</span> <span class="n">resources</span></div></div>
+
+
 <div class="viewcode-block" id="ConfigRule"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.config.ConfigRule">[docs]</a><span class="nd">@resources</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;config-rule&#39;</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">ConfigRule</span><span class="p">(</span><span class="n">QueryResourceManager</span><span class="p">):</span>
 
