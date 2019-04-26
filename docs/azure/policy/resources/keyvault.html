@@ -274,8 +274,81 @@
 </div>
 <div class="section" id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>ARM Resource Actions (see <a class="reference internal" href="../genericarmaction.html#azure-genericarmaction"><span class="std std-ref">Generic Actions</span></a>)</li>
+<ul>
+<li><p class="first">ARM Resource Actions (see <a class="reference internal" href="../genericarmaction.html#azure-genericarmaction"><span class="std std-ref">Generic Actions</span></a>)</p>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">update-access-policy</span></code> - Add or Replace access policies from key vaults under a provided principal object id</dt>
+<dd><ul class="first last simple">
+<li><dl class="first docutils">
+<dt>operation: <cite>add</cite>, <cite>append</cite></dt>
+<dd><ul class="first last">
+<li><cite>add</cite>: adds or appends permission</li>
+<li><cite>replace</cite>: replaces existing access policy</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>tenant-id: The tenant id of the object id and is used for authenticating with keyvault</li>
+<li>object-id: The object id of the user or service principal. This can be retrieved through azure cli or azure portal</li>
+<li>Keys permissions: <cite>Get</cite>, <cite>Create</cite>, <cite>Delete</cite>, <cite>List</cite>, <cite>Update</cite>, <cite>Import</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Recover</cite>, <cite>Decrypt</cite>, <cite>UnwrapKey</cite>, <cite>Encrypt</cite>, <cite>WrapKey</cite>, <cite>Verify</cite>, <cite>Sign</cite>, <cite>Purge</cite></li>
+<li>Secret permissions: <cite>Get</cite>, <cite>List</cite>, <cite>Set</cite>, <cite>Delete</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Recover</cite>, <cite>Purge</cite></li>
+<li>Certificate permissions: <cite>Get</cite>, <cite>List</cite>, <cite>Delete</cite>, <cite>Create</cite>, <cite>Import</cite>, <cite>Update</cite>, <cite>ManageContacts</cite>, <cite>GetIssuers</cite>, <cite>ListIssuers</cite>, <cite>SetIssuers</cite>, <cite>DeleteIssuers</cite>, <cite>ManageIssuers</cite>, <cite>Recover</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Purge</cite></li>
+</ul>
+</dd>
+</dl>
+<div class="toggle docutils container">
+<div class="header docutils container">
+<p>Schema:</p>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;access-policies&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;object-id&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;permissions&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;certificates&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;array&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;keys&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;array&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;secrets&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;array&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;tenant-id&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;array&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;operation&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;enum&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;replace&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</li>
 </ul>
 </div>
 <div class="section" id="example-policies">
@@ -347,6 +420,24 @@ and then perform the delete operation on those ready for deletion.</p>
                 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">get</span>
               <span class="l l-Scalar l-Scalar-Plain">certificates</span><span class="p p-Indicator">:</span>
                 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">get</span>
+</pre></div>
+</div>
+<p>This policy will find all KeyVaults and add get and list permissions for keys.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">policy</span>
+      <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Add get and list permissions to keys access policy</span>
+      <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.keyvault</span>
+      <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">update-access-policy</span>
+          <span class="l l-Scalar l-Scalar-Plain">operation</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">add</span>
+          <span class="l l-Scalar l-Scalar-Plain">access-policies</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tenant-id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">00000000-0000-0000-0000-000000000000</span>
+              <span class="l l-Scalar l-Scalar-Plain">object-id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">11111111-1111-1111-1111-111111111111</span>
+              <span class="l l-Scalar l-Scalar-Plain">permissions</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">keys</span><span class="p p-Indicator">:</span>
+                  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">get</span>
+                  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">list</span>
 </pre></div>
 </div>
 </div>

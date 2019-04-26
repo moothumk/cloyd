@@ -206,6 +206,7 @@
 <span class="c1"># limitations under the License.</span>
 
 <span class="kn">from</span> <span class="nn">azure.graphrbac</span> <span class="k">import</span> <span class="n">GraphRbacManagementClient</span>
+<span class="kn">from</span> <span class="nn">c7n_azure.actions</span> <span class="k">import</span> <span class="n">AzureBaseAction</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.provider</span> <span class="k">import</span> <span class="n">resources</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.session</span> <span class="k">import</span> <span class="n">Session</span>
 
@@ -214,6 +215,9 @@
 <span class="kn">from</span> <span class="nn">c7n_azure.utils</span> <span class="k">import</span> <span class="n">GraphHelper</span>
 
 <span class="kn">from</span> <span class="nn">c7n_azure.resources.arm</span> <span class="k">import</span> <span class="n">ArmResourceManager</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;custodian.azure.keyvault&#39;</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="KeyVault"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.KeyVault">[docs]</a><span class="nd">@resources</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;keyvault&#39;</span><span class="p">)</span>
@@ -315,6 +319,79 @@
                 <span class="n">policy</span><span class="p">[</span><span class="s1">&#39;principalName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">GraphHelper</span><span class="o">.</span><span class="n">get_principal_name</span><span class="p">(</span><span class="n">aad_object</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">access_policies</span></div>
+
+
+<div class="viewcode-block" id="KeyVaultUpdateAccessPolicyAction"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.KeyVaultUpdateAccessPolicyAction">[docs]</a><span class="nd">@KeyVault</span><span class="o">.</span><span class="n">action_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;update-access-policy&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">KeyVaultUpdateAccessPolicyAction</span><span class="p">(</span><span class="n">AzureBaseAction</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds Get and List key access policy to all keyvaults</span>
+
+<span class="sd">            .. code-block:: yaml</span>
+
+<span class="sd">              policies:</span>
+<span class="sd">                - name: azure-keyvault-update-access-policies</span>
+<span class="sd">                  resource: azure.keyvault</span>
+<span class="sd">                  description: |</span>
+<span class="sd">                    Add key get and list to all keyvault access policies</span>
+<span class="sd">                  actions:</span>
+<span class="sd">                   - type: update-access-policy</span>
+<span class="sd">                     operation: add</span>
+<span class="sd">                     access-policies:</span>
+<span class="sd">                      - tenant-id: 00000000-0000-0000-0000-000000000000</span>
+<span class="sd">                        object-id: 11111111-1111-1111-1111-111111111111</span>
+<span class="sd">                        permissions:</span>
+<span class="sd">                          keys:</span>
+<span class="sd">                            - Get</span>
+<span class="sd">                            - List</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">schema</span> <span class="o">=</span> <span class="n">type_schema</span><span class="p">(</span><span class="s1">&#39;update-access-policy&#39;</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;operation&#39;</span><span class="p">,</span> <span class="s1">&#39;access-policies&#39;</span><span class="p">],</span>
+        <span class="n">operation</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;enum&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;replace&#39;</span><span class="p">]},</span>
+        <span class="o">**</span><span class="p">{</span>
+            <span class="s2">&quot;access-policies&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;array&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;tenant-id&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">},</span>
+                    <span class="s1">&#39;object-id&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">},</span>
+                    <span class="s1">&#39;permissions&#39;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;keys&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">}},</span>
+                        <span class="s1">&#39;secrets&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">}},</span>
+                        <span class="s1">&#39;certificates&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">}}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+
+    <span class="k">def</span> <span class="nf">_prepare_processing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">get_client</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_process_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="p">):</span>
+        <span class="n">operation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;operation&#39;</span><span class="p">)</span>
+        <span class="n">access_policies</span> <span class="o">=</span> <span class="n">KeyVaultUpdateAccessPolicyAction</span><span class="o">.</span><span class="n">_transform_access_policies</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;access-policies&#39;</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">vaults</span><span class="o">.</span><span class="n">update_access_policy</span><span class="p">(</span>
+                <span class="n">resource_group_name</span><span class="o">=</span><span class="n">resource</span><span class="p">[</span><span class="s1">&#39;resourceGroup&#39;</span><span class="p">],</span>
+                <span class="n">vault_name</span><span class="o">=</span><span class="n">resource</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+                <span class="n">operation_kind</span><span class="o">=</span><span class="n">operation</span><span class="p">,</span>
+                <span class="n">properties</span><span class="o">=</span><span class="n">access_policies</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_transform_access_policies</span><span class="p">(</span><span class="n">access_policies</span><span class="p">):</span>
+        <span class="n">policies</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;objectId&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;object-id&#39;</span><span class="p">],</span>
+                <span class="s2">&quot;tenantId&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;tenant-id&#39;</span><span class="p">],</span>
+                <span class="s2">&quot;permissions&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;permissions&#39;</span><span class="p">]}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">access_policies</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;accessPolicies&quot;</span><span class="p">:</span> <span class="n">policies</span><span class="p">}</span></div>
 </pre></div>
 
            </div>

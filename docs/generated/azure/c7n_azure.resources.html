@@ -1406,6 +1406,42 @@ type of azure resource.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="c7n_azure.resources.key_vault.KeyVaultUpdateAccessPolicyAction">
+<em class="property">class </em><code class="descclassname">c7n_azure.resources.key_vault.</code><code class="descname">KeyVaultUpdateAccessPolicyAction</code><span class="sig-paren">(</span><em>data=None</em>, <em>manager=None</em>, <em>log_dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/key_vault.html#KeyVaultUpdateAccessPolicyAction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.key_vault.KeyVaultUpdateAccessPolicyAction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_azure.html#c7n_azure.actions.AzureBaseAction" title="c7n_azure.actions.AzureBaseAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.actions.AzureBaseAction</span></code></a></p>
+<p>Adds Get and List key access policy to all keyvaults</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-keyvault-update-access-policies</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.keyvault</span>
+    <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
+      <span class="no">Add key get and list to all keyvault access policies</span>
+    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">update-access-policy</span>
+       <span class="l l-Scalar l-Scalar-Plain">operation</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">add</span>
+       <span class="l l-Scalar l-Scalar-Plain">access-policies</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tenant-id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">00000000-0000-0000-0000-000000000000</span>
+          <span class="l l-Scalar l-Scalar-Plain">object-id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">11111111-1111-1111-1111-111111111111</span>
+          <span class="l l-Scalar l-Scalar-Plain">permissions</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">keys</span><span class="p p-Indicator">:</span>
+              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Get</span>
+              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">List</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault.KeyVaultUpdateAccessPolicyAction.schema">
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'access-policies': {'items': {'object-id': {'type': 'string'}, 'permissions': {'certificates': {'items': {'type': 'string'}, 'type': 'array'}, 'keys': {'items': {'type': 'string'}, 'type': 'array'}, 'secrets': {'items': {'type': 'string'}, 'type': 'array'}, 'type': 'object'}, 'tenant-id': {'type': 'string'}, 'type': 'object'}, 'type': 'array'}, 'operation': {'enum': ['add', 'replace'], 'type': 'string'}, 'type': {'enum': ['update-access-policy']}}, 'required': ['operation', 'access-policies', 'type'], 'type': 'object'}</em><a class="headerlink" href="#c7n_azure.resources.key_vault.KeyVaultUpdateAccessPolicyAction.schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault.KeyVaultUpdateAccessPolicyAction.type">
+<code class="descname">type</code><em class="property"> = 'update-access-policy'</em><a class="headerlink" href="#c7n_azure.resources.key_vault.KeyVaultUpdateAccessPolicyAction.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="c7n_azure.resources.key_vault.WhiteListFilter">
 <em class="property">class </em><code class="descclassname">c7n_azure.resources.key_vault.</code><code class="descname">WhiteListFilter</code><span class="sig-paren">(</span><em>data</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/key_vault.html#WhiteListFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.key_vault.WhiteListFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../aws/c7n.filters.html#c7n.filters.core.Filter" title="c7n.filters.core.Filter"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.filters.core.Filter</span></code></a></p>
