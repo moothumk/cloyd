@@ -24176,6 +24176,9 @@ to each instance selected.</p>
 <em class="property">class </em><code class="descclassname">c7n.resources.rds.</code><code class="descname">CopySnapshotTags</code><span class="sig-paren">(</span><em>data=None</em>, <em>manager=None</em>, <em>log_dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/rds.html#CopySnapshotTags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.rds.CopySnapshotTags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="c7n.actions.html#c7n.actions.core.Action" title="c7n.actions.core.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.actions.core.Action</span></code></a></p>
 <p>Enables copying tags from rds instance to snapshot</p>
+<p>DEPRECATED - use modify-db instead with <cite>CopyTagsToSnapshot</cite></p>
+<blockquote>
+<div></div></blockquote>
 <dl class="attribute">
 <dt id="c7n.resources.rds.CopySnapshotTags.permissions">
 <code class="descname">permissions</code><em class="property"> = ('rds:ModifyDBInstances',)</em><a class="headerlink" href="#c7n.resources.rds.CopySnapshotTags.permissions" title="Permalink to this definition">¶</a></dt>
@@ -24193,7 +24196,7 @@ to each instance selected.</p>
 
 <dl class="method">
 <dt id="c7n.resources.rds.CopySnapshotTags.set_snapshot_tags">
-<code class="descname">set_snapshot_tags</code><span class="sig-paren">(</span><em>r</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/rds.html#CopySnapshotTags.set_snapshot_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.rds.CopySnapshotTags.set_snapshot_tags" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_snapshot_tags</code><span class="sig-paren">(</span><em>client</em>, <em>r</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/resources/rds.html#CopySnapshotTags.set_snapshot_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.resources.rds.CopySnapshotTags.set_snapshot_tags" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
