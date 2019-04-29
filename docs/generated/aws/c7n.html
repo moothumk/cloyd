@@ -2914,6 +2914,18 @@ records (parent hosted zone), ecs services (ecs cluster).</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="c7n.query.ConfigSource.get_query_params">
+<code class="descname">get_query_params</code><span class="sig-paren">(</span><em>query</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/query.html#ConfigSource.get_query_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.query.ConfigSource.get_query_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse config select expression from policy and parameter.</p>
+<p>On policy config supports a full statement being given, or
+a clause that will be added to the where expression.</p>
+<p>If no query is specified, a default query is utilized.</p>
+<p>A valid query should at minimum select fields
+for configuration, supplementaryConfiguration and
+must have resourceType qualifier.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="c7n.query.ConfigSource.get_resources">
 <code class="descname">get_resources</code><span class="sig-paren">(</span><em>ids</em>, <em>cache=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/query.html#ConfigSource.get_resources"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.query.ConfigSource.get_resources" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -2944,12 +2956,6 @@ records (parent hosted zone), ecs services (ecs cluster).</p>
 <dt id="c7n.query.DescribeSource">
 <em class="property">class </em><code class="descclassname">c7n.query.</code><code class="descname">DescribeSource</code><span class="sig-paren">(</span><em>manager</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/query.html#DescribeSource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.query.DescribeSource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="attribute">
-<dt id="c7n.query.DescribeSource.QueryFactory">
-<code class="descname">QueryFactory</code><a class="headerlink" href="#c7n.query.DescribeSource.QueryFactory" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#c7n.query.ResourceQuery" title="c7n.query.ResourceQuery"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceQuery</span></code></a></p>
-</dd></dl>
-
 <dl class="method">
 <dt id="c7n.query.DescribeSource.augment">
 <code class="descname">augment</code><span class="sig-paren">(</span><em>resources</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/query.html#DescribeSource.augment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.query.DescribeSource.augment" title="Permalink to this definition">¶</a></dt>
@@ -2961,9 +2967,25 @@ records (parent hosted zone), ecs services (ecs cluster).</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="c7n.query.DescribeSource.get_query">
+<code class="descname">get_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/query.html#DescribeSource.get_query"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.query.DescribeSource.get_query" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="c7n.query.DescribeSource.get_query_params">
+<code class="descname">get_query_params</code><span class="sig-paren">(</span><em>query_params</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/query.html#DescribeSource.get_query_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.query.DescribeSource.get_query_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="c7n.query.DescribeSource.get_resources">
 <code class="descname">get_resources</code><span class="sig-paren">(</span><em>ids</em>, <em>cache=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/query.html#DescribeSource.get_resources"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.query.DescribeSource.get_resources" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n.query.DescribeSource.resource_query_factory">
+<code class="descname">resource_query_factory</code><a class="headerlink" href="#c7n.query.DescribeSource.resource_query_factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#c7n.query.ResourceQuery" title="c7n.query.ResourceQuery"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceQuery</span></code></a></p>
+</dd></dl>
 
 <dl class="method">
 <dt id="c7n.query.DescribeSource.resources">

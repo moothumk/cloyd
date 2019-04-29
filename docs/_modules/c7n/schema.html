@@ -425,13 +425,12 @@
                     <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;array&#39;</span>
                 <span class="p">},</span>
                 <span class="c1">#</span>
-                <span class="c1"># unclear if this should be allowed, it kills resource</span>
-                <span class="c1"># cache coherency between policies, and we need to</span>
-                <span class="c1"># generalize server side query mechanisms, currently</span>
-                <span class="c1"># this only for ec2 instance queries. limitations</span>
-                <span class="c1"># in json schema inheritance prevent us from doing this</span>
-                <span class="c1"># on a type specific basis</span>
-                <span class="c1"># https://stackoverflow.com/questions/22689900/json-schema-allof-with-additionalproperties</span>
+                <span class="c1"># TODO: source queries should really move under</span>
+                <span class="c1"># source. This was initially used for describe sources</span>
+                <span class="c1"># to expose server side query mechanisms, however its</span>
+                <span class="c1"># important to note it also prevents resource cache</span>
+                <span class="c1"># utilization between policies that have different</span>
+                <span class="c1"># queries.</span>
                 <span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">}}</span>
 
