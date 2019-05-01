@@ -378,7 +378,7 @@ events. When deploying an event grid function, an Event Grid Subscription is cre
 when any event is triggered in the subscription. Cloud custodian filters to the events you passed to your policy and
 ignores all other events.</p>
 <p>In order to subscribe on an event you need to provide the resource provider and the action, or provide the string
-of one of the <a class="reference external" href="https://github.com/capitalone/cloud-custodian/blob/master/tools/c7n_azure/c7n_azure/azure_events.py">shortcuts</a>.</p>
+of one of the <a class="reference external" href="https://github.com/cloud-custodian/cloud-custodian/blob/master/tools/c7n_azure/c7n_azure/azure_events.py">shortcuts</a>.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tag-key-vault-creator</span>
       <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.keyvault</span>

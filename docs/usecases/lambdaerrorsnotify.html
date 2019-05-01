@@ -237,9 +237,9 @@ The policies filters will check each Lambdas CloudWatch Metrics for errors.  If 
 in an hour period and the Lambda function is not tagged with <strong>Custodian_Lambda_Error_Exclude</strong>
 then the policy will take the action of notifying the Lambda function owner and the cloud team.  These
 notifications can help developers by informing them if unexpected errors occur so they can be quickly
-addressed.
-For the notify action in the policy to work you must have setup the c7n_mailer tool:
-<a class="reference external" href="https://github.com/capitalone/cloud-custodian/tree/master/tools/c7n_mailer">https://github.com/capitalone/cloud-custodian/tree/master/tools/c7n_mailer</a></p>
+addressed.</p>
+<p>For the notify action in the policy to work you must have setup the c7n_mailer tool:
+<a class="reference external" href="https://github.com/cloud-custodian/cloud-custodian/tree/master/tools/c7n_mailer">https://github.com/cloud-custodian/cloud-custodian/tree/master/tools/c7n_mailer</a></p>
 <p>Mailer Setup Guide:
 <a class="reference external" href="https://devops4solutions.com/cloud-custodian-configure-email/">https://devops4solutions.com/cloud-custodian-configure-email/</a></p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
