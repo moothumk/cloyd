@@ -253,14 +253,13 @@
         <span class="l l-Scalar l-Scalar-Plain">days</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">120</span>
 </pre></div>
 </div>
-<dl class="docutils">
-<dt>Instance Age Filter</dt>
-<dd><p class="first">The instance age filter allows for filtering the set of EC2 instances by
+<dl>
+<dt>Instance Age Filter</dt><dd><p>The instance age filter allows for filtering the set of EC2 instances by
 their LaunchTime, i.e. all instances older than 60 or 90 days. The default
 date value is 60 days if otherwise unspecified.
 Configuring a specific value for instance-age to report all instances older
 than 90 days.</p>
-<div class="last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">old-instances</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>

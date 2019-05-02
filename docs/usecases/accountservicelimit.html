@@ -247,14 +247,13 @@ more than 50% of the limit and raise the limit for 25%.</p>
 </div>
 <p>Noted that the <code class="docutils literal notranslate"><span class="pre">threshold</span></code> in <code class="docutils literal notranslate"><span class="pre">service-limit</span></code> filter is an optional field. If
 not mentioned on the policy, the default value is 80.</p>
-<dl class="docutils">
-<dt>Global Services</dt>
-<dd><p class="first">Services like IAM are not region-based. Custodian will put the limit
+<dl>
+<dt>Global Services</dt><dd><p>Services like IAM are not region-based. Custodian will put the limit
 information only in <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code>. When running the policy above in multiple
 regions, the limit of global services will ONLY be raised in us-east-1.</p>
 <p>Additionally, if you want to target any the global services on the policy, you
 will need to target the region as us-east-1 on the policy. Here is an example.</p>
-<div class="last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">account-service-limits</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">account</span>
     <span class="l l-Scalar l-Scalar-Plain">region</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">us-east-1</span>

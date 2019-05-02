@@ -273,13 +273,13 @@ remediate them such that they are encrypted.</p>
 <h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">crypto</span></code> for determining the crypto mechanism, this can either be
-<code class="docutils literal notranslate"><span class="pre">aws:kms</span></code> or <code class="docutils literal notranslate"><span class="pre">AES256</span></code> (default)</li>
-<li><code class="docutils literal notranslate"><span class="pre">key-id</span></code> for specifiying the customer KMS key to use for the SSE, if the
+<li><p><code class="docutils literal notranslate"><span class="pre">crypto</span></code> for determining the crypto mechanism, this can either be
+<code class="docutils literal notranslate"><span class="pre">aws:kms</span></code> or <code class="docutils literal notranslate"><span class="pre">AES256</span></code> (default)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">key-id</span></code> for specifiying the customer KMS key to use for the SSE, if the
 <code class="docutils literal notranslate"><span class="pre">crypto</span></code> value passed is <code class="docutils literal notranslate"><span class="pre">aws:kms</span></code> the AWS default KMS key will be used
-instead.</li>
-<li><code class="docutils literal notranslate"><span class="pre">report-only</span></code> generate reports of unencrypted keys in a bucket, but do
-not remediate them.</li>
+instead.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">report-only</span></code> generate reports of unencrypted keys in a bucket, but do
+not remediate them.</p></li>
 </ul>
 </div></blockquote>
 </div>
@@ -303,12 +303,12 @@ encrypted.</p>
 <h3>Options<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">role</span></code> for the role the encrypting Lambda should run as (not necessary if
-you provide <code class="docutils literal notranslate"><span class="pre">--assume-role</span></code> on the command line).</li>
-<li><code class="docutils literal notranslate"><span class="pre">topic</span></code> for the SNS topic to subscribe the Lambda to. If you set
+<li><p><code class="docutils literal notranslate"><span class="pre">role</span></code> for the role the encrypting Lambda should run as (not necessary if
+you provide <code class="docutils literal notranslate"><span class="pre">--assume-role</span></code> on the command line).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">topic</span></code> for the SNS topic to subscribe the Lambda to. If you set
 <code class="docutils literal notranslate"><span class="pre">topic</span></code> to <code class="docutils literal notranslate"><span class="pre">default</span></code> then we will reuse any existing SNS topic that
 specifies <code class="docutils literal notranslate"><span class="pre">s3:ObjectCreated:*</span></code>, or set one up if needed. If <code class="docutils literal notranslate"><span class="pre">topic</span></code> is
-missing, then we’ll attach via a bucket notification.</li>
+missing, then we’ll attach via a bucket notification.</p></li>
 </ul>
 </div></blockquote>
 </div>

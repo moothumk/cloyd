@@ -221,9 +221,9 @@
 them to run inexpensively in your subscription.</p>
 <p>Python support in Azure Functions V2 is in preview and this feature is still immature.</p>
 <ul class="simple">
-<li>Linux is currently the only supported operating system.</li>
-<li>Python 3.6 is the only supported version.</li>
-<li>Only Service Principal authentication is currently supported.</li>
+<li><p>Linux is currently the only supported operating system.</p></li>
+<li><p>Python 3.6 is the only supported version.</p></li>
+<li><p>Only Service Principal authentication is currently supported.</p></li>
 </ul>
 <p>Currently periodic (CRON) and Event Grid functions are supported, however consumption pricing is not
 yet supported.</p>
@@ -231,10 +231,10 @@ yet supported.</p>
 <h3>Provision Options<a class="headerlink" href="#provision-options" title="Permalink to this headline">¶</a></h3>
 <p>When deploying an Azure function the following ARM resources are required and created on demand if necessary:</p>
 <ul class="simple">
-<li>Storage (shared across functions)</li>
-<li>Application Insights (shared across functions)</li>
-<li>Application Service Plan (shared across functions)</li>
-<li>Application Service (per function)</li>
+<li><p>Storage (shared across functions)</p></li>
+<li><p>Application Insights (shared across functions)</p></li>
+<li><p>Application Service Plan (shared across functions)</p></li>
+<li><p>Application Service (per function)</p></li>
 </ul>
 <p>Functions can be deployed in either a dedicated Application Service Plan (Basic, Standard or Premium) or in a Consumption plan.
 More details on the different hosting models offered by Azure Functions can be found in the <a class="reference external" href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale">Azure Functions documentation</a>.
@@ -247,20 +247,20 @@ shared plan resources.</p>
 resources. To override these settings you must set ‘provision-options’ with one of the following
 keys:</p>
 <ul class="simple">
-<li>servicePlan
+<li><p>servicePlan
 - name (default: cloud-custodian)
 - location (default: East US)
 - resourceGroupName (default: cloud-custodian)
 - skuTier (default: Dynamic) # consumption
-- skuName (default: Y1)</li>
-<li>storageAccount
+- skuName (default: Y1)</p></li>
+<li><p>storageAccount
 - name (default: custodian + sha256(resourceGroupName+subscription_id)[:8])
 - location (default: servicePlan location)
-- resourceGroupName (default: servicePlan resource group)</li>
-<li>appInsights
+- resourceGroupName (default: servicePlan resource group)</p></li>
+<li><p>appInsights
 - name (default: servicePlan resource group)
 - location (default: servicePlan location)
-- resourceGroupName (default: servicePlan name)</li>
+- resourceGroupName (default: servicePlan name)</p></li>
 </ul>
 <p>The location allows you to choose the region to deploy the resource group and resources that will be
 provisioned. Application Insights has six available locations and thus can not always be in the same
@@ -270,9 +270,9 @@ West Europe. The sku, skuCode, and workerSize correlate to scaling up the App Se
 and will use existing resources as-is. If resource doesn’t exist, it will be provisioned using provided configuration.</p>
 <p>If you have existing infrastructure, you can specify resource ids for the following items (instead of applying previous schema):</p>
 <ul class="simple">
-<li>storageAccount</li>
-<li>servicePlan</li>
-<li>appInsights</li>
+<li><p>storageAccount</p></li>
+<li><p>servicePlan</p></li>
+<li><p>appInsights</p></li>
 </ul>
 <p>If you provide resource ids, Cloud Custodian verifies that resource exists before function app provisioning. It returns an error if resource is missing.</p>
 <p>An example on how to set the servicePlanName and accept defaults for the other values:</p>
@@ -345,9 +345,9 @@ and will use existing resources as-is. If resource doesn’t exist, it will be p
 be provided on the command line in non-serverless scenarios.</p>
 <p>Common properties are:</p>
 <ul class="simple">
-<li>output_dir</li>
-<li>cache_period</li>
-<li>dryrun</li>
+<li><p>output_dir</p></li>
+<li><p>cache_period</p></li>
+<li><p>dryrun</p></li>
 </ul>
 <p>Output directory defaults to <cite>/tmp/&lt;random_uuid&gt;</cite> but you can point it to a Azure Blob Storage container instead</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>

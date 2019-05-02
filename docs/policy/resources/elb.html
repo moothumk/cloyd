@@ -222,24 +222,24 @@
 <div class="section" id="filters">
 <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Standard Value Filter (see <a class="reference internal" href="../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</li>
+<li><p>Standard Value Filter (see <a class="reference internal" href="../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</p></li>
 </ul>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">is-ssl</span></code></dt>
-<dd><p class="first">Check if ELB is using SSL</p>
-<div class="toggle last docutils container">
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">is-ssl</span></code></dt><dd><p>Check if ELB is using SSL</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ssl-policy</span></code></dt>
-<dd><p class="first">Filter on SSL Policy, supports whitelists and blacklists</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">ssl-policy</span></code></dt><dd><p>Filter on SSL Policy, supports whitelists and blacklists</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;blacklist&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -261,11 +261,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">healthcheck-protocol-mismatch</span></code></dt>
-<dd><p class="first">Check if any of the protocols in the ELB match the health check</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">healthcheck-protocol-mismatch</span></code></dt><dd><p>Check if any of the protocols in the ELB match the health check</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>
@@ -275,22 +275,22 @@ Schema:</div>
 </div>
 <div class="section" id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">delete</span></code></dt>
-<dd><p class="first">Delete ELB</p>
-<div class="toggle last docutils container">
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">delete</span></code></dt><dd><p>Delete ELB</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">set-ssl-listener-policy</span></code></dt>
-<dd><p class="first">Set SSL listener policy</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">set-ssl-listener-policy</span></code></dt><dd><p>Set SSL listener policy</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;attributes&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>

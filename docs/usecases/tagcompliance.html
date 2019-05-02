@@ -232,12 +232,11 @@
             
   <div class="section" id="tag-compliance-across-resources-ec2-asg-elb-s3-etc">
 <h1>Tag Compliance Across Resources (EC2, ASG, ELB, S3, etc)<a class="headerlink" href="#tag-compliance-across-resources-ec2-asg-elb-s3-etc" title="Permalink to this headline">¶</a></h1>
-<dl class="docutils">
-<dt>Tag</dt>
-<dd><p class="first">Tags instances matching filters with a ‘c7n_status’ tag by
+<dl>
+<dt>Tag</dt><dd><p>Tags instances matching filters with a ‘c7n_status’ tag by
 default and configurable value.</p>
 <p>Here’s an example of renaming an extant tag</p>
-<div class="last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
 
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-tag-instances</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
@@ -250,8 +249,7 @@ default and configurable value.</p>
 </pre></div>
 </div>
 </dd>
-<dt>Report on Tag Compliance</dt>
-<dd><div class="first last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<dt>Report on Tag Compliance</dt><dd><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
 
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-tag-compliance</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
@@ -265,10 +263,9 @@ default and configurable value.</p>
 </pre></div>
 </div>
 </dd>
-<dt>Enforce Tag Compliance</dt>
-<dd><p class="first">All EC2 non-AutoScaling instances that do not have the three required tags (CostCenter, Owner, Project)
+<dt>Enforce Tag Compliance</dt><dd><p>All EC2 non-AutoScaling instances that do not have the three required tags (CostCenter, Owner, Project)
 will be stopped hourly after 2 days, and terminated after 5 days.</p>
-<div class="last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
 
 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-tag-compliance-mark</span>
   <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
@@ -359,12 +356,11 @@ will be stopped hourly after 2 days, and terminated after 5 days.</p>
 </pre></div>
 </div>
 </dd>
-<dt>Enforce Tag Compliance</dt>
-<dd><p class="first">All AutoScaling Groups that do not have the 5 required tags:
+<dt>Enforce Tag Compliance</dt><dd><p>All AutoScaling Groups that do not have the 5 required tags:
 (Resource Contact, Billing Cost Center, Environment, Resource Purpose, Business Unit)
 will be suspended and stopped once after 24 hours and then hourly after 2 days,
 and terminated after 3 days.  We are using a custom tag named c7n_tag_compliance</p>
-<div class="last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">vars</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">vars</span><span class="p p-Indicator">:</span>
   <span class="l l-Scalar l-Scalar-Plain">tag-filters</span><span class="p p-Indicator">:</span> <span class="nl">&amp;tag-compliance-filters</span>
         <span class="p p-Indicator">-</span> <span class="s">&quot;tag:Resource</span><span class="nv"> </span><span class="s">Contact&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>
         <span class="p p-Indicator">-</span> <span class="s">&quot;tag:Billing</span><span class="nv"> </span><span class="s">Cost</span><span class="nv"> </span><span class="s">Center&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>

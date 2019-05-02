@@ -239,20 +239,18 @@
 <div class="section" id="filters">
 <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>Standard Value Filter (see <a class="reference internal" href="../../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</dt>
-<dd><ul class="first last">
-<li>Model: <a class="reference external" href="https://docs.microsoft.com/en-us/python/api/azure.mgmt.storage.v2018_02_01.models.storageaccount?view=azure-python">StorageAccount</a></li>
+<li><dl class="simple">
+<dt>Standard Value Filter (see <a class="reference internal" href="../../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</dt><dd><ul>
+<li><p>Model: <a class="reference external" href="https://docs.microsoft.com/en-us/python/api/azure.mgmt.storage.v2018_02_01.models.storageaccount?view=azure-python">StorageAccount</a></p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>ARM Resource Filters (see <a class="reference internal" href="../genericarmfilter.html#azure-genericarmfilter"><span class="std std-ref">Generic Filters</span></a>)</dt>
-<dd><ul class="first last">
-<li>Metric Filter - Filter on metrics from Azure Monitor - (see <a class="reference external" href="https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftstoragestorageaccounts/">Storage Account Supported Metrics</a>)</li>
-<li>Tag Filter - Filter on tag presence and/or values</li>
-<li>Marked-For-Op Filter - Filter on tag that indicates a scheduled operation for a resource</li>
+<li><dl class="simple">
+<dt>ARM Resource Filters (see <a class="reference internal" href="../genericarmfilter.html#azure-genericarmfilter"><span class="std std-ref">Generic Filters</span></a>)</dt><dd><ul>
+<li><p>Metric Filter - Filter on metrics from Azure Monitor - (see <a class="reference external" href="https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftstoragestorageaccounts/">Storage Account Supported Metrics</a>)</p></li>
+<li><p>Tag Filter - Filter on tag presence and/or values</p></li>
+<li><p>Marked-For-Op Filter - Filter on tag that indicates a scheduled operation for a resource</p></li>
 </ul>
 </dd>
 </dl>
@@ -262,21 +260,19 @@
 <div class="section" id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">ARM Resource Actions (see <a class="reference internal" href="../genericarmaction.html#azure-genericarmaction"><span class="std std-ref">Generic Actions</span></a>)</p>
-</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">set-network-rules</span></code> Set network (firewall) rules.</dt>
-<dd><ul class="first last simple">
-<li><cite>default-action</cite>: Required. Can be either Allow or Deny.</li>
-<li><dl class="first docutils">
-<dt><cite>bypass</cite>: Optional. List of services that are allowed to bypass the rules. Any combination of AzureServices,</dt>
-<dd>Logging and Metrics, e.g. [Logging, Metrics]. If not specified the property is not changed.</dd>
+<li><p>ARM Resource Actions (see <a class="reference internal" href="../genericarmaction.html#azure-genericarmaction"><span class="std std-ref">Generic Actions</span></a>)</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">set-network-rules</span></code> Set network (firewall) rules.</dt><dd><ul class="simple">
+<li><p><cite>default-action</cite>: Required. Can be either Allow or Deny.</p></li>
+<li><dl class="simple">
+<dt><cite>bypass</cite>: Optional. List of services that are allowed to bypass the rules. Any combination of AzureServices,</dt><dd><p>Logging and Metrics, e.g. [Logging, Metrics]. If not specified the property is not changed.</p>
+</dd>
 </dl>
 </li>
-<li><cite>ip-rules</cite>: Optional. List of allowed ip-s or addresses. Specify empty list [] to remove all items.
-- <cite>ip-address-or-range</cite>: Ip address or range that is allowed.</li>
-<li><cite>virtual-network-rules</cite>: Optional. List of allowed virtual networks. Specify empty list [] to remove all items.
-- <cite>virtual-network-resource-id</cite>: Azure id of a subnet of a virtual network.</li>
+<li><p><cite>ip-rules</cite>: Optional. List of allowed ip-s or addresses. Specify empty list [] to remove all items.
+- <cite>ip-address-or-range</cite>: Ip address or range that is allowed.</p></li>
+<li><p><cite>virtual-network-rules</cite>: Optional. List of allowed virtual networks. Specify empty list [] to remove all items.
+- <cite>virtual-network-resource-id</cite>: Azure id of a subnet of a virtual network.</p></li>
 </ul>
 </dd>
 </dl>

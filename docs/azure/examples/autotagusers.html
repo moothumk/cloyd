@@ -215,9 +215,9 @@
   <div class="section" id="automatically-tag-the-creator-of-a-resource-or-resource-group">
 <h1>Automatically tag the creator of a resource or resource group.<a class="headerlink" href="#automatically-tag-the-creator-of-a-resource-or-resource-group" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li>In non-event mode, the action will look up Azure Activity Logs up to 90 days prior to execution (default). It will attempt to identify the first user or service principal that performed the ‘write’ operation for each resource.</li>
-<li>In event mode, the action will use the data from the event to determine the user or principal that performed the action. The <strong>days</strong> option is not applicable in this mode.</li>
-<li><strong>Note</strong>: Service Principals do not have email addresses and their tag values will be the application id.</li>
+<li><p>In non-event mode, the action will look up Azure Activity Logs up to 90 days prior to execution (default). It will attempt to identify the first user or service principal that performed the ‘write’ operation for each resource.</p></li>
+<li><p>In event mode, the action will use the data from the event to determine the user or principal that performed the action. The <strong>days</strong> option is not applicable in this mode.</p></li>
+<li><p><strong>Note</strong>: Service Principals do not have email addresses and their tag values will be the application id.</p></li>
 </ul>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-auto-tag-creator</span>

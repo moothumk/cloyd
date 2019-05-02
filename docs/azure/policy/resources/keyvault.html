@@ -239,33 +239,30 @@
 <div class="section" id="filters">
 <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>Standard Value Filter (see <a class="reference internal" href="../../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</dt>
-<dd><ul class="first last">
-<li>Model: <a class="reference external" href="https://docs.microsoft.com/en-us/python/api/azure.mgmt.keyvault.models.vault?view=azure-python">Vault</a></li>
+<li><dl class="simple">
+<dt>Standard Value Filter (see <a class="reference internal" href="../../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</dt><dd><ul>
+<li><p>Model: <a class="reference external" href="https://docs.microsoft.com/en-us/python/api/azure.mgmt.keyvault.models.vault?view=azure-python">Vault</a></p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>ARM Resource Filters (see <a class="reference internal" href="../genericarmfilter.html#azure-genericarmfilter"><span class="std std-ref">Generic Filters</span></a>)</dt>
-<dd><ul class="first last">
-<li>Metric Filter - Filter on metrics from Azure Monitor - (see <a class="reference external" href="https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftkeyvaultvaults/">Key Vault Supported Metrics</a>)</li>
-<li>Tag Filter - Filter on tag presence and/or values</li>
-<li>Marked-For-Op Filter - Filter on tag that indicates a scheduled operation for a resource</li>
+<li><dl class="simple">
+<dt>ARM Resource Filters (see <a class="reference internal" href="../genericarmfilter.html#azure-genericarmfilter"><span class="std std-ref">Generic Filters</span></a>)</dt><dd><ul>
+<li><p>Metric Filter - Filter on metrics from Azure Monitor - (see <a class="reference external" href="https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftkeyvaultvaults/">Key Vault Supported Metrics</a>)</p></li>
+<li><p>Tag Filter - Filter on tag presence and/or values</p></li>
+<li><p>Marked-For-Op Filter - Filter on tag that indicates a scheduled operation for a resource</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>Whitelist filter - Filter on whitelist of Service Principals allowed to have a KeyVault access or Service Principals with specified access permissions</dt>
-<dd><ul class="first last">
-<li>You can use <cite>objectId</cite>, <cite>displayName</cite>, <cite>principalName</cite> for the key</li>
-<li>You can specify allowed set of permissions for keys, secrets and certificates (case insensitive)</li>
-<li>Keys permissions: <cite>Get</cite>, <cite>Create</cite>, <cite>Delete</cite>, <cite>List</cite>, <cite>Update</cite>, <cite>Import</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Recover</cite>, <cite>Decrypt</cite>, <cite>UnwrapKey</cite>, <cite>Encrypt</cite>, <cite>WrapKey</cite>, <cite>Verify</cite>, <cite>Sign</cite>, <cite>Purge</cite></li>
-<li>Secret permissions: <cite>Get</cite>, <cite>List</cite>, <cite>Set</cite>, <cite>Delete</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Recover</cite>, <cite>Purge</cite></li>
-<li>Certificate permissions: <cite>Get</cite>, <cite>List</cite>, <cite>Delete</cite>, <cite>Create</cite>, <cite>Import</cite>, <cite>Update</cite>, <cite>ManageContacts</cite>, <cite>GetIssuers</cite>, <cite>ListIssuers</cite>, <cite>SetIssuers</cite>, <cite>DeleteIssuers</cite>, <cite>ManageIssuers</cite>, <cite>Recover</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Purge</cite></li>
-<li>Note: if you use <cite>displayName</cite> or <cite>principalName</cite>, you need to use azure cli authentication</li>
+<li><dl class="simple">
+<dt>Whitelist filter - Filter on whitelist of Service Principals allowed to have a KeyVault access or Service Principals with specified access permissions</dt><dd><ul>
+<li><p>You can use <cite>objectId</cite>, <cite>displayName</cite>, <cite>principalName</cite> for the key</p></li>
+<li><p>You can specify allowed set of permissions for keys, secrets and certificates (case insensitive)</p></li>
+<li><p>Keys permissions: <cite>Get</cite>, <cite>Create</cite>, <cite>Delete</cite>, <cite>List</cite>, <cite>Update</cite>, <cite>Import</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Recover</cite>, <cite>Decrypt</cite>, <cite>UnwrapKey</cite>, <cite>Encrypt</cite>, <cite>WrapKey</cite>, <cite>Verify</cite>, <cite>Sign</cite>, <cite>Purge</cite></p></li>
+<li><p>Secret permissions: <cite>Get</cite>, <cite>List</cite>, <cite>Set</cite>, <cite>Delete</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Recover</cite>, <cite>Purge</cite></p></li>
+<li><p>Certificate permissions: <cite>Get</cite>, <cite>List</cite>, <cite>Delete</cite>, <cite>Create</cite>, <cite>Import</cite>, <cite>Update</cite>, <cite>ManageContacts</cite>, <cite>GetIssuers</cite>, <cite>ListIssuers</cite>, <cite>SetIssuers</cite>, <cite>DeleteIssuers</cite>, <cite>ManageIssuers</cite>, <cite>Recover</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Purge</cite></p></li>
+<li><p>Note: if you use <cite>displayName</cite> or <cite>principalName</cite>, you need to use azure cli authentication</p></li>
 </ul>
 </dd>
 </dl>
@@ -275,25 +272,22 @@
 <div class="section" id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">ARM Resource Actions (see <a class="reference internal" href="../genericarmaction.html#azure-genericarmaction"><span class="std std-ref">Generic Actions</span></a>)</p>
-</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">update-access-policy</span></code> - Add or Replace access policies from key vaults under a provided principal object id</dt>
-<dd><ul class="first last simple">
-<li><dl class="first docutils">
-<dt>operation: <cite>add</cite>, <cite>append</cite></dt>
-<dd><ul class="first last">
-<li><cite>add</cite>: adds or appends permission</li>
-<li><cite>replace</cite>: replaces existing access policy</li>
+<li><p>ARM Resource Actions (see <a class="reference internal" href="../genericarmaction.html#azure-genericarmaction"><span class="std std-ref">Generic Actions</span></a>)</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">update-access-policy</span></code> - Add or Replace access policies from key vaults under a provided principal object id</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>operation: <cite>add</cite>, <cite>append</cite></dt><dd><ul>
+<li><p><cite>add</cite>: adds or appends permission</p></li>
+<li><p><cite>replace</cite>: replaces existing access policy</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li>tenant-id: The tenant id of the object id and is used for authenticating with keyvault</li>
-<li>object-id: The object id of the user or service principal. This can be retrieved through azure cli or azure portal</li>
-<li>Keys permissions: <cite>Get</cite>, <cite>Create</cite>, <cite>Delete</cite>, <cite>List</cite>, <cite>Update</cite>, <cite>Import</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Recover</cite>, <cite>Decrypt</cite>, <cite>UnwrapKey</cite>, <cite>Encrypt</cite>, <cite>WrapKey</cite>, <cite>Verify</cite>, <cite>Sign</cite>, <cite>Purge</cite></li>
-<li>Secret permissions: <cite>Get</cite>, <cite>List</cite>, <cite>Set</cite>, <cite>Delete</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Recover</cite>, <cite>Purge</cite></li>
-<li>Certificate permissions: <cite>Get</cite>, <cite>List</cite>, <cite>Delete</cite>, <cite>Create</cite>, <cite>Import</cite>, <cite>Update</cite>, <cite>ManageContacts</cite>, <cite>GetIssuers</cite>, <cite>ListIssuers</cite>, <cite>SetIssuers</cite>, <cite>DeleteIssuers</cite>, <cite>ManageIssuers</cite>, <cite>Recover</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Purge</cite></li>
+<li><p>tenant-id: The tenant id of the object id and is used for authenticating with keyvault</p></li>
+<li><p>object-id: The object id of the user or service principal. This can be retrieved through azure cli or azure portal</p></li>
+<li><p>Keys permissions: <cite>Get</cite>, <cite>Create</cite>, <cite>Delete</cite>, <cite>List</cite>, <cite>Update</cite>, <cite>Import</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Recover</cite>, <cite>Decrypt</cite>, <cite>UnwrapKey</cite>, <cite>Encrypt</cite>, <cite>WrapKey</cite>, <cite>Verify</cite>, <cite>Sign</cite>, <cite>Purge</cite></p></li>
+<li><p>Secret permissions: <cite>Get</cite>, <cite>List</cite>, <cite>Set</cite>, <cite>Delete</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Recover</cite>, <cite>Purge</cite></p></li>
+<li><p>Certificate permissions: <cite>Get</cite>, <cite>List</cite>, <cite>Delete</cite>, <cite>Create</cite>, <cite>Import</cite>, <cite>Update</cite>, <cite>ManageContacts</cite>, <cite>GetIssuers</cite>, <cite>ListIssuers</cite>, <cite>SetIssuers</cite>, <cite>DeleteIssuers</cite>, <cite>ManageIssuers</cite>, <cite>Recover</cite>, <cite>Backup</cite>, <cite>Restore</cite>, <cite>Purge</cite></p></li>
 </ul>
 </dd>
 </dl>

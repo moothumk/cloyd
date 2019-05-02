@@ -223,8 +223,8 @@
 <div class="section" id="query">
 <h2>Query<a class="headerlink" href="#query" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Basic JMESPath Query (see <code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.filters.ValueFilter</span></code>)</li>
-<li>Valid EC2 Query Filters (see <a class="reference external" href="http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ApiReference-cmd-DescribeInstances.html">EC2 Describe Instances</a>)</li>
+<li><p>Basic JMESPath Query (see <code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.filters.ValueFilter</span></code>)</p></li>
+<li><p>Valid EC2 Query Filters (see <a class="reference external" href="http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ApiReference-cmd-DescribeInstances.html">EC2 Describe Instances</a>)</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">EC2_VALID_FILTERS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;architecture&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;i386&#39;</span><span class="p">,</span> <span class="s1">&#39;x86_64&#39;</span><span class="p">),</span>
@@ -253,16 +253,16 @@
 <div class="section" id="filters">
 <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Standard Value Filter (see <a class="reference internal" href="../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</li>
+<li><p>Standard Value Filter (see <a class="reference internal" href="../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</p></li>
 </ul>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">ebs</span></code></dt>
-<dd>Filter based on Volumes attached to Instance</dd>
-<dt>Filter by State Transition Filter</dt>
-<dd><p class="first">Filter instances by state (see <a class="reference external" href="http://goo.gl/TZH9Q5">Instance Lifecycle</a>)</p>
-<div class="toggle last docutils container">
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">ebs</span></code></dt><dd><p>Filter based on Volumes attached to Instance</p>
+</dd>
+<dt>Filter by State Transition Filter</dt><dd><p>Filter instances by state (see <a class="reference external" href="http://goo.gl/TZH9Q5">Instance Lifecycle</a>)</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;default&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span>
@@ -299,11 +299,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">image-age</span></code></dt>
-<dd><p class="first">Filter on the age of the instance AMI based on the <code class="docutils literal notranslate"><span class="pre">ImageId</span></code> <code class="docutils literal notranslate"><span class="pre">CreationDate</span></code></p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">image-age</span></code></dt><dd><p>Filter on the age of the instance AMI based on the <code class="docutils literal notranslate"><span class="pre">ImageId</span></code> <code class="docutils literal notranslate"><span class="pre">CreationDate</span></code></p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;days&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;number&quot;</span>
@@ -316,11 +316,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">image</span></code></dt>
-<dd><p class="first">Filter on the ImageId of the instance</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">image</span></code></dt><dd><p>Filter on the ImageId of the instance</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;default&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span>
@@ -345,12 +345,12 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">offhour</span></code></dt>
-<dd><p class="first">Filter for
+<dt><code class="docutils literal notranslate"><span class="pre">offhour</span></code></dt><dd><p>Filter for
 <a class="reference internal" href="../../generated/aws/c7n.resources.html#c7n.resources.ec2.InstanceOffHour" title="c7n.resources.ec2.InstanceOffHour"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.resources.ec2.InstanceOffHour</span></code></a></p>
-<div class="toggle last docutils container">
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;default_tz&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -416,12 +416,12 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">onhour</span></code></dt>
-<dd><p class="first">Filter for
+<dt><code class="docutils literal notranslate"><span class="pre">onhour</span></code></dt><dd><p>Filter for
 <a class="reference internal" href="../../generated/aws/c7n.resources.html#c7n.resources.ec2.InstanceOnHour" title="c7n.resources.ec2.InstanceOnHour"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.resources.ec2.InstanceOnHour</span></code></a></p>
-<div class="toggle last docutils container">
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;default_tz&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -487,21 +487,21 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">ephemeral</span></code></dt>
-<dd><p class="first">Filter for instances that have ephemeral drives</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">ephemeral</span></code></dt><dd><p>Filter for instances that have ephemeral drives</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">instance-uptime</span></code></dt>
-<dd><p class="first">Filter based on instance <code class="docutils literal notranslate"><span class="pre">LaunchTime</span></code> in days</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">instance-uptime</span></code></dt><dd><p>Filter based on instance <code class="docutils literal notranslate"><span class="pre">LaunchTime</span></code> in days</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;days&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;number&quot;</span>
@@ -514,11 +514,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">instance-age</span></code></dt>
-<dd><p class="first">Filter based on the <code class="docutils literal notranslate"><span class="pre">AttachTime</span></code> of the EBS Volumes in days</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">instance-age</span></code></dt><dd><p>Filter based on the <code class="docutils literal notranslate"><span class="pre">AttachTime</span></code> of the EBS Volumes in days</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;days&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;number&quot;</span>
@@ -537,21 +537,21 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">termination-protected</span></code></dt>
-<dd><p class="first">Filter based on the <code class="docutils literal notranslate"><span class="pre">disableApiTermination</span></code> instance attribute.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">termination-protected</span></code></dt><dd><p>Filter based on the <code class="docutils literal notranslate"><span class="pre">disableApiTermination</span></code> instance attribute.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">user-data</span></code></dt>
-<dd><p class="first">Filter for EC2’s with user data matching the value given.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">user-data</span></code></dt><dd><p>Filter for EC2’s with user data matching the value given.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;default&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span>
@@ -580,11 +580,10 @@ Schema:</div>
 </div>
 <div class="section" id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Mark</dt>
-<dd><p class="first">Tag instances with mark instances matching filters with a <code class="docutils literal notranslate"><span class="pre">c7n_status</span></code> tag by
+<dl>
+<dt>Mark</dt><dd><p>Tag instances with mark instances matching filters with a <code class="docutils literal notranslate"><span class="pre">c7n_status</span></code> tag by
 default and configurable value. Here’s an example of renaming an extant tag:</p>
-<div class="last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-tag-instances</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
@@ -596,18 +595,18 @@ default and configurable value. Here’s an example of renaming an extant tag:</
 </pre></div>
 </div>
 </dd>
-<dt>Start</dt>
-<dd><p class="first">Start a set of instances (presumably) already stopped, the start action will automatically
+<dt>Start</dt><dd><p>Start a set of instances (presumably) already stopped, the start action will automatically
 filter instances to those that are already in the correct state.</p>
 <div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>
 </div>
 <p>This example will restart all stopped instances.</p>
-<div class="last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-start</span>
     <span class="l l-Scalar l-Scalar-Plain">resources</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
     <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
@@ -615,11 +614,11 @@ Schema:</div>
 </pre></div>
 </div>
 </dd>
-<dt>Stop</dt>
-<dd><p class="first">Will stop the instances. Stopped instances do not incur EC2 instance costs.</p>
-<div class="toggle last docutils container">
+<dt>Stop</dt><dd><p>Will stop the instances. Stopped instances do not incur EC2 instance costs.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;terminate-ephemeral&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;boolean&quot;</span>
@@ -629,11 +628,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt>Terminate</dt>
-<dd><p class="first">Will terminate the instances. Use with caution!</p>
-<div class="toggle last docutils container">
+<dt>Terminate</dt><dd><p>Will terminate the instances. Use with caution!</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;force&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;boolean&quot;</span>
@@ -643,11 +642,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt>Snapshot</dt>
-<dd><p class="first">Snapshots the instances’ attached EBS volumes.</p>
+<dt>Snapshot</dt><dd><p>Snapshots the instances’ attached EBS volumes.</p>
 <div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;copy-tags&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -661,7 +660,7 @@ Schema:</div>
 </div>
 <p>This example will create snapshots for all instances and copy the Owner tag value
 from the instance to the new snapshot.</p>
-<div class="last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-nightly-backup</span>
      <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
      <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
@@ -671,8 +670,7 @@ from the instance to the new snapshot.</p>
 </pre></div>
 </div>
 </dd>
-<dt>PropagateSpotTags</dt>
-<dd><p class="first">In case the EC2 instance is a Spot Instance, created by a Spot Instance Request,
+<dt>PropagateSpotTags</dt><dd><p>In case the EC2 instance is a Spot Instance, created by a Spot Instance Request,
 this action will propagate all (or a subset) of the Tags that are attached to the
 original Spot Instance Request.
 Spot Instance Request do not propagate their tags to the Spot Instances.
@@ -680,7 +678,8 @@ Spot Instance Request do not propagate their tags to the Spot Instances.
 <p>However, Spot Fleets are said to propagate their Tags. (see <a class="reference external" href="https://aws.amazon.com/about-aws/whats-new/2017/07/tag-your-spot-fleet-ec2-instances/">Tag Your Spot Fleet EC2 Instances</a>)</p>
 <div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;only_tags&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -692,7 +691,7 @@ Schema:</div>
 </pre></div>
 </div>
 </div>
-<p class="last">This example will copy the Name and the BillingTag tag values from the Spot Instance Request
+<p>This example will copy the Name and the BillingTag tag values from the Spot Instance Request
 to the pending EC2 instances (only if they are Spot Instances)</p>
 </dd>
 </dl>

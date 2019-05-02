@@ -225,14 +225,14 @@
 <div class="section" id="filters">
 <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Standard Value Filter (see <a class="reference internal" href="../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</li>
+<li><p>Standard Value Filter (see <a class="reference internal" href="../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</p></li>
 </ul>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">security-group</span></code></dt>
-<dd><p class="first">Filter for ASG’s that have a certain security group.</p>
-<div class="toggle last docutils container">
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">security-group</span></code></dt><dd><p>Filter for ASG’s that have a certain security group.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;default&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span>
@@ -266,11 +266,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">subnet</span></code></dt>
-<dd><p class="first">Filter on ASG’s</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">subnet</span></code></dt><dd><p>Filter on ASG’s</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;default&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span>
@@ -304,11 +304,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">launch-config</span></code></dt>
-<dd><p class="first">Filter ASG by launch config attributes.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">launch-config</span></code></dt><dd><p>Filter ASG by launch config attributes.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;default&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span>
@@ -333,31 +333,31 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">valid</span></code></dt>
-<dd><p class="first">Filters ASG’s to find those that are structurally valid.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">valid</span></code></dt><dd><p>Filters ASG’s to find those that are structurally valid.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">invalid</span></code></dt>
-<dd><p class="first">Filters ASG’s to find those that are structurally invalid.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">invalid</span></code></dt><dd><p>Filters ASG’s to find those that are structurally invalid.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">not-encrypted</span></code></dt>
-<dd><p class="first">Check if an ASG is configured to have unencrypted volumes.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">not-encrypted</span></code></dt><dd><p>Check if an ASG is configured to have unencrypted volumes.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;exclude_image&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;boolean&quot;</span>
@@ -367,11 +367,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">image-age</span></code></dt>
-<dd><p class="first">Filter ASG by image age (in days).</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">image-age</span></code></dt><dd><p>Filter ASG by image age (in days).</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;days&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;number&quot;</span>
@@ -384,11 +384,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">image</span></code></dt>
-<dd><p class="first">Filter by ASG image</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">image</span></code></dt><dd><p>Filter by ASG image</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;default&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span>
@@ -413,11 +413,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">vpc-id</span></code></dt>
-<dd><p class="first">Filters ASG based on the VpcId</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">vpc-id</span></code></dt><dd><p>Filters ASG based on the VpcId</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;default&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span>
@@ -439,11 +439,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">progagated-tags</span></code></dt>
-<dd><p class="first">Filter ASG based on propagated tags</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">progagated-tags</span></code></dt><dd><p>Filter ASG based on propagated tags</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;keys&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -462,21 +462,21 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">capacity-delta</span></code></dt>
-<dd><p class="first">Filter returns ASG that have less instances than desired or required</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">capacity-delta</span></code></dt><dd><p>Filter returns ASG that have less instances than desired or required</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">user-data</span></code></dt>
-<dd><p class="first">Filter for ASG’s with launch configs containing user data matching the value given.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">user-data</span></code></dt><dd><p>Filter for ASG’s with launch configs containing user data matching the value given.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;default&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span>
@@ -505,13 +505,13 @@ Schema:</div>
 </div>
 <div class="section" id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">tag-trim</span></code></dt>
-<dd><p class="first">Trim the number of tags to avoid hitting tag limits.</p>
-<blockquote class="last">
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">tag-trim</span></code></dt><dd><p>Trim the number of tags to avoid hitting tag limits.</p>
+<blockquote>
 <div><div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;preserve&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -528,12 +528,12 @@ Schema:</div>
 </div>
 </div></blockquote>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">resize</span></code></dt>
-<dd><p class="first">Resize the min/max/desired instances in an ASG.</p>
-<blockquote class="last">
+<dt><code class="docutils literal notranslate"><span class="pre">resize</span></code></dt><dd><p>Resize the min/max/desired instances in an ASG.</p>
+<blockquote>
 <div><div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;desired-size&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;anyOf&quot;</span><span class="o">:</span> <span class="p">[</span>
@@ -581,11 +581,11 @@ Schema:</div>
 </div>
 </div></blockquote>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">remove-tag</span></code> or <code class="docutils literal notranslate"><span class="pre">untag</span></code> or <code class="docutils literal notranslate"><span class="pre">unmark</span></code></dt>
-<dd><p class="first">Removes tag from ASG.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">remove-tag</span></code> or <code class="docutils literal notranslate"><span class="pre">untag</span></code> or <code class="docutils literal notranslate"><span class="pre">unmark</span></code></dt><dd><p>Removes tag from ASG.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span>
@@ -601,11 +601,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">tag</span></code> or <code class="docutils literal notranslate"><span class="pre">mark</span></code></dt>
-<dd><p class="first">Create or update tag on ASG.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">tag</span></code> or <code class="docutils literal notranslate"><span class="pre">mark</span></code></dt><dd><p>Create or update tag on ASG.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span>
@@ -630,11 +630,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">propagate-tags</span></code></dt>
-<dd><p class="first">Propagate tags to an ASG instances. In AWS changing an ASG tag does not propagate to instances. This action exists to do that, and can also trim older tags not present on the ASG anymore that are still present on instances.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">propagate-tags</span></code></dt><dd><p>Propagate tags to an ASG instances. In AWS changing an ASG tag does not propagate to instances. This action exists to do that, and can also trim older tags not present on the ASG anymore that are still present on instances.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;tags&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -650,11 +650,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">rename-tag</span></code></dt>
-<dd><p class="first">Rename a tag on an AutoScaleGroup.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">rename-tag</span></code></dt><dd><p>Rename a tag on an AutoScaleGroup.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;dest&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -672,11 +672,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">mark-for-op</span></code></dt>
-<dd><p class="first">Tag ASG for an operation.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">mark-for-op</span></code></dt><dd><p>Tag ASG for an operation.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;days&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;minimum&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -703,11 +703,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">suspend</span></code></dt>
-<dd><p class="first">Multistep process to stop an ASG. Suspend processes, note load balancer in tag, detach load balancer, and then stop instances.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">suspend</span></code></dt><dd><p>Multistep process to stop an ASG. Suspend processes, note load balancer in tag, detach load balancer, and then stop instances.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;exclude&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -730,11 +730,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">resume</span></code></dt>
-<dd><p class="first">Multi-step process to resume an ASG. Start any stopped EC2 instances, reattach ELB, and resume ASG processes.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">resume</span></code></dt><dd><p>Multi-step process to resume an ASG. Start any stopped EC2 instances, reattach ELB, and resume ASG processes.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;delay&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;number&quot;</span>
@@ -744,11 +744,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">delete</span></code></dt>
-<dd><p class="first">Delete ASG.</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">delete</span></code></dt><dd><p>Delete ASG.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;force&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;boolean&quot;</span>
@@ -758,12 +758,12 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">offhour</span></code> or <code class="docutils literal notranslate"><span class="pre">OffHour</span></code></dt>
-<dd><p class="first">Turn resources off based on a schedule.
+<dt><code class="docutils literal notranslate"><span class="pre">offhour</span></code> or <code class="docutils literal notranslate"><span class="pre">OffHour</span></code></dt><dd><p>Turn resources off based on a schedule.
 <code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.offhours</span></code></p>
-<div class="toggle last docutils container">
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;default_tz&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -829,12 +829,12 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">onhour</span></code> or <code class="docutils literal notranslate"><span class="pre">onhour</span></code></dt>
-<dd><p class="first">Turn resources on based on a schedule.
+<dt><code class="docutils literal notranslate"><span class="pre">onhour</span></code> or <code class="docutils literal notranslate"><span class="pre">onhour</span></code></dt><dd><p>Turn resources on based on a schedule.
 <code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.offhours</span></code></p>
-<div class="toggle last docutils container">
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;default_tz&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -903,12 +903,12 @@ Schema:</div>
 </dl>
 <div class="section" id="launch-configs">
 <h3>Launch Configs<a class="headerlink" href="#launch-configs" title="Permalink to this headline">¶</a></h3>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">delete</span></code></dt>
-<dd><p class="first">Delete a launch configuration.</p>
-<div class="toggle last docutils container">
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">delete</span></code></dt><dd><p>Delete a launch configuration.</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;force&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;boolean&quot;</span>

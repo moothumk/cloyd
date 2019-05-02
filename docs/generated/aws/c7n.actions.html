@@ -278,8 +278,9 @@ we fetch the resource and evaluate the presence of the tag before
 attempting to tag it.</p>
 <p>References</p>
 <blockquote>
-<div>CloudTrail User
-<a class="reference external" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html">https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html</a></div></blockquote>
+<div><p>CloudTrail User
+<a class="reference external" href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html">https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html</a></p>
+</div></blockquote>
 <dl class="method">
 <dt id="c7n.actions.autotag.AutoTagUser.get_permissions">
 <code class="descname">get_permissions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/actions/autotag.html#AutoTagUser.get_permissions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.actions.autotag.AutoTagUser.get_permissions" title="Permalink to this definition">¶</a></dt>
@@ -413,11 +414,11 @@ attempting to tag it.</p>
 <p>serialized invocation parameters</p>
 <blockquote>
 <div><ul class="simple">
-<li>resources / collection of resources</li>
-<li>policy / policy that is invoke the lambda</li>
-<li>action / action that is invoking the lambda</li>
-<li>event / cloud trail event if any</li>
-<li>version / version of custodian invoking the lambda</li>
+<li><p>resources / collection of resources</p></li>
+<li><p>policy / policy that is invoke the lambda</p></li>
+<li><p>action / action that is invoking the lambda</p></li>
+<li><p>event / cloud trail event if any</p></li>
+<li><p>version / version of custodian invoking the lambda</p></li>
 </ul>
 </div></blockquote>
 <p>We automatically batch into sets of 250 for invocation,
@@ -469,14 +470,10 @@ arguments. Alternatively use async: true</p>
 <em class="property">class </em><code class="descclassname">c7n.actions.metric.</code><code class="descname">PutMetric</code><span class="sig-paren">(</span><em>data=None</em>, <em>manager=None</em>, <em>log_dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/actions/metric.html#PutMetric"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.actions.metric.PutMetric" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#c7n.actions.core.Action" title="c7n.actions.core.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.actions.core.Action</span></code></a></p>
 <p>Action to put metrics based on an expression into CloudWatch metrics</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">track-attached-ebs</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
@@ -548,11 +545,11 @@ filter. ‘network-location’ uses the annotations of the
 <p>Note a vpc attached resource requires at least one security group,
 this action will use the sg specified in <cite>isolation-group</cite> to ensure
 resources always have at least one security-group.</p>
-<dl class="docutils">
-<dt>type: modify-security-groups</dt>
-<dd>add: []
+<dl class="simple">
+<dt>type: modify-security-groups</dt><dd><p>add: []
 remove: [] | matched | network-location
-isolation-group: sg-xyz</dd>
+isolation-group: sg-xyz</p>
+</dd>
 </dl>
 <dl class="attribute">
 <dt id="c7n.actions.network.ModifyVpcSecurityGroupsAction.SYMBOLIC_SGS">
@@ -579,16 +576,14 @@ group policies for ‘modify-security-groups’ to find the resulting
 set of VPC security groups to attach to that resource.</p>
 <p>Returns a list of lists containing the resulting VPC security groups
 that should end up on each resource passed in.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resources</strong> – List of resources containing VPC Security Groups</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of lists of security groups per resource</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>resources</strong> – List of resources containing VPC Security Groups</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of lists of security groups per resource</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -677,14 +672,10 @@ with the c7n-mailer tool, found under tools/c7n_mailer.</p>
 <p>Attaching additional string message attributes are supported on the SNS
 transport, with the exception of the <code class="docutils literal notranslate"><span class="pre">mtype</span></code> attribute, which is a
 reserved attribute used by Cloud Custodian.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-bad-instance-kill</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
@@ -892,14 +883,10 @@ policies that report to the AWS SecurityHub.</p>
 <p>For resources that are taggable, we will tag the resource with an identifier
 such that further findings generate updates.</p>
 <p>Example generate a finding for accounts that don’t have shield enabled.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
 
  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">account-shield-enabled</span>

@@ -202,10 +202,10 @@
   <div class="section" id="advanced-usage">
 <span id="advanced"></span><h1>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><a class="reference internal" href="#run-multiple-regions"><span class="std std-ref">Running against multiple regions</span></a></li>
-<li><a class="reference internal" href="#report-multiple-regions"><span class="std std-ref">Reporting against multiple regions</span></a></li>
-<li><a class="reference internal" href="#report-custom-fields"><span class="std std-ref">Adding custom fields to reports</span></a></li>
-<li><a class="reference internal" href="#policy-resource-limits"><span class="std std-ref">Limiting how many resources custodian affects</span></a></li>
+<li><p><a class="reference internal" href="#run-multiple-regions"><span class="std std-ref">Running against multiple regions</span></a></p></li>
+<li><p><a class="reference internal" href="#report-multiple-regions"><span class="std std-ref">Reporting against multiple regions</span></a></p></li>
+<li><p><a class="reference internal" href="#report-custom-fields"><span class="std std-ref">Adding custom fields to reports</span></a></p></li>
+<li><p><a class="reference internal" href="#policy-resource-limits"><span class="std std-ref">Limiting how many resources custodian affects</span></a></p></li>
 </ul>
 <div class="section" id="running-against-multiple-regions">
 <span id="run-multiple-regions"></span><h2>Running against multiple regions<a class="headerlink" href="#running-against-multiple-regions" title="Permalink to this headline">¶</a></h2>
@@ -213,9 +213,9 @@
 order:</p>
 <blockquote>
 <div><ul class="simple">
-<li>the <code class="docutils literal notranslate"><span class="pre">--region</span></code> flag</li>
-<li>the <code class="docutils literal notranslate"><span class="pre">AWS_DEFAULT_REGION</span></code> environment variable</li>
-<li>the region set in the <code class="docutils literal notranslate"><span class="pre">~/.aws/config</span></code> file</li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">--region</span></code> flag</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">AWS_DEFAULT_REGION</span></code> environment variable</p></li>
+<li><p>the region set in the <code class="docutils literal notranslate"><span class="pre">~/.aws/config</span></code> file</p></li>
 </ul>
 </div></blockquote>
 <p>It is possible to run policies against multiple regions by specifying the <code class="docutils literal notranslate"><span class="pre">--region</span></code>
@@ -265,9 +265,9 @@ The policy’s <code class="docutils literal notranslate"><span class="pre">tz</
 If no <code class="docutils literal notranslate"><span class="pre">tz</span></code> attribute is specified, UTC is set by default.</p>
 <p><code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> attributes support the following formats:</p>
 <ul class="simple">
-<li>a date (example: <code class="docutils literal notranslate"><span class="pre">1-1-2018</span></code>, <code class="docutils literal notranslate"><span class="pre">January</span> <span class="pre">1</span> <span class="pre">2018</span></code>, <code class="docutils literal notranslate"><span class="pre">2018-1-1</span></code>)</li>
-<li>a offset-naive time with up to second precision (example: <code class="docutils literal notranslate"><span class="pre">2:03:01</span> <span class="pre">PM</span></code> <code class="docutils literal notranslate"><span class="pre">16:03:01</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">AM</span></code>)</li>
-<li>a date and a offset-naive time with up to second precision (example: <code class="docutils literal notranslate"><span class="pre">1-1-2018</span> <span class="pre">2</span> <span class="pre">PM</span></code>, <code class="docutils literal notranslate"><span class="pre">January</span> <span class="pre">1</span> <span class="pre">2018</span> <span class="pre">14:00:00</span></code>)</li>
+<li><p>a date (example: <code class="docutils literal notranslate"><span class="pre">1-1-2018</span></code>, <code class="docutils literal notranslate"><span class="pre">January</span> <span class="pre">1</span> <span class="pre">2018</span></code>, <code class="docutils literal notranslate"><span class="pre">2018-1-1</span></code>)</p></li>
+<li><p>a offset-naive time with up to second precision (example: <code class="docutils literal notranslate"><span class="pre">2:03:01</span> <span class="pre">PM</span></code> <code class="docutils literal notranslate"><span class="pre">16:03:01</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">AM</span></code>)</p></li>
+<li><p>a date and a offset-naive time with up to second precision (example: <code class="docutils literal notranslate"><span class="pre">1-1-2018</span> <span class="pre">2</span> <span class="pre">PM</span></code>, <code class="docutils literal notranslate"><span class="pre">January</span> <span class="pre">1</span> <span class="pre">2018</span> <span class="pre">14:00:00</span></code>)</p></li>
 </ul>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
 

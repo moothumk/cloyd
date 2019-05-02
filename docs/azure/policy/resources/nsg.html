@@ -239,43 +239,39 @@
 <div class="section" id="filters">
 <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><dl class="first docutils">
-<dt>Standard Value Filter (see <a class="reference internal" href="../../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</dt>
-<dd><ul class="first last simple">
-<li>Model: <a class="reference external" href="https://docs.microsoft.com/en-us/python/api/azure.mgmt.network.v2018_02_01.models.networksecuritygroup?view=azure-python">NetworkSecurityGroup</a></li>
+<li><dl class="simple">
+<dt>Standard Value Filter (see <a class="reference internal" href="../../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</dt><dd><ul class="simple">
+<li><p>Model: <a class="reference external" href="https://docs.microsoft.com/en-us/python/api/azure.mgmt.network.v2018_02_01.models.networksecuritygroup?view=azure-python">NetworkSecurityGroup</a></p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>ARM Resource Filters (see <a class="reference internal" href="../genericarmfilter.html#azure-genericarmfilter"><span class="std std-ref">Generic Filters</span></a>)</dt>
-<dd><ul class="first last simple">
-<li>Metric Filter - Filter on metrics from Azure Monitor</li>
-<li>Tag Filter - Filter on tag presence and/or values</li>
-<li>Marked-For-Op Filter - Filter on tag that indicates a scheduled operation for a resource</li>
+<li><dl class="simple">
+<dt>ARM Resource Filters (see <a class="reference internal" href="../genericarmfilter.html#azure-genericarmfilter"><span class="std std-ref">Generic Filters</span></a>)</dt><dd><ul class="simple">
+<li><p>Metric Filter - Filter on metrics from Azure Monitor</p></li>
+<li><p>Tag Filter - Filter on tag presence and/or values</p></li>
+<li><p>Marked-For-Op Filter - Filter on tag that indicates a scheduled operation for a resource</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">ingress</span></code> Filter based on Inbound Security Rules</dt>
-<dd><ul class="first last simple">
-<li><dl class="first docutils">
-<dt><cite>ports</cite>: ports to include (<cite>0-65535</cite> if not specified)</dt>
-<dd><ul class="first last">
-<li><cite>80</cite>, <cite>80-100</cite>, <cite>80,90-100</cite></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ingress</span></code> Filter based on Inbound Security Rules</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><cite>ports</cite>: ports to include (<cite>0-65535</cite> if not specified)</dt><dd><ul>
+<li><p><cite>80</cite>, <cite>80-100</cite>, <cite>80,90-100</cite></p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><cite>exceptPorts</cite>: ports to ignore (empty if not specified)</li>
-<li><dl class="first docutils">
-<dt><cite>match</cite>: match operation, filter includes NSGs with all or at least one port from the list.</dt>
-<dd>-Possible values: <cite>any</cite>, <cite>all</cite></dd>
+<li><p><cite>exceptPorts</cite>: ports to ignore (empty if not specified)</p></li>
+<li><dl class="simple">
+<dt><cite>match</cite>: match operation, filter includes NSGs with all or at least one port from the list.</dt><dd><p>-Possible values: <cite>any</cite>, <cite>all</cite></p>
+</dd>
 </dl>
 </li>
-<li><cite>ipProtocol</cite>: <cite>TCP</cite>, <cite>UDP</cite> or <cite>*</cite>. Default: <cite>*</cite></li>
-<li><cite>access</cite>: <cite>Allow</cite>, <cite>Deny</cite></li>
+<li><p><cite>ipProtocol</cite>: <cite>TCP</cite>, <cite>UDP</cite> or <cite>*</cite>. Default: <cite>*</cite></p></li>
+<li><p><cite>access</cite>: <cite>Allow</cite>, <cite>Deny</cite></p></li>
 </ul>
 </dd>
 </dl>
@@ -317,25 +313,23 @@
 </div>
 </div>
 </li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">egress</span></code> Filter based on Outbound Security Rules</dt>
-<dd><ul class="first last simple">
-<li><dl class="first docutils">
-<dt><cite>ports</cite>: ports to include (<cite>0-65535</cite> if not specified)</dt>
-<dd><ul class="first last">
-<li><cite>80</cite>, <cite>80-100</cite>, <cite>80,90-100</cite></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">egress</span></code> Filter based on Outbound Security Rules</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><cite>ports</cite>: ports to include (<cite>0-65535</cite> if not specified)</dt><dd><ul>
+<li><p><cite>80</cite>, <cite>80-100</cite>, <cite>80,90-100</cite></p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><cite>exceptPorts</cite>: ports to ignore (empty if not specified)</li>
-<li><dl class="first docutils">
-<dt><cite>match</cite>: match operation, filter includes NSGs with all or at least one port from the list.</dt>
-<dd>-Possible values: <cite>any</cite>, <cite>all</cite></dd>
+<li><p><cite>exceptPorts</cite>: ports to ignore (empty if not specified)</p></li>
+<li><dl class="simple">
+<dt><cite>match</cite>: match operation, filter includes NSGs with all or at least one port from the list.</dt><dd><p>-Possible values: <cite>any</cite>, <cite>all</cite></p>
+</dd>
 </dl>
 </li>
-<li><cite>ipProtocol</cite>: <cite>TCP</cite>, <cite>UDP</cite> or <cite>*</cite>. Default: <cite>*</cite></li>
-<li><cite>access</cite>: <cite>Allow</cite>, <cite>Deny</cite></li>
+<li><p><cite>ipProtocol</cite>: <cite>TCP</cite>, <cite>UDP</cite> or <cite>*</cite>. Default: <cite>*</cite></p></li>
+<li><p><cite>access</cite>: <cite>Allow</cite>, <cite>Deny</cite></p></li>
 </ul>
 </dd>
 </dl>
@@ -382,23 +376,20 @@
 <div class="section" id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">ARM Resource Actions (see <a class="reference internal" href="../genericarmaction.html#azure-genericarmaction"><span class="std std-ref">Generic Actions</span></a>)</p>
-</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">open</span></code> Allow access to security rules</dt>
-<dd><ul class="first last simple">
-<li><dl class="first docutils">
-<dt><cite>ports</cite>: ports to include (<cite>0-65535</cite> if not specified)</dt>
-<dd><ul class="first last">
-<li><cite>80</cite>, <cite>80-100</cite>, <cite>80,90-100</cite></li>
+<li><p>ARM Resource Actions (see <a class="reference internal" href="../genericarmaction.html#azure-genericarmaction"><span class="std std-ref">Generic Actions</span></a>)</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">open</span></code> Allow access to security rules</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><cite>ports</cite>: ports to include (<cite>0-65535</cite> if not specified)</dt><dd><ul>
+<li><p><cite>80</cite>, <cite>80-100</cite>, <cite>80,90-100</cite></p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><cite>exceptPorts</cite>: ports to ignore (empty if not specified)</li>
-<li><cite>ipProtocol</cite>: <cite>TCP</cite>, <cite>UDP</cite> or <cite>*</cite>. Default: <cite>*</cite></li>
-<li><cite>direction</cite>: <cite>Inbound</cite>, <cite>Outbound</cite></li>
-<li><cite>access</cite>: <cite>Allow</cite>, <cite>Deny</cite></li>
+<li><p><cite>exceptPorts</cite>: ports to ignore (empty if not specified)</p></li>
+<li><p><cite>ipProtocol</cite>: <cite>TCP</cite>, <cite>UDP</cite> or <cite>*</cite>. Default: <cite>*</cite></p></li>
+<li><p><cite>direction</cite>: <cite>Inbound</cite>, <cite>Outbound</cite></p></li>
+<li><p><cite>access</cite>: <cite>Allow</cite>, <cite>Deny</cite></p></li>
 </ul>
 </dd>
 </dl>
@@ -433,21 +424,19 @@
 </div>
 </div>
 </li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">close</span></code> Deny access to security rules</dt>
-<dd><ul class="first last simple">
-<li><dl class="first docutils">
-<dt><cite>ports</cite>: ports to include (<cite>0-65535</cite> if not specified)</dt>
-<dd><ul class="first last">
-<li><cite>80</cite>, <cite>80-100</cite>, <cite>80,90-100</cite></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">close</span></code> Deny access to security rules</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><cite>ports</cite>: ports to include (<cite>0-65535</cite> if not specified)</dt><dd><ul>
+<li><p><cite>80</cite>, <cite>80-100</cite>, <cite>80,90-100</cite></p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><cite>exceptPorts</cite>: ports to ignore (empty if not specified)</li>
-<li><cite>ipProtocol</cite>: <cite>TCP</cite>, <cite>UDP</cite> or <cite>*</cite>. Default: <cite>*</cite></li>
-<li><cite>direction</cite>: <cite>Inbound</cite>, <cite>Outbound</cite></li>
-<li><cite>access</cite>: <cite>Allow</cite>, <cite>Deny</cite></li>
+<li><p><cite>exceptPorts</cite>: ports to ignore (empty if not specified)</p></li>
+<li><p><cite>ipProtocol</cite>: <cite>TCP</cite>, <cite>UDP</cite> or <cite>*</cite>. Default: <cite>*</cite></p></li>
+<li><p><cite>direction</cite>: <cite>Inbound</cite>, <cite>Outbound</cite></p></li>
+<li><p><cite>access</cite>: <cite>Allow</cite>, <cite>Deny</cite></p></li>
 </ul>
 </dd>
 </dl>

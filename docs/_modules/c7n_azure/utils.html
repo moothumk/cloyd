@@ -220,6 +220,7 @@
 <span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="k">import</span> <span class="n">as_completed</span>
 <span class="kn">from</span> <span class="nn">msrestazure.azure_exceptions</span> <span class="k">import</span> <span class="n">CloudError</span>
 <span class="kn">from</span> <span class="nn">msrestazure.tools</span> <span class="k">import</span> <span class="n">parse_resource_id</span>
+<span class="kn">from</span> <span class="nn">netaddr</span> <span class="k">import</span> <span class="n">IPNetwork</span><span class="p">,</span> <span class="n">IPRange</span>
 
 <span class="kn">from</span> <span class="nn">c7n.utils</span> <span class="k">import</span> <span class="n">chunks</span>
 <span class="kn">from</span> <span class="nn">c7n.utils</span> <span class="k">import</span> <span class="n">local_session</span>
@@ -571,6 +572,29 @@
                     <span class="n">ports</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">IsAllowed</span>
 
         <span class="k">return</span> <span class="n">ports</span></div></div>
+
+
+<div class="viewcode-block" id="IpRangeHelper"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.utils.IpRangeHelper">[docs]</a><span class="k">class</span> <span class="nc">IpRangeHelper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+<div class="viewcode-block" id="IpRangeHelper.parse_ip_ranges"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.utils.IpRangeHelper.parse_ip_ranges">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">parse_ip_ranges</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Parses IP range or CIDR mask.</span>
+<span class="sd">        :param data: Dictionary where to look for the value.</span>
+<span class="sd">        :param key:  Key for the value to be parsed.</span>
+<span class="sd">        :return: Set of IP ranges and networks.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">ranges</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Invalid range. Use x.x.x.x-y.y.y.y or x.x.x.x or x.x.x.x/y.&#39;</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">IPRange</span><span class="p">(</span><span class="o">*</span><span class="n">r</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="k">else</span> <span class="n">IPNetwork</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="k">return</span> <span class="n">result</span></div></div>
 
 
 <div class="viewcode-block" id="AppInsightsHelper"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.utils.AppInsightsHelper">[docs]</a><span class="k">class</span> <span class="nc">AppInsightsHelper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>

@@ -238,12 +238,12 @@
 <p>These actions can be applied to a specific resource type, such as <code class="docutils literal notranslate"><span class="pre">azure.vm</span></code>.</p>
 <div class="section" id="tags">
 <h2>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">Tag</span></code></dt>
-<dd><p class="first">Add/Update tag on a resource</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">Tag</span></code></dt><dd><p>Add/Update tag on a resource</p>
 <div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;tag&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span>
@@ -258,7 +258,7 @@ Schema:</div>
 </pre></div>
 </div>
 </div>
-<div class="last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-tag</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.resourcegroup</span>
     <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
@@ -270,12 +270,12 @@ Schema:</div>
 </pre></div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">AutoTagUser</span></code></dt>
-<dd><p class="first">Create a tag listing name of user who created a resource based on scanning
+<dt><code class="docutils literal notranslate"><span class="pre">AutoTagUser</span></code></dt><dd><p>Create a tag listing name of user who created a resource based on scanning
 activity log history.</p>
 <div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;days&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;integer&quot;</span>
@@ -291,7 +291,7 @@ Schema:</div>
 </pre></div>
 </div>
 </div>
-<div class="last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-auto-tag-creator</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.resourcegroup</span>
     <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
@@ -303,11 +303,11 @@ Schema:</div>
 </pre></div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">RemoveTag</span></code></dt>
-<dd><p class="first">Remove a set of tags.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">RemoveTag</span></code></dt><dd><p>Remove a set of tags.</p>
 <div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;tags&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -319,7 +319,7 @@ Schema:</div>
 </pre></div>
 </div>
 </div>
-<div class="last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tag-remove</span>
     <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
       <span class="no">Removes tags from all virtual machines</span>
@@ -330,8 +330,7 @@ Schema:</div>
 </pre></div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">TagTrim</span></code></dt>
-<dd><p class="first">Automatically remove tags from an azure resource.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">TagTrim</span></code></dt><dd><p>Automatically remove tags from an azure resource.</p>
 <p>Azure Resources and Resource Groups have a limit of 15 tags.
 In order to make additional tag space on a set of resources,
 this action can be used to remove enough tags to make the
@@ -340,7 +339,8 @@ Setting the space value to 0 removes all tags but those
 listed to preserve.</p>
 <div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;preserve&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -355,7 +355,7 @@ Schema:</div>
 </pre></div>
 </div>
 </div>
-<div class="last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-tag-trim</span>
      <span class="l l-Scalar l-Scalar-Plain">comment</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
        <span class="no">Any instances with 14 or more tags get tags removed until</span>
@@ -389,14 +389,14 @@ Schema:</div>
 </div>
 <div class="section" id="others">
 <h2>Others<a class="headerlink" href="#others" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">DeleteAction</span></code></dt>
-<dd><p class="first">Perform delete operation on any ARM resource. Can be used with
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">DeleteAction</span></code></dt><dd><p>Perform delete operation on any ARM resource. Can be used with
 generic resource type <cite>armresource</cite> or on any other more specific
 ARM resource type supported by Cloud Custodian.</p>
 <div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>
@@ -415,7 +415,7 @@ Schema:</div>
 </pre></div>
 </div>
 <p>The delete action also works with a specified resource type:</p>
-<div class="last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">delete-test-nsg</span>
       <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
         <span class="no">Deletes any Network Security Group with &#39;test&#39; in the name</span>

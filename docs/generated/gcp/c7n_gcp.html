@@ -287,12 +287,12 @@
 <p>Async APIs may take minutes to complete. Therefore, callers are
 encouraged to leverage concurrent.futures (or similar) to place long
 running commands on a separate threads.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>verb (str): Method to execute on the component (ex. get, list).
-verb_arguments (dict): key-value pairs to be passed to _build_request.</dd>
-<dt>Returns:</dt>
-<dd>dict: An async operation Service Response.</dd>
+<dl class="simple">
+<dt>Args:</dt><dd><p>verb (str): Method to execute on the component (ex. get, list).
+verb_arguments (dict): key-value pairs to be passed to _build_request.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: An async operation Service Response.</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -300,14 +300,14 @@ verb_arguments (dict): key-value pairs to be passed to _build_request.</dd>
 <dt id="c7n_gcp.client.ServiceClient.execute_paged_query">
 <code class="descname">execute_paged_query</code><span class="sig-paren">(</span><em>verb</em>, <em>verb_arguments</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/client.html#ServiceClient.execute_paged_query"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.client.ServiceClient.execute_paged_query" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes query (ex. list) via a dedicated http object.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>verb (str): Method to execute on the component (ex. get, list).
-verb_arguments (dict): key-value pairs to be passed to _BuildRequest.</dd>
-<dt>Yields:</dt>
-<dd>dict: Service Response.</dd>
-<dt>Raises:</dt>
-<dd>PaginationNotSupportedError: When an API does not support paging.</dd>
+<dl class="simple">
+<dt>Args:</dt><dd><p>verb (str): Method to execute on the component (ex. get, list).
+verb_arguments (dict): key-value pairs to be passed to _BuildRequest.</p>
+</dd>
+<dt>Yields:</dt><dd><p>dict: Service Response.</p>
+</dd>
+<dt>Raises:</dt><dd><p>PaginationNotSupportedError: When an API does not support paging.</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -315,12 +315,12 @@ verb_arguments (dict): key-value pairs to be passed to _BuildRequest.</dd>
 <dt id="c7n_gcp.client.ServiceClient.execute_query">
 <code class="descname">execute_query</code><span class="sig-paren">(</span><em>verb</em>, <em>verb_arguments</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/client.html#ServiceClient.execute_query"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.client.ServiceClient.execute_query" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes query (ex. get) via a dedicated http object.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>verb (str): Method to execute on the component (ex. get, list).
-verb_arguments (dict): key-value pairs to be passed to _BuildRequest.</dd>
-<dt>Returns:</dt>
-<dd>dict: Service Response.</dd>
+<dl class="simple">
+<dt>Args:</dt><dd><p>verb (str): Method to execute on the component (ex. get, list).
+verb_arguments (dict): key-value pairs to be passed to _BuildRequest.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: Service Response.</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -328,12 +328,12 @@ verb_arguments (dict): key-value pairs to be passed to _BuildRequest.</dd>
 <dt id="c7n_gcp.client.ServiceClient.execute_search_query">
 <code class="descname">execute_search_query</code><span class="sig-paren">(</span><em>verb</em>, <em>verb_arguments</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/client.html#ServiceClient.execute_search_query"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.client.ServiceClient.execute_search_query" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes query (ex. search) via a dedicated http object.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>verb (str): Method to execute on the component (ex. search).
-verb_arguments (dict): key-value pairs to be passed to _BuildRequest.</dd>
-<dt>Yields:</dt>
-<dd>dict: Service Response.</dd>
+<dl class="simple">
+<dt>Args:</dt><dd><p>verb (str): Method to execute on the component (ex. search).
+verb_arguments (dict): key-value pairs to be passed to _BuildRequest.</p>
+</dd>
+<dt>Yields:</dt><dd><p>dict: Service Response.</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -347,9 +347,9 @@ verb_arguments (dict): key-value pairs to be passed to _BuildRequest.</dd>
 <dt id="c7n_gcp.client.ServiceClient.http">
 <code class="descname">http</code><a class="headerlink" href="#c7n_gcp.client.ServiceClient.http" title="Permalink to this definition">¶</a></dt>
 <dd><p>A thread local instance of httplib2.Http.</p>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd>httplib2.Http: An Http instance authorized by the credentials.</dd>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>httplib2.Http: An Http instance authorized by the credentials.</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -357,11 +357,11 @@ verb_arguments (dict): key-value pairs to be passed to _BuildRequest.</dd>
 <dt id="c7n_gcp.client.ServiceClient.supports_pagination">
 <code class="descname">supports_pagination</code><span class="sig-paren">(</span><em>verb</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/client.html#ServiceClient.supports_pagination"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.client.ServiceClient.supports_pagination" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines if the API action supports pagination.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>verb (str): Request verb (ex. insert, update, delete).</dd>
-<dt>Returns:</dt>
-<dd>bool: True when API supports pagination, False otherwise.</dd>
+<dl class="simple">
+<dt>Args:</dt><dd><p>verb (str): Request verb (ex. insert, update, delete).</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True when API supports pagination, False otherwise.</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -376,12 +376,12 @@ verb_arguments (dict): key-value pairs to be passed to _BuildRequest.</dd>
 <dt id="c7n_gcp.client.Session.client">
 <code class="descname">client</code><span class="sig-paren">(</span><em>service_name</em>, <em>version</em>, <em>component</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/client.html#Session.client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.client.Session.client" title="Permalink to this definition">¶</a></dt>
 <dd><p>Safely initialize a repository class to a property.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>repository_class (class): The class to initialize.
-version (str): The gcp service version for the repository.</dd>
-<dt>Returns:</dt>
-<dd>object: An instance of repository_class.</dd>
+<dl class="simple">
+<dt>Args:</dt><dd><p>repository_class (class): The class to initialize.
+version (str): The gcp service version for the repository.</p>
+</dd>
+<dt>Returns:</dt><dd><p>object: An instance of repository_class.</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -406,11 +406,11 @@ version (str): The gcp service version for the repository.</dd>
 <dt id="c7n_gcp.client.is_retryable_exception">
 <code class="descclassname">c7n_gcp.client.</code><code class="descname">is_retryable_exception</code><span class="sig-paren">(</span><em>e</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/client.html#is_retryable_exception"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.client.is_retryable_exception" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether exception should be retried.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>e (Exception): Exception object.</dd>
-<dt>Returns:</dt>
-<dd>bool: True for exceptions to retry. False otherwise.</dd>
+<dl class="simple">
+<dt>Args:</dt><dd><p>e (Exception): Exception object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True for exceptions to retry. False otherwise.</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -676,9 +676,9 @@ version (str): The gcp service version for the repository.</dd>
 <em class="property">class </em><code class="descclassname">c7n_gcp.mu.</code><code class="descname">LogSubscriber</code><span class="sig-paren">(</span><em>session</em>, <em>data</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/mu.html#LogSubscriber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.mu.LogSubscriber" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#c7n_gcp.mu.EventSource" title="c7n_gcp.mu.EventSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.mu.EventSource</span></code></a></p>
 <p>Composite as a log sink</p>
-<dl class="docutils">
-<dt>subscriber = LogSubscriber(dict(</dt>
-<dd>log=’projects/custodian-1291/logs/cloudaudit.googleapis.com%2Factivity’))</dd>
+<dl class="simple">
+<dt>subscriber = LogSubscriber(dict(</dt><dd><p>log=’projects/custodian-1291/logs/cloudaudit.googleapis.com%2Factivity’))</p>
+</dd>
 </dl>
 <p>function = CloudFunction(dict(name=’log-sub’, events=[subscriber])</p>
 <dl class="method">

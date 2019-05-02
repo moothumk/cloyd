@@ -222,14 +222,14 @@
 <div class="section" id="filters">
 <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Standard Value Filter (see <a class="reference internal" href="../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</li>
+<li><p>Standard Value Filter (see <a class="reference internal" href="../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</p></li>
 </ul>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">global-grants</span></code></dt>
-<dd><p class="first">Check bucket acls for global grants</p>
-<div class="toggle last docutils container">
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">global-grants</span></code></dt><dd><p>Check bucket acls for global grants</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;allow_website&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;boolean&quot;</span>
@@ -259,11 +259,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">missing-policy-statement</span></code></dt>
-<dd><p class="first">Find buckets missing a set of named policy statements</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">missing-policy-statement</span></code></dt><dd><p>Find buckets missing a set of named policy statements</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;statement_ids&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -280,12 +280,12 @@ Schema:</div>
 </div>
 <div class="section" id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">encrypt-keys</span></code></dt>
-<dd><p class="first">Scan all keys in a bucket and optionally encrypt them in place</p>
-<div class="toggle last docutils container">
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">encrypt-keys</span></code></dt><dd><p>Scan all keys in a bucket and optionally encrypt them in place</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;crypto&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;enum&quot;</span><span class="o">:</span> <span class="p">[</span>
@@ -310,23 +310,23 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">encryption-policy</span></code></dt>
-<dd><p class="first">Attach an encryption required policy to a bucket, this will break
+<dt><code class="docutils literal notranslate"><span class="pre">encryption-policy</span></code></dt><dd><p>Attach an encryption required policy to a bucket, this will break
 applications that are not using encryption, including AWS log
 delivery</p>
-<div class="toggle last docutils container">
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">delete-global-grants</span></code></dt>
-<dd><p class="first">Delete global grants from bucket ACLs</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">delete-global-grants</span></code></dt><dd><p>Delete global grants from bucket ACLs</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;grantees&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -339,11 +339,11 @@ Schema:</div>
 </div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">no-op</span></code></dt>
-<dd><p class="first">No operation</p>
-<div class="toggle last docutils container">
+<dt><code class="docutils literal notranslate"><span class="pre">no-op</span></code></dt><dd><p>No operation</p>
+<div class="toggle docutils container">
 <div class="header docutils container">
-Schema:</div>
+<p>Schema:</p>
+</div>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>

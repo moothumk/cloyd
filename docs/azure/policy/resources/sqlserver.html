@@ -238,31 +238,54 @@
 <span id="azure-sqlserver"></span><h1>SQL Server<a class="headerlink" href="#sql-server" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="filters">
 <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>Standard Value Filter (see <a class="reference internal" href="../../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</dt>
-<dd><ul class="first last">
-<li>Model: <a class="reference external" href="https://docs.microsoft.com/en-us/python/api/azure.mgmt.sql.models.server?view=azure-python">Server</a></li>
+<ul>
+<li><dl class="simple">
+<dt>Standard Value Filter (see <a class="reference internal" href="../../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</dt><dd><ul class="simple">
+<li><p>Model: <a class="reference external" href="https://docs.microsoft.com/en-us/python/api/azure.mgmt.sql.models.server?view=azure-python">Server</a></p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>ARM Resource Filters (see <a class="reference internal" href="../genericarmfilter.html#azure-genericarmfilter"><span class="std std-ref">Generic Filters</span></a>)</dt>
-<dd><ul class="first last">
-<li>Metric Filter - Filter on metrics from Azure Monitor - (see <a class="reference external" href="https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftsqlservers/">SQL Server Supported Metrics</a>)</li>
-<li>Tag Filter - Filter on tag presence and/or values</li>
-<li>Marked-For-Op Filter - Filter on tag that indicates a scheduled operation for a resource</li>
+<li><dl class="simple">
+<dt>ARM Resource Filters (see <a class="reference internal" href="../genericarmfilter.html#azure-genericarmfilter"><span class="std std-ref">Generic Filters</span></a>)</dt><dd><ul class="simple">
+<li><p>Metric Filter - Filter on metrics from Azure Monitor - (see <a class="reference external" href="https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftsqlservers/">SQL Server Supported Metrics</a>)</p></li>
+<li><p>Tag Filter - Filter on tag presence and/or values</p></li>
+<li><p>Marked-For-Op Filter - Filter on tag that indicates a scheduled operation for a resource</p></li>
 </ul>
 </dd>
 </dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firewall-rules</span></code> Filter based on firewall rules. Rules can be specified as x.x.x.x-y.y.y.y or x.x.x.x or x.x.x.x/y.
+- <cite>include</cite>: the list of IP ranges or CIDR that firewall rules must include. The list must be a subset of the exact rules as is, the ranges will not be combined.
+- <cite>equal</cite>: the list of IP ranges or CIDR that firewall rules must match exactly.</p>
+<div class="toggle docutils container">
+<div class="header docutils container">
+<p>Schema:</p>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;equal&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;array&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;include&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;array&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </li>
 </ul>
 </div>
 <div class="section" id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>ARM Resource Actions (see <a class="reference internal" href="../genericarmaction.html#azure-genericarmaction"><span class="std std-ref">Generic Actions</span></a>)</li>
+<li><p>ARM Resource Actions (see <a class="reference internal" href="../genericarmaction.html#azure-genericarmaction"><span class="std std-ref">Generic Actions</span></a>)</p></li>
 </ul>
 </div>
 <div class="section" id="example-policies">
@@ -304,7 +327,7 @@ and then perform the delete operation on those ready for deletion.</p>
         <span class="l l-Scalar l-Scalar-Plain">timeframe</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">72</span>
         <span class="l l-Scalar l-Scalar-Plain">filter</span><span class="p p-Indicator">:</span> <span class="s">&quot;ElasticPoolResourceId</span><span class="nv"> </span><span class="s">eq</span><span class="nv"> </span><span class="s">&#39;*&#39;&quot;</span>
         <span class="l l-Scalar l-Scalar-Plain">no_data_action</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">include</span>
-    <span class=" -Error"> </span><span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">notify</span>
         <span class="l l-Scalar l-Scalar-Plain">template</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
         <span class="l l-Scalar l-Scalar-Plain">priority_header</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
@@ -314,6 +337,24 @@ and then perform the delete operation on those ready for deletion.</p>
         <span class="l l-Scalar l-Scalar-Plain">transport</span><span class="p p-Indicator">:</span>
           <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">asq</span>
             <span class="l l-Scalar l-Scalar-Plain">queue</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://accountname.queue.core.windows.net/queuename</span>
+</pre></div>
+</div>
+<p>This policy will find all SQL servers without any firewall rules defined.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">find-sqlserver-without-firewall-rules</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.sqlserver</span>
+    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">firewall-rules</span>
+        <span class="l l-Scalar l-Scalar-Plain">equal</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[]</span>
+</pre></div>
+</div>
+<p>This policy will find all SQL servers allowing traffic from 1.2.2.128/25 CIDR.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">find-sqlserver-allowing-subnet</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.sqlserver</span>
+    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">firewall-rules</span>
+        <span class="l l-Scalar l-Scalar-Plain">include</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;1.2.2.128/25&#39;</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 </div>

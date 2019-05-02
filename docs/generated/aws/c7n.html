@@ -618,21 +618,18 @@ filtering via startswith happens after this list is returned.</p>
 <code class="descclassname">c7n.credentials.</code><code class="descname">assumed_session</code><span class="sig-paren">(</span><em>role_arn</em>, <em>session_name</em>, <em>session=None</em>, <em>region=None</em>, <em>external_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/credentials.html#assumed_session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.credentials.assumed_session" title="Permalink to this definition">¶</a></dt>
 <dd><p>STS Role assume a boto3.Session</p>
 <p>With automatic credential renewal.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>role_arn: iam role arn to assume
+<dl class="simple">
+<dt>Args:</dt><dd><p>role_arn: iam role arn to assume
 session_name: client session identifier
 session: an optional extant session, note session is captured
-in a function closure for renewing the sts assumed role.</dd>
+in a function closure for renewing the sts assumed role.</p>
+</dd>
 </dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a boto3 session using the sts assumed role credentials</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a boto3 session using the sts assumed role credentials</p>
+</dd>
+</dl>
 <p>Notes: We have to poke at botocore internals a few times</p>
 </dd></dl>
 
@@ -1110,14 +1107,10 @@ of PolicyExecutionMode.get_logs()</p>
 <code class="descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/manager.html#ResourceManager.validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.manager.ResourceManager.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validates resource definition, does NOT validate filters, actions, modes.</p>
 <p>Example use case: A resource type that requires an additional query</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">k8s-custom-resource</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">k8s.custom-namespaced-resource</span>
@@ -1692,14 +1685,11 @@ events, and realtime asg membership changes.</p>
 <em class="property">class </em><code class="descclassname">c7n.mu.</code><code class="descname">PythonPackageArchive</code><span class="sig-paren">(</span><em>*modules</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/mu.html#PythonPackageArchive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.mu.PythonPackageArchive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Creates a zip file for python lambda functions.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>modules</strong> (<em>tuple</em>) – the Python modules to add to the archive</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>modules</strong> (<em>tuple</em>) – the Python modules to add to the archive</p>
+</dd>
+</dl>
 <p>Amazon doesn’t give us straightforward docs here, only <a class="reference external" href="http://docs.aws.amazon.com/lambda/latest/dg/with-s3-example-deployment-pkg.html#with-s3-example-deployment-pkg-python">an example</a>,
 from which we can infer that they simply unzip the file into a directory on
 <code class="docutils literal notranslate"><span class="pre">sys.path</span></code>. So what we do is locate all of the <code class="docutils literal notranslate"><span class="pre">modules</span></code> specified, and
@@ -3529,14 +3519,10 @@ the original resource. The special character “*” can be used to signify that
 all tags from the related resource should be copied to the original resource.</p>
 <p>To raise an error when related resources cannot be found, use the
 <cite>skip_missing</cite> option. By default, this is set to True.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">copy-tags-from-ebs-volume-to-snapshot</span>
       <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ebs-snapshot</span>
@@ -3657,9 +3643,9 @@ from a tag key.</p>
 <code class="descname">process_transform</code><span class="sig-paren">(</span><em>tag_value</em>, <em>resource_set</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/tags.html#NormalizeTag.process_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.tags.NormalizeTag.process_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform tag value</p>
 <ul class="simple">
-<li>Collect value from tag</li>
-<li>Transform Tag value</li>
-<li>Assign new value for key</li>
+<li><p>Collect value from tag</p></li>
+<li><p>Transform Tag value</p></li>
+<li><p>Assign new value for key</p></li>
 </ul>
 </dd></dl>
 
@@ -3767,9 +3753,9 @@ from a tag key.</p>
 <code class="descname">process_rename</code><span class="sig-paren">(</span><em>client</em>, <em>tag_value</em>, <em>resource_set</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/tags.html#RenameTag.process_rename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.tags.RenameTag.process_rename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move source tag value to destination tag value</p>
 <ul class="simple">
-<li>Collect value from old tag</li>
-<li>Delete old tag</li>
-<li>Create new tag &amp; assign stored value</li>
+<li><p>Collect value from old tag</p></li>
+<li><p>Delete old tag</p></li>
+<li><p>Create new tag &amp; assign stored value</p></li>
 </ul>
 </dd></dl>
 
@@ -4128,11 +4114,9 @@ space while preserving a given set of tags.</p>
 <em class="property">class </em><code class="descclassname">c7n.tags.</code><code class="descname">UniversalTagDelayedAction</code><span class="sig-paren">(</span><em>data=None</em>, <em>manager=None</em>, <em>log_dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/tags.html#UniversalTagDelayedAction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.tags.UniversalTagDelayedAction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#c7n.tags.TagDelayedAction" title="c7n.tags.TagDelayedAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.tags.TagDelayedAction</span></code></a></p>
 <p>Tag resources for future action.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><div class="first last highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<dl class="field-list">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-mark-stop</span>
   <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
   <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
@@ -4146,10 +4130,8 @@ space while preserving a given set of tags.</p>
       <span class="l l-Scalar l-Scalar-Plain">days</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
 </pre></div>
 </div>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <dl class="attribute">
 <dt id="c7n.tags.UniversalTagDelayedAction.batch_size">
 <code class="descname">batch_size</code><em class="property"> = 20</em><a class="headerlink" href="#c7n.tags.UniversalTagDelayedAction.batch_size" title="Permalink to this definition">¶</a></dt>
@@ -4222,17 +4204,15 @@ the format: [{‘Key’: ‘key’, ‘Value’: ‘value’}]</p>
 <p>Due to drift on implementation on copy-tags/tags used throughout
 the code base, the following options are supported:</p>
 <blockquote>
-<div><dl class="docutils">
-<dt>copy_tags (Tags to copy from the resource):</dt>
-<dd><ul class="first last simple">
-<li>list of str, e.g. [‘key1’, ‘key2’, ‘*’]</li>
-<li>bool</li>
+<div><dl class="simple">
+<dt>copy_tags (Tags to copy from the resource):</dt><dd><ul class="simple">
+<li><p>list of str, e.g. [‘key1’, ‘key2’, ‘*’]</p></li>
+<li><p>bool</p></li>
 </ul>
 </dd>
-<dt>user_tags (User supplied tags to apply):</dt>
-<dd><ul class="first last simple">
-<li>dict of key-value pairs, e.g. {Key: Value, Key2: Value}</li>
-<li>list of dict e.g. [{‘Key’: k, ‘Value’: v}]</li>
+<dt>user_tags (User supplied tags to apply):</dt><dd><ul class="simple">
+<li><p>dict of key-value pairs, e.g. {Key: Value, Key2: Value}</p></li>
+<li><p>list of dict e.g. [{‘Key’: k, ‘Value’: v}]</p></li>
 </ul>
 </dd>
 </dl>
@@ -4320,7 +4300,7 @@ Existing environment restored after test.</p>
 
 <dl class="method">
 <dt id="c7n.testing.TestUtils.load_policy">
-<code class="descname">load_policy</code><span class="sig-paren">(</span><em>data</em>, <em>config=None</em>, <em>session_factory=None</em>, <em>validate=False</em>, <em>output_dir=None</em>, <em>cache=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/testing.html#TestUtils.load_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.testing.TestUtils.load_policy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load_policy</code><span class="sig-paren">(</span><em>data</em>, <em>config=None</em>, <em>session_factory=None</em>, <em>validate=True</em>, <em>output_dir=None</em>, <em>cache=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/testing.html#TestUtils.load_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.testing.TestUtils.load_policy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -4544,24 +4524,20 @@ See <a class="reference external" href="http://docs.aws.amazon.com/general/lates
 <dd><p>Decorator for retry boto3 api call on transient errors.</p>
 <p><a class="reference external" href="https://www.awsarchitectureblog.com/2015/03/backoff.html">https://www.awsarchitectureblog.com/2015/03/backoff.html</a>
 <a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_backoff">https://en.wikipedia.org/wiki/Exponential_backoff</a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>codes</strong> – A sequence of retryable error codes.</li>
-<li><strong>max_attempts</strong> – The max number of retries, by default the delay
-time is proportional to the max number of attempts.</li>
-<li><strong>log_retries</strong> – Whether we should log retries, if specified
-specifies the level at which the retry should be logged.</li>
-<li><strong>_max_delay</strong> – The maximum delay for any retry interval <em>note</em>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>codes</strong> – A sequence of retryable error codes.</p></li>
+<li><p><strong>max_attempts</strong> – The max number of retries, by default the delay
+time is proportional to the max number of attempts.</p></li>
+<li><p><strong>log_retries</strong> – Whether we should log retries, if specified
+specifies the level at which the retry should be logged.</p></li>
+<li><p><strong>_max_delay</strong> – The maximum delay for any retry interval <em>note</em>
 this parameter is only exposed for unit testing, as its
-derived from the number of attempts.</li>
+derived from the number of attempts.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>Returns a function for invoking aws client calls that
 retries on retryable error codes.</p>
 </dd></dl>
@@ -4648,19 +4624,18 @@ retries on retryable error codes.</p>
 <dt id="c7n.utils.type_schema">
 <code class="descclassname">c7n.utils.</code><code class="descname">type_schema</code><span class="sig-paren">(</span><em>type_name</em>, <em>inherits=None</em>, <em>rinherit=None</em>, <em>aliases=None</em>, <em>required=None</em>, <em>**props</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/utils.html#type_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.utils.type_schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>jsonschema generation helper</p>
-<dl class="docutils">
-<dt>params:</dt>
-<dd><ul class="first last simple">
-<li>type_name: name of the type</li>
-<li>inherits: list of document fragments that are required via anyOf[$ref]</li>
-<li><dl class="first docutils">
-<dt>rinherit: use another schema as a base for this, basically work around</dt>
-<dd>inherits issues with additionalProperties and type enums.</dd>
+<dl class="simple">
+<dt>params:</dt><dd><ul class="simple">
+<li><p>type_name: name of the type</p></li>
+<li><p>inherits: list of document fragments that are required via anyOf[$ref]</p></li>
+<li><dl class="simple">
+<dt>rinherit: use another schema as a base for this, basically work around</dt><dd><p>inherits issues with additionalProperties and type enums.</p>
+</dd>
 </dl>
 </li>
-<li>aliases: additional names this type maybe called</li>
-<li>required: list of required properties, by default ‘type’ is required</li>
-<li>props: additional key value properties</li>
+<li><p>aliases: additional names this type maybe called</p></li>
+<li><p>required: list of required properties, by default ‘type’ is required</p></li>
+<li><p>props: additional key value properties</p></li>
 </ul>
 </dd>
 </dl>

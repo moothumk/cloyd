@@ -779,14 +779,11 @@ listed to preserve.</p>
 <em class="property">class </em><code class="descclassname">c7n_azure.filters.</code><code class="descname">MetricFilter</code><span class="sig-paren">(</span><em>data</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/filters.html#MetricFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.filters.MetricFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../aws/c7n.filters.html#c7n.filters.core.Filter" title="c7n.filters.core.Filter"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.filters.core.Filter</span></code></a></p>
 <p>Filters Azure resources based on live metrics from the Azure monitor</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body">Find all VMs with an average Percentage CPU greater than 75% over last 2 hours</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p>Find all VMs with an average Percentage CPU greater than 75% over last 2 hours</p>
+</dd>
+</dl>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">vm-percentage-cpu</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
@@ -1073,9 +1070,9 @@ the ‘azure://’ prefix</p>
 <dd><p>Emit a record.</p>
 <p>If a formatter is specified, it is used to format the record. If exception information is present, an Exception
 telemetry object is sent instead of a Trace telemetry object.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>record (<code class="xref py py-class docutils literal notranslate"><span class="pre">logging.LogRecord</span></code>). the record to format and send.</dd>
+<dl class="simple">
+<dt>Args:</dt><dd><p>record (<code class="xref py py-class docutils literal notranslate"><span class="pre">logging.LogRecord</span></code>). the record to format and send.</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -1702,6 +1699,21 @@ Note: empty Azure AD objects could be returned if not found in the graph.</p>
 <dt id="c7n_azure.utils.GraphHelper.log">
 <code class="descname">log</code><em class="property"> = &lt;Logger custodian.azure.utils.GraphHelper (DEBUG)&gt;</em><a class="headerlink" href="#c7n_azure.utils.GraphHelper.log" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_azure.utils.IpRangeHelper">
+<em class="property">class </em><code class="descclassname">c7n_azure.utils.</code><code class="descname">IpRangeHelper</code><a class="reference internal" href="../../_modules/c7n_azure/utils.html#IpRangeHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.utils.IpRangeHelper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="staticmethod">
+<dt id="c7n_azure.utils.IpRangeHelper.parse_ip_ranges">
+<em class="property">static </em><code class="descname">parse_ip_ranges</code><span class="sig-paren">(</span><em>data</em>, <em>key</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/utils.html#IpRangeHelper.parse_ip_ranges"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.utils.IpRangeHelper.parse_ip_ranges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses IP range or CIDR mask.
+:param data: Dictionary where to look for the value.
+:param key:  Key for the value to be parsed.
+:return: Set of IP ranges and networks.</p>
+</dd></dl>
 
 </dd></dl>
 
