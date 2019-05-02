@@ -221,6 +221,339 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
+<div class="section" id="module-c7n_gcp.resources.appengine">
+<span id="c7n-gcp-resources-appengine-module"></span><h2>c7n_gcp.resources.appengine module<a class="headerlink" href="#module-c7n_gcp.resources.appengine" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="c7n_gcp.resources.appengine.AppEngineApp">
+<em class="property">class </em><code class="descclassname">c7n_gcp.resources.appengine.</code><code class="descname">AppEngineApp</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineApp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.QueryResourceManager" title="c7n_gcp.query.QueryResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.QueryResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineApp.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineApp.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineApp.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineApp.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="c7n_gcp.resources.appengine.AppEngineApp.get_resource_query">
+<code class="descname">get_resource_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineApp.get_resource_query"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineApp.get_resource_query" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.appengine.AppEngineApp.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineApp.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineApp.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.TypeInfo" title="c7n_gcp.query.TypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.TypeInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineApp.resource_type.component">
+<code class="descname">component</code><em class="property"> = 'apps'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineApp.resource_type.component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineApp.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = ('get', '[&#64;]', None)</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineApp.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="c7n_gcp.resources.appengine.AppEngineApp.resource_type.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>resource_info</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineApp.resource_type.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineApp.resource_type.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineApp.resource_type.id">
+<code class="descname">id</code><em class="property"> = 'id'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineApp.resource_type.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineApp.resource_type.scope">
+<code class="descname">scope</code><em class="property"> = None</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineApp.resource_type.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineApp.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'appengine'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineApp.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineApp.resource_type.version">
+<code class="descname">version</code><em class="property"> = 'v1'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineApp.resource_type.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineApp.type">
+<code class="descname">type</code><em class="property"> = 'app-engine'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineApp.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.appengine.AppEngineCertificate">
+<em class="property">class </em><code class="descclassname">c7n_gcp.resources.appengine.</code><code class="descname">AppEngineCertificate</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineCertificate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineCertificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.ChildResourceManager" title="c7n_gcp.query.ChildResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.ChildResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineCertificate.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineCertificate.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineCertificate.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineCertificate.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.appengine.AppEngineCertificate.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineCertificate.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineCertificate.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.ChildTypeInfo" title="c7n_gcp.query.ChildTypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.ChildTypeInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.component">
+<code class="descname">component</code><em class="property"> = 'apps.authorizedCertificates'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = ('list', 'certificates[]', None)</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>resource_info</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineCertificate.resource_type.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.id">
+<code class="descname">id</code><em class="property"> = 'id'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.parent_spec">
+<code class="descname">parent_spec</code><em class="property"> = {'child_enum_params': {('id', 'appsId')}, 'resource': 'app-engine'}</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.parent_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.scope">
+<code class="descname">scope</code><em class="property"> = None</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'appengine'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.version">
+<code class="descname">version</code><em class="property"> = 'v1'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineCertificate.resource_type.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineCertificate.type">
+<code class="descname">type</code><em class="property"> = 'app-engine-certificate'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineCertificate.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomain">
+<em class="property">class </em><code class="descclassname">c7n_gcp.resources.appengine.</code><code class="descname">AppEngineDomain</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineDomain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.ChildResourceManager" title="c7n_gcp.query.ChildResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.ChildResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomain.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomain.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomain.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomain.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomain.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineDomain.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomain.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.ChildTypeInfo" title="c7n_gcp.query.ChildTypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.ChildTypeInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomain.resource_type.component">
+<code class="descname">component</code><em class="property"> = 'apps.authorizedDomains'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomain.resource_type.component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomain.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = ('list', 'domains[]', None)</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomain.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomain.resource_type.id">
+<code class="descname">id</code><em class="property"> = 'id'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomain.resource_type.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomain.resource_type.parent_spec">
+<code class="descname">parent_spec</code><em class="property"> = {'child_enum_params': {('id', 'appsId')}, 'resource': 'app-engine'}</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomain.resource_type.parent_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomain.resource_type.scope">
+<code class="descname">scope</code><em class="property"> = None</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomain.resource_type.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomain.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'appengine'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomain.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomain.resource_type.version">
+<code class="descname">version</code><em class="property"> = 'v1'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomain.resource_type.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomain.type">
+<code class="descname">type</code><em class="property"> = 'app-engine-domain'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomain.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomainMapping">
+<em class="property">class </em><code class="descclassname">c7n_gcp.resources.appengine.</code><code class="descname">AppEngineDomainMapping</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineDomainMapping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomainMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.ChildResourceManager" title="c7n_gcp.query.ChildResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.ChildResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomainMapping.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomainMapping.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomainMapping.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomainMapping.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineDomainMapping.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.ChildTypeInfo" title="c7n_gcp.query.ChildTypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.ChildTypeInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.component">
+<code class="descname">component</code><em class="property"> = 'apps.domainMappings'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = ('list', 'domainMappings[]', None)</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>resource_info</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineDomainMapping.resource_type.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.id">
+<code class="descname">id</code><em class="property"> = 'id'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.parent_spec">
+<code class="descname">parent_spec</code><em class="property"> = {'child_enum_params': {('id', 'appsId')}, 'resource': 'app-engine'}</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.parent_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.scope">
+<code class="descname">scope</code><em class="property"> = None</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'appengine'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.version">
+<code class="descname">version</code><em class="property"> = 'v1'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomainMapping.resource_type.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineDomainMapping.type">
+<code class="descname">type</code><em class="property"> = 'app-engine-domain-mapping'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineDomainMapping.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.appengine.AppEngineFirewallIngressRule">
+<em class="property">class </em><code class="descclassname">c7n_gcp.resources.appengine.</code><code class="descname">AppEngineFirewallIngressRule</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineFirewallIngressRule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineFirewallIngressRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.ChildResourceManager" title="c7n_gcp.query.ChildResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.ChildResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineFirewallIngressRule.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_gcp.html#c7n_gcp.query.ChildTypeInfo" title="c7n_gcp.query.ChildTypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_gcp.query.ChildTypeInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.component">
+<code class="descname">component</code><em class="property"> = 'apps.firewall.ingressRules'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = ('list', 'ingressRules[]', None)</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.get">
+<em class="property">static </em><code class="descname">get</code><span class="sig-paren">(</span><em>client</em>, <em>resource_info</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_gcp/resources/appengine.html#AppEngineFirewallIngressRule.resource_type.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.id">
+<code class="descname">id</code><em class="property"> = 'id'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.parent_spec">
+<code class="descname">parent_spec</code><em class="property"> = {'child_enum_params': {('id', 'appsId')}, 'resource': 'app-engine'}</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.parent_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.scope">
+<code class="descname">scope</code><em class="property"> = None</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'appengine'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.version">
+<code class="descname">version</code><em class="property"> = 'v1'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.resource_type.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.type">
+<code class="descname">type</code><em class="property"> = 'app-engine-firewall-ingress-rule'</em><a class="headerlink" href="#c7n_gcp.resources.appengine.AppEngineFirewallIngressRule.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-c7n_gcp.resources.bigquery">
 <span id="c7n-gcp-resources-bigquery-module"></span><h2>c7n_gcp.resources.bigquery module<a class="headerlink" href="#module-c7n_gcp.resources.bigquery" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
