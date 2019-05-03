@@ -324,7 +324,10 @@
                 <span class="n">assemble_bucket</span><span class="p">,</span>
                 <span class="nb">zip</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">session_factory</span><span class="p">),</span> <span class="n">buckets</span><span class="p">))</span>
             <span class="n">results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">results</span><span class="p">))</span>
-            <span class="k">return</span> <span class="n">results</span></div></div>
+            <span class="k">return</span> <span class="n">results</span></div>
+
+<div class="viewcode-block" id="DescribeS3.get_resources"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.s3.DescribeS3.get_resources">[docs]</a>    <span class="k">def</span> <span class="nf">get_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bucket_names</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="n">b</span><span class="p">}</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bucket_names</span><span class="p">]</span></div></div>
 
 
 <div class="viewcode-block" id="ConfigS3"><a class="viewcode-back" href="../../../generated/aws/c7n.resources.html#c7n.resources.s3.ConfigS3">[docs]</a><span class="k">class</span> <span class="nc">ConfigS3</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">ConfigSource</span><span class="p">):</span>
