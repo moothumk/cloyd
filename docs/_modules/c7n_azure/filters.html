@@ -498,7 +498,7 @@
 
 <span class="sd">    Filter resources by their current Azure Policy compliance status.</span>
 
-<span class="sd">    You can specify if you want to filter compliant or non-compiant resources.</span>
+<span class="sd">    You can specify if you want to filter compliant or non-compliant resources.</span>
 
 <span class="sd">    You can provide a list of Azure Policy definitions display names or names to limit</span>
 <span class="sd">    amount of non-compliant resources. By default it returns a list of all non-compliant</span>
@@ -528,21 +528,22 @@
 
 <div class="viewcode-block" id="PolicyCompliantFilter.process"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.filters.PolicyCompliantFilter.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resources</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">get_session</span><span class="p">()</span>
+        <span class="n">definition_ids</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="c1"># Translate definitions display names into ids</span>
-        <span class="n">policyClient</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s2">&quot;azure.mgmt.resource.policy.PolicyClient&quot;</span><span class="p">)</span>
-        <span class="n">definitions</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">policyClient</span><span class="o">.</span><span class="n">policy_definitions</span><span class="o">.</span><span class="n">list</span><span class="p">()]</span>
-        <span class="n">definition_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">definitions</span>
-                          <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span>
-                          <span class="n">d</span><span class="o">.</span><span class="n">display_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span> <span class="ow">or</span>
-                          <span class="n">d</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span><span class="p">:</span>
+            <span class="n">policyClient</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s2">&quot;azure.mgmt.resource.policy.PolicyClient&quot;</span><span class="p">)</span>
+            <span class="n">definitions</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">policyClient</span><span class="o">.</span><span class="n">policy_definitions</span><span class="o">.</span><span class="n">list</span><span class="p">()]</span>
+            <span class="n">definition_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">definitions</span>
+                              <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">display_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span> <span class="ow">or</span>
+                              <span class="n">d</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span><span class="p">]</span>
 
         <span class="c1"># Find non-compliant resources</span>
         <span class="n">client</span> <span class="o">=</span> <span class="n">PolicyInsightsClient</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">get_credentials</span><span class="p">())</span>
         <span class="n">query</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">policy_states</span><span class="o">.</span><span class="n">list_query_results_for_subscription</span><span class="p">(</span>
             <span class="n">policy_states_resource</span><span class="o">=</span><span class="s1">&#39;latest&#39;</span><span class="p">,</span> <span class="n">subscription_id</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">subscription_id</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
         <span class="n">non_compliant</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">resource_id</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">query</span>
-                         <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">policy_definition_id</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">definition_ids</span><span class="p">]</span>
+                         <span class="k">if</span> <span class="ow">not</span> <span class="n">definition_ids</span> <span class="ow">or</span> <span class="n">f</span><span class="o">.</span><span class="n">policy_definition_id</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">definition_ids</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">compliant</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">resources</span> <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">non_compliant</span><span class="p">]</span>

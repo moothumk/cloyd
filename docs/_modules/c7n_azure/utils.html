@@ -330,7 +330,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">send_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Received throttling error, retry time is </span><span class="si">%i</span><span class="s2">&quot;</span>
                                   <span class="s2">&quot;(retry only if &lt; </span><span class="si">%i</span><span class="s2"> seconds).&quot;</span>
-                                  <span class="o">%</span> <span class="p">(</span><span class="n">retry_after</span><span class="p">,</span> <span class="n">constants</span><span class="o">.</span><span class="n">DEFAULT_MAX_RETRY_AFTER</span><span class="p">))</span>
+                                  <span class="o">%</span> <span class="p">(</span><span class="n">retry_after</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">,</span> <span class="n">constants</span><span class="o">.</span><span class="n">DEFAULT_MAX_RETRY_AFTER</span><span class="p">))</span>
                 <span class="k">break</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">break</span>

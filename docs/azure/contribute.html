@@ -212,7 +212,7 @@ $ <span class="nb">source</span> bin/activate
 </pre></div>
 </div>
 <p>This creates a virtual env in your enlistment and installs all packages as editable.</p>
-<p>Instead, you can do <cite>pip install -r tools/c7n_azure/requirements.txt</cite> to install test dependencies.</p>
+<p>You can also simply do <cite>pip install -r requirements-dev.txt</cite> to install all dev/test dependencies.</p>
 </div>
 <div class="section" id="adding-new-azure-resources">
 <h1>Adding New Azure Resources<a class="headerlink" href="#adding-new-azure-resources" title="Permalink to this headline">¶</a></h1>
@@ -272,6 +272,8 @@ load all registered resources. Import the resource in
 <h1>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h1>
 <p>Tests for c7n_azure run automatically with other Custodian tests.  See <a class="reference internal" href="../developer/tests.html#developer-tests"><span class="std std-ref">Testing for Developers</span></a>
 for information on how to run Tox.</p>
+<p>If you’d like to run tests at the command line or in your IDE then reference <cite>tox.ini</cite> to see the required
+environment variables and command lines for running <cite>pytest</cite>.</p>
 <div class="section" id="test-framework">
 <h2>Test framework<a class="headerlink" href="#test-framework" title="Permalink to this headline">¶</a></h2>
 <p>c7n_azure uses <cite>VCR.py</cite> for tests.
@@ -280,7 +282,7 @@ This framework is used for tests in the official Azure Python SDK.</p>
 </div>
 <div class="section" id="arm-templates">
 <h2>ARM templates<a class="headerlink" href="#arm-templates" title="Permalink to this headline">¶</a></h2>
-<p>To ensure VCR cassetes can be easily re-recorded, there are ARM templates to deploy Azure tests infrastructure.</p>
+<p>To ensure VCR cassettes can be easily re-recorded, there are ARM templates to deploy Azure tests infrastructure.</p>
 <p>These templates will allow you to provision real Azure resources appropriate for recreating the VCR
 cassettes used by the unit tests.  They will let you run the unit tests against real resources.</p>
 <p>ARM templates and helper scripts can be found in <cite>tools/c7n_azure/tests/templates</cite> folder.</p>
