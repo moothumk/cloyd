@@ -204,6 +204,7 @@
 <span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
+<span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">distutils.util</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">logging</span>
@@ -217,7 +218,9 @@
 <span class="kn">from</span> <span class="nn">c7n.utils</span> <span class="k">import</span> <span class="n">local_session</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.constants</span> <span class="k">import</span> <span class="p">(</span><span class="n">ENV_CUSTODIAN_DISABLE_SSL_CERT_VERIFICATION</span><span class="p">,</span>
                                  <span class="n">FUNCTION_EVENT_TRIGGER_MODE</span><span class="p">,</span>
-                                 <span class="n">FUNCTION_TIME_TRIGGER_MODE</span><span class="p">)</span>
+                                 <span class="n">FUNCTION_TIME_TRIGGER_MODE</span><span class="p">,</span>
+                                 <span class="n">FUNCTION_HOST_CONFIG</span><span class="p">,</span>
+                                 <span class="n">FUNCTION_EXTENSION_BUNDLE_CONFIG</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.dependency_manager</span> <span class="k">import</span> <span class="n">DependencyManager</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.session</span> <span class="k">import</span> <span class="n">Session</span>
 
@@ -264,43 +267,13 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">pkg</span><span class="o">.</span><span class="n">add_contents</span><span class="p">(</span><span class="n">dest</span><span class="o">=</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;/config.json&#39;</span><span class="p">,</span>
                                       <span class="n">contents</span><span class="o">=</span><span class="n">policy_contents</span><span class="p">)</span>
 
-                <span class="k">if</span> <span class="n">policy</span><span class="p">[</span><span class="s1">&#39;mode&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">FUNCTION_EVENT_TRIGGER_MODE</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_add_queue_binding_extensions</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_add_host_config</span><span class="p">(</span><span class="n">policy</span><span class="p">[</span><span class="s1">&#39;mode&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">])</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_add_host_config</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">_add_host_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">config</span> <span class="o">=</span> \
-            <span class="p">{</span>
-                <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;healthMonitor&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-                    <span class="s2">&quot;healthCheckInterval&quot;</span><span class="p">:</span> <span class="s2">&quot;00:00:10&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;healthCheckWindow&quot;</span><span class="p">:</span> <span class="s2">&quot;00:02:00&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;healthCheckThreshold&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-                    <span class="s2">&quot;counterThreshold&quot;</span><span class="p">:</span> <span class="mf">0.80</span>
-                <span class="p">},</span>
-                <span class="s2">&quot;functionTimeout&quot;</span><span class="p">:</span> <span class="s2">&quot;00:05:00&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;logging&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;fileLoggingMode&quot;</span><span class="p">:</span> <span class="s2">&quot;debugOnly&quot;</span>
-                <span class="p">},</span>
-                <span class="s2">&quot;extensions&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;http&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">&quot;routePrefix&quot;</span><span class="p">:</span> <span class="s2">&quot;api&quot;</span><span class="p">,</span>
-                        <span class="s2">&quot;maxConcurrentRequests&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-                        <span class="s2">&quot;maxOutstandingRequests&quot;</span><span class="p">:</span> <span class="mi">30</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
+    <span class="k">def</span> <span class="nf">_add_host_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">FUNCTION_HOST_CONFIG</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">FUNCTION_EVENT_TRIGGER_MODE</span><span class="p">:</span>
+            <span class="n">config</span><span class="p">[</span><span class="s1">&#39;extensionBundle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FUNCTION_EXTENSION_BUNDLE_CONFIG</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pkg</span><span class="o">.</span><span class="n">add_contents</span><span class="p">(</span><span class="n">dest</span><span class="o">=</span><span class="s1">&#39;host.json&#39;</span><span class="p">,</span> <span class="n">contents</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">config</span><span class="p">))</span>
-
-    <span class="k">def</span> <span class="nf">_add_queue_binding_extensions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">bindings_dir_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="vm">__file__</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">),</span> <span class="s1">&#39;function_binding_resources&#39;</span><span class="p">))</span>
-        <span class="n">bin_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bindings_dir_path</span><span class="p">,</span> <span class="s1">&#39;bin&#39;</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">pkg</span><span class="o">.</span><span class="n">add_directory</span><span class="p">(</span><span class="n">bin_path</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pkg</span><span class="o">.</span><span class="n">add_file</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bindings_dir_path</span><span class="p">,</span> <span class="s1">&#39;extensions.csproj&#39;</span><span class="p">))</span>
 
 <div class="viewcode-block" id="FunctionPackage.get_function_config"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.function_package.FunctionPackage.get_function_config">[docs]</a>    <span class="k">def</span> <span class="nf">get_function_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">queue_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">config</span> <span class="o">=</span> \
@@ -436,13 +409,17 @@
         <span class="c1"># update perms of the package</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_update_perms_package</span><span class="p">()</span>
         <span class="n">zip_api_url</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/api/zipdeploy?isAsync=true&#39;</span> <span class="o">%</span> <span class="n">deployment_creds</span><span class="o">.</span><span class="n">scm_uri</span>
-
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/octet-stream&#39;</span><span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Publishing Function package from </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">pkg</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 
         <span class="n">zip_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pkg</span><span class="o">.</span><span class="n">get_bytes</span><span class="p">()</span>
 
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">zip_api_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">zip_file</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">enable_ssl_cert</span><span class="p">)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">zip_api_url</span><span class="p">,</span>
+                              <span class="n">data</span><span class="o">=</span><span class="n">zip_file</span><span class="p">,</span>
+                              <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+                              <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+                              <span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">enable_ssl_cert</span><span class="p">)</span>
         <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ReadTimeout</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Your Function App deployment timed out after 5 minutes. Try again.&quot;</span><span class="p">)</span>
 
