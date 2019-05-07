@@ -827,11 +827,6 @@ listed to preserve.</p>
 <code class="descname">get_metric_data</code><span class="sig-paren">(</span><em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/filters.html#MetricFilter.get_metric_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.filters.MetricFilter.get_metric_data" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="c7n_azure.filters.MetricFilter.ops">
-<code class="descname">ops</code><em class="property"> = {'eq': &lt;built-in function eq&gt;, 'equal': &lt;built-in function eq&gt;, 'ge': &lt;built-in function ge&gt;, 'greater-than': &lt;built-in function gt&gt;, 'gt': &lt;built-in function gt&gt;, 'gte': &lt;built-in function ge&gt;, 'le': &lt;built-in function le&gt;, 'less-than': &lt;built-in function lt&gt;, 'lt': &lt;built-in function lt&gt;, 'lte': &lt;built-in function le&gt;, 'ne': &lt;built-in function ne&gt;, 'not-equal': &lt;built-in function ne&gt;}</em><a class="headerlink" href="#c7n_azure.filters.MetricFilter.ops" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="method">
 <dt id="c7n_azure.filters.MetricFilter.passes_op_filter">
 <code class="descname">passes_op_filter</code><span class="sig-paren">(</span><em>resource</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/filters.html#MetricFilter.passes_op_filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.filters.MetricFilter.passes_op_filter" title="Permalink to this definition">¶</a></dt>
@@ -1842,6 +1837,75 @@ Example: [10, 12, 13, 14, 15] -&gt; [‘10’, ‘12-15’]</p>
 <dt id="c7n_azure.utils.ResourceIdParser.get_subscription_id">
 <em class="property">static </em><code class="descname">get_subscription_id</code><span class="sig-paren">(</span><em>resource_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/utils.html#ResourceIdParser.get_subscription_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.utils.ResourceIdParser.get_subscription_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_azure.utils.RetentionPeriod">
+<em class="property">class </em><code class="descclassname">c7n_azure.utils.</code><code class="descname">RetentionPeriod</code><a class="reference internal" href="../../_modules/c7n_azure/utils.html#RetentionPeriod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.utils.RetentionPeriod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="c7n_azure.utils.RetentionPeriod.PATTERN">
+<code class="descname">PATTERN</code><em class="property"> = re.compile('^P([1-9][0-9]*)([DWMY])$')</em><a class="headerlink" href="#c7n_azure.utils.RetentionPeriod.PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_azure.utils.RetentionPeriod.Units">
+<em class="property">class </em><code class="descname">Units</code><span class="sig-paren">(</span><em>str_value</em>, <em>iso8601_symbol</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/utils.html#RetentionPeriod.Units"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.utils.RetentionPeriod.Units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="c7n_azure.utils.RetentionPeriod.Units.day">
+<code class="descname">day</code><em class="property"> = ('day', 'D')</em><a class="headerlink" href="#c7n_azure.utils.RetentionPeriod.Units.day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.utils.RetentionPeriod.Units.days">
+<code class="descname">days</code><em class="property"> = ('days', 'D')</em><a class="headerlink" href="#c7n_azure.utils.RetentionPeriod.Units.days" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.utils.RetentionPeriod.Units.month">
+<code class="descname">month</code><em class="property"> = ('month', 'M')</em><a class="headerlink" href="#c7n_azure.utils.RetentionPeriod.Units.month" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.utils.RetentionPeriod.Units.months">
+<code class="descname">months</code><em class="property"> = ('months', 'M')</em><a class="headerlink" href="#c7n_azure.utils.RetentionPeriod.Units.months" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.utils.RetentionPeriod.Units.week">
+<code class="descname">week</code><em class="property"> = ('week', 'W')</em><a class="headerlink" href="#c7n_azure.utils.RetentionPeriod.Units.week" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.utils.RetentionPeriod.Units.weeks">
+<code class="descname">weeks</code><em class="property"> = ('weeks', 'W')</em><a class="headerlink" href="#c7n_azure.utils.RetentionPeriod.Units.weeks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.utils.RetentionPeriod.Units.year">
+<code class="descname">year</code><em class="property"> = ('year', 'Y')</em><a class="headerlink" href="#c7n_azure.utils.RetentionPeriod.Units.year" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.utils.RetentionPeriod.Units.years">
+<code class="descname">years</code><em class="property"> = ('years', 'Y')</em><a class="headerlink" href="#c7n_azure.utils.RetentionPeriod.Units.years" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="c7n_azure.utils.RetentionPeriod.duration_from_period_and_units">
+<em class="property">static </em><code class="descname">duration_from_period_and_units</code><span class="sig-paren">(</span><em>period</em>, <em>retention_period_unit</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/utils.html#RetentionPeriod.duration_from_period_and_units"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.utils.RetentionPeriod.duration_from_period_and_units" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="c7n_azure.utils.RetentionPeriod.parse_iso8601_retention_period">
+<em class="property">static </em><code class="descname">parse_iso8601_retention_period</code><span class="sig-paren">(</span><em>iso8601_retention_period</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/utils.html#RetentionPeriod.parse_iso8601_retention_period"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.utils.RetentionPeriod.parse_iso8601_retention_period" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simplified iso8601 duration parser that only accepts one duration designator.</p>
+</dd></dl>
 
 </dd></dl>
 

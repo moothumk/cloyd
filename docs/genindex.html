@@ -1420,6 +1420,8 @@
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.backup.BackupPlan.resource_type">BackupPlan.resource_type (class in c7n.resources.backup)</a>
 </li>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter">BackupRetentionPolicyFilter (class in c7n_azure.resources.sqldatabase)</a>
+</li>
       <li><a href="generated/aws/c7n.html#c7n.config.Bag">Bag (class in c7n.config)</a>
 </li>
       <li><a href="generated/aws/c7n.actions.html#c7n.actions.core.BaseAction">BaseAction (in module c7n.actions.core)</a>
@@ -3096,7 +3098,11 @@
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.dynamodb.DaxUpdateCluster">DaxUpdateCluster (class in c7n.resources.dynamodb)</a>
 </li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.RetentionPeriod.Units.day">day (c7n_azure.utils.RetentionPeriod.Units attribute)</a>
+</li>
       <li><a href="generated/aws/c7n.filters.html#c7n.filters.offhours.ScheduleParser.DAY_MAP">DAY_MAP (c7n.filters.offhours.ScheduleParser attribute)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.RetentionPeriod.Units.days">days (c7n_azure.utils.RetentionPeriod.Units attribute)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.rds.DbInstanceFinding">DbInstanceFinding (class in c7n.resources.rds)</a>
 </li>
@@ -4057,6 +4063,8 @@
       <li><a href="generated/aws/c7n.html#c7n.utils.dumps">dumps() (in module c7n.utils)</a>
 </li>
       <li><a href="generated/aws/c7n.html#c7n.commands.DuplicateKeyCheckLoader">DuplicateKeyCheckLoader (class in c7n.commands)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.RetentionPeriod.duration_from_period_and_units">duration_from_period_and_units() (c7n_azure.utils.RetentionPeriod static method)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.dynamodb.DynamoDbAccelerator">DynamoDbAccelerator (class in c7n.resources.dynamodb)</a>
 </li>
@@ -6676,8 +6684,6 @@
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.vpc.TransitGatewayAttachmentQuery.get_parent_parameters">(c7n.resources.vpc.TransitGatewayAttachmentQuery method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/aws/c7n.actions.html#c7n.actions.autotag.AutoTagUser.get_permissions">get_permissions() (c7n.actions.autotag.AutoTagUser method)</a>
 
       <ul>
@@ -6798,6 +6804,8 @@
         <li><a href="generated/gcp/c7n_gcp.html#c7n_gcp.query.QueryResourceManager.get_permissions">(c7n_gcp.query.QueryResourceManager method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.rdsparamgroup.PGClusterMixin.get_pg_name">get_pg_name() (c7n.resources.rdsparamgroup.PGClusterMixin method)</a>
 
       <ul>
@@ -7044,6 +7052,16 @@
       </ul></li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.rds.RestoreInstance.get_restore_from_tags">get_restore_from_tags() (c7n.resources.rds.RestoreInstance method)</a>
 </li>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter.get_retention_from_backup_policy">get_retention_from_backup_policy() (c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter method)</a>
+
+      <ul>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.get_retention_from_backup_policy">(c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter method)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType.get_retention_from_backup_policy">(c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType method)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter.get_retention_from_backup_policy">(c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter method)</a>
+</li>
+      </ul></li>
       <li><a href="generated/aws/c7n.html#c7n.utils.get_retry">get_retry() (in module c7n.utils)</a>
 </li>
       <li><a href="generated/aws/c7n.filters.html#c7n.filters.revisions.Diff.get_revisions">get_revisions() (c7n.filters.revisions.Diff method)</a>
@@ -8476,10 +8494,10 @@
 </li>
       <li><a href="generated/gcp/c7n_gcp.resources.html#c7n_gcp.resources.loadbalancer.LoadBalancingForwardingRule.resource_type">LoadBalancingForwardingRule.resource_type (class in c7n_gcp.resources.loadbalancer)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/gcp/c7n_gcp.resources.html#c7n_gcp.resources.loadbalancer.LoadBalancingGlobalAddress">LoadBalancingGlobalAddress (class in c7n_gcp.resources.loadbalancer)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/gcp/c7n_gcp.resources.html#c7n_gcp.resources.loadbalancer.LoadBalancingGlobalAddress.resource_type">LoadBalancingGlobalAddress.resource_type (class in c7n_gcp.resources.loadbalancer)</a>
 </li>
       <li><a href="generated/gcp/c7n_gcp.resources.html#c7n_gcp.resources.loadbalancer.LoadBalancingGlobalForwardingRule">LoadBalancingGlobalForwardingRule (class in c7n_gcp.resources.loadbalancer)</a>
@@ -8611,6 +8629,10 @@
       <li><a href="generated/gcp/c7n_gcp.html#c7n_gcp.mu.LogSubscriber">LogSubscriber (class in c7n_gcp.mu)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.s3.LogTarget">LogTarget (class in c7n.resources.s3)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter">LongTermBackupRetentionPolicyFilter (class in c7n_azure.resources.sqldatabase)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType">LongTermBackupRetentionPolicyFilter.BackupType (class in c7n_azure.resources.sqldatabase)</a>
 </li>
       <li><a href="generated/aws/c7n.html#c7n.log.Transport.loop">loop() (c7n.log.Transport method)</a>
 </li>
@@ -8883,6 +8905,12 @@
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.ebs.ModifyVolume">ModifyVolume (class in c7n.resources.ebs)</a>
 </li>
       <li><a href="generated/aws/c7n.actions.html#c7n.actions.network.ModifyVpcSecurityGroupsAction">ModifyVpcSecurityGroupsAction (class in c7n.actions.network)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.RetentionPeriod.Units.month">month (c7n_azure.utils.RetentionPeriod.Units attribute)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType.monthly">monthly (c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType attribute)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.RetentionPeriod.Units.months">months (c7n_azure.utils.RetentionPeriod.Units attribute)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.mq.MQMetrics">MQMetrics (class in c7n.resources.mq)</a>
 </li>
@@ -9378,14 +9406,12 @@
 </li>
       <li><a href="generated/aws/c7n.filters.html#c7n.filters.core.operator_ni">operator_ni() (in module c7n.filters.core)</a>
 </li>
-      <li><a href="generated/azure/c7n_azure.html#c7n_azure.filters.MetricFilter.ops">ops (c7n_azure.filters.MetricFilter attribute)</a>
-</li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.opsworks.OpsworksCM">OpsworksCM (class in c7n.resources.opsworks)</a>
+</li>
+      <li><a href="generated/aws/c7n.resources.html#c7n.resources.opsworks.OpsworksCM.resource_type">OpsworksCM.resource_type (class in c7n.resources.opsworks)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/aws/c7n.resources.html#c7n.resources.opsworks.OpsworksCM.resource_type">OpsworksCM.resource_type (class in c7n.resources.opsworks)</a>
-</li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.opsworks.OpsworkStack">OpsworkStack (class in c7n.resources.opsworks)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.opsworks.OpsworkStack.resource_type">OpsworkStack.resource_type (class in c7n.resources.opsworks)</a>
@@ -9496,6 +9522,8 @@
 </li>
       <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.IpRangeHelper.parse_ip_ranges">parse_ip_ranges() (c7n_azure.utils.IpRangeHelper static method)</a>
 </li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.RetentionPeriod.parse_iso8601_retention_period">parse_iso8601_retention_period() (c7n_azure.utils.RetentionPeriod static method)</a>
+</li>
       <li><a href="generated/aws/c7n.filters.html#c7n.filters.offhours.ScheduleParser.parse_resource_schedule">parse_resource_schedule() (c7n.filters.offhours.ScheduleParser method)</a>
 </li>
       <li><a href="generated/aws/c7n.html#c7n.utils.parse_s3">parse_s3() (in module c7n.utils)</a>
@@ -9536,6 +9564,8 @@
         <li><a href="generated/gcp/c7n_gcp.resources.html#c7n_gcp.resources.sql.SqlInstanceStop.path_param_re">(c7n_gcp.resources.sql.SqlInstanceStop attribute)</a>
 </li>
       </ul></li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.RetentionPeriod.PATTERN">PATTERN (c7n_azure.utils.RetentionPeriod attribute)</a>
+</li>
       <li><a href="generated/aws/c7n.html#c7n.mu.CloudWatchEventSource.pause">pause() (c7n.mu.CloudWatchEventSource method)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.vpc.PeeringConnection">PeeringConnection (class in c7n.resources.vpc)</a>
@@ -11305,6 +11335,8 @@
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.resourcegroup.DeleteResourceGroup.process">(c7n_azure.resources.resourcegroup.DeleteResourceGroup method)</a>
 </li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter.process">(c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter method)</a>
+</li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqlserver.SqlServerFirewallRulesFilter.process">(c7n_azure.resources.sqlserver.SqlServerFirewallRulesFilter method)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.subscription.AddPolicy.process">(c7n_azure.resources.subscription.AddPolicy method)</a>
@@ -12370,10 +12402,10 @@
         <li><a href="generated/azure/c7n_azure.html#c7n_azure.actions.RemoveTag">(class in c7n_azure.actions)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.ecs.RemoveTagEcsResource">RemoveTagEcsResource (class in c7n.resources.ecs)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.sagemaker.RemoveTagNotebookInstance">RemoveTagNotebookInstance (class in c7n.resources.sagemaker)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.secretsmanager.RemoveTagSecretsManagerResource">RemoveTagSecretsManagerResource (class in c7n.resources.secretsmanager)</a>
@@ -12631,6 +12663,10 @@
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.asg.Resume.resume_asg_instances">resume_asg_instances() (c7n.resources.asg.Resume method)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.cw.Retention">Retention (class in c7n.resources.cw)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.RetentionPeriod">RetentionPeriod (class in c7n_azure.utils)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.RetentionPeriod.Units">RetentionPeriod.Units (class in c7n_azure.utils)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.rds.RetentionWindow">RetentionWindow (class in c7n.resources.rds)</a>
 
@@ -13743,6 +13779,12 @@
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.resourcegroup.DeleteResourceGroup.schema">(c7n_azure.resources.resourcegroup.DeleteResourceGroup attribute)</a>
 </li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter.schema">(c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter attribute)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.schema">(c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter attribute)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter.schema">(c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter attribute)</a>
+</li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqlserver.SqlServerFirewallRulesFilter.schema">(c7n_azure.resources.sqlserver.SqlServerFirewallRulesFilter attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.storage.StorageSetNetworkRulesAction.schema">(c7n_azure.resources.storage.StorageSetNetworkRulesAction attribute)</a>
@@ -14803,6 +14845,8 @@
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.shield.ShieldProtection">ShieldProtection (class in c7n.resources.shield)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.shield.ShieldProtection.resource_type">ShieldProtection.resource_type (class in c7n.resources.shield)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter">ShortTermBackupRetentionPolicyFilter (class in c7n_azure.resources.sqldatabase)</a>
 </li>
       <li><a href="generated/aws/c7n.filters.html#c7n.filters.locked.SignatureAuth">SignatureAuth (class in c7n.filters.locked)</a>
 </li>
@@ -17137,6 +17181,10 @@
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.route_table.RouteTable.type">(c7n_azure.resources.route_table.RouteTable attribute)</a>
 </li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.type">(c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter attribute)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter.type">(c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter attribute)</a>
+</li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.SqlDatabase.type">(c7n_azure.resources.sqldatabase.SqlDatabase attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqlserver.SqlServer.type">(c7n_azure.resources.sqlserver.SqlServer attribute)</a>
@@ -18050,12 +18098,18 @@
 </li>
       <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.web_app.WebApp.resource_type">WebApp.resource_type (class in c7n_azure.resources.web_app)</a>
 </li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.RetentionPeriod.Units.week">week (c7n_azure.utils.RetentionPeriod.Units attribute)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType.weekly">weekly (c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType attribute)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.RetentionPeriod.Units.weeks">weeks (c7n_azure.utils.RetentionPeriod.Units attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/aws/c7n.filters.html#c7n.filters.iamaccess.PolicyChecker.whitelist_conditions">whitelist_conditions (c7n.filters.iamaccess.PolicyChecker attribute)</a>
 </li>
       <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.WhiteListFilter">WhiteListFilter (class in c7n_azure.resources.key_vault)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/aws/c7n.html#c7n.utils.worker">worker() (in module c7n.utils)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.Workspace">Workspace (class in c7n.resources.workspaces)</a>
@@ -18097,6 +18151,14 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/aws/c7n.html#c7n.utils.yaml_load">yaml_load() (in module c7n.utils)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.RetentionPeriod.Units.year">year (c7n_azure.utils.RetentionPeriod.Units attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType.yearly">yearly (c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType attribute)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.RetentionPeriod.Units.years">years (c7n_azure.utils.RetentionPeriod.Units attribute)</a>
 </li>
   </ul></td>
 </tr></table>

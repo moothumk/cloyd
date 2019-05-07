@@ -2118,6 +2118,134 @@ type of azure resource.</p>
 <div class="section" id="module-c7n_azure.resources.sqldatabase">
 <span id="c7n-azure-resources-sqldatabase-module"></span><h2>c7n_azure.resources.sqldatabase module<a class="headerlink" href="#module-c7n_azure.resources.sqldatabase" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
+<dt id="c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter">
+<em class="property">class </em><code class="descclassname">c7n_azure.resources.sqldatabase.</code><code class="descname">BackupRetentionPolicyFilter</code><span class="sig-paren">(</span><em>operations_property</em>, <em>retention_limit</em>, <em>data</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/sqldatabase.html#BackupRetentionPolicyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../aws/c7n.filters.html#c7n.filters.core.Filter" title="c7n.filters.core.Filter"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.filters.core.Filter</span></code></a></p>
+<dl class="method">
+<dt id="c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter.get_retention_from_backup_policy">
+<code class="descname">get_retention_from_backup_policy</code><span class="sig-paren">(</span><em>retention_policy</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/sqldatabase.html#BackupRetentionPolicyFilter.get_retention_from_backup_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter.get_retention_from_backup_policy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>resources</em>, <em>event=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/sqldatabase.html#BackupRetentionPolicyFilter.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bulk process resources and return filtered set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter.schema">
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than']}, 'type': {'enum': ['backup-retention-policy']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter.schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter">
+<em class="property">class </em><code class="descclassname">c7n_azure.resources.sqldatabase.</code><code class="descname">LongTermBackupRetentionPolicyFilter</code><span class="sig-paren">(</span><em>data</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/sqldatabase.html#LongTermBackupRetentionPolicyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter" title="c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter</span></code></a></p>
+<p>Filter SQL Databases on the length of their long term backup retention policies.</p>
+<p>There are 3 backup types for a sql database: weekly, monthly, and yearly. And, each
+of these backups has a retention period that can specified in units of days, weeks,
+months, or years.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p>Find all SQL Databases with weekly backup retentions longer than 1 month.</p>
+</dd>
+</dl>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">long-term-backup-retention-policy</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.sqldatabase</span>
+    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">long-term-backup-retention-policy</span>
+        <span class="l l-Scalar l-Scalar-Plain">backup-type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">weekly</span>
+        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">gt</span>
+        <span class="l l-Scalar l-Scalar-Plain">retention-period</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="l l-Scalar l-Scalar-Plain">retention-period-units</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">months</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType">
+<em class="property">class </em><code class="descname">BackupType</code><span class="sig-paren">(</span><em>retention_property</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/sqldatabase.html#LongTermBackupRetentionPolicyFilter.BackupType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="method">
+<dt id="c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType.get_retention_from_backup_policy">
+<code class="descname">get_retention_from_backup_policy</code><span class="sig-paren">(</span><em>backup_policy</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/sqldatabase.html#LongTermBackupRetentionPolicyFilter.BackupType.get_retention_from_backup_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType.get_retention_from_backup_policy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType.monthly">
+<code class="descname">monthly</code><em class="property"> = ('monthly_retention',)</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType.monthly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType.weekly">
+<code class="descname">weekly</code><em class="property"> = ('weekly_retention',)</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType.weekly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType.yearly">
+<code class="descname">yearly</code><em class="property"> = ('yearly_retention',)</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.BackupType.yearly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.get_retention_from_backup_policy">
+<code class="descname">get_retention_from_backup_policy</code><span class="sig-paren">(</span><em>retention_policy</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/sqldatabase.html#LongTermBackupRetentionPolicyFilter.get_retention_from_backup_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.get_retention_from_backup_policy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.schema">
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'backup-type': {'enum': ['weekly', 'monthly', 'yearly']}, 'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than']}, 'retention-period': {'type': 'number'}, 'retention-period-units': {'enum': ['day', 'days', 'week', 'weeks', 'month', 'months', 'year', 'years']}, 'type': {'enum': ['long-term-backup-retention-policy']}}, 'required': ['backup-type', 'retention-period', 'retention-period-units', 'type'], 'type': 'object'}</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.type">
+<code class="descname">type</code><em class="property"> = 'long-term-backup-retention-policy'</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.LongTermBackupRetentionPolicyFilter.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter">
+<em class="property">class </em><code class="descclassname">c7n_azure.resources.sqldatabase.</code><code class="descname">ShortTermBackupRetentionPolicyFilter</code><span class="sig-paren">(</span><em>data</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/sqldatabase.html#ShortTermBackupRetentionPolicyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter" title="c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter</span></code></a></p>
+<p>Filter SQL Databases on the length of their short term backup retention policies.</p>
+<p>If the database has no backup retention policies, the database is treated as if
+it has a backup retention of zero days.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p>Find all SQL Databases with a short term retention policy shorter than 2 weeks.</p>
+</dd>
+</dl>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">short-term-backup-retention-policy</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.sqldatabase</span>
+    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">short-term-backup-retention-policy</span>
+        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">lt</span>
+        <span class="l l-Scalar l-Scalar-Plain">retention-period-days</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">14</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter.get_retention_from_backup_policy">
+<code class="descname">get_retention_from_backup_policy</code><span class="sig-paren">(</span><em>retention_policy</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/sqldatabase.html#ShortTermBackupRetentionPolicyFilter.get_retention_from_backup_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter.get_retention_from_backup_policy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter.schema">
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'op': {'enum': ['eq', 'equal', 'ne', 'not-equal', 'gt', 'greater-than', 'ge', 'gte', 'le', 'lte', 'lt', 'less-than']}, 'retention-period-days': {'type': 'number'}, 'type': {'enum': ['short-term-backup-retention-policy']}}, 'required': ['retention-period-days', 'type'], 'type': 'object'}</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter.schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter.type">
+<code class="descname">type</code><em class="property"> = 'short-term-backup-retention-policy'</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.ShortTermBackupRetentionPolicyFilter.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="c7n_azure.resources.sqldatabase.SqlDatabase">
 <em class="property">class </em><code class="descclassname">c7n_azure.resources.sqldatabase.</code><code class="descname">SqlDatabase</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/sqldatabase.html#SqlDatabase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#c7n_azure.resources.arm.ChildArmResourceManager" title="c7n_azure.resources.arm.ChildArmResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.resources.arm.ChildArmResourceManager</span></code></a></p>

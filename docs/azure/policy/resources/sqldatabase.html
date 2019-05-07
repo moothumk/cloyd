@@ -257,7 +257,115 @@ resource, and the SQL Server parent id is available as the <cite>c7n:parent-id</
 </dd>
 </dl>
 </li>
+<li><dl class="simple">
+<dt>Short Term Backup Retention Policy Filter</dt><dd><ul>
+<li><p>Filter on the retention period (in days) of the database’s short term backup retention policy.</p></li>
+<li><p>more info on <a class="reference external" href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automated-backups">Short Term Backups</a></p></li>
+<li><p>If there is no short term backup retention policy set on the database, it is treated as if the retention is zero days.</p></li>
+<li><p>The default comparison operation is <cite>eq</cite></p></li>
 </ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="toggle docutils container">
+<div class="header docutils container">
+<p>Schema:</p>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;op&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;enum&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">&quot;eq&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;equal&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;ne&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;not-equal&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;gt&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;greater-than&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;ge&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;gte&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;le&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;lte&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;lt&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;less-than&quot;</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;retention-period-days&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;number&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Long Term Backup Retention Policy Filter</dt><dd><ul>
+<li><p>Filter on the retention period of the database’s long term backup retention policy.</p></li>
+<li><p>more info on <a class="reference external" href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-long-term-retention">Long Term Backups</a></p></li>
+<li><p>If the specified backup type has not been set on the resource, it is treated as if the retention period is zero.</p></li>
+<li><p>The default comparison operation is <cite>eq</cite></p></li>
+<li><dl class="simple">
+<dt>The <cite>azure.sqldatabase</cite> resource will only get through the filter if the <cite>retention-period-units</cite> field matches the units specified in the actual long term backup retention policy.</dt><dd><ul>
+<li><p>Example: if the filter is looking for backups less than 1 year, and the retention policy is set to 6 months, then the database will not get through the filter because there is a unit mismatch.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="toggle docutils container">
+<div class="header docutils container">
+<p>Schema:</p>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;backup-type&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;enum&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">&quot;weekly&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;monthly&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;yearly&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;op&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;enum&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">&quot;eq&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;equal&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;ne&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;not-equal&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;gt&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;greater-than&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;ge&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;gte&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;le&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;lte&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;lt&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;less-than&quot;</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;retention-period&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;number&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;retention-period-units&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;enum&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">&quot;day&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;days&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;week&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;weeks&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;month&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;months&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;year&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;years&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;required&quot;</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
@@ -269,6 +377,8 @@ resource, and the SQL Server parent id is available as the <cite>c7n:parent-id</
 <h2>Example Policies<a class="headerlink" href="#example-policies" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../examples/sqldatabasewithpremiumsku.html#azure-examples-sqldatabasewithpremiumsku"><span class="std std-ref">Find all SQL Databases with Premium SKU</span></a></p></li>
+<li><p><a class="reference internal" href="../../examples/sqldatabaseshorttermbackupretention.html#azure-examples-sqldatabaseshorttermbackupretention"><span class="std std-ref">Find SQL Databases with a Short Term Backup Retention Less Than 14 Days</span></a></p></li>
+<li><p><a class="reference internal" href="../../examples/sqldatabaselongtermbackupretention.html#azure-examples-sqldatabaselongtermbackupretention"><span class="std std-ref">Find SQL Databases with a Monthly Long Term Backup Retention More Than 1 Year</span></a></p></li>
 </ul>
 </div>
 </div>
