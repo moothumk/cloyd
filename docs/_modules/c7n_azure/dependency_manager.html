@@ -191,13 +191,16 @@
            <div itemprop="articleBody">
             
   <h1>Source code for c7n_azure.dependency_manager</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">hashlib</span>
+<span></span><span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">c7n.mu</span> <span class="k">import</span> <span class="n">checksum</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;c7n_azure.dependency_manager&#39;</span><span class="p">)</span>
 
@@ -238,7 +241,7 @@
         <span class="n">regex</span> <span class="o">=</span> <span class="s2">&quot;^[^&lt;&gt;~=]*&quot;</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
             <span class="n">pname</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-            <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pname</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">res</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pname</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">res</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;removing duplicate dependency:&quot;</span> <span class="o">+</span> <span class="n">val</span><span class="p">)</span>
                 <span class="n">res</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
@@ -307,34 +310,24 @@
             <span class="n">wheel</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="n">paths</span><span class="p">,</span> <span class="n">ScriptMaker</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">lib_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_get_dir_hash</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
-        <span class="nb">hash</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
-
-        <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">names</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-                <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
-                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                    <span class="n">buf</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">65536</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="ow">not</span> <span class="n">buf</span><span class="p">:</span>
-                        <span class="k">break</span>
-                    <span class="nb">hash</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">hash</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">_get_file_hash</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+        <span class="n">hasher</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">checksum</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">hasher</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_get_string_hash</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 
 <div class="viewcode-block" id="DependencyManager.check_cache"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.dependency_manager.DependencyManager.check_cache">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">check_cache</span><span class="p">(</span><span class="n">cache_folder</span><span class="p">,</span> <span class="n">install_folder</span><span class="p">,</span> <span class="n">packages</span><span class="p">):</span>
-        <span class="n">metadata_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cache_folder</span><span class="p">,</span> <span class="s1">&#39;metadata.json&#39;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">metadata_file</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">check_cache</span><span class="p">(</span><span class="n">cache_metadata_file</span><span class="p">,</span> <span class="n">cache_zip_file</span><span class="p">,</span> <span class="n">packages</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">cache_metadata_file</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">False</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">install_folder</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">cache_zip_file</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">False</span>
 
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">metadata_file</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cache_metadata_file</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
@@ -343,16 +336,15 @@
         <span class="k">if</span> <span class="n">DependencyManager</span><span class="o">.</span><span class="n">_get_string_hash</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">packages</span><span class="p">))</span> <span class="o">!=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;packages_hash&#39;</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">False</span>
 
-        <span class="k">if</span> <span class="n">DependencyManager</span><span class="o">.</span><span class="n">_get_dir_hash</span><span class="p">(</span><span class="n">install_folder</span><span class="p">)</span> <span class="o">!=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;install_hash&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">DependencyManager</span><span class="o">.</span><span class="n">_get_file_hash</span><span class="p">(</span><span class="n">cache_zip_file</span><span class="p">)</span> <span class="o">!=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;zip_hash&#39;</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">False</span>
         <span class="k">return</span> <span class="kc">True</span></div>
 
 <div class="viewcode-block" id="DependencyManager.create_cache_metadata"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.dependency_manager.DependencyManager.create_cache_metadata">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">create_cache_metadata</span><span class="p">(</span><span class="n">cache_folder</span><span class="p">,</span> <span class="n">install_folder</span><span class="p">,</span> <span class="n">packages</span><span class="p">):</span>
-        <span class="n">metadata_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cache_folder</span><span class="p">,</span> <span class="s1">&#39;metadata.json&#39;</span><span class="p">)</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">metadata_file</span><span class="p">,</span> <span class="s1">&#39;wt+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">create_cache_metadata</span><span class="p">(</span><span class="n">cache_metadata_file</span><span class="p">,</span> <span class="n">cache_zip_file</span><span class="p">,</span> <span class="n">packages</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cache_metadata_file</span><span class="p">,</span> <span class="s1">&#39;wt+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">({</span><span class="s1">&#39;packages_hash&#39;</span><span class="p">:</span> <span class="n">DependencyManager</span><span class="o">.</span><span class="n">_get_string_hash</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">packages</span><span class="p">)),</span>
-                       <span class="s1">&#39;install_hash&#39;</span><span class="p">:</span> <span class="n">DependencyManager</span><span class="o">.</span><span class="n">_get_dir_hash</span><span class="p">(</span><span class="n">install_folder</span><span class="p">)},</span> <span class="n">f</span><span class="p">)</span></div></div>
+                       <span class="s1">&#39;zip_hash&#39;</span><span class="p">:</span> <span class="n">DependencyManager</span><span class="o">.</span><span class="n">_get_file_hash</span><span class="p">(</span><span class="n">cache_zip_file</span><span class="p">)},</span> <span class="n">f</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

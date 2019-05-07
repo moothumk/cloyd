@@ -1682,7 +1682,7 @@ events, and realtime asg membership changes.</p>
 
 <dl class="class">
 <dt id="c7n.mu.PythonPackageArchive">
-<em class="property">class </em><code class="descclassname">c7n.mu.</code><code class="descname">PythonPackageArchive</code><span class="sig-paren">(</span><em>*modules</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/mu.html#PythonPackageArchive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.mu.PythonPackageArchive" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">c7n.mu.</code><code class="descname">PythonPackageArchive</code><span class="sig-paren">(</span><em>modules=()</em>, <em>cache_file=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/mu.html#PythonPackageArchive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.mu.PythonPackageArchive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Creates a zip file for python lambda functions.</p>
 <dl class="field-list simple">
@@ -1726,7 +1726,7 @@ archive, while <code class="docutils literal notranslate"><span class="pre">add_
 
 <dl class="method">
 <dt id="c7n.mu.PythonPackageArchive.add_modules">
-<code class="descname">add_modules</code><span class="sig-paren">(</span><em>ignore</em>, <em>*modules</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/mu.html#PythonPackageArchive.add_modules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.mu.PythonPackageArchive.add_modules" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_modules</code><span class="sig-paren">(</span><em>ignore</em>, <em>modules</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n/mu.html#PythonPackageArchive.add_modules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n.mu.PythonPackageArchive.add_modules" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add the named Python modules to the archive. For consistency’s sake
 we only add <code class="docutils literal notranslate"><span class="pre">*.py</span></code> files, not <code class="docutils literal notranslate"><span class="pre">*.pyc</span></code>. We also don’t add other
 files, including compiled modules. You’ll have to add such files
