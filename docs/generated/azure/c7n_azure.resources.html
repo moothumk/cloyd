@@ -638,35 +638,15 @@ type of azure resource.</p>
 <dl class="class">
 <dt id="c7n_azure.resources.arm.ArmResourceManager.resource_type">
 <em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_azure/resources/arm.html#ArmResourceManager.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.arm.ArmResourceManager.resource_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#c7n_azure.resources.arm.ArmTypeInfo" title="c7n_azure.resources.arm.ArmTypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.resources.arm.ArmTypeInfo</span></code></a></p>
 <dl class="attribute">
 <dt id="c7n_azure.resources.arm.ArmResourceManager.resource_type.client">
 <code class="descname">client</code><em class="property"> = 'ResourceManagementClient'</em><a class="headerlink" href="#c7n_azure.resources.arm.ArmResourceManager.resource_type.client" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="c7n_azure.resources.arm.ArmResourceManager.resource_type.default_report_fields">
-<code class="descname">default_report_fields</code><em class="property"> = ('name', 'location', 'resourceGroup')</em><a class="headerlink" href="#c7n_azure.resources.arm.ArmResourceManager.resource_type.default_report_fields" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="c7n_azure.resources.arm.ArmResourceManager.resource_type.diagnostic_settings_enabled">
-<code class="descname">diagnostic_settings_enabled</code><em class="property"> = True</em><a class="headerlink" href="#c7n_azure.resources.arm.ArmResourceManager.resource_type.diagnostic_settings_enabled" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
 <dt id="c7n_azure.resources.arm.ArmResourceManager.resource_type.enum_spec">
 <code class="descname">enum_spec</code><em class="property"> = ('resources', 'list', None)</em><a class="headerlink" href="#c7n_azure.resources.arm.ArmResourceManager.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="c7n_azure.resources.arm.ArmResourceManager.resource_type.id">
-<code class="descname">id</code><em class="property"> = 'id'</em><a class="headerlink" href="#c7n_azure.resources.arm.ArmResourceManager.resource_type.id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="c7n_azure.resources.arm.ArmResourceManager.resource_type.name">
-<code class="descname">name</code><em class="property"> = 'name'</em><a class="headerlink" href="#c7n_azure.resources.arm.ArmResourceManager.resource_type.name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -684,35 +664,38 @@ type of azure resource.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="c7n_azure.resources.arm.ChildArmResourceManager">
-<em class="property">class </em><code class="descclassname">c7n_azure.resources.arm.</code><code class="descname">ChildArmResourceManager</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/arm.html#ChildArmResourceManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#c7n_azure.resources.arm.ArmResourceManager" title="c7n_azure.resources.arm.ArmResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.resources.arm.ArmResourceManager</span></code></a></p>
-<dl class="class">
-<dt id="c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec">
-<em class="property">class </em><code class="descname">ParentSpec</code><span class="sig-paren">(</span><em>manager_name</em>, <em>annotate_parent</em><span class="sig-paren">)</span><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dt id="c7n_azure.resources.arm.ArmTypeInfo">
+<em class="property">class </em><code class="descclassname">c7n_azure.resources.arm.</code><code class="descname">ArmTypeInfo</code><a class="reference internal" href="../../_modules/c7n_azure/resources/arm.html#ArmTypeInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.arm.ArmTypeInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_azure.html#c7n_azure.query.TypeInfo" title="c7n_azure.query.TypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.query.TypeInfo</span></code></a></p>
 <dl class="attribute">
-<dt id="c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec.annotate_parent">
-<code class="descname">annotate_parent</code><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec.annotate_parent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 1</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec.manager_name">
-<code class="descname">manager_name</code><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec.manager_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 0</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="attribute">
-<dt id="c7n_azure.resources.arm.ChildArmResourceManager.action_registry">
-<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.action_registry" title="Permalink to this definition">¶</a></dt>
+<dt id="c7n_azure.resources.arm.ArmTypeInfo.default_report_fields">
+<code class="descname">default_report_fields</code><em class="property"> = ('name', 'location', 'resourceGroup')</em><a class="headerlink" href="#c7n_azure.resources.arm.ArmTypeInfo.default_report_fields" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="c7n_azure.resources.arm.ChildArmResourceManager.child_source">
-<code class="descname">child_source</code><em class="property"> = 'describe-child-azure'</em><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.child_source" title="Permalink to this definition">¶</a></dt>
+<dt id="c7n_azure.resources.arm.ArmTypeInfo.diagnostic_settings_enabled">
+<code class="descname">diagnostic_settings_enabled</code><em class="property"> = True</em><a class="headerlink" href="#c7n_azure.resources.arm.ArmTypeInfo.diagnostic_settings_enabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.arm.ArmTypeInfo.id">
+<code class="descname">id</code><em class="property"> = 'id'</em><a class="headerlink" href="#c7n_azure.resources.arm.ArmTypeInfo.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.arm.ArmTypeInfo.name">
+<code class="descname">name</code><em class="property"> = 'name'</em><a class="headerlink" href="#c7n_azure.resources.arm.ArmTypeInfo.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_azure.resources.arm.ChildArmResourceManager">
+<em class="property">class </em><code class="descclassname">c7n_azure.resources.arm.</code><code class="descname">ChildArmResourceManager</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/arm.html#ChildArmResourceManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_azure.html#c7n_azure.query.ChildResourceManager" title="c7n_azure.query.ChildResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.query.ChildResourceManager</span></code></a>, <a class="reference internal" href="#c7n_azure.resources.arm.ArmResourceManager" title="c7n_azure.resources.arm.ArmResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.resources.arm.ArmResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_azure.resources.arm.ChildArmResourceManager.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.action_registry" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -720,15 +703,11 @@ type of azure resource.</p>
 <code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.filter_registry" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
-<dt id="c7n_azure.resources.arm.ChildArmResourceManager.get_parent_manager">
-<code class="descname">get_parent_manager</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/arm.html#ChildArmResourceManager.get_parent_manager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.get_parent_manager" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="c7n_azure.resources.arm.ChildArmResourceManager.source_type">
-<code class="descname">source_type</code><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.source_type" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dl class="class">
+<dt id="c7n_azure.resources.arm.ChildArmResourceManager.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_azure/resources/arm.html#ChildArmResourceManager.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.arm.ChildArmResourceManager.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_azure.html#c7n_azure.query.ChildTypeInfo" title="c7n_azure.query.ChildTypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.query.ChildTypeInfo</span></code></a>, <a class="reference internal" href="#c7n_azure.resources.arm.ArmTypeInfo" title="c7n_azure.resources.arm.ArmTypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.resources.arm.ArmTypeInfo</span></code></a></p>
+</dd></dl>
 
 </dd></dl>
 
@@ -1456,6 +1435,115 @@ type of azure resource.</p>
 <dl class="attribute">
 <dt id="c7n_azure.resources.key_vault.WhiteListFilter.type">
 <code class="descname">type</code><em class="property"> = 'whitelist'</em><a class="headerlink" href="#c7n_azure.resources.key_vault.WhiteListFilter.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-c7n_azure.resources.key_vault_keys">
+<span id="c7n-azure-resources-key-vault-keys-module"></span><h2>c7n_azure.resources.key_vault_keys module<a class="headerlink" href="#module-c7n_azure.resources.key_vault_keys" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="c7n_azure.resources.key_vault_keys.KeyTypeFilter">
+<em class="property">class </em><code class="descclassname">c7n_azure.resources.key_vault_keys.</code><code class="descname">KeyTypeFilter</code><span class="sig-paren">(</span><em>data</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/key_vault_keys.html#KeyTypeFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyTypeFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../aws/c7n.filters.html#c7n.filters.core.Filter" title="c7n.filters.core.Filter"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.filters.core.Filter</span></code></a></p>
+<dl class="method">
+<dt id="c7n_azure.resources.key_vault_keys.KeyTypeFilter.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>resources</em>, <em>event=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/key_vault_keys.html#KeyTypeFilter.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyTypeFilter.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bulk process resources and return filtered set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault_keys.KeyTypeFilter.schema">
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'key-types': {'items': {'enum': ['EC', 'EC-HSM', 'RSA', 'RSA-HSM']}, 'type': 'array'}, 'type': {'enum': ['key-type']}}, 'required': ['type'], 'type': 'object'}</em><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyTypeFilter.schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault_keys.KeyTypeFilter.type">
+<code class="descname">type</code><em class="property"> = 'key-type'</em><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyTypeFilter.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultFilter">
+<em class="property">class </em><code class="descclassname">c7n_azure.resources.key_vault_keys.</code><code class="descname">KeyVaultFilter</code><span class="sig-paren">(</span><em>data</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/key_vault_keys.html#KeyVaultFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../aws/c7n.filters.html#c7n.filters.core.Filter" title="c7n.filters.core.Filter"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n.filters.core.Filter</span></code></a></p>
+<dl class="method">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultFilter.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>resources</em>, <em>event=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/key_vault_keys.html#KeyVaultFilter.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultFilter.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bulk process resources and return filtered set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultFilter.schema">
+<code class="descname">schema</code><em class="property"> = {'additionalProperties': False, 'properties': {'type': {'enum': ['keyvault']}, 'vaults': {'items': {'type': 'string'}, 'type': 'array'}}, 'required': ['vaults', 'type'], 'type': 'object'}</em><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultFilter.schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultFilter.type">
+<code class="descname">type</code><em class="property"> = 'keyvault'</em><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultFilter.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultKeys">
+<em class="property">class </em><code class="descclassname">c7n_azure.resources.key_vault_keys.</code><code class="descname">KeyVaultKeys</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/key_vault_keys.html#KeyVaultKeys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultKeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_azure.html#c7n_azure.query.ChildResourceManager" title="c7n_azure.query.ChildResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.query.ChildResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultKeys.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultKeys.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultKeys.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultKeys.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type">
+<em class="property">class </em><code class="descname">resource_type</code><a class="reference internal" href="../../_modules/c7n_azure/resources/key_vault_keys.html#KeyVaultKeys.resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="c7n_azure.html#c7n_azure.query.ChildTypeInfo" title="c7n_azure.query.ChildTypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.query.ChildTypeInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.client">
+<code class="descname">client</code><em class="property"> = 'KeyVaultClient'</em><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.client" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.enum_spec">
+<code class="descname">enum_spec</code><em class="property"> = (None, 'get_keys', None)</em><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.extra_args">
+<em class="property">classmethod </em><code class="descname">extra_args</code><span class="sig-paren">(</span><em>parent_resource</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/key_vault_keys.html#KeyVaultKeys.resource_type.extra_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.extra_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.parent_manager_name">
+<code class="descname">parent_manager_name</code><em class="property"> = 'keyvault'</em><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.parent_manager_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.raise_on_exception">
+<code class="descname">raise_on_exception</code><em class="property"> = False</em><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.raise_on_exception" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.resource">
+<code class="descname">resource</code><em class="property"> = 'https://vault.azure.net'</em><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.service">
+<code class="descname">service</code><em class="property"> = 'azure.keyvault'</em><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.resources.key_vault_keys.KeyVaultKeys.type">
+<code class="descname">type</code><em class="property"> = 'keyvault-keys'</em><a class="headerlink" href="#c7n_azure.resources.key_vault_keys.KeyVaultKeys.type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -2270,12 +2358,17 @@ it has a backup retention of zero days.</p>
 
 <dl class="attribute">
 <dt id="c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.enum_spec">
-<code class="descname">enum_spec</code><em class="property"> = ('databases', 'list_by_server', {'resource_group_name': 'resourceGroup', 'server_name': 'name'})</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<code class="descname">enum_spec</code><em class="property"> = ('databases', 'list_by_server', None)</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.enum_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.extra_args">
+<em class="property">classmethod </em><code class="descname">extra_args</code><span class="sig-paren">(</span><em>parent_resource</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/resources/sqldatabase.html#SqlDatabase.resource_type.extra_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.extra_args" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.parent_spec">
-<code class="descname">parent_spec</code><em class="property"> = ParentSpec(manager_name='sqlserver', annotate_parent=True)</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.parent_spec" title="Permalink to this definition">¶</a></dt>
+<dt id="c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.parent_manager_name">
+<code class="descname">parent_manager_name</code><em class="property"> = 'sqlserver'</em><a class="headerlink" href="#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.parent_manager_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">

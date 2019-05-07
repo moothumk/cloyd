@@ -206,20 +206,21 @@
 <span class="c1"># limitations under the License.</span>
 
 <span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">types</span>
 
 <span class="kn">import</span> <span class="nn">jwt</span>
 <span class="kn">from</span> <span class="nn">azure.common.credentials</span> <span class="k">import</span> <span class="p">(</span><span class="n">BasicTokenAuthentication</span><span class="p">,</span>
                                       <span class="n">ServicePrincipalCredentials</span><span class="p">)</span>
-
-<span class="kn">from</span> <span class="nn">msrestazure.azure_active_directory</span> <span class="k">import</span> <span class="n">MSIAuthentication</span>
-
 <span class="kn">from</span> <span class="nn">c7n_azure</span> <span class="k">import</span> <span class="n">constants</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.utils</span> <span class="k">import</span> <span class="p">(</span><span class="n">ResourceIdParser</span><span class="p">,</span> <span class="n">StringUtils</span><span class="p">,</span> <span class="n">custodian_azure_send_override</span><span class="p">,</span>
                              <span class="n">ManagedGroupHelper</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">msrestazure.azure_active_directory</span> <span class="k">import</span> <span class="n">MSIAuthentication</span>
+<span class="kn">from</span> <span class="nn">azure.keyvault</span> <span class="k">import</span> <span class="n">KeyVaultAuthentication</span><span class="p">,</span> <span class="n">AccessToken</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">azure.cli.core._profile</span> <span class="k">import</span> <span class="n">Profile</span>
@@ -320,7 +321,14 @@
              <span class="bp">self</span><span class="o">.</span><span class="n">subscription_id</span><span class="p">,</span>
              <span class="bp">self</span><span class="o">.</span><span class="n">tenant_id</span><span class="p">)</span> <span class="o">=</span> <span class="n">Profile</span><span class="p">()</span><span class="o">.</span><span class="n">get_login_credentials</span><span class="p">(</span>
                 <span class="n">resource</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">resource_namespace</span><span class="p">)</span>
+
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Creating session with Azure CLI Authentication&quot;</span><span class="p">)</span>
+
+        <span class="c1"># TODO: cleanup this workaround when issue resolved.</span>
+        <span class="c1"># https://github.com/Azure/azure-sdk-for-python/issues/5096</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_namespace</span> <span class="o">==</span> <span class="n">constants</span><span class="o">.</span><span class="n">RESOURCE_VAULT</span><span class="p">:</span>
+            <span class="n">access_token</span> <span class="o">=</span> <span class="n">AccessToken</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_bearer_token</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span> <span class="o">=</span> <span class="n">KeyVaultAuthentication</span><span class="p">(</span><span class="k">lambda</span> <span class="n">_1</span><span class="p">,</span> <span class="n">_2</span><span class="p">,</span> <span class="n">_3</span><span class="p">:</span> <span class="n">access_token</span><span class="p">)</span>
 
         <span class="c1"># Let provided id parameter override everything else</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscription_id_override</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -342,7 +350,19 @@
         <span class="n">service_name</span><span class="p">,</span> <span class="n">client_name</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">svc_module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">service_name</span><span class="p">)</span>
         <span class="n">klass</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">svc_module</span><span class="p">,</span> <span class="n">client_name</span><span class="p">)</span>
-        <span class="n">client</span> <span class="o">=</span> <span class="n">klass</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">subscription_id</span><span class="p">)</span>
+
+        <span class="n">klass_parameters</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">funcsigs</span>
+            <span class="n">klass_parameters</span> <span class="o">=</span> <span class="n">funcsigs</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">klass</span><span class="p">)</span><span class="o">.</span><span class="n">parameters</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">klass_parameters</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">klass</span><span class="p">)</span><span class="o">.</span><span class="n">parameters</span>
+
+        <span class="n">client</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="s1">&#39;subscription_id&#39;</span> <span class="ow">in</span> <span class="n">klass_parameters</span><span class="p">:</span>
+            <span class="n">client</span> <span class="o">=</span> <span class="n">klass</span><span class="p">(</span><span class="n">credentials</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">,</span> <span class="n">subscription_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">subscription_id</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">client</span> <span class="o">=</span> <span class="n">klass</span><span class="p">(</span><span class="n">credentials</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">)</span>
 
         <span class="c1"># Override send() method to log request limits &amp; custom retries</span>
         <span class="n">service_client</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">_client</span>

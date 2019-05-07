@@ -206,33 +206,38 @@
 <span class="c1"># limitations under the License.</span>
 
 <span class="kn">import</span> <span class="nn">six</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">namedtuple</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.actions</span> <span class="k">import</span> <span class="n">Tag</span><span class="p">,</span> <span class="n">AutoTagUser</span><span class="p">,</span> <span class="n">RemoveTag</span><span class="p">,</span> <span class="n">TagTrim</span><span class="p">,</span> <span class="n">TagDelayedAction</span><span class="p">,</span> <span class="n">DeleteAction</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.filters</span> <span class="k">import</span> <span class="p">(</span><span class="n">MetricFilter</span><span class="p">,</span> <span class="n">TagActionFilter</span><span class="p">,</span>
                                <span class="n">DiagnosticSettingsFilter</span><span class="p">,</span> <span class="n">PolicyCompliantFilter</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.provider</span> <span class="k">import</span> <span class="n">resources</span>
-<span class="kn">from</span> <span class="nn">c7n_azure.query</span> <span class="k">import</span> <span class="n">QueryResourceManager</span><span class="p">,</span> <span class="n">QueryMeta</span>
+<span class="kn">from</span> <span class="nn">c7n_azure.query</span> <span class="k">import</span> <span class="n">QueryResourceManager</span><span class="p">,</span> <span class="n">QueryMeta</span><span class="p">,</span> <span class="n">ChildResourceManager</span><span class="p">,</span> <span class="n">TypeInfo</span><span class="p">,</span> \
+    <span class="n">ChildTypeInfo</span><span class="p">,</span> <span class="n">TypeMeta</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.utils</span> <span class="k">import</span> <span class="n">ResourceIdParser</span>
 
 <span class="kn">from</span> <span class="nn">c7n.utils</span> <span class="k">import</span> <span class="n">local_session</span>
+
+
+<div class="viewcode-block" id="ArmTypeInfo"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmTypeInfo">[docs]</a><span class="nd">@six</span><span class="o">.</span><span class="n">add_metaclass</span><span class="p">(</span><span class="n">TypeMeta</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ArmTypeInfo</span><span class="p">(</span><span class="n">TypeInfo</span><span class="p">):</span>
+    <span class="c1"># api client construction information for ARM resources</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="s1">&#39;id&#39;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;name&#39;</span>
+    <span class="n">diagnostic_settings_enabled</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">default_report_fields</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;location&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;resourceGroup&#39;</span>
+    <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ArmResourceManager"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmResourceManager">[docs]</a><span class="nd">@resources</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;armresource&#39;</span><span class="p">)</span>
 <span class="nd">@six</span><span class="o">.</span><span class="n">add_metaclass</span><span class="p">(</span><span class="n">QueryMeta</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">ArmResourceManager</span><span class="p">(</span><span class="n">QueryResourceManager</span><span class="p">):</span>
 
-<div class="viewcode-block" id="ArmResourceManager.resource_type"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmResourceManager.resource_type">[docs]</a>    <span class="k">class</span> <span class="nc">resource_type</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="ArmResourceManager.resource_type"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmResourceManager.resource_type">[docs]</a>    <span class="k">class</span> <span class="nc">resource_type</span><span class="p">(</span><span class="n">ArmTypeInfo</span><span class="p">):</span>
         <span class="n">service</span> <span class="o">=</span> <span class="s1">&#39;azure.mgmt.resource&#39;</span>
         <span class="n">client</span> <span class="o">=</span> <span class="s1">&#39;ResourceManagementClient&#39;</span>
-        <span class="n">enum_spec</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;resources&#39;</span><span class="p">,</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-        <span class="nb">id</span> <span class="o">=</span> <span class="s1">&#39;id&#39;</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;name&#39;</span>
-        <span class="n">diagnostic_settings_enabled</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">default_report_fields</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s1">&#39;name&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;location&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;resourceGroup&#39;</span>
-        <span class="p">)</span></div>
+        <span class="n">enum_spec</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;resources&#39;</span><span class="p">,</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ArmResourceManager.augment"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmResourceManager.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resources</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">resource</span> <span class="ow">in</span> <span class="n">resources</span><span class="p">:</span>
@@ -272,21 +277,10 @@
 
 
 <div class="viewcode-block" id="ChildArmResourceManager"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ChildArmResourceManager">[docs]</a><span class="nd">@six</span><span class="o">.</span><span class="n">add_metaclass</span><span class="p">(</span><span class="n">QueryMeta</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">ChildArmResourceManager</span><span class="p">(</span><span class="n">ArmResourceManager</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">ChildArmResourceManager</span><span class="p">(</span><span class="n">ChildResourceManager</span><span class="p">,</span> <span class="n">ArmResourceManager</span><span class="p">):</span>
 
-    <span class="n">ParentSpec</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;ParentSpec&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;manager_name&quot;</span><span class="p">,</span> <span class="s2">&quot;annotate_parent&quot;</span><span class="p">])</span>
-
-    <span class="n">child_source</span> <span class="o">=</span> <span class="s1">&#39;describe-child-azure&#39;</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">source_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">child_source</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">source</span> <span class="o">==</span> <span class="s1">&#39;describe&#39;</span><span class="p">:</span>
-            <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child_source</span>
-        <span class="k">return</span> <span class="n">source</span>
-
-<div class="viewcode-block" id="ChildArmResourceManager.get_parent_manager"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ChildArmResourceManager.get_parent_manager">[docs]</a>    <span class="k">def</span> <span class="nf">get_parent_manager</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_resource_manager</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resource_type</span><span class="o">.</span><span class="n">parent_spec</span><span class="o">.</span><span class="n">manager_name</span><span class="p">)</span></div></div>
+<div class="viewcode-block" id="ChildArmResourceManager.resource_type"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ChildArmResourceManager.resource_type">[docs]</a>    <span class="k">class</span> <span class="nc">resource_type</span><span class="p">(</span><span class="n">ChildTypeInfo</span><span class="p">,</span> <span class="n">ArmTypeInfo</span><span class="p">):</span>
+        <span class="k">pass</span></div></div>
 
 
 <span class="n">resources</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">resources</span><span class="o">.</span><span class="n">EVENT_FINAL</span><span class="p">,</span> <span class="n">ArmResourceManager</span><span class="o">.</span><span class="n">register_arm_specific</span><span class="p">)</span>

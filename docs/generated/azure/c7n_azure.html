@@ -259,6 +259,7 @@
 <li class="toctree-l2"><a class="reference internal" href="c7n_azure.resources.html#module-c7n_azure.resources.image">c7n_azure.resources.image module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="c7n_azure.resources.html#module-c7n_azure.resources.iot_hub">c7n_azure.resources.iot_hub module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="c7n_azure.resources.html#module-c7n_azure.resources.key_vault">c7n_azure.resources.key_vault module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c7n_azure.resources.html#module-c7n_azure.resources.key_vault_keys">c7n_azure.resources.key_vault_keys module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="c7n_azure.resources.html#module-c7n_azure.resources.load_balancer">c7n_azure.resources.load_balancer module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="c7n_azure.resources.html#module-c7n_azure.resources.network_interface">c7n_azure.resources.network_interface module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="c7n_azure.resources.html#module-c7n_azure.resources.network_security_group">c7n_azure.resources.network_security_group module</a></li>
@@ -657,7 +658,7 @@ listed to preserve.</p>
 <dl class="data">
 <dt id="c7n_azure.constants.DEFAULT_MAX_RETRY_AFTER">
 <code class="descclassname">c7n_azure.constants.</code><code class="descname">DEFAULT_MAX_RETRY_AFTER</code><em class="property"> = 30</em><a class="headerlink" href="#c7n_azure.constants.DEFAULT_MAX_RETRY_AFTER" title="Permalink to this definition">¶</a></dt>
-<dd><p>Azure Functions Host Configuration</p>
+<dd><p>KeyVault url templates</p>
 </dd></dl>
 
 <dl class="data">
@@ -679,9 +680,15 @@ listed to preserve.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="c7n_azure.constants.RESOURCE_STORAGE">
-<code class="descclassname">c7n_azure.constants.</code><code class="descname">RESOURCE_STORAGE</code><em class="property"> = 'https://storage.azure.com/'</em><a class="headerlink" href="#c7n_azure.constants.RESOURCE_STORAGE" title="Permalink to this definition">¶</a></dt>
+<dt id="c7n_azure.constants.RESOURCE_VAULT">
+<code class="descclassname">c7n_azure.constants.</code><code class="descname">RESOURCE_VAULT</code><em class="property"> = 'https://vault.azure.net'</em><a class="headerlink" href="#c7n_azure.constants.RESOURCE_VAULT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Threading Variable</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="c7n_azure.constants.TEMPLATE_KEYVAULT_URL">
+<code class="descclassname">c7n_azure.constants.</code><code class="descname">TEMPLATE_KEYVAULT_URL</code><em class="property"> = 'https://{0}.vault.azure.net'</em><a class="headerlink" href="#c7n_azure.constants.TEMPLATE_KEYVAULT_URL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Azure Functions Host Configuration</p>
 </dd></dl>
 
 </div>
@@ -1353,6 +1360,42 @@ region execution and filtering policies for applicable regions.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="c7n_azure.query.ChildResourceManager">
+<em class="property">class </em><code class="descclassname">c7n_azure.query.</code><code class="descname">ChildResourceManager</code><span class="sig-paren">(</span><em>data</em>, <em>options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/query.html#ChildResourceManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.query.ChildResourceManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#c7n_azure.query.QueryResourceManager" title="c7n_azure.query.QueryResourceManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.query.QueryResourceManager</span></code></a></p>
+<dl class="attribute">
+<dt id="c7n_azure.query.ChildResourceManager.action_registry">
+<code class="descname">action_registry</code><em class="property"> = &lt;c7n.actions.core.ActionRegistry object&gt;</em><a class="headerlink" href="#c7n_azure.query.ChildResourceManager.action_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.query.ChildResourceManager.child_source">
+<code class="descname">child_source</code><em class="property"> = 'describe-child-azure'</em><a class="headerlink" href="#c7n_azure.query.ChildResourceManager.child_source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.query.ChildResourceManager.filter_registry">
+<code class="descname">filter_registry</code><em class="property"> = &lt;c7n.filters.core.FilterRegistry object&gt;</em><a class="headerlink" href="#c7n_azure.query.ChildResourceManager.filter_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="c7n_azure.query.ChildResourceManager.get_parent_manager">
+<code class="descname">get_parent_manager</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/query.html#ChildResourceManager.get_parent_manager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.query.ChildResourceManager.get_parent_manager" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="c7n_azure.query.ChildResourceManager.get_session">
+<code class="descname">get_session</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/query.html#ChildResourceManager.get_session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.query.ChildResourceManager.get_session" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.query.ChildResourceManager.source_type">
+<code class="descname">source_type</code><a class="headerlink" href="#c7n_azure.query.ChildResourceManager.source_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="c7n_azure.query.ChildResourceQuery">
 <em class="property">class </em><code class="descclassname">c7n_azure.query.</code><code class="descname">ChildResourceQuery</code><span class="sig-paren">(</span><em>session_factory</em>, <em>manager</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/query.html#ChildResourceQuery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.query.ChildResourceQuery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#c7n_azure.query.ResourceQuery" title="c7n_azure.query.ResourceQuery"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.query.ResourceQuery</span></code></a></p>
@@ -1365,9 +1408,35 @@ parents identifiers. ie. SQL and Cosmos databases</p>
 <dd><p>Query a set of resources.</p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_azure.query.ChildTypeInfo">
+<em class="property">class </em><code class="descclassname">c7n_azure.query.</code><code class="descname">ChildTypeInfo</code><a class="reference internal" href="../../_modules/c7n_azure/query.html#ChildTypeInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.query.ChildTypeInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#c7n_azure.query.TypeInfo" title="c7n_azure.query.TypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">c7n_azure.query.TypeInfo</span></code></a></p>
 <dl class="attribute">
-<dt id="c7n_azure.query.ChildResourceQuery.parent_key">
-<code class="descname">parent_key</code><em class="property"> = 'c7n:parent-id'</em><a class="headerlink" href="#c7n_azure.query.ChildResourceQuery.parent_key" title="Permalink to this definition">¶</a></dt>
+<dt id="c7n_azure.query.ChildTypeInfo.annotate_parent">
+<code class="descname">annotate_parent</code><em class="property"> = True</em><a class="headerlink" href="#c7n_azure.query.ChildTypeInfo.annotate_parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="c7n_azure.query.ChildTypeInfo.extra_args">
+<em class="property">classmethod </em><code class="descname">extra_args</code><span class="sig-paren">(</span><em>parent_resource</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/query.html#ChildTypeInfo.extra_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.query.ChildTypeInfo.extra_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.query.ChildTypeInfo.parent_key">
+<code class="descname">parent_key</code><em class="property"> = 'c7n:parent-id'</em><a class="headerlink" href="#c7n_azure.query.ChildTypeInfo.parent_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.query.ChildTypeInfo.parent_manager_name">
+<code class="descname">parent_manager_name</code><em class="property"> = ''</em><a class="headerlink" href="#c7n_azure.query.ChildTypeInfo.parent_manager_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.query.ChildTypeInfo.raise_on_exception">
+<code class="descname">raise_on_exception</code><em class="property"> = True</em><a class="headerlink" href="#c7n_azure.query.ChildTypeInfo.raise_on_exception" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1492,6 +1561,33 @@ parents identifiers. ie. SQL and Cosmos databases</p>
 <em class="property">static </em><code class="descname">resolve</code><span class="sig-paren">(</span><em>resource_type</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/query.html#ResourceQuery.resolve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.query.ResourceQuery.resolve" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_azure.query.TypeInfo">
+<em class="property">class </em><code class="descclassname">c7n_azure.query.</code><code class="descname">TypeInfo</code><a class="reference internal" href="../../_modules/c7n_azure/query.html#TypeInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.query.TypeInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="c7n_azure.query.TypeInfo.client">
+<code class="descname">client</code><em class="property"> = ''</em><a class="headerlink" href="#c7n_azure.query.TypeInfo.client" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.query.TypeInfo.resource">
+<code class="descname">resource</code><em class="property"> = 'https://management.core.windows.net/'</em><a class="headerlink" href="#c7n_azure.query.TypeInfo.resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c7n_azure.query.TypeInfo.service">
+<code class="descname">service</code><em class="property"> = ''</em><a class="headerlink" href="#c7n_azure.query.TypeInfo.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c7n_azure.query.TypeMeta">
+<em class="property">class </em><code class="descclassname">c7n_azure.query.</code><code class="descname">TypeMeta</code><a class="reference internal" href="../../_modules/c7n_azure/query.html#TypeMeta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.query.TypeMeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></p>
 </dd></dl>
 
 </div>
@@ -1956,6 +2052,11 @@ Example: [10, 12, 13, 14, 15] -&gt; [‘10’, ‘12-15’]</p>
 <code class="descclassname">c7n_azure.utils.</code><code class="descname">custodian_azure_send_override</code><span class="sig-paren">(</span><em>self</em>, <em>request</em>, <em>headers=None</em>, <em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/utils.html#custodian_azure_send_override"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.utils.custodian_azure_send_override" title="Permalink to this definition">¶</a></dt>
 <dd><p>Overrides ServiceClient.send() function to implement retries &amp; log headers</p>
 </dd></dl>
+
+<dl class="function">
+<dt id="c7n_azure.utils.generate_key_vault_url">
+<code class="descclassname">c7n_azure.utils.</code><code class="descname">generate_key_vault_url</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/c7n_azure/utils.html#generate_key_vault_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c7n_azure.utils.generate_key_vault_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="function">
 <dt id="c7n_azure.utils.now">

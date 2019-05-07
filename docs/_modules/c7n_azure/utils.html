@@ -639,6 +639,10 @@
         <span class="k">return</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">entities</span> <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;/subscriptions&#39;</span><span class="p">]</span></div></div>
 
 
+<div class="viewcode-block" id="generate_key_vault_url"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.utils.generate_key_vault_url">[docs]</a><span class="k">def</span> <span class="nf">generate_key_vault_url</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">constants</span><span class="o">.</span><span class="n">TEMPLATE_KEYVAULT_URL</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="RetentionPeriod"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.utils.RetentionPeriod">[docs]</a><span class="k">class</span> <span class="nc">RetentionPeriod</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="n">PATTERN</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;^P([1-9][0-9]*)([DWMY])$&quot;</span><span class="p">)</span>

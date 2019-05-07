@@ -205,8 +205,10 @@
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
 
+<span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">six</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.actions</span> <span class="k">import</span> <span class="n">Notify</span>
+<span class="kn">from</span> <span class="nn">c7n_azure</span> <span class="k">import</span> <span class="n">constants</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.provider</span> <span class="k">import</span> <span class="n">resources</span>
 
 <span class="kn">from</span> <span class="nn">c7n.actions</span> <span class="k">import</span> <span class="n">ActionRegistry</span>
@@ -214,6 +216,9 @@
 <span class="kn">from</span> <span class="nn">c7n.manager</span> <span class="k">import</span> <span class="n">ResourceManager</span>
 <span class="kn">from</span> <span class="nn">c7n.query</span> <span class="k">import</span> <span class="n">sources</span>
 <span class="kn">from</span> <span class="nn">c7n.utils</span> <span class="k">import</span> <span class="n">local_session</span>
+
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;custodian.azure.query&#39;</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="ResourceQuery"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.query.ResourceQuery">[docs]</a><span class="k">class</span> <span class="nc">ResourceQuery</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -265,8 +270,6 @@
 <span class="sd">    parents identifiers. ie. SQL and Cosmos databases</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">parent_key</span> <span class="o">=</span> <span class="s1">&#39;c7n:parent-id&#39;</span>
-
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_factory</span><span class="p">,</span> <span class="n">manager</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ChildResourceQuery</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">session_factory</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">manager</span> <span class="o">=</span> <span class="n">manager</span>
@@ -278,24 +281,43 @@
 
         <span class="n">enum_op</span><span class="p">,</span> <span class="n">list_op</span><span class="p">,</span> <span class="n">extra_args</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">enum_spec</span>
 
-        <span class="n">parent_type</span><span class="p">,</span> <span class="n">annotate_parent</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">parent_spec</span>
-        <span class="n">parents</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">get_resource_manager</span><span class="p">(</span><span class="n">parent_type</span><span class="p">)</span>
+        <span class="n">parents</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">get_resource_manager</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">parent_manager_name</span><span class="p">)</span>
 
         <span class="c1"># Have to query separately for each parent&#39;s children.</span>
         <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">parent</span> <span class="ow">in</span> <span class="n">parents</span><span class="o">.</span><span class="n">resources</span><span class="p">():</span>
+            <span class="c1"># There are 2 types of extra_args:</span>
+            <span class="c1">#   - static values stored in &#39;extra_args&#39; dict (e.g. some type)</span>
+            <span class="c1">#   - dynamic values are retrieved via &#39;extra_args&#39; method (e.g. parent name)</span>
             <span class="k">if</span> <span class="n">extra_args</span><span class="p">:</span>
-                <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">parent</span><span class="p">[</span><span class="n">extra_args</span><span class="p">[</span><span class="n">key</span><span class="p">]]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">extra_args</span><span class="o">.</span><span class="n">keys</span><span class="p">()})</span>
+                <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">extra_args</span><span class="p">[</span><span class="n">key</span><span class="p">](</span><span class="n">parent</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">extra_args</span><span class="o">.</span><span class="n">keys</span><span class="p">()})</span>
 
-            <span class="n">op</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">enum_op</span><span class="p">),</span> <span class="n">list_op</span><span class="p">)</span>
-            <span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">op</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)]</span>
+            <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">extra_args</span><span class="p">(</span><span class="n">parent</span><span class="p">))</span>
 
-            <span class="k">if</span> <span class="n">annotate_parent</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">subset</span><span class="p">:</span>
-                    <span class="n">r</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">parent_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">parent</span><span class="p">[</span><span class="n">parents</span><span class="o">.</span><span class="n">resource_type</span><span class="o">.</span><span class="n">id</span><span class="p">]</span>
+            <span class="c1"># Some resources might not have enum_op piece (non-arm resources)</span>
+            <span class="k">if</span> <span class="n">enum_op</span><span class="p">:</span>
+                <span class="n">op</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">enum_op</span><span class="p">),</span> <span class="n">list_op</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">op</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">list_op</span><span class="p">)</span>
 
-            <span class="k">if</span> <span class="n">subset</span><span class="p">:</span>
-                <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">subset</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">op</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)]</span>
+
+                <span class="c1"># If required, append parent resource ID to all child resources</span>
+                <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">annotate_parent</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">subset</span><span class="p">:</span>
+                        <span class="n">r</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">parent_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">parent</span><span class="p">[</span><span class="n">parents</span><span class="o">.</span><span class="n">resource_type</span><span class="o">.</span><span class="n">id</span><span class="p">]</span>
+
+                <span class="k">if</span> <span class="n">subset</span><span class="p">:</span>
+                    <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">subset</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">.</span><span class="si">{1}</span><span class="s1"> failed for </span><span class="si">{2}</span><span class="s1">. </span><span class="si">{3}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">client</span><span class="p">,</span>
+                                                                 <span class="n">list_op</span><span class="p">,</span>
+                                                                 <span class="n">parent</span><span class="p">[</span><span class="n">parents</span><span class="o">.</span><span class="n">resource_type</span><span class="o">.</span><span class="n">id</span><span class="p">],</span>
+                                                                 <span class="n">e</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">raise_on_exception</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">e</span>
+
         <span class="k">return</span> <span class="n">results</span></div></div>
 
 
@@ -311,6 +333,36 @@
 <div class="viewcode-block" id="ChildDescribeSource.get_query"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.query.ChildDescribeSource.get_query">[docs]</a>    <span class="k">def</span> <span class="nf">get_query</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_query_factory</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">session_factory</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TypeMeta"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.query.TypeMeta">[docs]</a><span class="k">class</span> <span class="nc">TypeMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&lt;Type info service:</span><span class="si">%s</span><span class="s2"> client: </span><span class="si">%s</span><span class="s2">&gt;&quot;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">service</span><span class="p">,</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">client</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TypeInfo"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.query.TypeInfo">[docs]</a><span class="nd">@six</span><span class="o">.</span><span class="n">add_metaclass</span><span class="p">(</span><span class="n">TypeMeta</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">TypeInfo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># api client construction information</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="n">resource</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">RESOURCE_ACTIVE_DIRECTORY</span></div>
+
+
+<div class="viewcode-block" id="ChildTypeInfo"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.query.ChildTypeInfo">[docs]</a><span class="nd">@six</span><span class="o">.</span><span class="n">add_metaclass</span><span class="p">(</span><span class="n">TypeMeta</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ChildTypeInfo</span><span class="p">(</span><span class="n">TypeInfo</span><span class="p">):</span>
+    <span class="c1"># api client construction information for child resources</span>
+    <span class="n">parent_manager_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">annotate_parent</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">raise_on_exception</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">parent_key</span> <span class="o">=</span> <span class="s1">&#39;c7n:parent-id&#39;</span>
+
+<div class="viewcode-block" id="ChildTypeInfo.extra_args"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.query.ChildTypeInfo.extra_args">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">extra_args</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">parent_resource</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{}</span></div></div>
 
 
 <div class="viewcode-block" id="QueryMeta"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.query.QueryMeta">[docs]</a><span class="k">class</span> <span class="nc">QueryMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
@@ -332,6 +384,7 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">options</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">QueryResourceManager</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_source</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source_type</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="kc">None</span>
 
 <div class="viewcode-block" id="QueryResourceManager.augment"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.query.QueryResourceManager.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resources</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">resources</span></div>
@@ -343,7 +396,9 @@
         <span class="k">return</span> <span class="n">sources</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">source_type</span><span class="p">)(</span><span class="bp">self</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="QueryResourceManager.get_session"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.query.QueryResourceManager.get_session">[docs]</a>    <span class="k">def</span> <span class="nf">get_session</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">local_session</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_factory</span><span class="p">)</span></div>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="n">local_session</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_factory</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span></div>
 
 <div class="viewcode-block" id="QueryResourceManager.get_client"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.query.QueryResourceManager.get_client">[docs]</a>    <span class="k">def</span> <span class="nf">get_client</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">service</span><span class="p">:</span>
@@ -388,6 +443,31 @@
         <span class="k">for</span> <span class="n">resource</span> <span class="ow">in</span> <span class="n">registry</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="n">klass</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
             <span class="n">klass</span><span class="o">.</span><span class="n">action_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;notify&#39;</span><span class="p">,</span> <span class="n">Notify</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ChildResourceManager"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.query.ChildResourceManager">[docs]</a><span class="nd">@six</span><span class="o">.</span><span class="n">add_metaclass</span><span class="p">(</span><span class="n">QueryMeta</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ChildResourceManager</span><span class="p">(</span><span class="n">QueryResourceManager</span><span class="p">):</span>
+
+    <span class="n">child_source</span> <span class="o">=</span> <span class="s1">&#39;describe-child-azure&#39;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">source_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">child_source</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">source</span> <span class="o">==</span> <span class="s1">&#39;describe&#39;</span><span class="p">:</span>
+            <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">child_source</span>
+        <span class="k">return</span> <span class="n">source</span>
+
+<div class="viewcode-block" id="ChildResourceManager.get_parent_manager"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.query.ChildResourceManager.get_parent_manager">[docs]</a>    <span class="k">def</span> <span class="nf">get_parent_manager</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_resource_manager</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resource_type</span><span class="o">.</span><span class="n">parent_manager_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ChildResourceManager.get_session"><a class="viewcode-back" href="../../generated/azure/c7n_azure.html#c7n_azure.query.ChildResourceManager.get_session">[docs]</a>    <span class="k">def</span> <span class="nf">get_session</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">session</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">ChildResourceManager</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_session</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_type</span><span class="o">.</span><span class="n">resource</span> <span class="o">!=</span> <span class="n">constants</span><span class="o">.</span><span class="n">RESOURCE_ACTIVE_DIRECTORY</span><span class="p">:</span>
+                <span class="n">session</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_session_for_resource</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resource_type</span><span class="o">.</span><span class="n">resource</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="n">session</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span></div></div>
 
 
 <span class="n">resources</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">resources</span><span class="o">.</span><span class="n">EVENT_FINAL</span><span class="p">,</span> <span class="n">QueryResourceManager</span><span class="o">.</span><span class="n">register_actions_and_filters</span><span class="p">)</span>

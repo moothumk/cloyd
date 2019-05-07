@@ -573,6 +573,8 @@
 </li>
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.Workspace.action_registry">(c7n.resources.workspaces.Workspace attribute)</a>
 </li>
+        <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildResourceManager.action_registry">(c7n_azure.query.ChildResourceManager attribute)</a>
+</li>
         <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.QueryResourceManager.action_registry">(c7n_azure.query.QueryResourceManager attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.access_control.RoleAssignment.action_registry">(c7n_azure.resources.access_control.RoleAssignment attribute)</a>
@@ -610,6 +612,8 @@
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.iot_hub.IoTHub.action_registry">(c7n_azure.resources.iot_hub.IoTHub attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.KeyVault.action_registry">(c7n_azure.resources.key_vault.KeyVault attribute)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultKeys.action_registry">(c7n_azure.resources.key_vault_keys.KeyVaultKeys attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.load_balancer.LoadBalancer.action_registry">(c7n_azure.resources.load_balancer.LoadBalancer attribute)</a>
 </li>
@@ -888,7 +892,7 @@
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.iam.UserAccessKey.annotate">(c7n.resources.iam.UserAccessKey attribute)</a>
 </li>
       </ul></li>
-      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec.annotate_parent">annotate_parent (c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec attribute)</a>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildTypeInfo.annotate_parent">annotate_parent (c7n_azure.query.ChildTypeInfo attribute)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.account.GuardDutyEnabled.annotation">annotation (c7n.resources.account.GuardDutyEnabled attribute)</a>
 
@@ -1041,6 +1045,8 @@
       <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmResourceManager">ArmResourceManager (class in c7n_azure.resources.arm)</a>
 </li>
       <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmResourceManager.resource_type">ArmResourceManager.resource_type (class in c7n_azure.resources.arm)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmTypeInfo">ArmTypeInfo (class in c7n_azure.resources.arm)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.apigw.RestAccount.resource_type.arn">arn (c7n.resources.apigw.RestAccount.resource_type attribute)</a>
 
@@ -1928,6 +1934,8 @@
 </li>
       <li><a href="generated/azure/c7n_azure.resources.html#module-c7n_azure.resources.key_vault">c7n_azure.resources.key_vault (module)</a>
 </li>
+      <li><a href="generated/azure/c7n_azure.resources.html#module-c7n_azure.resources.key_vault_keys">c7n_azure.resources.key_vault_keys (module)</a>
+</li>
       <li><a href="generated/azure/c7n_azure.resources.html#module-c7n_azure.resources.load_balancer">c7n_azure.resources.load_balancer (module)</a>
 </li>
       <li><a href="generated/azure/c7n_azure.resources.html#module-c7n_azure.resources.network_interface">c7n_azure.resources.network_interface (module)</a>
@@ -2121,12 +2129,12 @@
 </li>
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.vpc.TransitGatewayAttachment.child_source">(c7n.resources.vpc.TransitGatewayAttachment attribute)</a>
 </li>
-        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ChildArmResourceManager.child_source">(c7n_azure.resources.arm.ChildArmResourceManager attribute)</a>
+        <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildResourceManager.child_source">(c7n_azure.query.ChildResourceManager attribute)</a>
 </li>
       </ul></li>
       <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ChildArmResourceManager">ChildArmResourceManager (class in c7n_azure.resources.arm)</a>
 </li>
-      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec">ChildArmResourceManager.ParentSpec (class in c7n_azure.resources.arm)</a>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ChildArmResourceManager.resource_type">ChildArmResourceManager.resource_type (class in c7n_azure.resources.arm)</a>
 </li>
       <li><a href="generated/aws/c7n.html#c7n.query.ChildDescribeSource">ChildDescribeSource (class in c7n.query)</a>
 
@@ -2137,6 +2145,8 @@
       <li><a href="generated/aws/c7n.html#c7n.query.ChildResourceManager">ChildResourceManager (class in c7n.query)</a>
 
       <ul>
+        <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildResourceManager">(class in c7n_azure.query)</a>
+</li>
         <li><a href="generated/gcp/c7n_gcp.html#c7n_gcp.query.ChildResourceManager">(class in c7n_gcp.query)</a>
 </li>
       </ul></li>
@@ -2146,8 +2156,12 @@
         <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildResourceQuery">(class in c7n_azure.query)</a>
 </li>
       </ul></li>
-      <li><a href="generated/gcp/c7n_gcp.html#c7n_gcp.query.ChildTypeInfo">ChildTypeInfo (class in c7n_gcp.query)</a>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildTypeInfo">ChildTypeInfo (class in c7n_azure.query)</a>
+
+      <ul>
+        <li><a href="generated/gcp/c7n_gcp.html#c7n_gcp.query.ChildTypeInfo">(class in c7n_gcp.query)</a>
 </li>
+      </ul></li>
       <li><a href="generated/aws/c7n.html#c7n.query.QueryResourceManager.chunk_size">chunk_size (c7n.query.QueryResourceManager attribute)</a>
 
       <ul>
@@ -2175,6 +2189,8 @@
       <li><a href="generated/aws/c7n.html#c7n.mu.CloudWatchEventSource.client">client (c7n.mu.CloudWatchEventSource attribute)</a>
 
       <ul>
+        <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.TypeInfo.client">(c7n_azure.query.TypeInfo attribute)</a>
+</li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.access_control.RoleAssignment.resource_type.client">(c7n_azure.resources.access_control.RoleAssignment.resource_type attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.access_control.RoleDefinition.resource_type.client">(c7n_azure.resources.access_control.RoleDefinition.resource_type attribute)</a>
@@ -2208,6 +2224,8 @@
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.iot_hub.IoTHub.resource_type.client">(c7n_azure.resources.iot_hub.IoTHub.resource_type attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.KeyVault.resource_type.client">(c7n_azure.resources.key_vault.KeyVault.resource_type attribute)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.client">(c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.load_balancer.LoadBalancer.resource_type.client">(c7n_azure.resources.load_balancer.LoadBalancer.resource_type attribute)</a>
 </li>
@@ -3171,7 +3189,7 @@
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.appserviceplan.AppServicePlan.resource_type.default_report_fields">(c7n_azure.resources.appserviceplan.AppServicePlan.resource_type attribute)</a>
 </li>
-        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmResourceManager.resource_type.default_report_fields">(c7n_azure.resources.arm.ArmResourceManager.resource_type attribute)</a>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmTypeInfo.default_report_fields">(c7n_azure.resources.arm.ArmTypeInfo attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.batch.Batch.resource_type.default_report_fields">(c7n_azure.resources.batch.Batch.resource_type attribute)</a>
 </li>
@@ -3616,7 +3634,7 @@
       </ul></li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.vpc.DhcpOptionsFilter">DhcpOptionsFilter (class in c7n.resources.vpc)</a>
 </li>
-      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmResourceManager.resource_type.diagnostic_settings_enabled">diagnostic_settings_enabled (c7n_azure.resources.arm.ArmResourceManager.resource_type attribute)</a>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmTypeInfo.diagnostic_settings_enabled">diagnostic_settings_enabled (c7n_azure.resources.arm.ArmTypeInfo attribute)</a>
 
       <ul>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.storage.Storage.resource_type.diagnostic_settings_enabled">(c7n_azure.resources.storage.Storage.resource_type attribute)</a>
@@ -4595,6 +4613,8 @@
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.KeyVault.resource_type.enum_spec">(c7n_azure.resources.key_vault.KeyVault.resource_type attribute)</a>
 </li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.enum_spec">(c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type attribute)</a>
+</li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.load_balancer.LoadBalancer.resource_type.enum_spec">(c7n_azure.resources.load_balancer.LoadBalancer.resource_type attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.network_interface.NetworkInterface.resource_type.enum_spec">(c7n_azure.resources.network_interface.NetworkInterface.resource_type attribute)</a>
@@ -4866,6 +4886,14 @@
       </ul></li>
       <li><a href="generated/aws/c7n.filters.html#c7n.filters.core.ValueFilter.expr">expr (c7n.filters.core.ValueFilter attribute)</a>
 </li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildTypeInfo.extra_args">extra_args() (c7n_azure.query.ChildTypeInfo class method)</a>
+
+      <ul>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.extra_args">(c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type class method)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.extra_args">(c7n_azure.resources.sqldatabase.SqlDatabase.resource_type class method)</a>
+</li>
+      </ul></li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.ami.ErrorHandler.extract_bad_ami">extract_bad_ami() (c7n.resources.ami.ErrorHandler static method)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.ebs.ErrorHandler.extract_bad_snapshot">extract_bad_snapshot() (c7n.resources.ebs.ErrorHandler static method)</a>
@@ -5565,6 +5593,8 @@
 </li>
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.Workspace.filter_registry">(c7n.resources.workspaces.Workspace attribute)</a>
 </li>
+        <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildResourceManager.filter_registry">(c7n_azure.query.ChildResourceManager attribute)</a>
+</li>
         <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.QueryResourceManager.filter_registry">(c7n_azure.query.QueryResourceManager attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.access_control.RoleAssignment.filter_registry">(c7n_azure.resources.access_control.RoleAssignment attribute)</a>
@@ -5602,6 +5632,8 @@
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.iot_hub.IoTHub.filter_registry">(c7n_azure.resources.iot_hub.IoTHub attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.KeyVault.filter_registry">(c7n_azure.resources.key_vault.KeyVault attribute)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultKeys.filter_registry">(c7n_azure.resources.key_vault_keys.KeyVaultKeys attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.load_balancer.LoadBalancer.filter_registry">(c7n_azure.resources.load_balancer.LoadBalancer attribute)</a>
 </li>
@@ -6087,6 +6119,8 @@
 </li>
       </ul></li>
       <li><a href="generated/aws/c7n.html#c7n.utils.generate_arn">generate_arn() (in module c7n.utils)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.utils.generate_key_vault_url">generate_key_vault_url() (in module c7n_azure.utils)</a>
 </li>
       <li><a href="generated/azure/c7n_azure.provisioning.html#c7n_azure.provisioning.function_app.FunctionAppDeploymentUnit.generate_machine_decryption_key">generate_machine_decryption_key() (c7n_azure.provisioning.function_app.FunctionAppDeploymentUnit static method)</a>
 </li>
@@ -6675,7 +6709,7 @@
       <li><a href="generated/aws/c7n.html#c7n.query.ChildResourceManager.get_parent_manager">get_parent_manager() (c7n.query.ChildResourceManager method)</a>
 
       <ul>
-        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ChildArmResourceManager.get_parent_manager">(c7n_azure.resources.arm.ChildArmResourceManager method)</a>
+        <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildResourceManager.get_parent_manager">(c7n_azure.query.ChildResourceManager method)</a>
 </li>
       </ul></li>
       <li><a href="generated/aws/c7n.html#c7n.query.ChildResourceQuery.get_parent_parameters">get_parent_parameters() (c7n.query.ChildResourceQuery method)</a>
@@ -7082,8 +7116,12 @@
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.aws.get_service_region_map">get_service_region_map() (in module c7n.resources.aws)</a>
 </li>
-      <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.QueryResourceManager.get_session">get_session() (c7n_azure.query.QueryResourceManager method)</a>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildResourceManager.get_session">get_session() (c7n_azure.query.ChildResourceManager method)</a>
+
+      <ul>
+        <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.QueryResourceManager.get_session">(c7n_azure.query.QueryResourceManager method)</a>
 </li>
+      </ul></li>
       <li><a href="generated/aws/c7n.html#c7n.provider.Provider.get_session_factory">get_session_factory() (c7n.provider.Provider method)</a>
 
       <ul>
@@ -7793,7 +7831,7 @@
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.access_control.RoleDefinition.resource_type.id">(c7n_azure.resources.access_control.RoleDefinition.resource_type attribute)</a>
 </li>
-        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmResourceManager.resource_type.id">(c7n_azure.resources.arm.ArmResourceManager.resource_type attribute)</a>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmTypeInfo.id">(c7n_azure.resources.arm.ArmTypeInfo attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.network_interface.NetworkInterface.resource_type.id">(c7n_azure.resources.network_interface.NetworkInterface.resource_type attribute)</a>
 </li>
@@ -8288,18 +8326,26 @@
 </li>
       <li><a href="generated/aws/c7n.filters.html#c7n.filters.offhours.ScheduleParser.keys_are_valid">keys_are_valid() (c7n.filters.offhours.ScheduleParser method)</a>
 </li>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyTypeFilter">KeyTypeFilter (class in c7n_azure.resources.key_vault_keys)</a>
+</li>
       <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.KeyVault">KeyVault (class in c7n_azure.resources.key_vault)</a>
 </li>
       <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.KeyVault.resource_type">KeyVault.resource_type (class in c7n_azure.resources.key_vault)</a>
 </li>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultFilter">KeyVaultFilter (class in c7n_azure.resources.key_vault_keys)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultKeys">KeyVaultKeys (class in c7n_azure.resources.key_vault_keys)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type">KeyVaultKeys.resource_type (class in c7n_azure.resources.key_vault_keys)</a>
+</li>
       <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.KeyVaultUpdateAccessPolicyAction">KeyVaultUpdateAccessPolicyAction (class in c7n_azure.resources.key_vault)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.kinesis.KinesisStream">KinesisStream (class in c7n.resources.kinesis)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.kinesis.KinesisStream.resource_type">KinesisStream.resource_type (class in c7n.resources.kinesis)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/aws/c7n.html#c7n.mu.AbstractLambdaFunction.kms_key_arn">kms_key_arn (c7n.mu.AbstractLambdaFunction attribute)</a>
 
       <ul>
@@ -8657,8 +8703,6 @@
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.ssm.ManagedInstance">ManagedInstance (class in c7n.resources.ssm)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.ssm.ManagedInstance.resource_type">ManagedInstance.resource_type (class in c7n.resources.ssm)</a>
-</li>
-      <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec.manager_name">manager_name (c7n_azure.resources.arm.ChildArmResourceManager.ParentSpec attribute)</a>
 </li>
       <li><a href="generated/aws/c7n.html#c7n.executor.MainThreadExecutor.map">map() (c7n.executor.MainThreadExecutor method)</a>
 </li>
@@ -9257,7 +9301,7 @@
 </li>
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.Workspace.resource_type.name">(c7n.resources.workspaces.Workspace.resource_type attribute)</a>
 </li>
-        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmResourceManager.resource_type.name">(c7n_azure.resources.arm.ArmResourceManager.resource_type attribute)</a>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ArmTypeInfo.name">(c7n_azure.resources.arm.ArmTypeInfo attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.network_interface.NetworkInterface.resource_type.name">(c7n_azure.resources.network_interface.NetworkInterface.resource_type attribute)</a>
 </li>
@@ -9451,7 +9495,15 @@
       <li><a href="generated/aws/c7n.html#c7n.query.ChildResourceQuery.parent_key">parent_key (c7n.query.ChildResourceQuery attribute)</a>
 
       <ul>
-        <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildResourceQuery.parent_key">(c7n_azure.query.ChildResourceQuery attribute)</a>
+        <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildTypeInfo.parent_key">(c7n_azure.query.ChildTypeInfo attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildTypeInfo.parent_manager_name">parent_manager_name (c7n_azure.query.ChildTypeInfo attribute)</a>
+
+      <ul>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.parent_manager_name">(c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type attribute)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.parent_manager_name">(c7n_azure.resources.sqldatabase.SqlDatabase.resource_type attribute)</a>
 </li>
       </ul></li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.apigw.RestResource.resource_type.parent_spec">parent_spec (c7n.resources.apigw.RestResource.resource_type attribute)</a>
@@ -9472,8 +9524,6 @@
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.route53.ResourceRecordSet.resource_type.parent_spec">(c7n.resources.route53.ResourceRecordSet.resource_type attribute)</a>
 </li>
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.vpc.TransitGatewayAttachment.resource_type.parent_spec">(c7n.resources.vpc.TransitGatewayAttachment.resource_type attribute)</a>
-</li>
-        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.parent_spec">(c7n_azure.resources.sqldatabase.SqlDatabase.resource_type attribute)</a>
 </li>
         <li><a href="generated/gcp/c7n_gcp.html#c7n_gcp.query.ChildTypeInfo.parent_spec">(c7n_gcp.query.ChildTypeInfo attribute)</a>
 </li>
@@ -11327,6 +11377,10 @@
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.access_control.ScopeFilter.process">(c7n_azure.resources.access_control.ScopeFilter method)</a>
 </li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyTypeFilter.process">(c7n_azure.resources.key_vault_keys.KeyTypeFilter method)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultFilter.process">(c7n_azure.resources.key_vault_keys.KeyVaultFilter method)</a>
+</li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.network_interface.EffectiveRouteTableFilter.process">(c7n_azure.resources.network_interface.EffectiveRouteTableFilter method)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.network_security_group.NetworkSecurityGroupFilter.process">(c7n_azure.resources.network_security_group.NetworkSecurityGroupFilter method)</a>
@@ -11970,6 +12024,12 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildTypeInfo.raise_on_exception">raise_on_exception (c7n_azure.query.ChildTypeInfo attribute)</a>
+
+      <ul>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.raise_on_exception">(c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type attribute)</a>
+</li>
+      </ul></li>
       <li><a href="generated/aws/c7n.filters.html#c7n.filters.offhours.ScheduleParser.raw_data">raw_data() (c7n.filters.offhours.ScheduleParser static method)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.rds.RDS">RDS (class in c7n.resources.rds)</a>
@@ -12492,6 +12552,12 @@
         <li><a href="generated/gcp/c7n_gcp.html#c7n_gcp.policy.ApiAuditMode.resolve_resources">(c7n_gcp.policy.ApiAuditMode method)</a>
 </li>
       </ul></li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.TypeInfo.resource">resource (c7n_azure.query.TypeInfo attribute)</a>
+
+      <ul>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.resource">(c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type attribute)</a>
+</li>
+      </ul></li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.vpc.CreateFlowLogs.RESOURCE_ALIAS">RESOURCE_ALIAS (c7n.resources.vpc.CreateFlowLogs attribute)</a>
 </li>
       <li><a href="generated/azure/c7n_azure.html#c7n_azure.session.Session.resource_api_version">resource_api_version() (c7n_azure.session.Session method)</a>
@@ -12526,8 +12592,6 @@
       </ul></li>
       <li><a href="generated/aws/c7n.filters.html#c7n.filters.revisions.Diff.resource_shape">resource_shape (c7n.filters.revisions.Diff attribute)</a>
 </li>
-      <li><a href="generated/azure/c7n_azure.html#c7n_azure.constants.RESOURCE_STORAGE">RESOURCE_STORAGE (in module c7n_azure.constants)</a>
-</li>
       <li><a href="generated/aws/c7n.html#c7n.policy.Policy.resource_type">resource_type (c7n.policy.Policy attribute)</a>
 
       <ul>
@@ -12543,6 +12607,8 @@
 </li>
       </ul></li>
       <li><a href="generated/aws/c7n.html#c7n.policy.PolicyCollection.resource_types">resource_types (c7n.policy.PolicyCollection attribute)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.constants.RESOURCE_VAULT">RESOURCE_VAULT (in module c7n_azure.constants)</a>
 </li>
       <li><a href="generated/aws/c7n.html#c7n.schema.resource_vocabulary">resource_vocabulary() (in module c7n.schema)</a>
 </li>
@@ -13761,6 +13827,10 @@
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.WhiteListFilter.schema">(c7n_azure.resources.key_vault.WhiteListFilter attribute)</a>
 </li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyTypeFilter.schema">(c7n_azure.resources.key_vault_keys.KeyTypeFilter attribute)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultFilter.schema">(c7n_azure.resources.key_vault_keys.KeyVaultFilter attribute)</a>
+</li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.load_balancer.FrontEndIp.schema">(c7n_azure.resources.load_balancer.FrontEndIp attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.network_interface.EffectiveRouteTableFilter.schema">(c7n_azure.resources.network_interface.EffectiveRouteTableFilter attribute)</a>
@@ -14469,6 +14539,8 @@
 </li>
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.workspaces.Workspace.resource_type.service">(c7n.resources.workspaces.Workspace.resource_type attribute)</a>
 </li>
+        <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.TypeInfo.service">(c7n_azure.query.TypeInfo attribute)</a>
+</li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.access_control.RoleAssignment.resource_type.service">(c7n_azure.resources.access_control.RoleAssignment.resource_type attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.access_control.RoleDefinition.resource_type.service">(c7n_azure.resources.access_control.RoleDefinition.resource_type attribute)</a>
@@ -14502,6 +14574,8 @@
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.iot_hub.IoTHub.resource_type.service">(c7n_azure.resources.iot_hub.IoTHub.resource_type attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.KeyVault.resource_type.service">(c7n_azure.resources.key_vault.KeyVault.resource_type attribute)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type.service">(c7n_azure.resources.key_vault_keys.KeyVaultKeys.resource_type attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.load_balancer.LoadBalancer.resource_type.service">(c7n_azure.resources.load_balancer.LoadBalancer.resource_type attribute)</a>
 </li>
@@ -14937,11 +15011,11 @@
 </li>
         <li><a href="generated/aws/c7n.resources.html#c7n.resources.ecs.Task.source_type">(c7n.resources.ecs.Task attribute)</a>
 </li>
+        <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.ChildResourceManager.source_type">(c7n_azure.query.ChildResourceManager attribute)</a>
+</li>
         <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.QueryResourceManager.source_type">(c7n_azure.query.QueryResourceManager attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.access_control.RoleDefinition.source_type">(c7n_azure.resources.access_control.RoleDefinition attribute)</a>
-</li>
-        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.arm.ChildArmResourceManager.source_type">(c7n_azure.resources.arm.ChildArmResourceManager attribute)</a>
 </li>
         <li><a href="generated/gcp/c7n_gcp.html#c7n_gcp.query.QueryResourceManager.source_type">(c7n_gcp.query.QueryResourceManager attribute)</a>
 </li>
@@ -15337,6 +15411,8 @@
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.ecs.TaskTaskDefinitionFilter">TaskTaskDefinitionFilter (class in c7n.resources.ecs)</a>
 </li>
       <li><a href="generated/aws/c7n.html#c7n.testing.TestUtils.tearDown">tearDown() (c7n.testing.TestUtils method)</a>
+</li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.constants.TEMPLATE_KEYVAULT_URL">TEMPLATE_KEYVAULT_URL (in module c7n_azure.constants)</a>
 </li>
       <li><a href="generated/aws/c7n.resources.html#c7n.resources.ec2.Terminate">Terminate (class in c7n.resources.ec2)</a>
 
@@ -17143,6 +17219,12 @@
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault.WhiteListFilter.type">(c7n_azure.resources.key_vault.WhiteListFilter attribute)</a>
 </li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyTypeFilter.type">(c7n_azure.resources.key_vault_keys.KeyTypeFilter attribute)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultFilter.type">(c7n_azure.resources.key_vault_keys.KeyVaultFilter attribute)</a>
+</li>
+        <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.key_vault_keys.KeyVaultKeys.type">(c7n_azure.resources.key_vault_keys.KeyVaultKeys attribute)</a>
+</li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.load_balancer.FrontEndIp.type">(c7n_azure.resources.load_balancer.FrontEndIp attribute)</a>
 </li>
         <li><a href="generated/azure/c7n_azure.resources.html#c7n_azure.resources.load_balancer.LoadBalancer.type">(c7n_azure.resources.load_balancer.LoadBalancer attribute)</a>
@@ -17404,10 +17486,18 @@
       </ul></li>
       <li><a href="generated/aws/c7n.html#c7n.utils.type_schema">type_schema() (in module c7n.utils)</a>
 </li>
-      <li><a href="generated/gcp/c7n_gcp.html#c7n_gcp.query.TypeInfo">TypeInfo (class in c7n_gcp.query)</a>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.TypeInfo">TypeInfo (class in c7n_azure.query)</a>
+
+      <ul>
+        <li><a href="generated/gcp/c7n_gcp.html#c7n_gcp.query.TypeInfo">(class in c7n_gcp.query)</a>
 </li>
-      <li><a href="generated/gcp/c7n_gcp.html#c7n_gcp.query.TypeMeta">TypeMeta (class in c7n_gcp.query)</a>
+      </ul></li>
+      <li><a href="generated/azure/c7n_azure.html#c7n_azure.query.TypeMeta">TypeMeta (class in c7n_azure.query)</a>
+
+      <ul>
+        <li><a href="generated/gcp/c7n_gcp.html#c7n_gcp.query.TypeMeta">(class in c7n_gcp.query)</a>
 </li>
+      </ul></li>
       <li><a href="generated/aws/c7n.html#c7n.policy.Policy.tz">tz (c7n.policy.Policy attribute)</a>
 </li>
       <li><a href="generated/aws/c7n.filters.html#c7n.filters.offhours.Time.TZ_ALIASES">TZ_ALIASES (c7n.filters.offhours.Time attribute)</a>

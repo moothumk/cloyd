@@ -206,17 +206,18 @@
 <span class="c1"># limitations under the License.from c7n_azure.provider import resources</span>
 
 <span class="kn">import</span> <span class="nn">abc</span>
-<span class="kn">import</span> <span class="nn">six</span>
-<span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">enum</span>
-<span class="kn">from</span> <span class="nn">c7n_azure.provider</span> <span class="k">import</span> <span class="n">resources</span>
-<span class="kn">from</span> <span class="nn">c7n_azure.resources.arm</span> <span class="k">import</span> <span class="n">ArmResourceManager</span><span class="p">,</span> <span class="n">ChildArmResourceManager</span>
-<span class="kn">from</span> <span class="nn">c7n_azure.query</span> <span class="k">import</span> <span class="n">ChildResourceQuery</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">six</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.filters</span> <span class="k">import</span> <span class="n">scalar_ops</span>
-<span class="kn">from</span> <span class="nn">c7n.filters</span> <span class="k">import</span> <span class="n">Filter</span>
+<span class="kn">from</span> <span class="nn">c7n_azure.provider</span> <span class="k">import</span> <span class="n">resources</span>
+<span class="kn">from</span> <span class="nn">c7n_azure.resources.arm</span> <span class="k">import</span> <span class="n">ChildArmResourceManager</span>
 <span class="kn">from</span> <span class="nn">c7n_azure.utils</span> <span class="k">import</span> <span class="n">RetentionPeriod</span><span class="p">,</span> <span class="n">ResourceIdParser</span><span class="p">,</span> <span class="n">ThreadHelper</span>
-<span class="kn">from</span> <span class="nn">c7n.utils</span> <span class="k">import</span> <span class="n">type_schema</span>
 <span class="kn">from</span> <span class="nn">msrestazure.azure_exceptions</span> <span class="k">import</span> <span class="n">CloudError</span>
+
+<span class="kn">from</span> <span class="nn">c7n.filters</span> <span class="k">import</span> <span class="n">Filter</span>
+<span class="kn">from</span> <span class="nn">c7n.utils</span> <span class="k">import</span> <span class="n">type_schema</span>
 
 <span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;custodian.azure.sqldatabase&#39;</span><span class="p">)</span>
 
@@ -224,17 +225,16 @@
 <div class="viewcode-block" id="SqlDatabase"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.SqlDatabase">[docs]</a><span class="nd">@resources</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;sqldatabase&#39;</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">SqlDatabase</span><span class="p">(</span><span class="n">ChildArmResourceManager</span><span class="p">):</span>
 
-<div class="viewcode-block" id="SqlDatabase.resource_type"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type">[docs]</a>    <span class="k">class</span> <span class="nc">resource_type</span><span class="p">(</span><span class="n">ArmResourceManager</span><span class="o">.</span><span class="n">resource_type</span><span class="p">):</span>
+<div class="viewcode-block" id="SqlDatabase.resource_type"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type">[docs]</a>    <span class="k">class</span> <span class="nc">resource_type</span><span class="p">(</span><span class="n">ChildArmResourceManager</span><span class="o">.</span><span class="n">resource_type</span><span class="p">):</span>
         <span class="n">service</span> <span class="o">=</span> <span class="s1">&#39;azure.mgmt.sql&#39;</span>
         <span class="n">client</span> <span class="o">=</span> <span class="s1">&#39;SqlManagementClient&#39;</span>
-        <span class="n">enum_spec</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;databases&#39;</span><span class="p">,</span> <span class="s1">&#39;list_by_server&#39;</span><span class="p">,</span> <span class="p">{</span>
-            <span class="s1">&#39;resource_group_name&#39;</span><span class="p">:</span> <span class="s1">&#39;resourceGroup&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;server_name&#39;</span><span class="p">:</span> <span class="s1">&#39;name&#39;</span>
-        <span class="p">})</span>
-        <span class="n">parent_spec</span> <span class="o">=</span> <span class="n">ChildArmResourceManager</span><span class="o">.</span><span class="n">ParentSpec</span><span class="p">(</span>
-            <span class="n">manager_name</span><span class="o">=</span><span class="s1">&#39;sqlserver&#39;</span><span class="p">,</span>
-            <span class="n">annotate_parent</span><span class="o">=</span><span class="kc">True</span>
-        <span class="p">)</span></div></div>
+        <span class="n">enum_spec</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;databases&#39;</span><span class="p">,</span> <span class="s1">&#39;list_by_server&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">parent_manager_name</span> <span class="o">=</span> <span class="s1">&#39;sqlserver&#39;</span>
+
+<div class="viewcode-block" id="SqlDatabase.resource_type.extra_args"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.SqlDatabase.resource_type.extra_args">[docs]</a>        <span class="nd">@classmethod</span>
+        <span class="k">def</span> <span class="nf">extra_args</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">parent_resource</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;resource_group_name&#39;</span><span class="p">:</span> <span class="n">parent_resource</span><span class="p">[</span><span class="s1">&#39;resourceGroup&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;server_name&#39;</span><span class="p">:</span> <span class="n">parent_resource</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]}</span></div></div></div>
 
 
 <div class="viewcode-block" id="BackupRetentionPolicyFilter"><a class="viewcode-back" href="../../../generated/azure/c7n_azure.resources.html#c7n_azure.resources.sqldatabase.BackupRetentionPolicyFilter">[docs]</a><span class="nd">@six</span><span class="o">.</span><span class="n">add_metaclass</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span><span class="p">)</span>
@@ -288,7 +288,7 @@
         <span class="k">return</span> <span class="n">retention</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_perform_op</span><span class="p">(</span><span class="n">retention</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">retention_limit</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_get_backup_retention_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="p">,</span> <span class="n">get_operation</span><span class="p">):</span>
-        <span class="n">server_id</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="n">ChildResourceQuery</span><span class="o">.</span><span class="n">parent_key</span><span class="p">]</span>
+        <span class="n">server_id</span> <span class="o">=</span> <span class="n">resource</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">resource_type</span><span class="o">.</span><span class="n">parent_key</span><span class="p">]</span>
         <span class="n">resource_group_name</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;resourceGroup&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">resource_group_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">resource_group_name</span> <span class="o">=</span> <span class="n">ResourceIdParser</span><span class="o">.</span><span class="n">get_resource_group</span><span class="p">(</span><span class="n">server_id</span><span class="p">)</span>

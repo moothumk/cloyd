@@ -132,6 +132,14 @@ c7n\_azure.resources.key\_vault module
     :undoc-members:
     :show-inheritance:
 
+c7n\_azure.resources.key\_vault\_keys module
+--------------------------------------------
+
+.. automodule:: c7n_azure.resources.key_vault_keys
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 c7n\_azure.resources.load\_balancer module
 ------------------------------------------
 
