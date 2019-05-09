@@ -86,22 +86,32 @@
             
               <p class="caption"><span class="caption-text">Introduction</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Cloud Custodian</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Overview</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Capabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aws">AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#azure">Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gcp">GCP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="glossary.html">Basic concepts and terms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="comparisons.html">Comparisons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deployment.html">Deployment</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/usage.html">Monitoring your environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/advanced.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/policyStructure.html">Example tag compliance policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Basic concepts and terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples</span></p>
+<p class="caption"><span class="caption-text">AWS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/examples/index.html">Example Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/policy/index.html">Filters and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/policy/lambda.html">Lambda Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Azure</span></p>
 <ul>
@@ -110,20 +120,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../azure/authentication.html#azure-storage-access">Azure Storage access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/policy/index.html">Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/azure-modes.html">Azure Modes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/advanced/index.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html#adding-new-azure-resources">Adding New Azure Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html#testing">Testing</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Working with AWS Lambda</span></p>
+<p class="caption"><span class="caption-text">GCP</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../policy/lambda.html">Lambda Support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gcp/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gcp/gcp-modes.html">GCP Modes</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies reference</span></p>
+<p class="caption"><span class="caption-text">Tools</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../policy/index.html">Resource-Specific Filters and Actions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-org.html">c7n-org: Multi Account Custodian Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-policystream.html">c7n-policystream: Policy Changes from Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-mailer.html">c7n-mailer: Custodian Mailer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-trailcreator.html">AWS Retroactive Tagging Resource Creators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -131,12 +144,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/installing.html">Installing for Developers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/tests.html">Testing for Developers</a></li>
-</ul>
-<p class="caption"><span class="caption-text">API Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../generated/aws/modules.html">AWS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../generated/azure/modules.html">Azure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../generated/gcp/modules.html">GCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/documentation.html">Documentation For Developers</a></li>
 </ul>
 
             
@@ -203,20 +211,6 @@
             
   <div class="section" id="capabilities">
 <h1>Capabilities<a class="headerlink" href="#capabilities" title="Permalink to this headline">¶</a></h1>
-<p>Custodian currently provides policy definition around the following
-AWS resources, and much more:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../policy/resources/ami.html#ami"><span class="std std-ref">Amazon Machine Images (AMI)</span></a></p></li>
-<li><p><a class="reference internal" href="../policy/resources/asg.html#asg"><span class="std std-ref">Auto Scaling Groups (ASG)</span></a></p></li>
-<li><p><a class="reference internal" href="../policy/resources/cfn.html#cfn"><span class="std std-ref">CloudFormation</span></a></p></li>
-<li><p><a class="reference internal" href="../policy/resources/ebs.html#ebs"><span class="std std-ref">Elastic Block Store Volumes (EBS Volumes)</span></a></p></li>
-<li><p><a class="reference internal" href="../policy/resources/ec2.html#ec2"><span class="std std-ref">Elastic Cloud Compute (EC2)</span></a></p></li>
-<li><p><a class="reference internal" href="../policy/resources/elb.html#elb"><span class="std std-ref">Elastic Load Balancers (ELB)</span></a></p></li>
-<li><p><a class="reference internal" href="../policy/resources/kms.html#kms"><span class="std std-ref">Key Management Service (KMS)</span></a></p></li>
-<li><p><a class="reference internal" href="../policy/resources/rds.html#rds"><span class="std std-ref">Relational Database Service (RDS)</span></a></p></li>
-<li><p><a class="reference internal" href="../policy/resources/redshift.html#redshift"><span class="std std-ref">Redshift</span></a></p></li>
-<li><p><a class="reference internal" href="../policy/resources/s3.html#s3"><span class="std std-ref">Simple Storage Service (S3)</span></a></p></li>
-</ul>
 <p>Custodian uses a flexible query language for filtering resources to a
 particular subset that allows for compound querying. This essentially allows you
 to filter for things like instances with EBS volumes that are not set to delete
@@ -229,14 +223,52 @@ server, lambda).</p>
 <p>When a user runs Custodian, Custodian will run the specified policy against the account
 and region specified by the user. Custodian will iterate over all resources
 defined in the policy. In the CLI, users specify the account and region they want
-to target. During the run, each policy in the config will generate metrics that
-are sent to CloudWatch in the account that is targeted. The run will also
-generate structured record output and logs that can be sent to an S3 Bucket and
-CloudWatch Log Groups in the account Custodian was run from. If Custodian is being
-run without Assume Roles, all output will be put into the same account. Custodian
-is built with the ability to be run from different accounts and leverage STS
-Role Assumption for cross-account access. Users can leverage the metrics that are
-being generated after each run by creating Custodian Dashboards in CloudWatch.</p>
+to target.</p>
+<p>During the run, each policy in the config will generate metrics that can be sent to
+the cloud provider’s built-in metrics service (CloudWatch, Application Insights, Stackdriver)
+in the account or subscription that is targeted. The run will also generate structured record
+output and logs that can be sent to the cloud provider’s blob storage service (S3,
+Azure Storage Accounts, Google Cloud Storage Bucket) or logging service (CloudWatch
+Logs, Azure Application Insights Logs, Stackdriver logs) in the account Custodian was
+run from.</p>
+<p>Custodian currently provides policy definition around AWS, Azure, and Google Cloud
+Platform resources:</p>
+<p><strong>Note</strong>: this is a small sample of all of the available resources, see the
+section <a class="reference internal" href="../quickstart/index.html#explore-cc"><span class="std std-ref">Explore Cloud Custodian</span></a> on how to view the full list of available resources.</p>
+</div>
+<div class="section" id="aws">
+<h1>AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="../aws/policy/resources/ami.html#ami"><span class="std std-ref">Amazon Machine Images (AMI)</span></a></p></li>
+<li><p><a class="reference internal" href="../aws/policy/resources/asg.html#asg"><span class="std std-ref">Auto Scaling Groups (ASG)</span></a></p></li>
+<li><p><a class="reference internal" href="../aws/policy/resources/cfn.html#cfn"><span class="std std-ref">CloudFormation</span></a></p></li>
+<li><p><a class="reference internal" href="../aws/policy/resources/ebs.html#ebs"><span class="std std-ref">Elastic Block Store Volumes (EBS Volumes)</span></a></p></li>
+<li><p><a class="reference internal" href="../aws/policy/resources/ec2.html#ec2"><span class="std std-ref">Elastic Cloud Compute (EC2)</span></a></p></li>
+<li><p><a class="reference internal" href="../aws/policy/resources/elb.html#elb"><span class="std std-ref">Elastic Load Balancers (ELB)</span></a></p></li>
+<li><p><a class="reference internal" href="../aws/policy/resources/kms.html#kms"><span class="std std-ref">Key Management Service (KMS)</span></a></p></li>
+<li><p><a class="reference internal" href="../aws/policy/resources/rds.html#rds"><span class="std std-ref">Relational Database Service (RDS)</span></a></p></li>
+<li><p><a class="reference internal" href="../aws/policy/resources/redshift.html#redshift"><span class="std std-ref">Redshift</span></a></p></li>
+<li><p><a class="reference internal" href="../aws/policy/resources/s3.html#s3"><span class="std std-ref">Simple Storage Service (S3)</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="azure">
+<h1>Azure<a class="headerlink" href="#azure" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="../azure/policy/resources/vm.html#azure-vm"><span class="std std-ref">Virtual Machines</span></a></p></li>
+<li><p><a class="reference internal" href="../azure/policy/resources/disk.html#azure-disk"><span class="std std-ref">Disk</span></a></p></li>
+<li><p><a class="reference internal" href="../azure/policy/resources/storage.html#azure-storage"><span class="std std-ref">Storage</span></a></p></li>
+<li><p><a class="reference internal" href="../azure/policy/resources/vnet.html#azure-vnet"><span class="std std-ref">Virtual Networks</span></a></p></li>
+<li><p><a class="reference internal" href="../azure/policy/resources/resourcegroup.html#azure-resourcegroup"><span class="std std-ref">Resource Groups</span></a></p></li>
+<li><p><a class="reference internal" href="../azure/policy/resources/keyvault.html#azure-keyvault"><span class="std std-ref">Key Vault</span></a></p></li>
+<li><p><a class="reference internal" href="../azure/policy/resources/sqlserver.html#azure-sqlserver"><span class="std std-ref">SQL Server</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="gcp">
+<h1>GCP<a class="headerlink" href="#gcp" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>tbd</p></li>
+</ul>
+<p>For multi-account/subscription/project execution, see c7n-org.</p>
 </div>
 
 

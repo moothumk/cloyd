@@ -39,7 +39,7 @@
   <link rel="stylesheet" href="../../_static/css/expand.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Access Control" href="resources/accesscontrol.html" />
+    <link rel="next" title="Generic Filters" href="filters.html" />
     <link rel="prev" title="Generic Actions" href="genericarmaction.html" /> 
 </head>
 
@@ -86,15 +86,25 @@
             
               <p class="caption"><span class="caption-text">Introduction</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Cloud Custodian</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart/usage.html">Monitoring your environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../filters.html">Generic Filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart/advanced.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart/policyStructure.html">Example tag compliance policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/glossary.html">Basic concepts and terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/deployment.html">Deployment</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples</span></p>
+<p class="caption"><span class="caption-text">AWS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/examples/index.html">Example Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/policy/index.html">Filters and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/policy/lambda.html">Lambda Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Azure</span></p>
 <ul class="current">
@@ -124,6 +134,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html">Generic Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/accesscontrol.html">Access Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/appserviceplan.html">App Service Plan</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/arm.html">Network Interface</a></li>
@@ -157,20 +168,23 @@
 <li class="toctree-l2"><a class="reference internal" href="resources/webapp.html">Web Applications</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../azure-modes.html">Azure Modes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute.html#adding-new-azure-resources">Adding New Azure Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute.html#testing">Testing</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Working with AWS Lambda</span></p>
+<p class="caption"><span class="caption-text">GCP</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../policy/lambda.html">Lambda Support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gcp/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gcp/gcp-modes.html">GCP Modes</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies reference</span></p>
+<p class="caption"><span class="caption-text">Tools</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../policy/index.html">Resource-Specific Filters and Actions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/c7n-org.html">c7n-org: Multi Account Custodian Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/c7n-policystream.html">c7n-policystream: Policy Changes from Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/c7n-mailer.html">c7n-mailer: Custodian Mailer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/c7n-trailcreator.html">AWS Retroactive Tagging Resource Creators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -178,12 +192,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer/installing.html">Installing for Developers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer/tests.html">Testing for Developers</a></li>
-</ul>
-<p class="caption"><span class="caption-text">API Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../generated/aws/modules.html">AWS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../generated/azure/modules.html">Azure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../generated/gcp/modules.html">GCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/documentation.html">Documentation For Developers</a></li>
 </ul>
 
             
@@ -339,43 +348,43 @@ for a full list of metrics supported by Azure resources.</p>
 <div class="section" id="example-policies">
 <h3>Example Policies<a class="headerlink" href="#example-policies" title="Permalink to this headline">¶</a></h3>
 <p>Find VMs with an average Percentage CPU greater than or equal to 75% over the last 12 hours</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">find-busy-vms</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
-    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">metric</span>
-        <span class="l l-Scalar l-Scalar-Plain">metric</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Percentage CPU</span>
-        <span class="l l-Scalar l-Scalar-Plain">aggregation</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">average</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ge</span>
-        <span class="l l-Scalar l-Scalar-Plain">threshold</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">75</span>
-        <span class="l l-Scalar l-Scalar-Plain">timeframe</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">12</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">find-busy-vms</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
+    <span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">metric</span>
+        <span class="nt">metric</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Percentage CPU</span>
+        <span class="nt">aggregation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">average</span>
+        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ge</span>
+        <span class="nt">threshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">75</span>
+        <span class="nt">timeframe</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12</span>
 </pre></div>
 </div>
 <p>Find KeyVaults with more than 1000 API hits in the last hour</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">keyvault-hits</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.keyvault</span>
-    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">metric</span>
-        <span class="l l-Scalar l-Scalar-Plain">metric</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ServiceApiHit</span>
-        <span class="l l-Scalar l-Scalar-Plain">aggregation</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">total</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">gt</span>
-        <span class="l l-Scalar l-Scalar-Plain">threshold</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
-        <span class="l l-Scalar l-Scalar-Plain">timeframe</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">keyvault-hits</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.keyvault</span>
+    <span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">metric</span>
+        <span class="nt">metric</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ServiceApiHit</span>
+        <span class="nt">aggregation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">total</span>
+        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gt</span>
+        <span class="nt">threshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+        <span class="nt">timeframe</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
 </pre></div>
 </div>
 <p>Find SQL servers with less than 10% average DTU consumption across all databases over last 24 hours</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">dtu-consumption</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.sqlserver</span>
-    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">metric</span>
-        <span class="l l-Scalar l-Scalar-Plain">metric</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">dtu_consumption_percent</span>
-        <span class="l l-Scalar l-Scalar-Plain">aggregation</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">average</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">lt</span>
-        <span class="l l-Scalar l-Scalar-Plain">threshold</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-        <span class="l l-Scalar l-Scalar-Plain">timeframe</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">24</span>
-        <span class="l l-Scalar l-Scalar-Plain">filter</span><span class="p p-Indicator">:</span>  <span class="s">&quot;DatabaseResourceId</span><span class="nv"> </span><span class="s">eq</span><span class="nv"> </span><span class="s">&#39;*&#39;&quot;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dtu-consumption</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.sqlserver</span>
+    <span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">metric</span>
+        <span class="nt">metric</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dtu_consumption_percent</span>
+        <span class="nt">aggregation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">average</span>
+        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lt</span>
+        <span class="nt">threshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+        <span class="nt">timeframe</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">24</span>
+        <span class="nt">filter</span><span class="p">:</span>  <span class="s">&quot;DatabaseResourceId</span><span class="nv"> </span><span class="s">eq</span><span class="nv"> </span><span class="s">&#39;*&#39;&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -419,8 +428,8 @@ It can be used to filter resources on the presence, absence or value of a tag.</
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.armresource</span>
     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tag:Tag1</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
-<span class=" -Error">    </span><span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
+<span class=" -Error">    </span><span class="nt">actions</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
 </pre></div>
 </div>
 <p>This policy will find all VMs with the tag ‘Tag1’ absent</p>
@@ -478,10 +487,10 @@ Filters Azure resources based on previously scheduled operations via tags.</p>
   <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">find-vms-to-stop</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">marked-for-op</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
-<span class=" -Error">    </span><span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">marked-for-op</span>
+        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
+<span class=" -Error">    </span><span class="nt">actions</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
 </pre></div>
 </div>
 <p>Find VMs that have been marked for stopping tomorrow and notify <a class="reference external" href="mailto:user&#37;&#52;&#48;domain&#46;com">user<span>&#64;</span>domain<span>&#46;</span>com</a></p>
@@ -489,19 +498,19 @@ Filters Azure resources based on previously scheduled operations via tags.</p>
   <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">find-vms-to-stop</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">marked-for-op</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">marked-for-op</span>
         <span class="c1"># &#39;Fast-forward&#39; 1 day into future. skew_hours is used for hour increments</span>
-        <span class="l l-Scalar l-Scalar-Plain">skew</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
-<span class=" -Error">    </span><span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">notify</span>
-        <span class="l l-Scalar l-Scalar-Plain">template</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
-        <span class="l l-Scalar l-Scalar-Plain">subject</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">VMs Scheduled To Stop</span>
-        <span class="l l-Scalar l-Scalar-Plain">to</span><span class="p p-Indicator">:</span>
+        <span class="nt">skew</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
+<span class=" -Error">    </span><span class="nt">actions</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">notify</span>
+        <span class="nt">template</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+        <span class="nt">subject</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">VMs Scheduled To Stop</span>
+        <span class="nt">to</span><span class="p">:</span>
           <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user@domain.com</span>
-        <span class="l l-Scalar l-Scalar-Plain">transport</span><span class="p p-Indicator">:</span>
-          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">asq</span>
-            <span class="l l-Scalar l-Scalar-Plain">queue</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://accountname.queue.core.windows.net/test</span>
+        <span class="nt">transport</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">asq</span>
+            <span class="nt">queue</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://accountname.queue.core.windows.net/test</span>
 </pre></div>
 </div>
 <p>Cancel operation on resource marked for operation</p>
@@ -509,13 +518,13 @@ Filters Azure resources based on previously scheduled operations via tags.</p>
   <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">find-vms-to-stop</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.resourcegroup</span>
     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">marked-for-op</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">marked-for-op</span>
+        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
         <span class="c1"># custodian_status is default tag, but can be configured</span>
-        <span class="l l-Scalar l-Scalar-Plain">tag</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">custodian_status</span>
-<span class=" -Error">    </span><span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">untag</span>
-        <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;custodian_status&#39;</span><span class="p p-Indicator">]</span>
+        <span class="nt">tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">custodian_status</span>
+<span class=" -Error">    </span><span class="nt">actions</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">untag</span>
+        <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;custodian_status&#39;</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 </div>
@@ -560,16 +569,16 @@ The use of value_type: swap is important for these examples because it swaps the
   <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">find-load-balancers-with-logs-enabled</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.loadbalancer</span>
     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">diagnostic-settings</span>
-        <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">logs[?category == &#39;LoadBalancerProbeHealthStatus&#39;][].enabled</span>
-        <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">in</span>
-        <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">diagnostic-settings</span>
-        <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">logs[?category == &#39;LoadBalancerAlertEvent&#39;][].enabled</span>
-        <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">in</span>
-        <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">diagnostic-settings</span>
+        <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logs[?category == &#39;LoadBalancerProbeHealthStatus&#39;][].enabled</span>
+        <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">in</span>
+        <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">diagnostic-settings</span>
+        <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logs[?category == &#39;LoadBalancerAlertEvent&#39;][].enabled</span>
+        <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">in</span>
+        <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
 </pre></div>
 </div>
 <p>Find KeyVaults that have logs enabled for the AuditEvent category.</p>
@@ -577,11 +586,11 @@ The use of value_type: swap is important for these examples because it swaps the
   <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">find-keyvaults-with-logs-enabled</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.keyvault</span>
     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">diagnostic-settings</span>
-        <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">logs[?category == &#39;AuditEvent&#39;][].enabled</span>
-        <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">in</span>
-        <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">diagnostic-settings</span>
+        <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logs[?category == &#39;AuditEvent&#39;][].enabled</span>
+        <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">in</span>
+        <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
 </pre></div>
 </div>
 </div>
@@ -596,7 +605,7 @@ The use of value_type: swap is important for these examples because it swaps the
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="resources/accesscontrol.html" class="btn btn-neutral float-right" title="Access Control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="filters.html" class="btn btn-neutral float-right" title="Generic Filters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="genericarmaction.html" class="btn btn-neutral float-left" title="Generic Actions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

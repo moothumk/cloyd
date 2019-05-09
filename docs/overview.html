@@ -1,0 +1,490 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cloud Custodian &mdash; Cloud Custodian  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/c1_labs.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/expand.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/expand.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Overview" href="overview/index.html" />
+    <link rel="prev" title="Cloud Custodian Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Cloud Custodian
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cloud Custodian</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#links">Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-install">Quick Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-involved">Get Involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-tools">Additional Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-of-conduct">Code of Conduct</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/usage.html">Monitoring your environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/advanced.html">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/policyStructure.html">Example tag compliance policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/glossary.html">Basic concepts and terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/deployment.html">Deployment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">AWS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aws/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/examples/index.html">Example Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/policy/index.html">Filters and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/policy/lambda.html">Lambda Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Azure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="azure/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/authentication.html#azure-storage-access">Azure Storage access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/policy/index.html">Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/azure-modes.html">Azure Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/advanced/index.html">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/contribute.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/contribute.html#adding-new-azure-resources">Adding New Azure Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/contribute.html#testing">Testing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GCP</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gcp/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcp/gcp-modes.html">GCP Modes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-org.html">c7n-org: Multi Account Custodian Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-policystream.html">c7n-policystream: Policy Changes from Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-mailer.html">c7n-mailer: Custodian Mailer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-trailcreator.html">AWS Retroactive Tagging Resource Creators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contributing to Cloud Custodian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/index.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/installing.html">Installing for Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/tests.html">Testing for Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/documentation.html">Documentation For Developers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Cloud Custodian</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Cloud Custodian</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cloud-custodian">
+<h1>Cloud Custodian<a class="headerlink" href="#cloud-custodian" title="Permalink to this headline">¶</a></h1>
+<center><img src="https://cloudcustodian.io/img/logo_capone_devex_cloud_custodian.svg" alt="Cloud Custodian Logo" width="200px" height="200px" align_center/></center><hr class="docutils" />
+<p><a class="reference external" href="https://gitter.im/cloud-custodian/cloud-custodian?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img alt="https://badges.gitter.im/cloud-custodian/cloud-custodian.svg" src="https://badges.gitter.im/cloud-custodian/cloud-custodian.svg" /></a>
+<a class="reference external" href="https://dev.azure.com/cloud-custodian/cloud-custodian/_build"><img alt="https://dev.azure.com/cloud-custodian/cloud-custodian/_apis/build/status/cloud-custodian.cloud-custodian?branchName=master" src="https://dev.azure.com/cloud-custodian/cloud-custodian/_apis/build/status/cloud-custodian.cloud-custodian?branchName=master" /></a>
+<a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0"><img alt="https://img.shields.io/badge/license-Apache%202-blue.svg" src="https://img.shields.io/badge/license-Apache%202-blue.svg" /></a>
+<a class="reference external" href="https://codecov.io/gh/cloud-custodian/cloud-custodian"><img alt="https://codecov.io/gh/cloud-custodian/cloud-custodian/branch/master/graph/badge.svg" src="https://codecov.io/gh/cloud-custodian/cloud-custodian/branch/master/graph/badge.svg" /></a>
+<a class="reference external" href="https://requires.io/github/cloud-custodian/cloud-custodian/requirements/?branch=master"><img alt="https://requires.io/github/cloud-custodian/cloud-custodian/requirements.svg?branch=master" src="https://requires.io/github/cloud-custodian/cloud-custodian/requirements.svg?branch=master" /></a></p>
+<p>Cloud Custodian is a rules engine for managing public cloud accounts and
+resources. It allows users to define policies to enable a well managed
+cloud infrastructure, that’s both secure and cost optimized. It
+consolidates many of the adhoc scripts organizations have into a
+lightweight and flexible tool, with unified metrics and reporting.</p>
+<p>Custodian can be used to manage AWS, Azure, and GCP environments by
+ensuring real time compliance to security policies (like encryption and
+access requirements), tag policies, and cost management via garbage
+collection of unused resources and off-hours resource management.</p>
+<p>Custodian policies are written in simple YAML configuration files that
+enable users to specify policies on a resource type (EC2, ASG, Redshift,
+CosmosDB, PubSub Topic) and are constructed from a vocabulary of filters
+and actions.</p>
+<p>It integrates with the cloud native serverless capabilities of each
+provider to provide for real time enforcement of policies with builtin
+provisioning. Or it can be run as a simple cron job on a server to
+execute against large existing fleets.</p>
+<p>“<a class="reference external" href="https://cloudrumblings.io/cloud-adoption-engineering-the-next-generation-of-cloud-governance-21fb1a2eff60">Engineering the Next Generation of Cloud
+Governance</a>”
+by &#64;drewfirment</p>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Comprehensive support for public cloud services and resources with a
+rich library of actions and filters to build policies with.</p></li>
+<li><p>Supports arbitrary filtering on resources with nested boolean
+conditions.</p></li>
+<li><p>Dry run any policy to see what it would do.</p></li>
+<li><p>Automatically provisions serverless functions and event sources (
+AWS CloudWatchEvents, AWS Config Rules, Azure EventGrid, GCP
+AuditLog &amp; Pub/Sub, etc)</p></li>
+<li><p>Cloud provider native metrics outputs on resources that matched a
+policy</p></li>
+<li><p>Structured outputs into cloud native object storage of which
+resources matched a policy.</p></li>
+<li><p>Intelligent cache usage to minimize api calls.</p></li>
+<li><p>Supports multi-account/subscription/project usage.</p></li>
+<li><p>Battle-tested - in production on some very large cloud environments.</p></li>
+</ul>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://cloudcustodian.io">Homepage</a></p></li>
+<li><p><a class="reference external" href="http://cloudcustodian.io/docs/index.html">Docs</a></p></li>
+<li><p><a class="reference external" href="https://cloudcustodian.io/docs/developer/installing.html">Developer Install</a></p></li>
+<li><p><a class="reference external" href="https://www.google.com/search?q=cloud+custodian&amp;source=lnms&amp;tbm=vid">Presentations</a></p></li>
+</ul>
+</div>
+<div class="section" id="quick-install">
+<h2>Quick Install<a class="headerlink" href="#quick-install" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv custodian
+$ source custodian/bin/activate
+(custodian) $ pip install c7n
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>First a role must be created with the appropriate permissions for
+custodian to act on the resources described in the policies yaml given
+as an example below. For convenience, an <em>example policy</em> is provided for this
+quick start guide. Customized AWS IAM policies will be necessary for
+your own custodian policies</p>
+<p>To implement the policy:</p>
+<ol class="simple">
+<li><p>Open the AWS console</p></li>
+<li><p>Navigate to IAM -&gt; Policies</p></li>
+<li><p>Use the <em>json</em> option to copy the example policy as a
+new AWS IAM Policy</p></li>
+<li><p>Name the IAM policy as something recognizable and save it.</p></li>
+<li><p>Navigate to IAM -&gt; Roles and create a role called
+<em>CloudCustodian-QuickStart</em></p></li>
+<li><p>Assign the role the IAM policy created above.</p></li>
+</ol>
+<p>Now with the pre-requisite completed; you are ready continue and run
+custodian.</p>
+<p>A custodian policy file needs to be created in YAML format, as an
+example</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remediate-extant-keys</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+    <span class="no">Scan through all s3 buckets in an account and ensure all objects</span>
+    <span class="no">are encrypted (default to AES256).</span>
+  <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.s3</span>
+    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">encrypt-keys</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-require-non-public-and-encrypted-volumes</span>
+  <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.ec2</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+    <span class="no">Provision a lambda and cloud watch event target</span>
+    <span class="no">that looks at all new instances and terminates those with</span>
+    <span class="no">unencrypted volumes.</span>
+  <span class="nt">mode</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cloudtrail</span>
+    <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CloudCustodian-QuickStart</span>
+    <span class="nt">events</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">RunInstances</span>
+  <span class="nt">filters</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ebs</span>
+      <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Encrypted</span>
+      <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="nt">actions</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">terminate</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tag-compliance</span>
+  <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.ec2</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+    <span class="no">Schedule a resource that does not meet tag compliance policies</span>
+    <span class="no">to be stopped in four days.</span>
+  <span class="nt">filters</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">State.Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">running</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;tag:Environment&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;tag:AppId&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>
+    <span class="p p-Indicator">-</span> <span class="nt">or</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;tag:OwnerContact&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;tag:DeptID&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>
+  <span class="nt">actions</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mark-for-op</span>
+      <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
+      <span class="nt">days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+</pre></div>
+</div>
+<p>Given that, you can run Cloud Custodian with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Validate the configuration (note this happens by default on run)
+$ custodian validate policy.yml
+
+# Dryrun on the policies (no actions executed) to see what resources
+# match each policy.
+$ custodian run --dryrun -s out policy.yml
+
+# Run the policy
+$ custodian run -s out policy.yml
+</pre></div>
+</div>
+<p>You can run it with Docker as well</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Download the image
+$ docker pull cloudcustodian/c7n
+$ mkdir output
+
+# Run the policy
+#
+# This will run the policy using only the environment variables for authentication
+$ docker run -it \
+  -v $(pwd)/output:/home/custodian/output \
+  -v $(pwd)/policy.yml:/home/custodian/policy.yml \
+  --env-file &lt;(env | grep &quot;^AWS\|^AZURE\|^GOOGLE&quot;) \
+  cloudcustodian/c7n run -v -s /home/custodian/output /home/custodian/policy.yml
+
+# Run the policy (using AWS&#39;s generated credentials from STS)
+#
+# NOTE: We mount the ``.aws/credentials`` and ``.aws/config`` directories to
+# the docker container to support authentication to AWS using the same credentials
+# credentials that are available to the local user if authenticating with STS.
+# This exposes your container to additional credentials than may be necessary,
+# i.e. additional credentials may be available inside of the container than is
+# minimally necessary.
+
+$ docker run -it \
+  -v $(pwd)/output:/home/custodian/output \
+  -v $(pwd)/policy.yml:/home/custodian/policy.yml \
+  -v $(cd ~ &amp;&amp; pwd)/.aws/credentials/home/custodian/:.aws/credentials \
+  -v $(cd ~ &amp;&amp; pwd)/.aws/config:/home/custodian/.aws/config \
+  --env-file &lt;(env | grep &quot;^AWS&quot;) \
+  cloudcustodian/c7n run -v -s /home/custodian/output /home/custodian/policy.yml
+</pre></div>
+</div>
+<p>Custodian supports a few other useful subcommands and options, including
+outputs to S3, Cloudwatch metrics, STS role assumption. Policies go
+together like Lego bricks with actions and filters.</p>
+<p>Consult the documentation for additional information, or reach out on gitter.</p>
+</div>
+<div class="section" id="get-involved">
+<h2>Get Involved<a class="headerlink" href="#get-involved" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://reddit.com/r/cloudcustodian">Reddit</a></p></li>
+<li><p><a class="reference external" href="https://gitter.im/cloud-custodian/cloud-custodian">Gitter</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cloud-custodian/cloud-custodian">GitHub</a></p></li>
+<li><p><a class="reference external" href="https://groups.google.com/forum/#%21forum/cloud-custodian">Mailing List</a></p></li>
+</ul>
+</div>
+<div class="section" id="additional-tools">
+<h2>Additional Tools<a class="headerlink" href="#additional-tools" title="Permalink to this headline">¶</a></h2>
+<p>The Custodian project also develops and maintains a suite of additional
+tools here
+<a class="reference external" href="https://github.com/cloud-custodian/cloud-custodian/tree/master/tools">https://github.com/cloud-custodian/cloud-custodian/tree/master/tools</a>:</p>
+<ul class="simple">
+<li><p><strong><em>Org</em>:</strong> Multi-account policy execution.</p></li>
+<li><p><strong><em>PolicyStream</em>:</strong> Git history as stream of logical policy changes.</p></li>
+<li><p><strong><em>Salactus</em>:</strong> Scale out s3 scanning.</p></li>
+<li><p><strong><em>Mailer</em>:</strong> A reference implementation of sending messages to users to notify them.</p></li>
+<li><p><strong><em>TrailDB</em>:</strong> Cloudtrail indexing and time series generation for dashboarding.</p></li>
+<li><p><strong><em>LogExporter</em>:</strong> Cloud watch log exporting to s3</p></li>
+<li><p><strong><em>Index</em>:</strong> Indexing of custodian metrics and outputs for dashboarding</p></li>
+<li><p><strong><em>Sentry</em>:</strong> Cloudwatch Log parsing for python tracebacks to integrate with
+<a class="reference external" href="https://sentry.io/welcome/">https://sentry.io/welcome/</a></p></li>
+</ul>
+</div>
+<div class="section" id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<p>We welcome Your interest in Capital One’s Open Source Projects (the
+“Project”). Any Contributor to the Project must accept and sign an
+Agreement indicating agreement to the license terms below. Except for
+the license granted in this Agreement to Capital One and to recipients
+of software distributed by Capital One, You reserve all right, title,
+and interest in and to Your Contributions; this Agreement does not
+impact Your rights to use Your own Contributions for any other purpose.</p>
+<p><a class="reference external" href="https://docs.google.com/forms/d/19LpBBjykHPox18vrZvBbZUcK6gQTj7qv1O5hCduAZFU/viewform">Sign the Individual
+Agreement</a></p>
+<p><a class="reference external" href="https://docs.google.com/forms/d/e/1FAIpQLSeAbobIPLCVZD_ccgtMWBDAcN68oqbAJBQyDTSAQ1AkYuCp_g/viewform?usp=send_form">Sign the Corporate
+Agreement</a></p>
+</div>
+<div class="section" id="code-of-conduct">
+<h2>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permalink to this headline">¶</a></h2>
+<p>This project adheres to the <a class="reference external" href="https://developer.capitalone.com/single/code-of-conduct/">Open Code of Conduct</a>. By
+participating, you are expected to honor this code.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="overview/index.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Cloud Custodian Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Capital One Services, LLC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

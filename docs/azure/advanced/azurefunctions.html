@@ -86,15 +86,25 @@
             
               <p class="caption"><span class="caption-text">Introduction</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Cloud Custodian</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart/usage.html">Monitoring your environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../filters.html">Generic Filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart/advanced.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart/policyStructure.html">Example tag compliance policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/glossary.html">Basic concepts and terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/deployment.html">Deployment</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples</span></p>
+<p class="caption"><span class="caption-text">AWS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/examples/index.html">Example Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/policy/index.html">Filters and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/policy/lambda.html">Lambda Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Azure</span></p>
 <ul class="current">
@@ -103,6 +113,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../authentication.html#azure-storage-access">Azure Storage access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../policy/index.html">Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure-modes.html">Azure Modes</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Advanced Usage</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Azure Functions Support</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a><ul>
@@ -127,15 +138,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../contribute.html#adding-new-azure-resources">Adding New Azure Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute.html#testing">Testing</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Working with AWS Lambda</span></p>
+<p class="caption"><span class="caption-text">GCP</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../policy/lambda.html">Lambda Support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gcp/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gcp/gcp-modes.html">GCP Modes</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies reference</span></p>
+<p class="caption"><span class="caption-text">Tools</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../policy/index.html">Resource-Specific Filters and Actions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/c7n-org.html">c7n-org: Multi Account Custodian Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/c7n-policystream.html">c7n-policystream: Policy Changes from Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/c7n-mailer.html">c7n-mailer: Custodian Mailer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/c7n-trailcreator.html">AWS Retroactive Tagging Resource Creators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -143,12 +156,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer/installing.html">Installing for Developers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer/tests.html">Testing for Developers</a></li>
-</ul>
-<p class="caption"><span class="caption-text">API Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../generated/aws/modules.html">AWS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../generated/azure/modules.html">Azure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../generated/gcp/modules.html">GCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/documentation.html">Documentation For Developers</a></li>
 </ul>
 
             
@@ -276,66 +284,66 @@ and will use existing resources as-is. If resource doesn’t exist, it will be p
 </ul>
 <p>If you provide resource ids, Cloud Custodian verifies that resource exists before function app provisioning. It returns an error if resource is missing.</p>
 <p>An example on how to set the servicePlanName and accept defaults for the other values:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stopped-vm</span>
-    <span class="l l-Scalar l-Scalar-Plain">mode</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-periodic</span>
-        <span class="l l-Scalar l-Scalar-Plain">schedule</span><span class="p p-Indicator">:</span> <span class="s">&#39;0</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&#39;</span>
-        <span class="l l-Scalar l-Scalar-Plain">provision-options</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">servicePlan</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">functionshost</span>
-    <span class=" -Error"> </span><span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
-     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">instance-view</span>
-        <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">statuses[].code</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">not-in</span>
-        <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
-        <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="s">&quot;PowerState/running&quot;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">stopped-vm</span>
+    <span class="nt">mode</span><span class="p">:</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-periodic</span>
+        <span class="nt">schedule</span><span class="p">:</span> <span class="s">&#39;0</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&#39;</span>
+        <span class="nt">provision-options</span><span class="p">:</span>
+          <span class="nt">servicePlan</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">functionshost</span>
+    <span class=" -Error"> </span><span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
+     <span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">instance-view</span>
+        <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">statuses[].code</span>
+        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">not-in</span>
+        <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
+        <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;PowerState/running&quot;</span>
 </pre></div>
 </div>
 <p>An example on how to set size and location as well:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stopped-vm</span>
-    <span class="l l-Scalar l-Scalar-Plain">mode</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-periodic</span>
-        <span class="l l-Scalar l-Scalar-Plain">schedule</span><span class="p p-Indicator">:</span> <span class="s">&#39;0</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&#39;</span>
-        <span class="l l-Scalar l-Scalar-Plain">provision-options</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">servicePlan</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">functionshost</span>
-            <span class="l l-Scalar l-Scalar-Plain">location</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">East US</span>
-            <span class="l l-Scalar l-Scalar-Plain">skuTier</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Standard</span>
-            <span class="l l-Scalar l-Scalar-Plain">skuName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">S1</span>
-          <span class="l l-Scalar l-Scalar-Plain">appInsights</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">location</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">East US</span>
-          <span class="l l-Scalar l-Scalar-Plain">storageAccount</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sampleaccount</span>
-            <span class="l l-Scalar l-Scalar-Plain">location</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">East US</span>
-    <span class=" -Error"> </span><span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
-     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">instance-view</span>
-        <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">statuses[].code</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">not-in</span>
-        <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
-        <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="s">&quot;PowerState/running&quot;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">stopped-vm</span>
+    <span class="nt">mode</span><span class="p">:</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-periodic</span>
+        <span class="nt">schedule</span><span class="p">:</span> <span class="s">&#39;0</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&#39;</span>
+        <span class="nt">provision-options</span><span class="p">:</span>
+          <span class="nt">servicePlan</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">functionshost</span>
+            <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">East US</span>
+            <span class="nt">skuTier</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Standard</span>
+            <span class="nt">skuName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">S1</span>
+          <span class="nt">appInsights</span><span class="p">:</span>
+            <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">East US</span>
+          <span class="nt">storageAccount</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sampleaccount</span>
+            <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">East US</span>
+    <span class=" -Error"> </span><span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
+     <span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">instance-view</span>
+        <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">statuses[].code</span>
+        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">not-in</span>
+        <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
+        <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;PowerState/running&quot;</span>
 </pre></div>
 </div>
 <p>An example on how to use existing infrastructure:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stopped-vm</span>
-    <span class="l l-Scalar l-Scalar-Plain">mode</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-periodic</span>
-        <span class="l l-Scalar l-Scalar-Plain">schedule</span><span class="p p-Indicator">:</span> <span class="s">&#39;0</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&#39;</span>
-        <span class="l l-Scalar l-Scalar-Plain">provision-options</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">servicePlan</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/subscriptions/&lt;subscription_id&gt;/resourceGroups/cloud-custodian/providers/Microsoft.Web/serverFarms/existingResource</span>
-          <span class="l l-Scalar l-Scalar-Plain">appInsights</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/subscriptions/&lt;subscription_id&gt;/resourceGroups/cloud-custodian/providers/microsoft.insights/components/existingResource</span>
-          <span class="l l-Scalar l-Scalar-Plain">storageAccount</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/subscriptions/&lt;subscription_id&gt;/resourceGroups/cloud-custodian/providers/Microsoft.Storage/storageAccounts/existingResource</span>
-    <span class=" -Error"> </span><span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
-     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">instance-view</span>
-        <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">statuses[].code</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">not-in</span>
-        <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
-        <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="s">&quot;PowerState/running&quot;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">stopped-vm</span>
+    <span class="nt">mode</span><span class="p">:</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-periodic</span>
+        <span class="nt">schedule</span><span class="p">:</span> <span class="s">&#39;0</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&#39;</span>
+        <span class="nt">provision-options</span><span class="p">:</span>
+          <span class="nt">servicePlan</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/subscriptions/&lt;subscription_id&gt;/resourceGroups/cloud-custodian/providers/Microsoft.Web/serverFarms/existingResource</span>
+          <span class="nt">appInsights</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/subscriptions/&lt;subscription_id&gt;/resourceGroups/cloud-custodian/providers/microsoft.insights/components/existingResource</span>
+          <span class="nt">storageAccount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/subscriptions/&lt;subscription_id&gt;/resourceGroups/cloud-custodian/providers/Microsoft.Storage/storageAccounts/existingResource</span>
+    <span class=" -Error"> </span><span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
+     <span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">instance-view</span>
+        <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">statuses[].code</span>
+        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">not-in</span>
+        <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
+        <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;PowerState/running&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -350,23 +358,23 @@ be provided on the command line in non-serverless scenarios.</p>
 <li><p>dryrun</p></li>
 </ul>
 <p>Output directory defaults to <cite>/tmp/&lt;random_uuid&gt;</cite> but you can point it to a Azure Blob Storage container instead</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stopped-vm</span>
-    <span class="l l-Scalar l-Scalar-Plain">mode</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-periodic</span>
-        <span class="l l-Scalar l-Scalar-Plain">schedule</span><span class="p p-Indicator">:</span> <span class="s">&#39;0</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&#39;</span>
-        <span class="l l-Scalar l-Scalar-Plain">provision-options</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">servicePlan</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">functionshost</span>
-        <span class="l l-Scalar l-Scalar-Plain">execution-options</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">output_dir</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure://yourstorageaccount.blob.core.windows.net/custodian</span>
-    <span class=" -Error"> </span><span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
-     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">instance-view</span>
-        <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">statuses[].code</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">not-in</span>
-        <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
-        <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="s">&quot;PowerState/running&quot;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">stopped-vm</span>
+    <span class="nt">mode</span><span class="p">:</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-periodic</span>
+        <span class="nt">schedule</span><span class="p">:</span> <span class="s">&#39;0</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&#39;</span>
+        <span class="nt">provision-options</span><span class="p">:</span>
+          <span class="nt">servicePlan</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">functionshost</span>
+        <span class="nt">execution-options</span><span class="p">:</span>
+          <span class="nt">output_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure://yourstorageaccount.blob.core.windows.net/custodian</span>
+    <span class=" -Error"> </span><span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
+     <span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">instance-view</span>
+        <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">statuses[].code</span>
+        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">not-in</span>
+        <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
+        <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;PowerState/running&quot;</span>
 </pre></div>
 </div>
 <p>More details on Blob Storage output are at <a class="reference internal" href="bloboutput.html#azure-bloboutput"><span class="std std-ref">Blob Storage Output</span></a></p>
@@ -379,20 +387,20 @@ when any event is triggered in the subscription. Cloud custodian filters to the 
 ignores all other events.</p>
 <p>In order to subscribe on an event you need to provide the resource provider and the action, or provide the string
 of one of the <a class="reference external" href="https://github.com/cloud-custodian/cloud-custodian/blob/master/tools/c7n_azure/c7n_azure/azure_events.py">shortcuts</a>.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tag-key-vault-creator</span>
-      <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.keyvault</span>
-      <span class="l l-Scalar l-Scalar-Plain">mode</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-event-grid</span>
-        <span class="l l-Scalar l-Scalar-Plain">events</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[{</span>
-            <span class="nv">resourceProvider</span><span class="p p-Indicator">:</span> <span class="s">&#39;Microsoft.KeyVault/vaults&#39;</span><span class="p p-Indicator">,</span>
-            <span class="nv">event</span><span class="p p-Indicator">:</span> <span class="s">&#39;write&#39;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tag-key-vault-creator</span>
+      <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.keyvault</span>
+      <span class="nt">mode</span><span class="p">:</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-event-grid</span>
+        <span class="nt">events</span><span class="p">:</span> <span class="p p-Indicator">[{</span>
+<span class="nt">            resourceProvider</span><span class="p">:</span> <span class="s">&#39;Microsoft.KeyVault/vaults&#39;</span><span class="p p-Indicator">,</span>
+<span class="nt">            event</span><span class="p">:</span> <span class="s">&#39;write&#39;</span>
           <span class="p p-Indicator">}]</span>
-      <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+      <span class="nt">filters</span><span class="p">:</span>
         <span class="p p-Indicator">-</span> <span class="s">&quot;tag:CreatorEmail&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">null</span>
-      <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">auto-tag-user</span>
-          <span class="l l-Scalar l-Scalar-Plain">tag</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CreatorEmail</span>
+      <span class="nt">actions</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">auto-tag-user</span>
+          <span class="nt">tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CreatorEmail</span>
 </pre></div>
 </div>
 </div>

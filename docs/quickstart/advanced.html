@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Example tag compliance policy" href="policyStructure.html" />
-    <link rel="prev" title="Monitoring your environment" href="usage.html" /> 
+    <link rel="prev" title="Generic Filters" href="../filters.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,9 +86,11 @@
             
               <p class="caption"><span class="caption-text">Introduction</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Cloud Custodian</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Monitoring your environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#running-against-multiple-regions">Running against multiple regions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reporting-against-multiple-regions">Reporting against multiple regions</a></li>
@@ -98,10 +100,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="policyStructure.html">Example tag compliance policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/glossary.html">Basic concepts and terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/deployment.html">Deployment</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples</span></p>
+<p class="caption"><span class="caption-text">AWS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/examples/index.html">Example Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/policy/index.html">Filters and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/policy/lambda.html">Lambda Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Azure</span></p>
 <ul>
@@ -110,20 +120,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../azure/authentication.html#azure-storage-access">Azure Storage access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/policy/index.html">Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/azure-modes.html">Azure Modes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/advanced/index.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html#adding-new-azure-resources">Adding New Azure Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html#testing">Testing</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Working with AWS Lambda</span></p>
+<p class="caption"><span class="caption-text">GCP</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../policy/lambda.html">Lambda Support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gcp/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gcp/gcp-modes.html">GCP Modes</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies reference</span></p>
+<p class="caption"><span class="caption-text">Tools</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../policy/index.html">Resource-Specific Filters and Actions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-org.html">c7n-org: Multi Account Custodian Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-policystream.html">c7n-policystream: Policy Changes from Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-mailer.html">c7n-mailer: Custodian Mailer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-trailcreator.html">AWS Retroactive Tagging Resource Creators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -131,12 +144,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/installing.html">Installing for Developers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/tests.html">Testing for Developers</a></li>
-</ul>
-<p class="caption"><span class="caption-text">API Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../generated/aws/modules.html">AWS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../generated/azure/modules.html">Azure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../generated/gcp/modules.html">GCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/documentation.html">Documentation For Developers</a></li>
 </ul>
 
             
@@ -269,13 +277,13 @@ If no <code class="docutils literal notranslate"><span class="pre">tz</span></co
 <li><p>a offset-naive time with up to second precision (example: <code class="docutils literal notranslate"><span class="pre">2:03:01</span> <span class="pre">PM</span></code> <code class="docutils literal notranslate"><span class="pre">16:03:01</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">AM</span></code>)</p></li>
 <li><p>a date and a offset-naive time with up to second precision (example: <code class="docutils literal notranslate"><span class="pre">1-1-2018</span> <span class="pre">2</span> <span class="pre">PM</span></code>, <code class="docutils literal notranslate"><span class="pre">January</span> <span class="pre">1</span> <span class="pre">2018</span> <span class="pre">14:00:00</span></code>)</p></li>
 </ul>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
 
   <span class="c1"># other compliance related policies that</span>
   <span class="c1"># should always be running...</span>
 
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">holiday-break-stop</span>
-    <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">holiday-break-stop</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
       <span class="no">This policy will stop all EC2 instances</span>
       <span class="no">if the current date is between  12-15-2018</span>
       <span class="no">to 12-31-2018 when the policy is run.</span>
@@ -283,26 +291,26 @@ If no <code class="docutils literal notranslate"><span class="pre">tz</span></co
       <span class="no">Use this in conjunction with a cron job</span>
       <span class="no">to ensure that the environment is fully</span>
       <span class="no">turned off during the break.</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
-    <span class="l l-Scalar l-Scalar-Plain">start</span><span class="p p-Indicator">:</span> <span class="s">&quot;2018-12-15&quot;</span>
-    <span class="l l-Scalar l-Scalar-Plain">end</span><span class="p p-Indicator">:</span> <span class="s">&quot;2018-12-31&quot;</span>
-    <span class="l l-Scalar l-Scalar-Plain">tz</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">UTC</span>
-    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
+    <span class="nt">start</span><span class="p">:</span> <span class="s">&quot;2018-12-15&quot;</span>
+    <span class="nt">end</span><span class="p">:</span> <span class="s">&quot;2018-12-31&quot;</span>
+    <span class="nt">tz</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UTC</span>
+    <span class="nt">filters</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;tag:holiday-off-hours&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
-    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+    <span class="nt">actions</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
 
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">holiday-break-start</span>
-    <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">holiday-break-start</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
       <span class="no">This policy will start up all EC2 instances</span>
       <span class="no">and only run on 1-1-2019.</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
-    <span class="l l-Scalar l-Scalar-Plain">start</span><span class="p p-Indicator">:</span> <span class="s">&quot;2019-1-1&quot;</span>
-    <span class="l l-Scalar l-Scalar-Plain">end</span><span class="p p-Indicator">:</span> <span class="s">&quot;2019-1-1</span><span class="nv"> </span><span class="s">23:59:59&quot;</span>
-    <span class="l l-Scalar l-Scalar-Plain">tz</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">UTC</span>
-    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
+    <span class="nt">start</span><span class="p">:</span> <span class="s">&quot;2019-1-1&quot;</span>
+    <span class="nt">end</span><span class="p">:</span> <span class="s">&quot;2019-1-1</span><span class="nv"> </span><span class="s">23:59:59&quot;</span>
+    <span class="nt">tz</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UTC</span>
+    <span class="nt">filters</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;tag:holiday-off-hours&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
-    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+    <span class="nt">actions</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">start</span>
 </pre></div>
 </div>
@@ -314,10 +322,10 @@ environment that match a policy’s filters. Custodian also allows policy
 authors to stop policy execution if a policy affects more resources then
 expected, either as a number of resources or as a percentage of total extant
 resources.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
 
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">log-delete</span>
-    <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">log-delete</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
       <span class="no">This policy will delete all log groups</span>
       <span class="no">that haven&#39;t been written to in 5 days.</span>
 
@@ -325,12 +333,12 @@ resources.</p>
       <span class="no">if the number of log groups that would</span>
       <span class="no">be affected is more than 5% of the total</span>
       <span class="no">log groups in the account&#39;s region.</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.log-group</span>
-    <span class="l l-Scalar l-Scalar-Plain">max-resources-percent</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-    <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">last-write</span>
-        <span class="l l-Scalar l-Scalar-Plain">days</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.log-group</span>
+    <span class="nt">max-resources-percent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+    <span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">last-write</span>
+        <span class="nt">days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+    <span class="nt">actions</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
 </pre></div>
 </div>
@@ -346,22 +354,22 @@ metric named <cite>ResourceLimitExceeded</cite> will be published with the numbe
 of resources that matched the policy.</p>
 <p>Max resources can also be specified as an object with an <cite>or</cite> or <cite>and</cite> operator
 if you would like both a resource percent and a resource amount enforced.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">policies</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
 
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">log-delete</span>
-    <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">log-delete</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
   <span class="l l-Scalar l-Scalar-Plain">This policy will not execute if</span>
   <span class="l l-Scalar l-Scalar-Plain">the resources affected are over 50% of</span>
   <span class="l l-Scalar l-Scalar-Plain">the total resource type amount and that</span>
   <span class="l l-Scalar l-Scalar-Plain">amount is over 20.</span>
     <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.log-group</span>
     <span class="l l-Scalar l-Scalar-Plain">max-resources</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">percent</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">amount</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">and</span>
-  <span class=" -Error">  </span><span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">last-write</span>
-  <span class="l l-Scalar l-Scalar-Plain">days</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+      <span class="p p-Indicator">-</span> <span class="nt">percent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
+      <span class="p p-Indicator">-</span> <span class="nt">amount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
+      <span class="p p-Indicator">-</span> <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">and</span>
+  <span class=" -Error">  </span><span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">last-write</span>
+  <span class="nt">days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
     <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
 </pre></div>
@@ -400,7 +408,7 @@ flag can be specified and then specific fields can be added in, e.g.:</p>
         <a href="policyStructure.html" class="btn btn-neutral float-right" title="Example tag compliance policy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="usage.html" class="btn btn-neutral float-left" title="Monitoring your environment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../filters.html" class="btn btn-neutral float-left" title="Generic Filters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

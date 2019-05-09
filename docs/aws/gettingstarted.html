@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; Cloud Custodian  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/c1_labs.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/expand.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/expand.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Example Policies" href="examples/index.html" />
+    <link rel="prev" title="Deployment" href="../overview/deployment.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cloud Custodian
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Cloud Custodian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/usage.html">Monitoring your environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/advanced.html">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/policyStructure.html">Example tag compliance policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/glossary.html">Basic concepts and terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/deployment.html">Deployment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">AWS</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#write-your-first-policy">Write your first policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-your-policy">Run your policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitor-aws">Monitor AWS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting-tinkering">Troubleshooting &amp; Tinkering</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Example Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy/index.html">Filters and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy/lambda.html">Lambda Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Azure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../azure/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/authentication.html#azure-storage-access">Azure Storage access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/policy/index.html">Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/azure-modes.html">Azure Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/advanced/index.html">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html#adding-new-azure-resources">Adding New Azure Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html#testing">Testing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GCP</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gcp/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gcp/gcp-modes.html">GCP Modes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-org.html">c7n-org: Multi Account Custodian Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-policystream.html">c7n-policystream: Policy Changes from Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-mailer.html">c7n-mailer: Custodian Mailer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-trailcreator.html">AWS Retroactive Tagging Resource Creators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contributing to Cloud Custodian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/installing.html">Installing for Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/tests.html">Testing for Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/documentation.html">Documentation For Developers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cloud Custodian</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<span id="aws-gettingstarted"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="write-your-first-policy">
+<span id="aws-write-policy"></span><h2>Write your first policy<a class="headerlink" href="#write-your-first-policy" title="Permalink to this headline">¶</a></h2>
+<p>A policy specifies the following items:</p>
+<ul class="simple">
+<li><p>The type of resource to run the policy against</p></li>
+<li><p>Filters to narrow down the set of resources</p></li>
+<li><p>Actions to take on the filtered set of resources</p></li>
+</ul>
+<p>For this tutorial, let’s stop all EC2 instances that are tagged with
+<code class="docutils literal notranslate"><span class="pre">Custodian</span></code>. To get started, go make an EC2 instance in your <a class="reference external" href="https://console.aws.amazon.com/">AWS console</a>, and tag it with the key <code class="docutils literal notranslate"><span class="pre">Custodian</span></code> (any
+value).  Also, make sure you have an access key handy.</p>
+<p>Then, create a file named <code class="docutils literal notranslate"><span class="pre">custodian.yml</span></code> with this content:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-first-policy</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.ec2</span>
+    <span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;tag:Custodian&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+</pre></div>
+</div>
+<p>At this point, we have specified the following things:</p>
+<ol class="arabic simple">
+<li><p>The name of the policy</p></li>
+<li><p>The resource type to query against, in this case (aws.ec2)</p></li>
+<li><p>The filters list</p></li>
+<li><p>The Custodian tag filter</p></li>
+</ol>
+<p>Running this policy will not execute any actions as the actions list does not exist.</p>
+<p>We can extend this example to stop the instances that are actually filtered in by the
+Custodian tag filter by simply specifying the <code class="docutils literal notranslate"><span class="pre">stop</span></code> action:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-first-policy</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.ec2</span>
+    <span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;tag:Custodian&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+    <span class="nt">actions</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">stop .. _aws-run-policy</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-your-policy">
+<h2>Run your policy<a class="headerlink" href="#run-your-policy" title="Permalink to this headline">¶</a></h2>
+<p>Now, run Custodian:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span> <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span> custodian run --output-dir<span class="o">=</span>. custodian.yml
+</pre></div>
+</div>
+<p>Note: If you already have AWS credentials configured for AWS CLI or SDK access, then you may omit providing them on the command line.
+If successful, you should see output similar to the following on the command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2016</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">08</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mi">06</span><span class="p">,</span><span class="mi">133</span><span class="p">:</span> <span class="n">custodian</span><span class="o">.</span><span class="n">policy</span><span class="p">:</span><span class="n">INFO</span> <span class="n">Running</span> <span class="n">policy</span> <span class="n">my</span><span class="o">-</span><span class="n">first</span><span class="o">-</span><span class="n">policy</span> <span class="n">resource</span><span class="p">:</span> <span class="n">ec2</span> <span class="n">region</span><span class="p">:</span><span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span> <span class="n">c7n</span><span class="p">:</span><span class="mf">0.8</span><span class="o">.</span><span class="mf">21.2</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">08</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mi">07</span><span class="p">,</span><span class="mi">514</span><span class="p">:</span> <span class="n">custodian</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">ec2</span><span class="p">:</span><span class="n">INFO</span> <span class="n">Filtered</span> <span class="kn">from</span> <span class="mi">3</span> <span class="n">to</span> <span class="mi">1</span> <span class="n">ec2</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">08</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mi">07</span><span class="p">,</span><span class="mi">514</span><span class="p">:</span> <span class="n">custodian</span><span class="o">.</span><span class="n">policy</span><span class="p">:</span><span class="n">INFO</span> <span class="n">policy</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">first</span><span class="o">-</span><span class="n">policy</span> <span class="n">resource</span><span class="p">:</span><span class="n">ec2</span> <span class="n">has</span> <span class="n">count</span><span class="p">:</span><span class="mi">1</span> <span class="n">time</span><span class="p">:</span><span class="mf">1.38</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">08</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mi">07</span><span class="p">,</span><span class="mi">515</span><span class="p">:</span> <span class="n">custodian</span><span class="o">.</span><span class="n">actions</span><span class="p">:</span><span class="n">INFO</span> <span class="n">Stop</span> <span class="mi">1</span> <span class="n">of</span> <span class="mi">1</span> <span class="n">instances</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">20</span> <span class="mi">08</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mi">08</span><span class="p">,</span><span class="mi">188</span><span class="p">:</span> <span class="n">custodian</span><span class="o">.</span><span class="n">policy</span><span class="p">:</span><span class="n">INFO</span> <span class="n">policy</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">first</span><span class="o">-</span><span class="n">policy</span> <span class="n">action</span><span class="p">:</span> <span class="n">stop</span> <span class="n">resources</span><span class="p">:</span> <span class="mi">1</span> <span class="n">execution_time</span><span class="p">:</span> <span class="mf">0.67</span>
+</pre></div>
+</div>
+<p>You should also find a new <code class="docutils literal notranslate"><span class="pre">my-first-policy</span></code> directory with a log and other
+files (subsequent runs will append to the log by default rather than
+overwriting it). Lastly, you should find the instance stopping or stopped in
+your AWS console. Congratulations, and welcome to Custodian!</p>
+<p>For more information on basic concepts and terms, check the <a class="reference internal" href="../overview/glossary.html#glossary"><span class="std std-ref">glossary</span></a>. See our extended example of a policy’s structure
+<a class="reference internal" href="../quickstart/policyStructure.html#policystructure"><span class="std std-ref">tag compliance policy</span></a>, or browse all of our
+<a class="reference internal" href="examples/index.html#usecases"><span class="std std-ref">use case recipes</span></a>.</p>
+</div>
+<div class="section" id="monitor-aws">
+<span id="monitor-aws-cc"></span><h2>Monitor AWS<a class="headerlink" href="#monitor-aws" title="Permalink to this headline">¶</a></h2>
+<p>You can generate CloudWatch metrics by specifying the <code class="docutils literal notranslate"><span class="pre">--metrics</span></code> flag and specifying <code class="docutils literal notranslate"><span class="pre">aws</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ custodian run -s &lt;output_directory&gt; --metrics aws &lt;policyfile&gt;.yml
+</pre></div>
+</div>
+<p>You can also upload Cloud Custodian logs to CloudWatch logs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ custodian run --log-group=/cloud-custodian/&lt;dev-account&gt;/&lt;region&gt; -s &lt;output_directory&gt; &lt;policyfile&gt;.yml
+</pre></div>
+</div>
+<p>And you can output logs and resource records to S3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ custodian run -s s3://&lt;my-bucket&gt;&lt;my-prefix&gt; &lt;policyfile&gt;.yml
+</pre></div>
+</div>
+<p>If Custodian is being run without Assume Roles, all output will be put into the same account.
+Custodian is built with the ability to be run from different accounts and leverage STS
+Role Assumption for cross-account access. Users can leverage the metrics that are
+being generated after each run by creating Custodian Dashboards in CloudWatch.</p>
+<div class="section" id="troubleshooting-tinkering">
+<h3>Troubleshooting &amp; Tinkering<a class="headerlink" href="#troubleshooting-tinkering" title="Permalink to this headline">¶</a></h3>
+<p>If you are not using the <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code> region, then you’ll need to specify that
+as well, either on the command line or in an environment variable:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>--region<span class="o">=</span>us-west-1
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span>us-west-1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="examples/index.html" class="btn btn-neutral float-right" title="Example Policies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../overview/deployment.html" class="btn btn-neutral float-left" title="Deployment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Capital One Services, LLC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

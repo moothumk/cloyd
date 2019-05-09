@@ -39,7 +39,7 @@
   <link rel="stylesheet" href="_static/css/expand.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Overview" href="overview/index.html" /> 
+    <link rel="next" title="Cloud Custodian" href="overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,15 +85,25 @@
             
               <p class="caption"><span class="caption-text">Introduction</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Cloud Custodian</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/usage.html">Monitoring your environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Generic Filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/advanced.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/policyStructure.html">Example tag compliance policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/glossary.html">Basic concepts and terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/deployment.html">Deployment</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples</span></p>
+<p class="caption"><span class="caption-text">AWS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/examples/index.html">Example Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/policy/index.html">Filters and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/policy/lambda.html">Lambda Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Azure</span></p>
 <ul>
@@ -102,20 +112,23 @@
 <li class="toctree-l1"><a class="reference internal" href="azure/authentication.html#azure-storage-access">Azure Storage access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/policy/index.html">Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/azure-modes.html">Azure Modes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/advanced/index.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/contribute.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/contribute.html#adding-new-azure-resources">Adding New Azure Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/contribute.html#testing">Testing</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Working with AWS Lambda</span></p>
+<p class="caption"><span class="caption-text">GCP</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="policy/lambda.html">Lambda Support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcp/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcp/gcp-modes.html">GCP Modes</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies reference</span></p>
+<p class="caption"><span class="caption-text">Tools</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="policy/index.html">Resource-Specific Filters and Actions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-org.html">c7n-org: Multi Account Custodian Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-policystream.html">c7n-policystream: Policy Changes from Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-mailer.html">c7n-mailer: Custodian Mailer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-trailcreator.html">AWS Retroactive Tagging Resource Creators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -123,12 +136,7 @@
 <li class="toctree-l1"><a class="reference internal" href="developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer/installing.html">Installing for Developers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer/tests.html">Testing for Developers</a></li>
-</ul>
-<p class="caption"><span class="caption-text">API Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="generated/aws/modules.html">AWS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generated/azure/modules.html">Azure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generated/gcp/modules.html">GCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/documentation.html">Documentation For Developers</a></li>
 </ul>
 
             
@@ -199,19 +207,29 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Introduction</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Cloud Custodian</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#links">Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#quick-install">Quick Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#get-involved">Get Involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#additional-tools">Additional Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#code-of-conduct">Code of Conduct</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="overview/index.html">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="overview/capabilities.html">Capabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview/capabilities.html#aws">AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview/capabilities.html#azure">Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview/capabilities.html#gcp">GCP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview/glossary.html">Basic concepts and terms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview/roadmap.html">Roadmap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview/comparisons.html">Comparisons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview/deployment.html">Deployment</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/index.html">Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="quickstart/index.html#install-cloud-custodian">Install Cloud Custodian</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart/index.html#write-your-first-policy">Write your first policy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart/index.html#run-your-policy">Run your policy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart/index.html#explore-cloud-custodian">Explore Cloud Custodian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/index.html#cloud-provider-specific-help">Cloud Provider Specific Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart/index.html#monitor-resources">Monitor resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart/index.html#tab-completion">Tab Completion</a></li>
 </ul>
@@ -223,6 +241,12 @@
 <li class="toctree-l2"><a class="reference internal" href="quickstart/usage.html#reports">Reports</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Generic Filters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="filters.html#value-filter">Value Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html#age-filter">Age Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html#event-filter">Event Filter</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/advanced.html">Advanced Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="quickstart/advanced.html#running-against-multiple-regions">Running against multiple regions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart/advanced.html#reporting-against-multiple-regions">Reporting against multiple regions</a></li>
@@ -232,12 +256,102 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/policyStructure.html">Example tag compliance policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/glossary.html">Basic concepts and terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/deployment.html">Deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview/deployment.html#compliance-as-code">Compliance as Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview/deployment.html#continuous-integration-of-policies">Continuous Integration of Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview/deployment.html#iam-setup">IAM Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview/deployment.html#single-node-deployment">Single Node Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview/deployment.html#monitoring-cloud-custodian">Monitoring Cloud Custodian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview/deployment.html#mailer-and-notifications-deployment">Mailer and Notifications Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview/deployment.html#multi-account-execution">Multi Account Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview/deployment.html#advanced-continuous-integration-tips">Advanced Continuous Integration Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview/deployment.html#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Examples</span></p>
+<p class="caption"><span class="caption-text">AWS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/gettingstarted.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aws/gettingstarted.html#write-your-first-policy">Write your first policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/gettingstarted.html#run-your-policy">Run your policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/gettingstarted.html#monitor-aws">Monitor AWS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aws/examples/index.html">Example Policies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/accountinvalidiplogin.html">Account - Login From Invalid IP Address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/accountrootlogin.html">Account - Detect Root Logins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/accountservicelimit.html">Account - Service Limit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/amicomp.html">AMI - Stop EC2 using Unapproved AMIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/asginvalidconfig.html">AutoScaling Group - Verify ASGs have valid configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/asgoffhours.html">ASG - Offhours Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/blocknonstandardregionresources.html">Block New Resources In Non-Standard Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/dmsenforcessl.html">DMS - DB Migration Service Endpoint - Enforce SSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/ebsgarbagecollect.html">EBS - Garbage Collect Unattached Volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/ebssnapshots.html">EBS - Create and Manage Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/ebsunencrypted.html">EBS - Delete Unencrypted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/ec2-auto-tag-user.html">EC2 - auto-tag aws userName on resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/ec2offhours.html">EC2 - Offhours Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/ec2oldinstances.html">EC2 - Old Instance Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/ec2poweronstoppedforpatching.html">EC2 - Power On For Scheduled Patching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/ec2unpatchedworkflow.html">EC2 - Terminate Unpatchable Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/elbdeleteinetfacing.html">ELB - Delete New Internet-Facing ELBs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/elbgarbagecollection.html">ELB - Delete Unused Elastic Load Balancers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/elbsslblacklist.html">ELB - SSL Blacklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/elbsslwhitelist.html">ELB - SSL Whitelist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/iamsetrolepolicy.html">IAM - Manage Whether A Specific IAM Policy is Attached to Roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/lambdaerrorsnotify.html">Lambda - Notify On Lambda Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/offhours.html">Example offhours policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/rdsdeleteunused.html">RDS - Delete Unused Databases With No Connections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/rdspublicunencrypted.html">RDS - Terminate Unencrypted Public Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/s3configurenewbucket.html">S3 - Configure New Buckets Settings and Standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/s3denypublicobjectacls.html">S3 - Block Public S3 Object ACLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/s3encryption.html">S3 - Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/s3globalgrants.html">S3 - Global Grants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/sagemakernotebookdeletepublicorunencrypted.html">SageMaker Notebook - Delete Public or Unencrypted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/securitygroupsdetectremediate.html">Security Groups - Detect and Remediate Violations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/tagcompliance.html">Tag Compliance Across Resources (EC2, ASG, ELB, S3, etc)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/vpcflowlog.html">VPC - Flow Log Configuration Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/examples/vpcpeeringcrossaccount.html">VPC - Notify On Invalid External Peering Connections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aws/policy/index.html">Filters and Actions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/ami.html">Amazon Machine Images (AMI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/appelb.html">Application Load Balancers (AppELB)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/asg.html">Auto Scaling Groups (ASG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/cache-cluster.html">ElastiCache Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/cache-snapshot.html">ElastiCache Cluster Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/cfn.html">CloudFormation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/ebs.html">Elastic Block Store Volumes (EBS Volumes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/ebs-snapshot.html">Elastic Block Store Snapshots (EBS Snapshots)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/ec2.html">Elastic Cloud Compute (EC2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/elb.html">Elastic Load Balancers (ELB)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/kms.html">Key Management Service (KMS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/rds.html">Relational Database Service (RDS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/rds-cluster.html">Relational Database Service DB Clusters (RDS DB Clusters)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/rds-cluster-snapshot.html">Relational Database Service DB Cluster Snapshots (RDS DB Cluster Snapshots)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/rds-snapshot.html">Relational Database Service DB Snapshots (RDS DB Snapshots)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/redshift.html">Redshift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/s3.html">Simple Storage Service (S3)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Generic Filters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="filters.html#value-filter">Value Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html#age-filter">Age Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html#event-filter">Event Filter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aws/aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/policy/lambda.html">Lambda Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/lambda.html#cloudwatch-events">CloudWatch Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/lambda.html#config-rules">Config Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/lambda.html#lambda-configuration">Lambda Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/policy/lambda.html#execution-options">Execution Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aws/policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -248,6 +362,7 @@
 <li class="toctree-l1"><a class="reference internal" href="azure/authentication.html#azure-storage-access">Azure Storage access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/policy/index.html">Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/azure-modes.html">Azure Modes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/advanced/index.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/contribute.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/contribute.html#adding-new-azure-resources">Adding New Azure Resources</a></li>
@@ -255,43 +370,47 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Working with AWS Lambda</span></p>
+<p class="caption"><span class="caption-text">GCP</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="policy/lambda.html">Lambda Support</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="policy/lambda.html#cloudwatch-events">CloudWatch Events</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/lambda.html#config-rules">Config Rules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/lambda.html#execution-options">Execution Options</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcp/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcp/gcp-modes.html">GCP Modes</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Policies reference</span></p>
+<p class="caption"><span class="caption-text">Tools</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="policy/index.html">Resource-Specific Filters and Actions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/ami.html">Amazon Machine Images (AMI)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/appelb.html">Application Load Balancers (AppELB)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/asg.html">Auto Scaling Groups (ASG)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/cache-cluster.html">ElastiCache Clusters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/cache-snapshot.html">ElastiCache Cluster Snapshots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/cfn.html">CloudFormation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/ebs.html">Elastic Block Store Volumes (EBS Volumes)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/ebs-snapshot.html">Elastic Block Store Snapshots (EBS Snapshots)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/ec2.html">Elastic Cloud Compute (EC2)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/elb.html">Elastic Load Balancers (ELB)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/kms.html">Key Management Service (KMS)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/rds.html">Relational Database Service (RDS)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/rds-cluster.html">Relational Database Service DB Clusters (RDS DB Clusters)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/rds-cluster-snapshot.html">Relational Database Service DB Cluster Snapshots (RDS DB Cluster Snapshots)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/rds-snapshot.html">Relational Database Service DB Snapshots (RDS DB Snapshots)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/redshift.html">Redshift</a></li>
-<li class="toctree-l2"><a class="reference internal" href="policy/resources/s3.html">Simple Storage Service (S3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-org.html">c7n-org: Multi Account Custodian Execution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-org.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-org.html#running-a-policy-with-c7n-org">Running a Policy with c7n-org</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-org.html#selecting-accounts-and-policy-for-execution">Selecting accounts and policy for execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-org.html#defining-and-using-variables">Defining and using variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-org.html#other-commands">Other commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-org.html#additional-azure-instructions">Additional Azure Instructions</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="filters.html">Generic Filters</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="filters.html#value-filters">Value Filters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters.html#jmespath-filter">JMESPath Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-policystream.html">c7n-policystream: Policy Changes from Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-policystream.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-policystream.html#build">Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-policystream.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-policystream.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-mailer.html">c7n-mailer: Custodian Mailer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-mailer.html#message-relay">Message Relay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-mailer.html#tutorial">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-mailer.html#usage-configuration">Usage &amp; Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-mailer.html#configuring-a-policy-to-send-email">Configuring a policy to send email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-mailer.html#using-on-azure">Using on Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-mailer.html#writing-an-email-template">Writing an email template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-mailer.html#developer-install-os-x-el-capitan">Developer Install (OS X El Capitan)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-mailer.html#testing-templates-and-recipients">Testing Templates and Recipients</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-trailcreator.html">AWS Retroactive Tagging Resource Creators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-trailcreator.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-trailcreator.html#config-file">Config File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-trailcreator.html#tagging">Tagging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools/c7n-trailcreator.html#multi-account-multi-region">Multi Account / Multi Region</a></li>
 </ul>
 </li>
 </ul>
@@ -318,32 +437,14 @@
 <li class="toctree-l2"><a class="reference internal" href="developer/tests.html#writing-placebo-tests-for-aws-resources">Writing Placebo Tests for AWS Resources</a></li>
 </ul>
 </li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">API Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="generated/aws/modules.html">AWS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="generated/aws/c7n.html">c7n package</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="generated/azure/modules.html">Azure</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="generated/azure/c7n_azure.html">c7n_azure package</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="generated/gcp/modules.html">GCP</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="generated/gcp/c7n_gcp.html">c7n_gcp package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/documentation.html">Documentation For Developers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer/documentation.html#find-the-documentation">Find the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer/documentation.html#edit-the-documentation">Edit the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer/documentation.html#render-the-documentation">Render the Documentation</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-</ul>
 </div>
 
 
@@ -354,7 +455,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="overview/index.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="overview.html" class="btn btn-neutral float-right" title="Cloud Custodian" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

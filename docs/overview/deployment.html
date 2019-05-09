@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../_static/css/expand.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Getting Started" href="../quickstart/index.html" />
-    <link rel="prev" title="Comparisons" href="comparisons.html" /> 
+    <link rel="next" title="Getting Started" href="../aws/gettingstarted.html" />
+    <link rel="prev" title="Example tag compliance policy" href="../quickstart/policyStructure.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,22 +86,36 @@
             
               <p class="caption"><span class="caption-text">Introduction</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Overview</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="capabilities.html">Capabilities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="glossary.html">Basic concepts and terms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="comparisons.html">Comparisons</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Deployment</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Cloud Custodian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/usage.html">Monitoring your environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/advanced.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/policyStructure.html">Example tag compliance policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Basic concepts and terms</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#compliance-as-code">Compliance as Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#continuous-integration-of-policies">Continuous Integration of Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iam-setup">IAM Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#single-node-deployment">Single Node Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoring-cloud-custodian">Monitoring Cloud Custodian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mailer-and-notifications-deployment">Mailer and Notifications Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-account-execution">Multi Account Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-continuous-integration-tips">Advanced Continuous Integration Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-resources">Additional Resources</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples</span></p>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">AWS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/examples/index.html">Example Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/policy/index.html">Filters and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/policy/lambda.html">Lambda Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Azure</span></p>
 <ul>
@@ -110,20 +124,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../azure/authentication.html#azure-storage-access">Azure Storage access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/policy/index.html">Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/azure-modes.html">Azure Modes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/advanced/index.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html#adding-new-azure-resources">Adding New Azure Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html#testing">Testing</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Working with AWS Lambda</span></p>
+<p class="caption"><span class="caption-text">GCP</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../policy/lambda.html">Lambda Support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gcp/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gcp/gcp-modes.html">GCP Modes</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies reference</span></p>
+<p class="caption"><span class="caption-text">Tools</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../policy/index.html">Resource-Specific Filters and Actions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-org.html">c7n-org: Multi Account Custodian Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-policystream.html">c7n-policystream: Policy Changes from Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-mailer.html">c7n-mailer: Custodian Mailer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-trailcreator.html">AWS Retroactive Tagging Resource Creators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -131,12 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/installing.html">Installing for Developers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/tests.html">Testing for Developers</a></li>
-</ul>
-<p class="caption"><span class="caption-text">API Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../generated/aws/modules.html">AWS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../generated/azure/modules.html">Azure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../generated/gcp/modules.html">GCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/documentation.html">Documentation For Developers</a></li>
 </ul>
 
             
@@ -182,8 +194,6 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Overview</a> &raquo;</li>
-        
       <li>Deployment</li>
     
     
@@ -202,9 +212,251 @@
            <div itemprop="articleBody">
             
   <div class="section" id="deployment">
-<h1>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h1>
-<p>Single Node Deployment</p>
-<img alt="Single Node Deployment" src="../_images/singlenodedeploy.png" />
+<span id="id1"></span><h1>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h1>
+<p>In this section we will cover a few different deployment options for
+Cloud Custodian.</p>
+<div class="section" id="compliance-as-code">
+<span id="id2"></span><h2>Compliance as Code<a class="headerlink" href="#compliance-as-code" title="Permalink to this headline">¶</a></h2>
+<p>When operating Cloud Custodian, it is highly recommended to treat the policy
+files as code, similar to that of Terraform or CloudFormation files. Cloud
+Custodian has a built-in dryrun mode and policy syntax validation which when
+paired with an automated CI system, can help you release policies with confidence.</p>
+<p>This tutorial assumes that you have working knowledge of Github, Git, Docker,
+and a continuous integration tool (Jenkins, Drone, Travis, etc.).</p>
+<p>To begin, start by checking your policy files into a source control management
+tool like Github. This allows us to version and enable collaboration through
+git pull requests and issues. In this example, we will be setting up a new repo
+in Github.</p>
+<p>First, set up a new repo in Github and grab the reporistory url. You don’t need
+need to add a README or any other files to it first.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir my-policies
+$ <span class="nb">cd</span> my-policies
+$ git init
+$ git remote add origin &lt;github repo url&gt;
+$ touch policy.yml
+</pre></div>
+</div>
+<p>Next, we’ll add a policy to our new <code class="docutils literal notranslate"><span class="pre">policy.yml</span></code> file.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws-vpcs</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.vpc</span>
+</pre></div>
+</div>
+<p>Once you’ve added the policy to your policy file we can stage our changes from our
+working directory and push it up to our remote:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># this should show your policy.yml as an untracked file</span>
+$ git status
+
+$ git add policy.yml
+$ git commit -m <span class="s1">&#39;init my first policy&#39;</span>
+$ git push -u origin master
+</pre></div>
+</div>
+<p>Once you’ve pushed your changes you should be able to see your new changes inside
+of Github. Congratulations, you’re now ready to start automatically validating and
+testing your policies!</p>
+</div>
+<div class="section" id="continuous-integration-of-policies">
+<span id="id3"></span><h2>Continuous Integration of Policies<a class="headerlink" href="#continuous-integration-of-policies" title="Permalink to this headline">¶</a></h2>
+<p>Next, enable a CI webhook back to your CI system of choice when pull requests
+targeting your master branch are opened or updated. This allows us to continuously
+test and validate the policies that are being modified.</p>
+<p>In this example, we will be using Microsoft Azure Devops Pipelines.</p>
+<p>First, navigate to <a class="reference external" href="https://azure.microsoft.com/en-us/services/devops/pipelines/">https://azure.microsoft.com/en-us/services/devops/pipelines/</a> and
+click the “Start pipelines free with Github” button and follow the flow to connect
+your Github account with Devops Pipelines.</p>
+<p>Next click on the Piplines section in the left hand side of the sidebar and connect
+with Github. Once the pipeline is setup, we can add the following azure devops
+configuration to our repo:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">trigger</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">job</span><span class="p">:</span> <span class="s">&#39;Validate&#39;</span>
+    <span class="nt">pool</span><span class="p">:</span>
+      <span class="nt">vmImage</span><span class="p">:</span> <span class="s">&#39;Ubuntu-16.04&#39;</span>
+    <span class="nt">steps</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">checkout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">self</span>
+      <span class="p p-Indicator">-</span> <span class="nt">task</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UsePythonVersion@0</span>
+        <span class="nt">displayName</span><span class="p">:</span> <span class="s">&quot;Set</span><span class="nv"> </span><span class="s">Python</span><span class="nv"> </span><span class="s">Version&quot;</span>
+        <span class="nt">inputs</span><span class="p">:</span>
+          <span class="nt">versionSpec</span><span class="p">:</span> <span class="s">&#39;3.7&#39;</span>
+          <span class="nt">architecture</span><span class="p">:</span> <span class="s">&#39;x64&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pip install --upgrade pip</span>
+        <span class="nt">displayName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Upgrade pip</span>
+      <span class="p p-Indicator">-</span> <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pip install c7n c7n_azure c7n_gcp</span>
+        <span class="nt">displayName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install custodian</span>
+      <span class="p p-Indicator">-</span> <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">custodian validate policy.yml</span>
+        <span class="nt">displayName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Validate policy file</span>
+</pre></div>
+</div>
+<p>This configuration will install Cloud Custodian and validate the policy.yml file
+that we created in the previous step.</p>
+<p>Finally, we can run the new policies against your cloud environment in dryrun mode.
+This mode will only query the resources and apply the filters on the resources. Doing
+this allows you to assess the potential blast radius of a given policy change.</p>
+<p>Setting up the automated dryrun of policies is left as an exercise to the user– this
+requires hosting your cloud authentication tokens inside of a CI system or hosting your
+own CI system and using Managed Service Identities (Azure) or Instance Profiles (AWS).</p>
+<p>It’s important to verify that the results of the dryrun match your expectations. Custodian
+is a very powerful tool that will do exactly what you tell it to do! In this case, you should
+always “measure twice, cut once”.</p>
+</div>
+<div class="section" id="iam-setup">
+<span id="id4"></span><h2>IAM Setup<a class="headerlink" href="#iam-setup" title="Permalink to this headline">¶</a></h2>
+<p>To run Cloud Custodian against your account, you will need an IAM role with appropriate
+permissions. Depending on the scope of the policy, these permissions may differ from policy
+to policy. For a baseline, the managed read only policies in each of the respective cloud
+providers will be enough to dryrun your policies. Actions will require additional IAM
+permissions which should be added at your discretion.</p>
+<p>For serverless policies, Custodian will need the corresponding permissions to provision
+serverless functions.</p>
+<p>In AWS, you will need ReadOnly access as well as the following permissions:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Sid&quot;</span><span class="p">:</span> <span class="s2">&quot;CustodianLambdaPermissions&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;cloudwatch:PutMetricData&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:DescribeNetworkInterfaces&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:DeleteNetworkInterface&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateNetworkInterface&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;events:PutRule&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;events:PutTargets&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:PassRole&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:CreateFunction&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:TagResource&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:CreateEventSourceMapping&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:UntagResource&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:PutFunctionConcurrency&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:DeleteFunction&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:UpdateEventSourceMapping&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:InvokeFunction&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:UpdateFunctionConfiguration&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:UpdateAlias&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:UpdateFunctionCode&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:AddPermission&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:DeleteAlias&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:DeleteFunctionConcurrency&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:DeleteEventSourceMapping&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:RemovePermission&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:CreateAlias&quot;</span>
+                <span class="s2">&quot;logs:CreateLogStream&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;logs:PutLogEvents&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;logs:CreateLogGroup&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note: These are just the permissions to deploy Custodian Lambda functions, these are not
+the permissions that are required to run Custodian _in_ the Lambda function. Those roles
+are defined in the role attribute in the policy or with the assume role used in the cli.</p>
+</div>
+<div class="section" id="single-node-deployment">
+<span id="single-node-usage"></span><h2>Single Node Deployment<a class="headerlink" href="#single-node-deployment" title="Permalink to this headline">¶</a></h2>
+<p>Now that your policies are stored and available in source control, you can now
+fill in the next pieces of the puzzle to deploy. The simplest way to operate
+Cloud Custodian is to start with running Cloud Custodian against a single account
+on a virtual machine.</p>
+<p>To start, create a virtual machine on your cloud provider of choice.
+It’s recommended to execute Cloud Custodian in the same cloud provider
+that you are operating against to prevent a hard dependency on one cloud
+to another.</p>
+<p>Then, log into the instance and set up Custodian, following the instructions
+in the  <a class="reference internal" href="../quickstart/index.html#install-cc"><span class="std std-ref">Install Cloud Custodian</span></a> guide.</p>
+<p>Once you have Cloud Custodian installed, download your policies that you created
+in the <a class="reference internal" href="#compliance-as-code"><span class="std std-ref">Compliance as Code</span></a> section. If using git, just simply do a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone &lt;repository-url&gt;
+</pre></div>
+</div>
+<p>You now have your policies and custodian available on the instance. Typically, policies
+that query the extant resources in the account/project/subscription should be run
+on a regular basis to ensure that resources are constantly compliant. To do this you
+can simply set up a cron job to run custodian on a set cadence.</p>
+</div>
+<div class="section" id="monitoring-cloud-custodian">
+<span id="monitoring-custodian"></span><h2>Monitoring Cloud Custodian<a class="headerlink" href="#monitoring-cloud-custodian" title="Permalink to this headline">¶</a></h2>
+<p>Cloud Custodian ships with the ability to emit metrics on policy execution and transport
+logs to cloud provider native logging solutions.</p>
+<p>When executing Custodian, you can enable metrics simply by adding the <code class="docutils literal notranslate"><span class="pre">-m</span></code> flag and the
+cloud provider:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># AWS
+$ custodian run -s output -m aws policy.yml
+
+# Azure
+$ custodian run -s output -m azure policy.yml
+
+# GCP
+$ custodian run -s output -m gcp policy.yml
+</pre></div>
+</div>
+<p>When you enable metrics, a new namespace will be created and the following metrics will be
+recorded there:</p>
+<ul class="simple">
+<li><p>ResourceCount</p></li>
+<li><p>ResourceTime</p></li>
+<li><p>ActionTime</p></li>
+</ul>
+<p>To enable logging to CloudWatch logs, Stackdriver, or Azure AppInsights, use the <code class="docutils literal notranslate"><span class="pre">-l</span></code> flag:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># AWS CloudWatch Logs
+$ custodian run -s output -l /cloud-custodian/policies policy.yml
+
+# Azure App Insights Logs
+$ custodian run -s output -l azure://cloud-custodian/policies policy.yml
+
+# Stackdriver Logs
+$ custodian run -s output -l gcp://cloud-custodian/policies policy.yml
+</pre></div>
+</div>
+<p>You can also store the output of your Custodian logs in a cloud provider’s blob storage like S3
+or Azure Storage accounts:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># AWS S3
+$ custodian run -s s3://my-custodian-bucket policy.yml
+
+# Azure Storage Accounts
+$ custodian run -s azure://my-custodian-storage-account policy.yml
+</pre></div>
+</div>
+</div>
+<div class="section" id="mailer-and-notifications-deployment">
+<span id="id5"></span><h2>Mailer and Notifications Deployment<a class="headerlink" href="#mailer-and-notifications-deployment" title="Permalink to this headline">¶</a></h2>
+<p>For instructions on how to deploy the mailer for notifications, see <a class="reference internal" href="../tools/c7n-mailer.html"><span class="doc">c7n-mailer: Custodian Mailer</span></a></p>
+</div>
+<div class="section" id="multi-account-execution">
+<span id="id6"></span><h2>Multi Account Execution<a class="headerlink" href="#multi-account-execution" title="Permalink to this headline">¶</a></h2>
+<p>For more advanced setups, such as executing Custodian against multiple accounts, we
+distribute the tool c7n-org. c7n-org utilizes a accounts configuration file and
+assume roles to operate against multiple accounts, projects, or subscriptions in
+parallel. More information can be found in <a class="reference internal" href="../tools/c7n-org.html"><span class="doc">c7n-org: Multi Account Custodian Execution</span></a>.</p>
+</div>
+<div class="section" id="advanced-continuous-integration-tips">
+<span id="id7"></span><h2>Advanced Continuous Integration Tips<a class="headerlink" href="#advanced-continuous-integration-tips" title="Permalink to this headline">¶</a></h2>
+<p>When policy files reach a sufficiently large size it can cause dryruns to execute for a
+significantly long period of time. In most cases, the only thing that actually needs
+to be tested would be the policies that were changed.</p>
+<p>The following example will download the cloudcustodian/policystream image and
+generate a policy file containing only the policies that changed between the most
+recent commit and master.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># in your git directory for policies</span>
+$ docker pull cloudcustodian/policystream
+$ docker run -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/home/custodian/policies cloudcustodian &gt; policystream-diff.yml
+$ custodian run -s output -v --dryrun policystream-diff.yml
+</pre></div>
+</div>
+<p>After running your new policy file (policystream-diff.yml), the outputs will be stored
+in the output directory.</p>
+</div>
+<div class="section" id="additional-resources">
+<span id="id8"></span><h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blog.jasonantman.com/2017/10/cloud-custodian-architecture-deployment-and-policy-preprocessing/">https://blog.jasonantman.com/2017/10/cloud-custodian-architecture-deployment-and-policy-preprocessing/</a></p></li>
+</ul>
+</div>
 </div>
 
 
@@ -215,10 +467,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../quickstart/index.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../aws/gettingstarted.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="comparisons.html" class="btn btn-neutral float-left" title="Comparisons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../quickstart/policyStructure.html" class="btn btn-neutral float-left" title="Example tag compliance policy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

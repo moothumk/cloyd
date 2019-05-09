@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="_static/css/expand.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Contributing to Cloud Custodian" href="contribute.html" />
-    <link rel="prev" title="Simple Storage Service (S3)" href="policy/resources/s3.html" /> 
+    <link rel="next" title="Advanced Usage" href="quickstart/advanced.html" />
+    <link rel="prev" title="Monitoring your environment" href="quickstart/usage.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,16 +85,36 @@
             
             
               <p class="caption"><span class="caption-text">Introduction</span></p>
-<ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Cloud Custodian</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/usage.html">Monitoring your environment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Generic Filters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#value-filter">Value Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#age-filter">Age Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#event-filter">Event Filter</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/advanced.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/policyStructure.html">Example tag compliance policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/glossary.html">Basic concepts and terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/deployment.html">Deployment</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="usecases/index.html">Use Cases</a></li>
+<p class="caption"><span class="caption-text">AWS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aws/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/examples/index.html">Example Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/policy/index.html">Filters and Actions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Generic Filters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#value-filter">Value Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#age-filter">Age Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#event-filter">Event Filter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aws/aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/policy/lambda.html">Lambda Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Azure</span></p>
 <ul>
@@ -103,24 +123,23 @@
 <li class="toctree-l1"><a class="reference internal" href="azure/authentication.html#azure-storage-access">Azure Storage access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/policy/index.html">Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure/azure-modes.html">Azure Modes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/advanced/index.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/contribute.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/contribute.html#adding-new-azure-resources">Adding New Azure Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="azure/contribute.html#testing">Testing</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Working with AWS Lambda</span></p>
+<p class="caption"><span class="caption-text">GCP</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="policy/lambda.html">Lambda Support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcp/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcp/gcp-modes.html">GCP Modes</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies reference</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="policy/index.html">Resource-Specific Filters and Actions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Generic Filters</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#value-filters">Value Filters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#jmespath-filter">JMESPath Filter</a></li>
-</ul>
-</li>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-org.html">c7n-org: Multi Account Custodian Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-policystream.html">c7n-policystream: Policy Changes from Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-mailer.html">c7n-mailer: Custodian Mailer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/c7n-trailcreator.html">AWS Retroactive Tagging Resource Creators</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -128,12 +147,7 @@
 <li class="toctree-l1"><a class="reference internal" href="developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer/installing.html">Installing for Developers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer/tests.html">Testing for Developers</a></li>
-</ul>
-<p class="caption"><span class="caption-text">API Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="generated/aws/modules.html">AWS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generated/azure/modules.html">Azure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generated/gcp/modules.html">GCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/documentation.html">Documentation For Developers</a></li>
 </ul>
 
             
@@ -198,19 +212,53 @@
             
   <div class="section" id="generic-filters">
 <span id="filters"></span><h1>Generic Filters<a class="headerlink" href="#generic-filters" title="Permalink to this headline">¶</a></h1>
-<p>These filters can be applied to all policies for all resources. See the
-<a class="reference internal" href="policy/index.html#policy"><span class="std std-ref">Resource-Specific Filters and Actions reference</span></a> for
-resource-specific filters.</p>
-<div class="section" id="value-filters">
-<h2>Value Filters<a class="headerlink" href="#value-filters" title="Permalink to this headline">¶</a></h2>
+<p>The following filters can be applied to all policies for all resources. See the
+<a class="reference internal" href="aws/policy/index.html#policy"><span class="std std-ref">Filters and Actions reference</span></a> for
+aws resource-specific filters.</p>
+<div class="section" id="value-filter">
+<h2>Value Filter<a class="headerlink" href="#value-filter" title="Permalink to this headline">¶</a></h2>
 <p>Cloud Custodian provides for a flexible query language on any resource by
 allowing for rich queries on JSON objects via JMESPath, and allows for
-mixing and combining those with a boolean conditional operators that
-are nest-able. Comparison between values is configurable supporting
-scalar operators:</p>
-<ul class="simple">
+mixing and combining those with boolean conditional operators that
+are nest-able. (Tutorial here on <a class="reference external" href="http://jmespath.org/tutorial.html">JMESPath</a> syntax)</p>
+<p>The base value filter enables the use of jmespath with data returned from a describe call.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">filters</span><span class="p">:</span>
+     <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+       <span class="nt">key</span><span class="p">:</span> <span class="s">&quot;State[0]&quot;</span>    <span class="l l-Scalar l-Scalar-Plain">─▶ The value from the describe call</span>
+       <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;running&quot;</span>   <span class="l l-Scalar l-Scalar-Plain">─▶ Value that is being filtered against</span>
+</pre></div>
+</div>
+<p>There are several ways to get a list of possible keys for each resource.</p>
+<ul>
+<li><p>Via Custodian CLI</p>
+<blockquote>
+<div><p>Create a new custodian yaml file with just the name and resource fields. Then run
+<code class="docutils literal notranslate"><span class="pre">custodian</span> <span class="pre">run</span> <span class="pre">-s</span> <span class="pre">OUTPUT_DIR</span></code>. The valid key fields can be found in the output directory
+in resources.json</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-first-policy</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.ec2</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Via Cloud Providers CLI</p>
+<blockquote>
+<div><p>Use the relevant cloud provider cli to run the describe call to view all available keys. For example
+using aws cli run <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">ec2</span> <span class="pre">describe-instances</span></code> or with azure <code class="docutils literal notranslate"><span class="pre">az</span> <span class="pre">vm</span> <span class="pre">list</span></code>.</p>
+<p>Note: You do not need to include the outermost json field in most cases since custodian removes this field
+from the results.</p>
+</div></blockquote>
+</li>
+<li><p>Via Cloud Provider Documentation</p>
+<blockquote>
+<div><p>Go to the relevant cloud provider sdk documentation and search for the describe api call for the resource
+your interested in. The available fields will be listed under the results of that api call.</p>
+</div></blockquote>
+</li>
 <li><dl class="simple">
-<dt>Comparison operators:</dt><dd><ul>
+<dt>Comparison operators:</dt><dd><p>The generic value filter allows for comparison operators to be used</p>
+<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">equal</span></code> or <code class="docutils literal notranslate"><span class="pre">eq</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">not-equal</span></code> or <code class="docutils literal notranslate"><span class="pre">ne</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">greater-than</span></code> or <code class="docutils literal notranslate"><span class="pre">gt</span></code></p></li>
@@ -220,63 +268,96 @@ scalar operators:</p>
 </ul>
 </dd>
 </dl>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">filters</span><span class="p">:</span>
+   <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+     <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CpuOptions.CoreCount      ─▶ The value from the describe call</span>
+     <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">36                      ─▶ Value that is being compared</span>
+     <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">greater-than               ─▶ Comparison Operator</span>
+</pre></div>
+</div>
 </li>
 <li><dl class="simple">
-<dt>Other operators</dt><dd><ul>
+<dt>Other operators:</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">absent</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">present</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">not-null</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">empty</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">contains</span></code></p></li>
 </ul>
 </dd>
 </dl>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">filters</span><span class="p">:</span>
+   <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+     <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CpuOptions.CoreCount      ─▶ The value from the describe call</span>
+     <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present                 ─▶ Checks if key is present</span>
+</pre></div>
+</div>
 </li>
 <li><dl class="simple">
-<dt>Collection operators against user supplied lists:</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">in</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">not-in</span></code> or <code class="docutils literal notranslate"><span class="pre">ni</span></code></p></li>
+<dt>Logical Operators:</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">or</span></code> or <code class="docutils literal notranslate"><span class="pre">Or</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">and</span></code> or <code class="docutils literal notranslate"><span class="pre">And</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">not</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">filters</span><span class="p">:</span>
+   <span class="p p-Indicator">-</span> <span class="nt">or</span><span class="p">:</span>                              <span class="l l-Scalar l-Scalar-Plain">─▶ Logical Operator</span>
+     <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+       <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CpuOptions.CoreCount      ─▶ The value from the describe call</span>
+       <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">36                      ─▶ Value that is being compared</span>
+     <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+       <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CpuOptions.CoreCount      ─▶ The value from the describe call</span>
+       <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">42                      ─▶ Value that is being compared</span>
+</pre></div>
+</div>
+</li>
+<li><dl class="simple">
+<dt>List Operators:</dt><dd><p>There is a collection of operators that can be used with user supplied lists. The operators
+are evaluated as <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">from</span> <span class="pre">key</span></code> in (the operator) <code class="docutils literal notranslate"><span class="pre">given</span> <span class="pre">value</span></code>. If you would like it
+evaluated in the opposite way  <code class="docutils literal notranslate"><span class="pre">given</span> <span class="pre">value</span></code> in (the operator) <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">from</span> <span class="pre">key</span></code> then you
+can include the <code class="docutils literal notranslate"><span class="pre">swap</span></code> transformation or use the <code class="docutils literal notranslate"><span class="pre">contains</span></code> operator.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">in</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">not-in</span></code> or <code class="docutils literal notranslate"><span class="pre">ni</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">intersect</span></code> - Provides comparison between 2 lists</p></li>
 </ul>
 </dd>
 </dl>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">filters</span><span class="p">:</span>
+   <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+     <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ImageId                   ─▶ The value from the describe call</span>
+     <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">in                         ─▶ List operator</span>
+     <span class="nt">value</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">ID-123</span><span class="p p-Indicator">,</span> <span class="nv">ID-321</span><span class="p p-Indicator">]</span>        <span class="l l-Scalar l-Scalar-Plain">─▶ List of Values to be compared against</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">filters</span><span class="p">:</span>
+   <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+     <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ImageId.List              ─▶ The value from the describe call</span>
+     <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">in                         ─▶ List operator</span>
+     <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ID-321                  ─▶ Values to be compared against</span>
+     <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">swap               ─▶ Switches list comparison order</span>
+</pre></div>
+</div>
 </li>
 <li><dl class="simple">
-<dt>Special operators:</dt><dd><ul>
+<dt>Special operators:</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">glob</span></code> - Provides Glob matching support</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">regex</span></code> - Provides Regex matching support but ignores case</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">regex-case</span></code> - Provides case sensitive Regex matching support</p></li>
 </ul>
 </dd>
 </dl>
-</li>
-</ul>
-<dl class="simple">
-<dt><cite>AgeFilter</cite></dt><dd><p>Automatically filter resources older than a given date in Days (see <a class="reference external" href="http://dateutil.readthedocs.org/en/latest/parser.html#dateutil.parser.parse">Dateutil Parser</a>)</p>
-</dd>
-</dl>
-</div>
-<div class="section" id="jmespath-filter">
-<h2>JMESPath Filter<a class="headerlink" href="#jmespath-filter" title="Permalink to this headline">¶</a></h2>
-<dl>
-<dt><cite>ValueFilter</cite></dt><dd><p>Generic value filter using jmespath based on the data returned from a describe call</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ebs-unmark-attached-deletion</span>
-  <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ebs</span>
-  <span class="l l-Scalar l-Scalar-Plain">comments</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
-    <span class="no">Unmark any attached EBS volumes that were scheduled for deletion</span>
-    <span class="no">if they are now attached</span>
-  <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value                     ─┐ The value of the key from the describe</span>
-      <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="s">&quot;Attachments[0].Device&quot;</span>     <span class="l l-Scalar l-Scalar-Plain">├▶EBS call</span>
-      <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">not-null                 ─┘</span>
-    <span class="p p-Indicator">-</span> <span class="s">&quot;tag:maid_status&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">not-null     ─▶ This filter</span>
-  <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">unmark</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">filters</span><span class="p">:</span>
+   <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+     <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">FunctionName                ─▶ The value from the describe call</span>
+     <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">regex                        ─▶ Special operator</span>
+     <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^(custodian?)\w+          ─▶ Regex string</span>
 </pre></div>
 </div>
-<p>Transformations on the value can be done using the <code class="docutils literal notranslate"><span class="pre">value_type</span></code> keyword.  The
+</li>
+<li><p>Transformations:
+Transformations on the value can be done using the <code class="docutils literal notranslate"><span class="pre">value_type</span></code> keyword.  The
 following value types are supported:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">age</span></code> - convert to a datetime (for past date comparisons)</p></li>
@@ -291,88 +372,101 @@ following value types are supported:</p>
 </ul>
 <p>Examples:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the size of a group</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
-  <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SecurityGroups[].GroupId</span>
-  <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">size</span>
-  <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+  <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SecurityGroups[].GroupId</span>
+  <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">size</span>
+  <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
 
 <span class="c1"># Membership example using swap</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
-  <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SecurityGroups[].GroupId</span>
-  <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
-  <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">in</span>
-  <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sg-49b87f44</span>
+<span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+  <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SecurityGroups[].GroupId</span>
+  <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">swap</span>
+  <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">in</span>
+  <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sg-49b87f44</span>
 
 <span class="c1"># Convert to integer before comparison</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
-  <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tag:Count</span>
-  <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">greater-than</span>
-  <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">integer</span>
-  <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+  <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tag:Count</span>
+  <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">greater-than</span>
+  <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">integer</span>
+  <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
 
 <span class="c1"># Find instances launched within the last 31 days</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
-  <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">LaunchTime</span>
-  <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">less-than</span>
-  <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">age</span>
-  <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
+<span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+  <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LaunchTime</span>
+  <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">less-than</span>
+  <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">age</span>
+  <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
 
 <span class="c1"># Use `resource_count` to filter resources based on the number that matched</span>
 <span class="c1"># Note that no `key` is used for this value_type since it is matching on</span>
 <span class="c1"># the size of the list of resources and not a specific field.</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
-  <span class="l l-Scalar l-Scalar-Plain">value_type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">resource_count</span>
-  <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">lt</span>
-  <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+  <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">resource_count</span>
+  <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lt</span>
+  <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
 
  <span class="c1"># This policy will use `intersect` op to compare rds instances subnet group list</span>
  <span class="c1"># against a user provided list of public subnets from a s3 txt file.</span>
-<span class=" -Error"> </span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">find-rds-on-public-subnets-using-s3-list</span>
-   <span class="l l-Scalar l-Scalar-Plain">comment</span><span class="p p-Indicator">:</span>  <span class="p p-Indicator">|</span>
+<span class=" -Error"> </span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">find-rds-on-public-subnets-using-s3-list</span>
+   <span class="nt">comment</span><span class="p">:</span>  <span class="p p-Indicator">|</span>
       <span class="no">The txt file needs to be in utf-8 no BOM format and contain one</span>
       <span class="no">subnet per line in the file no quotes around the subnets either.</span>
-   <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">rds</span>
-   <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
-         <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="s">&quot;DBSubnetGroup.Subnets[].SubnetIdentifier&quot;</span>
-         <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">intersect</span>
-         <span class="l l-Scalar l-Scalar-Plain">value_from</span><span class="p p-Indicator">:</span>
-             <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">s3://cloud-custodian-bucket/PublicSubnets.txt</span>
-             <span class="l l-Scalar l-Scalar-Plain">format</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">txt</span>
+   <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.rds</span>
+   <span class="nt">filters</span><span class="p">:</span>
+       <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+         <span class="nt">key</span><span class="p">:</span> <span class="s">&quot;DBSubnetGroup.Subnets[].SubnetIdentifier&quot;</span>
+         <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">intersect</span>
+         <span class="nt">value_from</span><span class="p">:</span>
+             <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">s3://cloud-custodian-bucket/PublicSubnets.txt</span>
+             <span class="nt">format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">txt</span>
 
 <span class="c1"># This policy will compare rds instances subnet group list against a</span>
 <span class="c1"># inline user provided list of public subnets.</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">find-rds-on-public-subnets-using-inline-list</span>
-  <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">rds</span>
-  <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
-        <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="s">&quot;DBSubnetGroup.Subnets[].SubnetIdentifier&quot;</span>
-        <span class="l l-Scalar l-Scalar-Plain">op</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">intersect</span>
-        <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">find-rds-on-public-subnets-using-inline-list</span>
+  <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.rds</span>
+  <span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+        <span class="nt">key</span><span class="p">:</span> <span class="s">&quot;DBSubnetGroup.Subnets[].SubnetIdentifier&quot;</span>
+        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">intersect</span>
+        <span class="nt">value</span><span class="p">:</span>
             <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">subnet-2a8374658</span>
             <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">subnet-1b8474522</span>
             <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">subnet-2d2736444</span>
 </pre></div>
 </div>
-</dd>
-<dt><cite>EventFilter</cite></dt><dd><p>Filter against a CloudWatch event JSON associated to a resource type</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">no-ec2-public-ips</span>
-  <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
-  <span class="l l-Scalar l-Scalar-Plain">mode</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">cloudtrail</span>
-    <span class="l l-Scalar l-Scalar-Plain">events</span><span class="p p-Indicator">:</span>
+</li>
+</ul>
+</div>
+<div class="section" id="age-filter">
+<h2>Age Filter<a class="headerlink" href="#age-filter" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Automatically filter resources older than a given date in Days (see <a class="reference external" href="http://dateutil.readthedocs.org/en/latest/parser.html#dateutil.parser.parse">Dateutil Parser</a>)
+These are implemented on a per resource basis. See the <a class="reference internal" href="aws/policy/index.html#policy"><span class="std std-ref">Resource-Specific Filters and Actions reference</span></a> for
+resource-specific filters.</p>
+</div></blockquote>
+</div>
+<div class="section" id="event-filter">
+<h2>Event Filter<a class="headerlink" href="#event-filter" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Filter against a CloudWatch event JSON associated to a resource type. The list of possible keys are now from the cloudtrail
+event and not the describe resource call as is the case in the ValueFilter</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no-ec2-public-ips</span>
+  <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.ec2</span>
+  <span class="nt">mode</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cloudtrail</span>
+    <span class="nt">events</span><span class="p">:</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">RunInstances</span>
-  <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">event                                                                           ─┐ The key is a JMESPath Query of</span>
-      <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="s">&quot;detail.requestParameters.networkInterfaceSet.items[].associatePublicIpAddress&quot;</span>   <span class="l l-Scalar l-Scalar-Plain">├▶the event JSON from CloudWatch</span>
-      <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true                                                                           ─┘</span>
-  <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">terminate</span>
-      <span class="l l-Scalar l-Scalar-Plain">force</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">filters</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">event                                                                           ─┐ The key is a JMESPath Query of</span>
+      <span class="nt">key</span><span class="p">:</span> <span class="s">&quot;detail.requestParameters.networkInterfaceSet.items[].associatePublicIpAddress&quot;</span>   <span class="l l-Scalar l-Scalar-Plain">├▶the event JSON from CloudWatch</span>
+      <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true                                                                           ─┘</span>
+  <span class="nt">actions</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">terminate</span>
+      <span class="nt">force</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
-</dd>
-</dl>
+</div></blockquote>
 </div>
 </div>
 
@@ -384,10 +478,10 @@ following value types are supported:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="contribute.html" class="btn btn-neutral float-right" title="Contributing to Cloud Custodian" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="quickstart/advanced.html" class="btn btn-neutral float-right" title="Advanced Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="policy/resources/s3.html" class="btn btn-neutral float-left" title="Simple Storage Service (S3)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="quickstart/usage.html" class="btn btn-neutral float-left" title="Monitoring your environment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

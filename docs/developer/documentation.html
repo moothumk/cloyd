@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Documentation For Developers &mdash; Cloud Custodian  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/c1_labs.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/expand.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/expand.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Testing for Developers" href="tests.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cloud Custodian
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Cloud Custodian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/usage.html">Monitoring your environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/advanced.html">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/policyStructure.html">Example tag compliance policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/glossary.html">Basic concepts and terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/deployment.html">Deployment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">AWS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aws/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/examples/index.html">Example Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/policy/index.html">Filters and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/policy/lambda.html">Lambda Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Azure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../azure/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/authentication.html#azure-storage-access">Azure Storage access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/policy/index.html">Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/azure-modes.html">Azure Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/advanced/index.html">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html#adding-new-azure-resources">Adding New Azure Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure/contribute.html#testing">Testing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GCP</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gcp/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gcp/gcp-modes.html">GCP Modes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-org.html">c7n-org: Multi Account Custodian Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-policystream.html">c7n-policystream: Policy Changes from Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-mailer.html">c7n-mailer: Custodian Mailer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/c7n-trailcreator.html">AWS Retroactive Tagging Resource Creators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contributing to Cloud Custodian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing for Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Testing for Developers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation For Developers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#find-the-documentation">Find the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#edit-the-documentation">Edit the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#render-the-documentation">Render the Documentation</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cloud Custodian</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Documentation For Developers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="documentation-for-developers">
+<span id="developer-documentation"></span><h1>Documentation For Developers<a class="headerlink" href="#documentation-for-developers" title="Permalink to this headline">¶</a></h1>
+<p>Cloud Custodian makes every effort to provide comprehensive documentation.
+Any new features you add should be documented.</p>
+<p>The documentation is built using <a class="reference external" href="http://www.sphinx-doc.org">sphinx</a>.
+The documentation is written using reStructured Text (<code class="docutils literal notranslate"><span class="pre">rst</span></code>).
+The sphinx documentation contains <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">a useful introduction</a> to <code class="docutils literal notranslate"><span class="pre">rst</span></code> syntax.</p>
+<div class="section" id="find-the-documentation">
+<h2>Find the Documentation<a class="headerlink" href="#find-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>The root of the documentation is located in the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory.
+Within the documentation, topics are organized according into the following main areas:</p>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Quickstart</p></li>
+<li><p>AWS</p></li>
+<li><p>Azure</p></li>
+<li><p>Developer</p></li>
+</ul>
+<p>In addition, the api documentation will be built from docstrings on classes and methods in source code.
+The <code class="docutils literal notranslate"><span class="pre">rst</span></code> files for these may be found in the <code class="docutils literal notranslate"><span class="pre">generated</span></code> subdirectory.</p>
+</div>
+<div class="section" id="edit-the-documentation">
+<h2>Edit the Documentation<a class="headerlink" href="#edit-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>In most cases, documentation edits will be made in docstrings on source code.
+Docstrings should be written following the principles of <a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">pep 257</a>.
+Within docstrings, <code class="docutils literal notranslate"><span class="pre">rst</span></code> directives allow for highlighting code examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AutoTagUser</span><span class="p">(</span><span class="n">EventAction</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tag a resource with the user who created/modified it.</span>
+
+<span class="sd">    .. code-block:: yaml</span>
+
+<span class="sd">      policies:</span>
+<span class="sd">        - name: ec2-auto-tag-ownercontact</span>
+<span class="sd">          resource: ec2</span>
+<span class="sd">          description: |</span>
+<span class="sd">            Triggered when a new EC2 Instance is launched. Checks to see if</span>
+<span class="sd">            it&#39;s missing the OwnerContact tag. If missing it gets created</span>
+<span class="sd">            with the value of the ID of whomever called the RunInstances API</span>
+<span class="sd">          mode:</span>
+<span class="sd">            type: cloudtrail</span>
+<span class="sd">            role: arn:aws:iam::123456789000:role/custodian-auto-tagger</span>
+<span class="sd">            events:</span>
+<span class="sd">              - RunInstances</span>
+<span class="sd">          filters:</span>
+<span class="sd">           - tag:OwnerContact: absent</span>
+<span class="sd">          actions:</span>
+<span class="sd">           - type: auto-tag-user</span>
+<span class="sd">             tag: OwnerContact</span>
+
+<span class="sd">    There&#39;s a number of caveats to usage. Resources which don&#39;t</span>
+<span class="sd">    include tagging as part of their api may have some delay before</span>
+<span class="sd">    automation kicks in to create a tag. Real world delay may be several</span>
+<span class="sd">    minutes, with worst case into hours[0]. This creates a race condition</span>
+<span class="sd">    between auto tagging and automation.</span>
+
+<span class="sd">    In practice this window is on the order of a fraction of a second, as</span>
+<span class="sd">    we fetch the resource and evaluate the presence of the tag before</span>
+<span class="sd">    attempting to tag it.</span>
+
+<span class="sd">    References</span>
+
+<span class="sd">     CloudTrail User</span>
+<span class="sd">     https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="render-the-documentation">
+<h2>Render the Documentation<a class="headerlink" href="#render-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>In general, you should use tox to build the documentation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tox -e docs
+</pre></div>
+</div>
+<p>This command will clean previously built files and rebuild the entire documentation tree.</p>
+<p>When developing, you may prefer to build only those files you have edited.
+To do so, use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make -f docs/Makefile.sphinx html
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="tests.html" class="btn btn-neutral float-left" title="Testing for Developers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Capital One Services, LLC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

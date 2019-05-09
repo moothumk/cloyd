@@ -1,0 +1,523 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lambda Support &mdash; Cloud Custodian  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/c1_labs.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/expand.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/expand.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Mu - Lambda Lifecycle Management" href="mu.html" />
+    <link rel="prev" title="AWS Modes" href="../aws-modes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Cloud Custodian
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Cloud Custodian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart/usage.html">Monitoring your environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart/advanced.html">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart/policyStructure.html">Example tag compliance policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/glossary.html">Basic concepts and terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/deployment.html">Deployment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">AWS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Filters and Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../filters.html">Generic Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lambda Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cloudwatch-events">CloudWatch Events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cloud-custodian-integration">Cloud Custodian Integration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cloudtrail-api-calls">CloudTrail API Calls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ec2-instance-state-events">EC2 Instance State Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#periodic-function">Periodic Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#config-rules">Config Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lambda-configuration">Lambda Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#execution-options">Execution Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mu.html">Mu - Lambda Lifecycle Management</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Azure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../azure/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../azure/authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../azure/authentication.html#azure-storage-access">Azure Storage access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../azure/examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../azure/policy/index.html">Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../azure/azure-modes.html">Azure Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../azure/advanced/index.html">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../azure/contribute.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../azure/contribute.html#adding-new-azure-resources">Adding New Azure Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../azure/contribute.html#testing">Testing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GCP</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gcp/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gcp/gcp-modes.html">GCP Modes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/c7n-org.html">c7n-org: Multi Account Custodian Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/c7n-policystream.html">c7n-policystream: Policy Changes from Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/c7n-mailer.html">c7n-mailer: Custodian Mailer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/c7n-trailcreator.html">AWS Retroactive Tagging Resource Creators</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute.html">Contributing to Cloud Custodian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/installing.html">Installing for Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/tests.html">Testing for Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/documentation.html">Documentation For Developers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Cloud Custodian</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Lambda Support</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lambda-support">
+<span id="lambda"></span><h1>Lambda Support<a class="headerlink" href="#lambda-support" title="Permalink to this headline">¶</a></h1>
+<p>Lambda provides for powerful realtime event based code execution in
+response to infrastructure and application behavior. A number of
+different Amazon services can be used as event sources.</p>
+<div class="section" id="cloudwatch-events">
+<h2>CloudWatch Events<a class="headerlink" href="#cloudwatch-events" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html">CloudWatch Events</a>
+(CWE) is a general event bus for AWS infrastructure. Currently, it covers
+several major sources of information:</p>
+<ol class="arabic simple">
+<li><p>CloudTrail API calls over a poll period on CloudTrail delivery,</p></li>
+<li><p>real-time instance status events,</p></li>
+<li><p>autoscale group notifications, and</p></li>
+<li><p>scheduled/periodic events.</p></li>
+</ol>
+<p>CloudTrail provides a very rich data source over the entire range of AWS
+services exposed via the audit trail that allows Custodian to define effective
+realtime policies against any AWS product. Additionally, for EC2 instances we
+can provide mandatory policy compliance - this means the non-compliant
+resources never became available.</p>
+<div class="section" id="cloud-custodian-integration">
+<h3>Cloud Custodian Integration<a class="headerlink" href="#cloud-custodian-integration" title="Permalink to this headline">¶</a></h3>
+<p>Custodian provides for policy level execution against any CWE event stream.
+Each Custodian policy can be deployed as an independent Lambda function. The
+only difference between a Custodian policy that runs in Lambda and one that
+runs directly from the CLI in poll mode is the specification of the
+subscription of the events in the mode config block of the policy.</p>
+<p>Internally Custodian will reconstitute current state for all the resources
+in the event, execute the policy against them, match against the
+policy filters, and apply the policy actions to matching resources.</p>
+<div class="section" id="cloudtrail-api-calls">
+<h4>CloudTrail API Calls<a class="headerlink" href="#cloudtrail-api-calls" title="Permalink to this headline">¶</a></h4>
+<p>Lambdas can receive CWE over CloudTrail API calls with delay of 90s at P99.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-tag-running</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
+    <span class="nt">mode</span><span class="p">:</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cloudtrail</span>
+      <span class="nt">events</span><span class="p">:</span>
+       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">RunInstances</span>
+    <span class="nt">actions</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mark</span>
+        <span class="nt">tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">foo</span>
+        <span class="nt">msg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
+</pre></div>
+</div>
+<p>Because the total AWS API surface area is so large most CloudTrail API
+event subscriptions need two additional fields:</p>
+<ol class="arabic simple">
+<li><p>For CloudTrail events we need to reference the source API call.</p></li>
+<li><p>To work transparently with existing resource policies, we also need to
+specify how to extract the resource IDs from the event via JMESPath so that
+the resources can be queried.</p></li>
+</ol>
+<p>For very common API calls for policies, some <a class="reference external" href="https://github.com/cloud-custodian/cloud-custodian/blob/master/c7n/cwe.py#L28-L69">shortcuts</a>
+have been defined to allow for easier policy writing as for the
+<code class="docutils literal notranslate"><span class="pre">RunInstances</span></code> API call above, which expands to:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">events</span><span class="p">:</span>
+ <span class="p p-Indicator">-</span> <span class="nt">source</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2.amazonaws.com</span>
+   <span class="nt">event</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RunInstances</span>
+   <span class="nt">ids</span><span class="p">:</span> <span class="s">&quot;responseElements.instancesSet.items[].instanceId&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ec2-instance-state-events">
+<h4>EC2 Instance State Events<a class="headerlink" href="#ec2-instance-state-events" title="Permalink to this headline">¶</a></h4>
+<p>Lambdas can receive EC2 instance state events in real time (seconds delay).</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-require-encrypted-volumes</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
+    <span class="nt">mode</span><span class="p">:</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-instance-state</span>
+      <span class="nt">events</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pending</span>
+    <span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ebs</span>
+        <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Encrypted</span>
+        <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+    <span class="nt">actions</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mark</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">terminate</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="periodic-function">
+<h4>Periodic Function<a class="headerlink" href="#periodic-function" title="Permalink to this headline">¶</a></h4>
+<p>We support both rate per unit time and cron expressions, per <a class="reference external" href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">scheduler syntax</a>.</p>
+<p>When using –assume on the custodian run cli command, the specified
+role is also considered as the execution role to be attached to lambda
+function that gets deployed. In such scenario it is not required to
+specify the role attribute in the config block for mode. However, if
+you are not using the –assume option, then it is required to add role
+in the config-block of mode. When specifying role {account_id} is runtime
+substituted so a policy can be used across accounts.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">s3-bucket-check</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">s3</span>
+    <span class="nt">mode</span><span class="p">:</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">periodic</span>
+      <span class="nt">schedule</span><span class="p">:</span> <span class="s">&quot;rate(1</span><span class="nv"> </span><span class="s">day)&quot;</span>
+      <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arn:aws:iam::{account_id}:role/some-role</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="config-rules">
+<h2>Config Rules<a class="headerlink" href="#config-rules" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html">AWS Config rules</a>
+allow you to invoke logic in response to configuration changes in your AWS
+environment, and Cloud Custodian is the easiest way to write and provision
+Config rules. Delay here is typically 1-15m (though the SLA on tag-only changes
+is a bit higher).</p>
+<p>In this section we’ll look at how we would deploy the <a class="reference internal" href="../../quickstart/index.html#quickstart"><span class="std std-ref">quickstart</span></a> example using Config. Before you proceed, make sure you’ve
+removed the <code class="docutils literal notranslate"><span class="pre">Custodian</span></code> tag from any EC2 instance left over from the
+quickstart.</p>
+<p>First, modify <code class="docutils literal notranslate"><span class="pre">custodian.yml</span></code> to specify a mode type of <code class="docutils literal notranslate"><span class="pre">config-rule</span></code>.
+You’ll also need the ARN of an IAM role to assume when running the Lambda that
+Custodian is going to install for you. Sensible policies to add to that role would be
+<code class="docutils literal notranslate"><span class="pre">AWSLambdaBasicExecutionRole</span></code> and <code class="docutils literal notranslate"><span class="pre">AWSConfigRulesExecutionRole</span></code>, on top of any permissions
+your lambda is going to need to perform the actions you want it to perform.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-first-policy</span>
+    <span class="nt">mode</span><span class="p">:</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">config-rule</span>
+        <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arn:aws:iam::123456789012:role/some-role</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
+    <span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;tag:Custodian&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+    <span class="nt">actions</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
+</pre></div>
+</div>
+<p>Then make sure that you’ve set up AWS Config. If you <a class="reference external" href="https://eu-west-1.console.aws.amazon.com/config/home">go to the AWS Config console</a>
+and see the welcome screen instead of the dashboard, go through <a class="reference external" href="https://docs.aws.amazon.com/config/latest/developerguide/gs-console.html">the setup procedure first</a>.</p>
+<p>Now deploy the policy:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>custodian run -s . custodian.yml
+</pre></div>
+</div>
+<p>That should give you log output like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2017</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">25</span> <span class="mi">05</span><span class="p">:</span><span class="mi">43</span><span class="p">:</span><span class="mi">01</span><span class="p">,</span><span class="mi">539</span><span class="p">:</span> <span class="n">custodian</span><span class="o">.</span><span class="n">policy</span><span class="p">:</span><span class="n">INFO</span> <span class="n">Provisioning</span> <span class="n">policy</span> <span class="k">lambda</span> <span class="n">my</span><span class="o">-</span><span class="n">first</span><span class="o">-</span><span class="n">policy</span>
+<span class="mi">2017</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">25</span> <span class="mi">05</span><span class="p">:</span><span class="mi">43</span><span class="p">:</span><span class="mi">04</span><span class="p">,</span><span class="mi">683</span><span class="p">:</span> <span class="n">custodian</span><span class="o">.</span><span class="k">lambda</span><span class="p">:</span><span class="n">INFO</span> <span class="n">Publishing</span> <span class="n">custodian</span> <span class="n">policy</span> <span class="k">lambda</span> <span class="n">function</span> <span class="n">custodian</span><span class="o">-</span><span class="n">my</span><span class="o">-</span><span class="n">first</span><span class="o">-</span><span class="n">policy</span>
+</pre></div>
+</div>
+<p>Go check the AWS console to see the Lambda as well as the Config rule that
+Custodian created. The Config rule should be listed as “Compliant” or “No
+results reported” (if not, be sure you removed the <code class="docutils literal notranslate"><span class="pre">Custodian</span></code> tag from any
+instance left over from the quickstart).</p>
+<p>Now for the fun part! With your new policy installed, go ahead and create an
+EC2 instance with a <code class="docutils literal notranslate"><span class="pre">Custodian</span></code> tag (any non-empty value), and wait (events
+from Config are effectively delayed 15m up to 6hrs on tag changes). If all goes
+well, you should eventually see that your new custom Config rule notices the
+EC2 instance with the <code class="docutils literal notranslate"><span class="pre">Custodian</span></code> tag, and stops it according to your policy.</p>
+<p>Congratulations! You have now installed your policy to run under Config rather
+than from your command line.</p>
+</div>
+<div class="section" id="lambda-configuration">
+<h2>Lambda Configuration<a class="headerlink" href="#lambda-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Custodian lambdas support configuring all lambda options via keys on the lambda
+mode in the YAML.  See AWS’
+<a class="reference external" href="https://docs.aws.amazon.com/lambda/latest/dg/resource-model.html">AWS Lambda Function Configuration</a>
+page for the full list of configuration options avaible on a Lambda.</p>
+<p>Refer to <a class="reference internal" href="../aws-modes.html#aws-modes"><span class="std std-ref">AWS Modes</span></a> for detailed explanation of the different <code class="docutils literal notranslate"><span class="pre">type</span></code>
+values and the corresponding additional configuration options each requires.</p>
+<p>Here is an example YAML fragment that shows the options you are most likely to want or need to configure on a
+lambda:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">mode</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cloudtrail</span>
+  <span class="nt">events</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CreateBucket</span>
+
+  <span class="c1">##### ROLE #####</span>
+  <span class="c1"># Specify the ARN role as either name or full ARN.  This shows</span>
+  <span class="c1"># us running the lambda with the IAM role named Custodian.</span>
+  <span class="c1"># Specifying role by name:</span>
+  <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Custodian</span>
+  <span class="c1"># Or specifying using a full ARN</span>
+  <span class="c1"># role: arn:aws:iam::123456789012:role/Custodian</span>
+
+  <span class="c1">##### TAGS #####</span>
+  <span class="c1"># Specify the tags to assign to this Lambda.  We are setting a</span>
+  <span class="c1"># tag named &quot;Application&quot; with a value of &quot;Custodian&quot;, and a</span>
+  <span class="c1"># &quot;CreatedBy&quot; tag with a value of &quot;CloudCustodian&quot;.</span>
+  <span class="nt">tags</span><span class="p">:</span>
+    <span class="nt">Application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Custodian</span>
+    <span class="nt">CreatedBy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CloudCustodian</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="execution-options">
+<h2>Execution Options<a class="headerlink" href="#execution-options" title="Permalink to this headline">¶</a></h2>
+<p>When running in Lambda you may want policy execution to run using particular
+options corresponding to those passed to the custodian CLI.</p>
+<p>Execution in lambda comes with a default set of configuration which is
+different from the defaults you might set when running through the command line:</p>
+<ul class="simple">
+<li><p>Metrics are enabled</p></li>
+<li><p>Output dir is set to a random /tmp/ directory</p></li>
+<li><p>Caching of AWS resource state is disabled</p></li>
+<li><p>Account ID is automatically set with info from sts</p></li>
+<li><p>Region is automatically set to the region of the lambda (using the
+AWS_DEFAULT_REGION environment variable in lambda)</p></li>
+</ul>
+<p>When you want to override these settings, you must set ‘execution-options’ with
+one of the following keys:</p>
+<ul class="simple">
+<li><p>region</p></li>
+<li><p>cache</p></li>
+<li><p>profile</p></li>
+<li><p>account_id</p></li>
+<li><p>assume_role</p></li>
+<li><p>log_group</p></li>
+<li><p>metrics_enabled</p></li>
+<li><p>output_dir</p></li>
+<li><p>cache_period</p></li>
+<li><p>dryrun</p></li>
+</ul>
+<p>One useful thing we can do with these options is to make a policy execute in a
+different account using assume_role. A policy definition for this looks like:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-first-policy-cross-account</span>
+    <span class="nt">mode</span><span class="p">:</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">periodic</span>
+        <span class="nt">schedule</span><span class="p">:</span> <span class="s">&quot;rate(1</span><span class="nv"> </span><span class="s">day)&quot;</span>
+        <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arn:aws:iam::123456789012:role/lambda-role</span>
+        <span class="nt">execution-options</span><span class="p">:</span>
+          <span class="nt">assume_role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arn:aws:iam::210987654321:role/target-role</span>
+          <span class="nt">metrics_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span>
+    <span class="nt">filters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;tag:Custodian&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+    <span class="nt">actions</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
+</pre></div>
+</div>
+<p>A couple of things to note here:</p>
+<ol class="arabic simple">
+<li><p>Metrics are pushed using the assumed role which may or may not be desired</p></li>
+<li><p>The mode must be periodic as there are restrictions on where policy
+executions can run according to the mode:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Config</dt>
+<dd class="field-odd"><p>May run in a different region but not cross-account</p>
+</dd>
+<dt class="field-even">Event</dt>
+<dd class="field-even"><p>Only run in the same region and account</p>
+</dd>
+<dt class="field-odd">Periodic</dt>
+<dd class="field-odd"><p>May run in a different region and different account</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mu.html" class="btn btn-neutral float-right" title="Mu - Lambda Lifecycle Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../aws-modes.html" class="btn btn-neutral float-left" title="AWS Modes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Capital One Services, LLC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
