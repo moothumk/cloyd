@@ -945,7 +945,7 @@ to an Azure Storage Queue.  For example:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure-notify</span>
     <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.resourcegroup</span>
-    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">example policy</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">send a message to a mailer instance</span>
     <span class="nt">actions</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">notify</span>
         <span class="nt">template</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
@@ -973,17 +973,13 @@ message will be discarded.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">--update-lambda</span></code> CLI option will also deploy Azure Functions if you have an Azure
 mailer configuration.</p>
 <p><code class="docutils literal notranslate"><span class="pre">c7n-mailer</span> <span class="pre">--config</span> <span class="pre">mailer.yml</span> <span class="pre">--update-lambda</span></code></p>
-<p>where <code class="docutils literal notranslate"><span class="pre">mailer.yml</span></code> may look like:</p>
+<p>where a simple <code class="docutils literal notranslate"><span class="pre">mailer.yml</span></code> using Consumption functions may look like:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">queue_url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">asq://storage.queue.core.windows.net/custodian</span>
 <span class="nt">from_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">foo@mail.com</span>
 <span class="nt">sendgrid_api_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;key&gt;</span>
 <span class="nt">function_properties</span><span class="p">:</span>
   <span class="nt">servicePlan</span><span class="p">:</span>
     <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;testmailer1&#39;</span>
-    <span class="nt">resourceGroupName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">custodianmailer1</span>
-    <span class="nt">skuTier</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Basic</span>
-    <span class="nt">skuName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B1</span>
-    <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WestUS2</span>
 </pre></div>
 </div>
 </div>
