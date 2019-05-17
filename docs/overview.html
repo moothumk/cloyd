@@ -91,15 +91,15 @@
 <li class="toctree-l2"><a class="reference internal" href="#links">Links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#quick-install">Quick Install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cloud-provider-specific-help">Cloud Provider Specific Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#get-involved">Get Involved</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#additional-tools">Additional Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#code-of-conduct">Code of Conduct</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/index.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart/usage.html">Monitoring your environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="filters.html">Generic Filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/advanced.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/policyStructure.html">Example tag compliance policy</a></li>
@@ -111,8 +111,8 @@
 <li class="toctree-l1"><a class="reference internal" href="aws/gettingstarted.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aws/examples/index.html">Example Policies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aws/policy/index.html">Filters and Actions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="filters.html">Generic Filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aws/aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/usage.html">Monitoring your environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aws/policy/lambda.html">Lambda Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aws/policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
 </ul>
@@ -269,127 +269,139 @@ resources matched a policy.</p></li>
 </div>
 <div class="section" id="quick-install">
 <h2>Quick Install<a class="headerlink" href="#quick-install" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv custodian
-$ source custodian/bin/activate
-(custodian) $ pip install c7n
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv custodian
+$ <span class="nb">source</span> custodian/bin/activate
+<span class="o">(</span>custodian<span class="o">)</span> $ pip install c7n
 </pre></div>
 </div>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>First a role must be created with the appropriate permissions for
-custodian to act on the resources described in the policies yaml given
-as an example below. For convenience, an <em>example policy</em> is provided for this
-quick start guide. Customized AWS IAM policies will be necessary for
-your own custodian policies</p>
-<p>To implement the policy:</p>
+<p>The first step to using Cloud Custodian is writing a YAML file
+containing the policies that you want to run. Each policy specifies
+the resource type that the policy will run on, a set of filters which
+control resources will be affected by this policy, actions which the policy
+with take on the matched resources, and a mode which controls which
+how the policy will execute.</p>
+<p>The best getting started guides are the cloud provider specific tutorials.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cloudcustodian.io/docs/aws/gettingstarted.html">AWS Getting Started</a></p></li>
+<li><p><a class="reference external" href="https://cloudcustodian.io/docs/azure/gettingstarted.html">Azure Getting Started</a></p></li>
+<li><p><a class="reference external" href="https://cloudcustodian.io/docs/gcp/gettingstarted.html">GCP Getting Started</a></p></li>
+</ul>
+<p>As a quick walk through, below are some sample policies for AWS resources.</p>
 <ol class="simple">
-<li><p>Open the AWS console</p></li>
-<li><p>Navigate to IAM -&gt; Policies</p></li>
-<li><p>Use the <em>json</em> option to copy the example policy as a
-new AWS IAM Policy</p></li>
-<li><p>Name the IAM policy as something recognizable and save it.</p></li>
-<li><p>Navigate to IAM -&gt; Roles and create a role called
-<em>CloudCustodian-QuickStart</em></p></li>
-<li><p>Assign the role the IAM policy created above.</p></li>
+<li><p>will enforce that no S3 buckets have cross-account access enabled.</p></li>
+<li><p>will terminate any newly launched EC2 instance that do not have an encrypted EBS volume.</p></li>
+<li><p>will tag any EC2 instance that does not have the follow tags
+“Environment”, “AppId”, and either “OwnerContact” or “DeptID” to be stopped
+in four days.</p></li>
 </ol>
-<p>Now with the pre-requisite completed; you are ready continue and run
-custodian.</p>
-<p>A custodian policy file needs to be created in YAML format, as an
-example</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remediate-extant-keys</span>
-  <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-    <span class="no">Scan through all s3 buckets in an account and ensure all objects</span>
-    <span class="no">are encrypted (default to AES256).</span>
-  <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.s3</span>
-    <span class="l l-Scalar l-Scalar-Plain">actions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">encrypt-keys</span>
+ <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">s3-cross-account</span>
+   <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+     <span class="no">Checks S3 for buckets with cross-account access and</span>
+     <span class="no">removes the cross-account access.</span>
+   <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.s3</span>
+   <span class="nt">region</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">us-east-1</span>
+   <span class="nt">filters</span><span class="p">:</span>
+     <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cross-account</span>
+   <span class="nt">actions</span><span class="p">:</span>
+     <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remove-statements</span>
+       <span class="nt">statement_ids</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">matched</span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-require-non-public-and-encrypted-volumes</span>
-  <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.ec2</span>
-  <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+ <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ec2-require-non-public-and-encrypted-volumes</span>
+   <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.ec2</span>
+   <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
     <span class="no">Provision a lambda and cloud watch event target</span>
     <span class="no">that looks at all new instances and terminates those with</span>
     <span class="no">unencrypted volumes.</span>
-  <span class="nt">mode</span><span class="p">:</span>
+   <span class="nt">mode</span><span class="p">:</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cloudtrail</span>
     <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CloudCustodian-QuickStart</span>
     <span class="nt">events</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">RunInstances</span>
-  <span class="nt">filters</span><span class="p">:</span>
+   <span class="nt">filters</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ebs</span>
       <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Encrypted</span>
       <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-  <span class="nt">actions</span><span class="p">:</span>
+   <span class="nt">actions</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">terminate</span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tag-compliance</span>
-  <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.ec2</span>
-  <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-    <span class="no">Schedule a resource that does not meet tag compliance policies</span>
-    <span class="no">to be stopped in four days.</span>
-  <span class="nt">filters</span><span class="p">:</span>
+ <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tag-compliance</span>
+   <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws.ec2</span>
+   <span class="nt">description</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+     <span class="no">Schedule a resource that does not meet tag compliance policies to be stopped in four days. Note a separate policy using the`marked-for-op` filter is required to actually stop the instances after four days.</span>
+   <span class="nt">filters</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">State.Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">running</span>
     <span class="p p-Indicator">-</span> <span class="s">&quot;tag:Environment&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>
     <span class="p p-Indicator">-</span> <span class="s">&quot;tag:AppId&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>
     <span class="p p-Indicator">-</span> <span class="nt">or</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;tag:OwnerContact&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;tag:DeptID&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>
-  <span class="nt">actions</span><span class="p">:</span>
+   <span class="nt">actions</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mark-for-op</span>
       <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">stop</span>
       <span class="nt">days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
 </pre></div>
 </div>
-<p>Given that, you can run Cloud Custodian with</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Validate the configuration (note this happens by default on run)
+<p>You can validate, test, and run Cloud Custodian with the example policy with these commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Validate the configuration (note this happens by default on run)</span>
 $ custodian validate policy.yml
 
-# Dryrun on the policies (no actions executed) to see what resources
-# match each policy.
+<span class="c1"># Dryrun on the policies (no actions executed) to see what resources</span>
+<span class="c1"># match each policy.</span>
 $ custodian run --dryrun -s out policy.yml
 
-# Run the policy
+<span class="c1"># Run the policy</span>
 $ custodian run -s out policy.yml
 </pre></div>
 </div>
-<p>You can run it with Docker as well</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Download the image
+<p>You can run Cloud Custodian via Docker as well:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the image</span>
 $ docker pull cloudcustodian/c7n
 $ mkdir output
 
-# Run the policy
-#
-# This will run the policy using only the environment variables for authentication
-$ docker run -it \
-  -v $(pwd)/output:/home/custodian/output \
-  -v $(pwd)/policy.yml:/home/custodian/policy.yml \
-  --env-file &lt;(env | grep &quot;^AWS\|^AZURE\|^GOOGLE&quot;) \
+<span class="c1"># Run the policy</span>
+<span class="c1">#</span>
+<span class="c1"># This will run the policy using only the environment variables for authentication</span>
+$ docker run -it <span class="se">\</span>
+  -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/output:/home/custodian/output <span class="se">\</span>
+  -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/policy.yml:/home/custodian/policy.yml <span class="se">\</span>
+  --env-file &lt;<span class="o">(</span>env <span class="p">|</span> grep <span class="s2">&quot;^AWS\|^AZURE\|^GOOGLE&quot;</span><span class="o">)</span> <span class="se">\</span>
   cloudcustodian/c7n run -v -s /home/custodian/output /home/custodian/policy.yml
 
-# Run the policy (using AWS&#39;s generated credentials from STS)
-#
-# NOTE: We mount the ``.aws/credentials`` and ``.aws/config`` directories to
-# the docker container to support authentication to AWS using the same credentials
-# credentials that are available to the local user if authenticating with STS.
-# This exposes your container to additional credentials than may be necessary,
-# i.e. additional credentials may be available inside of the container than is
-# minimally necessary.
+<span class="c1"># Run the policy (using AWS&#39;s generated credentials from STS)</span>
+<span class="c1">#</span>
+<span class="c1"># NOTE: We mount the ``.aws/credentials`` and ``.aws/config`` directories to</span>
+<span class="c1"># the docker container to support authentication to AWS using the same credentials</span>
+<span class="c1"># credentials that are available to the local user if authenticating with STS.</span>
+<span class="c1"># This exposes your container to additional credentials than may be necessary,</span>
+<span class="c1"># i.e. additional credentials may be available inside of the container than is</span>
+<span class="c1"># minimally necessary.</span>
 
-$ docker run -it \
-  -v $(pwd)/output:/home/custodian/output \
-  -v $(pwd)/policy.yml:/home/custodian/policy.yml \
-  -v $(cd ~ &amp;&amp; pwd)/.aws/credentials/home/custodian/:.aws/credentials \
-  -v $(cd ~ &amp;&amp; pwd)/.aws/config:/home/custodian/.aws/config \
-  --env-file &lt;(env | grep &quot;^AWS&quot;) \
+$ docker run -it <span class="se">\</span>
+  -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/output:/home/custodian/output <span class="se">\</span>
+  -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/policy.yml:/home/custodian/policy.yml <span class="se">\</span>
+  -v <span class="k">$(</span><span class="nb">cd</span> ~ <span class="o">&amp;&amp;</span> <span class="nb">pwd</span><span class="k">)</span>/.aws/credentials/home/custodian/:.aws/credentials <span class="se">\</span>
+  -v <span class="k">$(</span><span class="nb">cd</span> ~ <span class="o">&amp;&amp;</span> <span class="nb">pwd</span><span class="k">)</span>/.aws/config:/home/custodian/.aws/config <span class="se">\</span>
+  --env-file &lt;<span class="o">(</span>env <span class="p">|</span> grep <span class="s2">&quot;^AWS&quot;</span><span class="o">)</span> <span class="se">\</span>
   cloudcustodian/c7n run -v -s /home/custodian/output /home/custodian/policy.yml
 </pre></div>
 </div>
-<p>Custodian supports a few other useful subcommands and options, including
-outputs to S3, Cloudwatch metrics, STS role assumption. Policies go
+<p>Custodian supports other useful subcommands and options, including
+outputs to S3, CloudWatch metrics, STS role assumption. Policies go
 together like Lego bricks with actions and filters.</p>
 <p>Consult the documentation for additional information, or reach out on gitter.</p>
+</div>
+<div class="section" id="cloud-provider-specific-help">
+<h2>Cloud Provider Specific Help<a class="headerlink" href="#cloud-provider-specific-help" title="Permalink to this headline">¶</a></h2>
+<p>For specific instructions for AWS, Azure, and GCP, visit the relevant getting started page.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cloudcustodian.io/docs/aws/gettingstarted.html">AWS</a></p></li>
+<li><p><a class="reference external" href="https://cloudcustodian.io/docs/azure/gettingstarted.html">Azure</a></p></li>
+<li><p><a class="reference external" href="https://cloudcustodian.io/docs/gcp/gettingstarted.html">GCP</a></p></li>
+</ul>
 </div>
 <div class="section" id="get-involved">
 <h2>Get Involved<a class="headerlink" href="#get-involved" title="Permalink to this headline">¶</a></h2>
@@ -417,19 +429,9 @@ tools here
 <a class="reference external" href="https://sentry.io/welcome/">https://sentry.io/welcome/</a></p></li>
 </ul>
 </div>
-<div class="section" id="contributors">
-<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
-<p>We welcome Your interest in Capital One’s Open Source Projects (the
-“Project”). Any Contributor to the Project must accept and sign an
-Agreement indicating agreement to the license terms below. Except for
-the license granted in this Agreement to Capital One and to recipients
-of software distributed by Capital One, You reserve all right, title,
-and interest in and to Your Contributions; this Agreement does not
-impact Your rights to use Your own Contributions for any other purpose.</p>
-<p><a class="reference external" href="https://docs.google.com/forms/d/19LpBBjykHPox18vrZvBbZUcK6gQTj7qv1O5hCduAZFU/viewform">Sign the Individual
-Agreement</a></p>
-<p><a class="reference external" href="https://docs.google.com/forms/d/e/1FAIpQLSeAbobIPLCVZD_ccgtMWBDAcN68oqbAJBQyDTSAQ1AkYuCp_g/viewform?usp=send_form">Sign the Corporate
-Agreement</a></p>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p>See https://cloudcustodian.io/docs/contribute.html</p>
 </div>
 <div class="section" id="code-of-conduct">
 <h2>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permalink to this headline">¶</a></h2>

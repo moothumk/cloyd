@@ -88,7 +88,6 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Cloud Custodian</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/index.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart/usage.html">Monitoring your environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="filters.html">Generic Filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/advanced.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart/policyStructure.html">Example tag compliance policy</a></li>
@@ -100,8 +99,8 @@
 <li class="toctree-l1"><a class="reference internal" href="aws/gettingstarted.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aws/examples/index.html">Example Policies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aws/policy/index.html">Filters and Actions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="filters.html">Generic Filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aws/aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/usage.html">Monitoring your environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aws/policy/lambda.html">Lambda Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aws/policy/mu.html">Mu - Lambda Lifecycle Management</a></li>
 </ul>
@@ -212,9 +211,10 @@
 <li class="toctree-l2"><a class="reference internal" href="overview.html#links">Links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#quick-install">Quick Install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#cloud-provider-specific-help">Cloud Provider Specific Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#get-involved">Get Involved</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#additional-tools">Additional Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#contributing">Contributing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#code-of-conduct">Code of Conduct</a></li>
 </ul>
 </li>
@@ -232,13 +232,6 @@
 <li class="toctree-l2"><a class="reference internal" href="quickstart/index.html#cloud-provider-specific-help">Cloud Provider Specific Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart/index.html#monitor-resources">Monitor resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart/index.html#tab-completion">Tab Completion</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart/usage.html">Monitoring your environment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quickstart/usage.html#metrics">Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart/usage.html#cloudwatch-logs">CloudWatch Logs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart/usage.html#s3-logs-records">S3 Logs &amp; Records</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart/usage.html#reports">Reports</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="filters.html">Generic Filters</a><ul>
@@ -277,6 +270,7 @@
 <li class="toctree-l1"><a class="reference internal" href="aws/gettingstarted.html">Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="aws/gettingstarted.html#write-your-first-policy">Write your first policy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aws/gettingstarted.html#run-your-policy">Run your policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/gettingstarted.html#a-2nd-example-policy">A 2nd Example Policy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aws/gettingstarted.html#monitor-aws">Monitor AWS</a></li>
 </ul>
 </li>
@@ -337,13 +331,14 @@
 <li class="toctree-l2"><a class="reference internal" href="aws/policy/resources/s3.html">Simple Storage Service (S3)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="filters.html">Generic Filters</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="filters.html#value-filter">Value Filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters.html#age-filter">Age Filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters.html#event-filter">Event Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/aws-modes.html">AWS Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws/usage.html">Monitoring your environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aws/usage.html#metrics">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/usage.html#cloudwatch-logs">CloudWatch Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/usage.html#s3-logs-records">S3 Logs &amp; Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws/usage.html#reports">Reports</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="aws/aws-modes.html">AWS Modes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aws/policy/lambda.html">Lambda Support</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="aws/policy/lambda.html#cloudwatch-events">CloudWatch Events</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aws/policy/lambda.html#config-rules">Config Rules</a></li>
