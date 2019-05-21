@@ -228,6 +228,7 @@ for lambda policies on cloudtrail api events as an event selector.</p>
 to be specified, and then for each event, we need to know the
 name of the service, the event name, and a jmespath expression
 to get the resource ids.</p>
+<p>Here’s a a few examples, covering iam-user, iam-role, and and an s3 bucket.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
@@ -241,8 +242,17 @@ to get the resource ids.</p>
       <span class="p">]</span>
     <span class="p">},</span>
     <span class="p">{</span>
+      <span class="nt">&quot;resource&quot;</span><span class="p">:</span> <span class="s2">&quot;s3&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;events&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;ids&quot;</span><span class="p">:</span> <span class="s2">&quot;requestParameters.bucketName&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;CreateBucket&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;s3.amazonaws.com&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
       <span class="nt">&quot;resource&quot;</span><span class="p">:</span> <span class="s2">&quot;iam-user&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;shape&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
       <span class="nt">&quot;events&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
           <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;CreateUser&quot;</span><span class="p">,</span>
