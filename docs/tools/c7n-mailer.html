@@ -133,6 +133,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#email">Email:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#datadog">DataDog:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#slack">Slack:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#splunk-http-event-collector-hec">Splunk HTTP Event Collector (HEC)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#now-run">Now run:</a></li>
 </ul>
 </li>
@@ -143,6 +144,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#datadog-config">DataDog Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#slack-config">Slack Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sendgrid-config">SendGrid Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#splunk-hec-config">Splunk HEC Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sdk-config">SDK Config</a></li>
 </ul>
 </li>
@@ -418,6 +420,32 @@ and if not specified, the mailer will use the default value <code class="docutil
 </table><p>Slack delivery can also be set via a resource’s tag name. For example, using “slack://tag/slack_channel” will look for a tag name of ‘slack_channel’, and if matched on a resource will deliver the message to the value of that resource’s tag:</p>
 <p><code class="docutils literal notranslate"><span class="pre">slack_channel:https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX</span></code></p>
 <p>Delivery via tag has been tested with webhooks but should support all delivery methods.</p>
+</div>
+<div class="section" id="splunk-http-event-collector-hec">
+<h3>Splunk HTTP Event Collector (HEC)<a class="headerlink" href="#splunk-http-event-collector-hec" title="Permalink to this headline">¶</a></h3>
+<p>The Custodian mailer supports delivery to the HTTP Event Collector (HEC) endpoint of a Splunk instance as a separate notification mechanism for the SQS transport method. To enable Splunk HEC integration, you must specify the URL to the HEC endpoint as well as a valid username and token:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">queue_url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://sqs.us-east-1.amazonaws.com/1234567890/c7n-mailer-test</span>
+<span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arn:aws:iam::123456790:role/c7n-mailer-test</span>
+<span class="nt">splunk_hec_url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://http-inputs-foo.splunkcloud.com/services/collector/event</span>
+<span class="nt">splunk_hec_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">268b3cc2-f32e-4a19-a1e8-aee08d86ca7f</span>
+</pre></div>
+</div>
+<p>To send events for a policy to the Splunk HEC endpoint, add a <code class="docutils literal notranslate"><span class="pre">to</span></code> address notify action specifying the name of the Splunk index to send events to in the form <code class="docutils literal notranslate"><span class="pre">splunkhec://indexName</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">policies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">c7n</span><span class="o">-</span><span class="n">mailer</span><span class="o">-</span><span class="n">test</span>
+    <span class="n">resource</span><span class="p">:</span> <span class="n">ebs</span>
+    <span class="n">filters</span><span class="p">:</span>
+     <span class="o">-</span> <span class="n">Attachments</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="n">actions</span><span class="p">:</span>
+      <span class="o">-</span> <span class="nb">type</span><span class="p">:</span> <span class="n">notify</span>
+        <span class="n">to</span><span class="p">:</span>
+          <span class="o">-</span> <span class="n">splunkhec</span><span class="p">:</span><span class="o">//</span><span class="n">myIndexName</span>
+        <span class="n">transport</span><span class="p">:</span>
+          <span class="nb">type</span><span class="p">:</span> <span class="n">sqs</span>
+          <span class="n">queue</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">sqs</span><span class="o">.</span><span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mf">1.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">1234567890</span><span class="o">/</span><span class="n">c7n</span><span class="o">-</span><span class="n">mailer</span><span class="o">-</span><span class="n">test</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">splunkhec://indexName</span></code> address type can be combined in the same notify action with other destination types (e.g. email, Slack, DataDog, etc).</p>
 </div>
 <div class="section" id="now-run">
 <h3>Now run:<a class="headerlink" href="#now-run" title="Permalink to this headline">¶</a></h3>
@@ -824,6 +852,57 @@ and here is a description of the options:</p>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="splunk-hec-config">
+<h3>Splunk HEC Config<a class="headerlink" href="#splunk-hec-config" title="Permalink to this headline">¶</a></h3>
+<p>The following configuration items are <em>all</em> optional. The ones marked “Required for Splunk” are only required if you’re sending notifications to <code class="docutils literal notranslate"><span class="pre">splunkhec://</span></code> destinations.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Required for Splunk?</th>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">&#x2705;</td>
+<td align="left"><code>splunk_hec_url</code></td>
+<td align="left">string</td>
+<td align="left">URL to your Splunk HTTP Event Collector endpoint</td>
+</tr>
+<tr>
+<td align="center">&#x2705;</td>
+<td align="left"><code>splunk_hec_token</code></td>
+<td align="left">string</td>
+<td align="left">Splunk HEC authentication token for specified username</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="left"><code>splunk_remove_paths</code></td>
+<td align="left">array of strings</td>
+<td align="left">List of <a href="http://tools.ietf.org/html/rfc6901">RFC6901</a> JSON Pointers to remove from the event, if present, before sending to Splunk</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="left"><code>splunk_actions_list</code></td>
+<td align="left">boolean</td>
+<td align="left">If true, add an <code>actions</code> list to the top-level message sent to Splunk, containing the names of all non-notify actions taken</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="left"><code>splunk_max_attempts</code></td>
+<td align="left">integer</td>
+<td align="left">Maximum number of times to try POSTing data to Splunk HEC (default 4)</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="left"><code>splunk_hec_max_length</code></td>
+<td align="left">integer</td>
+<td align="left">Maximum data length that Splunk HEC accepts; an error will be logged for any message sent over this length</td>
 </tr>
 </tbody>
 </table></div>
