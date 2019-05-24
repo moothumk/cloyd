@@ -240,7 +240,7 @@ yet supported.</p>
 <ul class="simple">
 <li><p>Storage (shared across functions)</p></li>
 <li><p>Application Insights (shared across functions)</p></li>
-<li><p>Application Service Plan (shared across functions)</p></li>
+<li><p>Application Service Plan (shared across functions with optional default auto scale rule)</p></li>
 <li><p>Application Service (per function)</p></li>
 </ul>
 <p>Functions can be deployed in either a dedicated Application Service Plan (Basic, Standard or Premium) or in a Consumption plan.
@@ -250,24 +250,53 @@ Linux Consumption is currently only available in the following regions: East Asi
 <p>A dedicated plan can service multiple Function Applications.  If you provide the same servicePlanName with all policies or
 use the default name then only new Function Applications will be created during deployment, all using the same
 shared plan resources.</p>
+<p>You can enable default auto scaling option for your dedicated App Service Plan. Default option allows you
+to specify minimum and maximum number of underlying VMs. Scaling is performed based on the average RAM usage.
+App Service Plan will be scaled up if average RAM usage was more than 80% in the past 10 minutes.
+This option is disabled by default.</p>
 <p>Execution in Azure functions comes with a default set of configurations for the provisioned
 resources. To override these settings you must set ‘provision-options’ with one of the following
 keys:</p>
 <ul class="simple">
-<li><p>servicePlan
-- name (default: cloud-custodian)
-- location (default: East US)
-- resourceGroupName (default: cloud-custodian)
-- skuTier (default: Dynamic) # consumption
-- skuName (default: Y1)</p></li>
-<li><p>storageAccount
-- name (default: custodian + sha256(resourceGroupName+subscription_id)[:8])
-- location (default: servicePlan location)
-- resourceGroupName (default: servicePlan resource group)</p></li>
-<li><p>appInsights
-- name (default: servicePlan resource group)
-- location (default: servicePlan location)
-- resourceGroupName (default: servicePlan name)</p></li>
+<li><dl class="simple">
+<dt>servicePlan</dt><dd><ul>
+<li><p>name (default: cloud-custodian)</p></li>
+<li><p>location (default: East US)</p></li>
+<li><p>resourceGroupName (default: cloud-custodian)</p></li>
+<li><p>skuTier (default: Dynamic) # consumption</p></li>
+<li><p>skuName (default: Y1)</p></li>
+<li><dl class="simple">
+<dt>autoScale (optional):</dt><dd><ul>
+<li><p>enabled (default: False)</p></li>
+<li><p>minCapacity (default: 1)</p></li>
+<li><p>maxCapacity (default: 1)</p></li>
+<li><p>defaultCapacity (default: 1)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>storageAccount</dt><dd><ul>
+<li><p>name (default: custodian + sha256(resourceGroupName+subscription_id)[:8])</p></li>
+<li><p>location (default: servicePlan location)</p></li>
+<li><p>resourceGroupName (default: servicePlan resource group)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>appInsights</dt><dd><ul>
+<li><p>name (default: servicePlan resource group)</p></li>
+<li><p>location (default: servicePlan location)</p></li>
+<li><p>resourceGroupName (default: servicePlan name)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 <p>The location allows you to choose the region to deploy the resource group and resources that will be
 provisioned. Application Insights has six available locations and thus can not always be in the same
@@ -282,7 +311,9 @@ and will use existing resources as-is. If resource doesn’t exist, it will be p
 <li><p>appInsights</p></li>
 </ul>
 <p>If you provide resource ids, Cloud Custodian verifies that resource exists before function app provisioning. It returns an error if resource is missing.</p>
-<p>An example on how to set the servicePlanName and accept defaults for the other values:</p>
+<p>An example on how to set the servicePlanName, accept defaults for the other values and enable default scaling:</p>
+<p>This policy deploys dedicated Standard S2 App Service Plan with enabled auto scale rule for 1-3 VMs.
+Default scaling rule scales app service plan if total RAM consumption is more than 80%.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">stopped-vm</span>
     <span class="nt">mode</span><span class="p">:</span>
@@ -291,6 +322,13 @@ and will use existing resources as-is. If resource doesn’t exist, it will be p
         <span class="nt">provision-options</span><span class="p">:</span>
           <span class="nt">servicePlan</span><span class="p">:</span>
             <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">functionshost</span>
+            <span class="nt">skuTier</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Standard</span>
+            <span class="nt">skuName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">S2</span>
+            <span class="nt">autoScale</span><span class="p">:</span>
+              <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+              <span class="nt">minCapacity</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+              <span class="nt">maxCapacity</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+              <span class="nt">defaultCapacity</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
     <span class=" -Error"> </span><span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.vm</span>
      <span class="nt">filters</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">instance-view</span>
