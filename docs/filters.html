@@ -247,7 +247,7 @@ from the results.</p>
 <li><p>Via Cloud Provider Documentation</p>
 <blockquote>
 <div><p>Go to the relevant cloud provider sdk documentation and search for the describe api call for the resource
-your interested in. The available fields will be listed under the results of that api call.</p>
+you’re interested in. The available fields will be listed under the results of that api call.</p>
 </div></blockquote>
 </li>
 <li><dl class="simple">
@@ -427,6 +427,29 @@ following value types are supported:</p>
             <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">subnet-2a8374658</span>
             <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">subnet-1b8474522</span>
             <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">subnet-2d2736444</span>
+</pre></div>
+</div>
+</li>
+<li><p>Value Regex:</p>
+<p>When using a Value Filter, a <code class="docutils literal notranslate"><span class="pre">value_regex</span></code> can be
+specified. This will mean that the value used for comparison is the output
+from evaluating a regex on the value found on a resource using <cite>key</cite>.</p>
+<p>The filter expects that there will be exactly one capturing group, however
+non-capturing groups can be specified as well, e.g. <code class="docutils literal notranslate"><span class="pre">(?:newkey|oldkey)</span></code>.</p>
+<p>Note that if the value regex does not find a match, it will return a <code class="docutils literal notranslate"><span class="pre">None</span></code>
+value.</p>
+<p>In this example there is an <code class="docutils literal notranslate"><span class="pre">expiration</span></code> comparison,
+which needs a datetime, however the tag containing this information
+also has other data in it. By setting the <code class="docutils literal notranslate"><span class="pre">value_regex</span></code>
+to capture just the datetime part of the tag, the filter can be evaluated
+as normal.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find expiry from tag contents</span>
+<span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+  <span class="nt">key</span><span class="p">:</span> <span class="s">&quot;tag:metadata&quot;</span>
+  <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">expiration</span>
+  <span class="nt">value_regex</span><span class="p">:</span> <span class="s">&quot;.*delete_after=([0-9]{4}-[0-9]{2}-[0-9]{2}).*&quot;</span>
+  <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">less-than</span>
+  <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
 </pre></div>
 </div>
 </li>
