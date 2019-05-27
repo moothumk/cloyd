@@ -363,6 +363,7 @@ following value types are supported:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">resource_count</span></code> - compare against the number of matched resources</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">size</span></code> - the length of an element</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">swap</span></code> - swap the value and the evaluated key</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code> - parse the filter’s value as a date.</p></li>
 </ul>
 <p>Examples:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the size of a group</span>
@@ -384,6 +385,13 @@ following value types are supported:</p>
   <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">greater-than</span>
   <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">integer</span>
   <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+
+<span class="c1"># Apply only to rds instances created after the given date</span>
+<span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
+  <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">InstanceCreateTime</span>
+  <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">greater-than</span>
+  <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">date</span>
+  <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;2019/05/01&quot;</span>
 
 <span class="c1"># Find instances launched within the last 31 days</span>
 <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
@@ -461,6 +469,8 @@ as normal.</p>
 <div><p>Automatically filter resources older than a given date in Days (see <a class="reference external" href="http://dateutil.readthedocs.org/en/latest/parser.html#dateutil.parser.parse">Dateutil Parser</a>)
 These are implemented on a per resource basis. See the <a class="reference internal" href="aws/policy/index.html#policy"><span class="std std-ref">Resource-Specific Filters and Actions reference</span></a> for
 resource-specific filters.</p>
+<p>Generally you should use a value filter instead of an age filter, as it supports doing age/expiration comparisons on
+any date attribute.</p>
 </div></blockquote>
 </div>
 <div class="section" id="event-filter">
