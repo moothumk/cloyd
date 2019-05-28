@@ -39,7 +39,7 @@
   <link rel="stylesheet" href="../../_static/css/expand.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Advanced Usage" href="multiplesubs.html" />
+    <link rel="next" title="Running against multiple subscriptions" href="multiplesubs.html" />
     <link rel="prev" title="Advanced Usage" href="index.html" /> 
 </head>
 
@@ -115,20 +115,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../azure-modes.html">Azure Modes</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Advanced Usage</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Azure Functions Support</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#provision-options">Provision Options</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#execution-options">Execution Options</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#event-grid-functions">Event Grid Functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#advanced-authentication-options">Advanced Authentication Options</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#management-groups-support">Management Groups Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#provision-options">Provision Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execution-options">Execution Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event-grid-functions">Event Grid Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-authentication-options">Advanced Authentication Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#management-groups-support">Management Groups Support</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#timer-triggered-functions">Timer triggered functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#event-triggered-functions">Event triggered functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#permissions">Permissions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#timer-triggered-functions">Timer triggered functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#event-triggered-functions">Event triggered functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#permissions">Permissions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="multiplesubs.html">Advanced Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multiplesubs.html">Running against multiple subscriptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bloboutput.html">Blob Storage Output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="appinsightslogging.html">App Insights Logging &amp; Metrics</a></li>
 </ul>
@@ -234,8 +234,9 @@ them to run inexpensively in your subscription.</p>
 </ul>
 <p>Currently periodic (CRON) and Event Grid functions are supported, however consumption pricing is not
 yet supported.</p>
+</div>
 <div class="section" id="provision-options">
-<h3>Provision Options<a class="headerlink" href="#provision-options" title="Permalink to this headline">¶</a></h3>
+<h2>Provision Options<a class="headerlink" href="#provision-options" title="Permalink to this headline">¶</a></h2>
 <p>When deploying an Azure function the following ARM resources are required and created on demand if necessary:</p>
 <ul class="simple">
 <li><p>Storage (shared across functions)</p></li>
@@ -385,7 +386,7 @@ Default scaling rule scales app service plan if total RAM consumption is more th
 </div>
 </div>
 <div class="section" id="execution-options">
-<h3>Execution Options<a class="headerlink" href="#execution-options" title="Permalink to this headline">¶</a></h3>
+<h2>Execution Options<a class="headerlink" href="#execution-options" title="Permalink to this headline">¶</a></h2>
 <p>Execution options are not required, but allow you to override defaults that would normally
 be provided on the command line in non-serverless scenarios.</p>
 <p>Common properties are:</p>
@@ -417,7 +418,7 @@ be provided on the command line in non-serverless scenarios.</p>
 <p>More details on Blob Storage output are at <a class="reference internal" href="bloboutput.html#azure-bloboutput"><span class="std std-ref">Blob Storage Output</span></a></p>
 </div>
 <div class="section" id="event-grid-functions">
-<h3>Event Grid Functions<a class="headerlink" href="#event-grid-functions" title="Permalink to this headline">¶</a></h3>
+<h2>Event Grid Functions<a class="headerlink" href="#event-grid-functions" title="Permalink to this headline">¶</a></h2>
 <p>Currently, support for event grid functions is at the subscription level and can listen to write and delete
 events. When deploying an event grid function, an Event Grid Subscription is created that triggers the Azure Function
 when any event is triggered in the subscription. Cloud custodian filters to the events you passed to your policy and
@@ -442,7 +443,7 @@ of one of the <a class="reference external" href="https://github.com/cloud-custo
 </div>
 </div>
 <div class="section" id="advanced-authentication-options">
-<h3>Advanced Authentication Options<a class="headerlink" href="#advanced-authentication-options" title="Permalink to this headline">¶</a></h3>
+<h2>Advanced Authentication Options<a class="headerlink" href="#advanced-authentication-options" title="Permalink to this headline">¶</a></h2>
 <p>By default the function is both deployed and executed with the credentials and subscription ID you have configured
 for the custodian CLI.  You may optionally provide environment variables to use exclusively at function execution time
 which also allow you to target your policy towards a subscription ID different than the one to which you are deploying.</p>
@@ -458,27 +459,26 @@ used for deployment.</p>
 <p>You may provide the service principal but omit the subscription ID if you wish.</p>
 </div>
 <div class="section" id="management-groups-support">
-<h3>Management Groups Support<a class="headerlink" href="#management-groups-support" title="Permalink to this headline">¶</a></h3>
+<h2>Management Groups Support<a class="headerlink" href="#management-groups-support" title="Permalink to this headline">¶</a></h2>
 <p>You can deploy Azure Functions targeting all subscriptions that are part of specified Management Group.</p>
 <p>The following variable allows you to specify Management Group name:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>AZURE_FUNCTION_MANAGEMENT_GROUP_NAME
 </pre></div>
 </div>
 <p>It can be used with Function specific Service Principal credentials described before. Management Group environment variable has the highest priority, so <cite>AZURE_FUNCTION_SUBSCRIPTION_ID</cite> will be ignored.</p>
-</div>
-</div>
 <div class="section" id="timer-triggered-functions">
-<h2>Timer triggered functions<a class="headerlink" href="#timer-triggered-functions" title="Permalink to this headline">¶</a></h2>
+<h3>Timer triggered functions<a class="headerlink" href="#timer-triggered-functions" title="Permalink to this headline">¶</a></h3>
 <p>When Management Groups option is used with periodic mode, Cloud Custodian deploys a single Azure Function App with multiple Azure Functions following single subscription per function rule.</p>
 </div>
 <div class="section" id="event-triggered-functions">
-<h2>Event triggered functions<a class="headerlink" href="#event-triggered-functions" title="Permalink to this headline">¶</a></h2>
+<h3>Event triggered functions<a class="headerlink" href="#event-triggered-functions" title="Permalink to this headline">¶</a></h3>
 <p>When Management Groups option is used with event mode, Cloud Custodian deploys single Azure Function. It creates Event Grid subscription for each Subscription in Management Group delivering events to a single Azure Storage Queue.</p>
 </div>
 <div class="section" id="permissions">
-<h2>Permissions<a class="headerlink" href="#permissions" title="Permalink to this headline">¶</a></h2>
+<h3>Permissions<a class="headerlink" href="#permissions" title="Permalink to this headline">¶</a></h3>
 <p>Service Principal used at the Functions runtime required to have appropriate level of permission in each target subscription.</p>
 <p>Service Principal used to provision Azure Functions required to have permissions to access Management Groups. If SP doesn’t have <cite>MG Reader</cite> permissions in any child subscription these subscriptions won’t be a part of Cloud Custodian Azure Function deployment process.</p>
+</div>
 </div>
 </div>
 
@@ -490,7 +490,7 @@ used for deployment.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="multiplesubs.html" class="btn btn-neutral float-right" title="Advanced Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="multiplesubs.html" class="btn btn-neutral float-right" title="Running against multiple subscriptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Advanced Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
