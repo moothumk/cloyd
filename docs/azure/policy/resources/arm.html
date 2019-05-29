@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Network Interface &mdash; Cloud Custodian  documentation</title>
+  <title>Azure ARM Resource &mdash; Cloud Custodian  documentation</title>
   
 
   
@@ -118,10 +118,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accesscontrol.html">Access Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="appserviceplan.html">App Service Plan</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Network Interface</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Azure ARM Resource</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#filters">Filters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#actions">Actions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example-policies">Example Policies</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="batch.html">Batch</a></li>
@@ -226,7 +225,7 @@
         
           <li><a href="../index.html">Policies</a> &raquo;</li>
         
-      <li>Network Interface</li>
+      <li>Azure ARM Resource</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -243,8 +242,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="network-interface">
-<span id="azure-armresource"></span><h1>Network Interface<a class="headerlink" href="#network-interface" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="azure-arm-resource">
+<span id="azure-armresource"></span><h1>Azure ARM Resource<a class="headerlink" href="#azure-arm-resource" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="filters">
 <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -270,33 +269,6 @@
 <ul class="simple">
 <li><p>ARM Resource Actions (see <a class="reference internal" href="../genericarmaction.html#azure-genericarmaction"><span class="std std-ref">Generic Actions</span></a>)</p></li>
 </ul>
-</div>
-<div class="section" id="example-policies">
-<h2>Example Policies<a class="headerlink" href="#example-policies" title="Permalink to this headline">¶</a></h2>
-<p>This set of policies will mark all ARM resources for deletion in 7 days that have ‘test’ in name (ignore case),
-and then perform the delete operation on those ready for deletion.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mark-test-armresources-for-deletion</span>
-    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.armresource</span>
-    <span class="nt">filters</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
-        <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">name</span>
-        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">in</span>
-        <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">normalize</span>
-        <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
-    <span class=" -Error"> </span><span class="nt">actions</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mark-for-op</span>
-        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
-        <span class="nt">days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delete-test-armresources</span>
-    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.armresource</span>
-    <span class="nt">filters</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">marked-for-op</span>
-        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
-    <span class="nt">actions</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
-</pre></div>
-</div>
 </div>
 </div>
 

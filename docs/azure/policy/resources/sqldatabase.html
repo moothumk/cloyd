@@ -118,7 +118,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accesscontrol.html">Access Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="appserviceplan.html">App Service Plan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arm.html">Network Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arm.html">Azure ARM Resource</a></li>
 <li class="toctree-l2"><a class="reference internal" href="batch.html">Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cdn.html">CDN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cognitiveservices.html">Cognitive Services</a></li>
@@ -249,16 +249,16 @@
 resource, and the SQL Server parent id is available as the <cite>c7n:parent-id</cite> property.</p>
 <div class="section" id="filters">
 <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
+<ul>
 <li><dl class="simple">
-<dt>Standard Value Filter (see <a class="reference internal" href="../../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</dt><dd><ul>
+<dt>Standard Value Filter (see <a class="reference internal" href="../../../filters.html#filters"><span class="std std-ref">Generic Filters</span></a>)</dt><dd><ul class="simple">
 <li><p>Model: <a class="reference external" href="https://docs.microsoft.com/en-us/python/api/azure-mgmt-sql/azure.mgmt.sql.models.database.database?view=azure-python">Database</a></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>ARM Resource Filters (see <a class="reference internal" href="../genericarmfilter.html#azure-genericarmfilter"><span class="std std-ref">Generic Filters</span></a>)</dt><dd><ul>
+<dt>ARM Resource Filters (see <a class="reference internal" href="../genericarmfilter.html#azure-genericarmfilter"><span class="std std-ref">Generic Filters</span></a>)</dt><dd><ul class="simple">
 <li><p>Metric Filter - Filter on metrics from Azure Monitor - (see <a class="reference external" href="https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftsqlservers/">SQL Server Supported Metrics</a>)</p></li>
 <li><p>Tag Filter - Filter on tag presence and/or values</p></li>
 <li><p>Marked-For-Op Filter - Filter on tag that indicates a scheduled operation for a resource</p></li>
@@ -266,16 +266,12 @@ resource, and the SQL Server parent id is available as the <cite>c7n:parent-id</
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt>Short Term Backup Retention Policy Filter</dt><dd><ul>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">short-term-backup-retention-policy</span></code></dt><dd><ul class="simple">
 <li><p>Filter on the retention period (in days) of the database’s short term backup retention policy.</p></li>
 <li><p>more info on <a class="reference external" href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automated-backups">Short Term Backups</a></p></li>
 <li><p>If there is no short term backup retention policy set on the database, it is treated as if the retention is zero days.</p></li>
 <li><p>The default comparison operation is <cite>eq</cite></p></li>
-</ul>
-</dd>
-</dl>
-</li>
 </ul>
 <div class="toggle docutils container">
 <div class="header docutils container">
@@ -306,9 +302,11 @@ resource, and the SQL Server parent id is available as the <cite>c7n:parent-id</
 </pre></div>
 </div>
 </div>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Long Term Backup Retention Policy Filter</dt><dd><ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">long-term-backup-retention-policy</span></code></dt><dd><ul class="simple">
 <li><p>Filter on the retention period of the database’s long term backup retention policy.</p></li>
 <li><p>more info on <a class="reference external" href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-long-term-retention">Long Term Backups</a></p></li>
 <li><p>If the specified backup type has not been set on the resource, it is treated as if the retention period is zero.</p></li>
@@ -316,10 +314,6 @@ resource, and the SQL Server parent id is available as the <cite>c7n:parent-id</
 <li><dl class="simple">
 <dt>The <cite>azure.sqldatabase</cite> resource will only get through the filter if the <cite>retention-period-units</cite> field matches the units specified in the actual long term backup retention policy.</dt><dd><ul>
 <li><p>Example: if the filter is looking for backups less than 1 year, and the retention policy is set to 6 months, then the database will not get through the filter because there is a unit mismatch.</p></li>
-</ul>
-</dd>
-</dl>
-</li>
 </ul>
 </dd>
 </dl>
@@ -375,6 +369,10 @@ resource, and the SQL Server parent id is available as the <cite>c7n:parent-id</
 </pre></div>
 </div>
 </div>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>

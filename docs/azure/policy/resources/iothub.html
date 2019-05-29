@@ -118,7 +118,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../filters.html">Generic Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accesscontrol.html">Access Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="appserviceplan.html">App Service Plan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arm.html">Network Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arm.html">Azure ARM Resource</a></li>
 <li class="toctree-l2"><a class="reference internal" href="batch.html">Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cdn.html">CDN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cognitiveservices.html">Cognitive Services</a></li>
@@ -274,33 +274,9 @@
 </div>
 <div class="section" id="example-policies">
 <h2>Example Policies<a class="headerlink" href="#example-policies" title="Permalink to this headline">¶</a></h2>
-<p>This set of policies will mark all IoT Hubs for deletion in 7 days that have ‘test’ in name (ignore case),
-and then perform the delete operation on those ready for deletion.</p>
+<p>This policy will find all IoT Hubs with 1000 or more dropped messages over the last 72 hours</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mark-test-iothubs-for-deletion</span>
-    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.iothub</span>
-    <span class="nt">filters</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">value</span>
-        <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">name</span>
-        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">in</span>
-        <span class="nt">value_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">normalize</span>
-        <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
-    <span class=" -Error"> </span><span class="nt">actions</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mark-for-op</span>
-        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
-        <span class="nt">days</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delete-test-iothubs</span>
-    <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.iothub</span>
-    <span class="nt">filters</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">marked-for-op</span>
-        <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
-    <span class="nt">actions</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delete</span>
-</pre></div>
-</div>
-<p>This policy will find all IoT Hubs with 1000 or more dropped messages over the last 72 hours and notify <a class="reference external" href="mailto:user&#37;&#52;&#48;domain&#46;com">user<span>&#64;</span>domain<span>&#46;</span>com</a></p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">policies</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">notify-iothubs-dropping-messages</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">iothubs-dropping-messages</span>
     <span class="nt">resource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure.iothub</span>
     <span class="nt">filters</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">metric</span>
@@ -309,16 +285,6 @@ and then perform the delete operation on those ready for deletion.</p>
         <span class="nt">aggregation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">total</span>
         <span class="nt">threshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
         <span class="nt">timeframe</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">72</span>
-    <span class=" -Error"> </span><span class="nt">actions</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">notify</span>
-        <span class="nt">template</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
-        <span class="nt">priority_header</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
-        <span class="nt">subject</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IOT Hubs Dropping Messages</span>
-        <span class="nt">to</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">user@domain.com</span>
-        <span class="nt">transport</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">asq</span>
-            <span class="nt">queue</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://accountname.queue.core.windows.net/queuename</span>
 </pre></div>
 </div>
 </div>
